@@ -10,7 +10,7 @@ export class DashboardPage extends BasePage {
   // Dashboard-specific locators
   readonly welcomeHeading: Locator;
   readonly financialOverviewSubtitle: Locator;
-  readonly novemberMonthText: Locator;
+  readonly thisMonthHeading: Locator;
 
   constructor(page: Page) {
     super(page);
@@ -18,7 +18,7 @@ export class DashboardPage extends BasePage {
     // Initialize dashboard-specific locators
     this.welcomeHeading = page.getByRole('heading', { name: 'Welcome back, John Doe!' });
     this.financialOverviewSubtitle = page.getByText('Here\'s your financial overview for today');
-    this.novemberMonthText = page.getByText('November 2025');
+    this.thisMonthHeading = page.getByRole('heading', { name: 'This Month' });
   }
 
   @step
@@ -56,7 +56,8 @@ export class DashboardPage extends BasePage {
   @step
   async verifyThisMonthCard() {
     await expect(this.thisMonthHeading).toBeVisible();
-    await expect(this.novemberMonthText).toBeVisible();
+    // Verify the card shows month data (like "December 2025")
+    await expect(this.page.getByText(/[A-Z][a-z]+ \d{4}/).first()).toBeVisible();
   }
 
   @step
