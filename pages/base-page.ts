@@ -78,9 +78,9 @@ export class BasePage {
     this.recentInvoicesHeading = page.getByRole('heading', { name: '📄 Recent Invoices' });
 
     // Initialize common form buttons
-    this.addIncomeButton = page.getByRole('button', { name: 'Add Income' });
-    this.addExpenseButton = page.getByRole('button', { name: 'Add Expense' });
-    this.createInvoiceButton = page.getByRole('button', { name: 'Create Invoice' });
+    this.addIncomeButton = page.getByRole('button', { name: /Add (New )?Income/i });
+    this.addExpenseButton = page.getByRole('button', { name: /Add (New )?Expense/i });
+    this.createInvoiceButton = page.getByRole('button', { name: /Create (New )?Invoice/i });
 
     // Initialize common form fields (context-specific, may need refinement in child pages)
     this.amountInput = page.getByRole('spinbutton', { name: /Amount/ });

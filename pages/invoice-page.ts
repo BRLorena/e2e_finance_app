@@ -25,15 +25,15 @@ export class InvoicePage extends BasePage {
     super(page);
 
     // Initialize invoice-specific locators
-    this.invoiceNumberInput = page.getByRole('textbox', { name: 'Invoice Number (Optional)' });
-    this.clientNameInput = page.getByRole('textbox', { name: 'Client Name *' });
-    this.clientEmailInput = page.getByRole('textbox', { name: 'Client Email (Optional)' });
-    this.invoiceAmountInput = page.getByRole('spinbutton', { name: 'Amount ($) *' });
-    this.invoiceDescriptionInput = page.getByRole('textbox', { name: 'Description *' });
-    this.dueDateInput = page.getByRole('textbox', { name: 'Due Date *' });
-    this.notesInput = page.getByRole('textbox', { name: 'Notes (Optional)' });
+    this.invoiceNumberInput = page.getByRole('textbox', { name: /Invoice Number/i });
+    this.clientNameInput = page.getByRole('textbox', { name: /Client Name/i });
+    this.clientEmailInput = page.getByRole('textbox', { name: /Client Email/i });
+    this.invoiceAmountInput = page.getByRole('spinbutton', { name: /Amount/i });
+    this.invoiceDescriptionInput = page.getByRole('textbox', { name: /Description/i });
+    this.dueDateInput = page.getByRole('textbox', { name: /Due Date/i });
+    this.notesInput = page.getByRole('textbox', { name: /Notes/i });
     this.statusDropdown = page.getByLabel('Status');
-    this.saveInvoiceButton = page.getByRole('button', { name: 'Save' });
+    this.saveInvoiceButton = page.getByRole('button', { name: /Create Invoice|Update Invoice|Save/i });
     this.deleteButton = page.getByRole('button', { name: 'Delete' });
     this.confirmDeleteButton = page.getByRole('button', { name: 'Confirm' });
     this.editInvoiceHeading = page.getByText('Edit Invoice');
@@ -228,7 +228,8 @@ export class InvoicePage extends BasePage {
 
   @step
   async filterByStatus(status: string) {
-    await this.page.getByRole('combobox').nth(1).selectOption([status]);
+    // Use label to select option (more reliable than value)
+    await this.page.getByRole('combobox').nth(1).selectOption({ label: status });
   }
 
   @step

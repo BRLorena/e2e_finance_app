@@ -31,9 +31,9 @@ export default defineConfig({
   },
 
   /* Increase timeout for cloud environments like Checkly */
-  timeout: 90000, // 90 seconds per test
+  timeout: 60000, // 90 seconds per test
   expect: {
-    timeout: 60000, // 60 seconds for assertions
+    timeout: 30000, // 60 seconds for assertions
   },
 
   /* Configure projects for major browsers */
@@ -45,7 +45,7 @@ export default defineConfig({
       teardown: 'cleanup-setup',
     },
 
-    // Chromium tests with authentication
+    // Regular tests - fast, run first
     {
       name: 'chromium',
       use: { 
@@ -54,7 +54,19 @@ export default defineConfig({
         storageState: '.auth/session.json',
       },
       dependencies: ['setup'],
-      testIgnore: /.*\.setup\.ts/,
+      testIgnore: [/.*\.setup\.ts/, /ai-.*.spec.ts/], // Exclude AI tests
+    },
+    
+    // AI tests - slower, longer timeouts
+    {
+      name: 'ai-tests',
+      use: { 
+        ...devices['Desktop Chrome'], 
+        storageState: '.auth/session.json',
+      },
+      dependencies: ['setup'],
+      testMatch: /ai-.*.spec.ts/, // Only AI tests
+      timeout: 30000, // 30 seconds for AI API calls
     },
     
     // Cleanup after setup (hidden project)

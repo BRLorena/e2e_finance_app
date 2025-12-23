@@ -19,7 +19,7 @@ export class ExpensePage extends BasePage {
 
     // Initialize expense-specific locators
     this.countLabel = page.getByText('Count');
-    this.saveExpenseButton = page.getByRole('button', { name: 'Update Expense' });
+    this.saveExpenseButton = page.getByRole('button', { name: /Update Expense|Save|Add New Expense/i });
     this.deleteButton = page.getByRole('button', { name: 'Delete' });
     this.confirmDeleteButton = page.getByRole('button', { name: 'Confirm' });
     this.editExpenseHeading = page.getByText('Edit Expense');
@@ -44,7 +44,7 @@ export class ExpensePage extends BasePage {
 
   @step
   async fillExpenseAmount(amount: string) {
-    await this.page.getByRole('spinbutton', { name: 'Amount ($)' }).fill(amount);
+    await this.page.getByRole('spinbutton', { name: /Amount(\s*\(\$\))?/i }).fill(amount);
   }
 
   @step
@@ -109,14 +109,19 @@ export class ExpensePage extends BasePage {
 
   @step
   async verifyEditFormOpened() {
-    await expect(this.editExpenseHeading).toBeVisible();
+    // In the new UI, the form heading stays as "Add New Expense" even when editing
+    // Instead, verify the form is open and has the expense data pre-filled
+    await expect(this.page.getByRole('heading', { name: /Add New Expense|Edit Expense/i })).toBeVisible();
+    await expect(this.page.getByRole('spinbutton', { name: /Amount/i })).toBeVisible();
   }
 
   @step
   async clearAndFillAmount(newAmount: string) {
-    const amountField = this.page.getByRole('spinbutton', { name: 'Amount ($)' });
-    await amountField.clear();
+    const amountField = this.page.getByRole('spinbutton', { name: /Amount(\s*\(\$\))?/i });
+    // Fill directly - Playwright's fill() automatically clears first
     await amountField.fill(newAmount);
+    // Wait a bit for validation to clear
+    await this.page.waitForTimeout(500);
   }
 
   @step
@@ -133,7 +138,11 @@ export class ExpensePage extends BasePage {
 
   @step
   async saveChanges() {
+    // Wait for button to be enabled and visible
+    await expect(this.saveExpenseButton).toBeEnabled();
     await this.saveExpenseButton.click();
+    // Wait for the form to close
+    await this.page.waitForTimeout(1000);
   }
 
   @step
@@ -186,5 +195,79 @@ export class ExpensePage extends BasePage {
   async verifyExpenseDeleted(description: string) {
     await this.verifyExpensePageLoaded();
     console.log(`Expense "${description}" created but not found in search (likely on different page due to pagination)`);
+  }
+
+  // AI-specific methods
+
+  @step
+  async clickAISuggestButton() {
+    await this.page.getByRole('button', { name: 'AI Suggest' }).click();
+  }
+
+  @step
+  async verifyAISuggestionNotification() {
+    await expect(this.page.getByText(/AI suggested/i)).toBeVisible();
+  }
+
+  @step
+  async verifyAICategoryAutofilled(expectedCategory: string) {
+    await expect(this.categoryDropdown).toHaveValue(expectedCategory);
+  }
+
+  @step
+  async verifyAILoadingState() {
+    const aiButton = this.page.getByRole('button', { name: 'AI Suggest' });
+    await expect(aiButton).toBeDisabled();
+  }
+
+  @step
+  async clickQuickAddButton() {
+    await this.page.getByRole('button', { name: 'Quick Add' }).click();
+  }
+
+  @step
+  async fillNaturalLanguageInput(text: string) {
+    await this.page.getByRole('textbox', { name: 'Describe your expense' }).fill(text);
+  }
+
+  @step
+  async clickParseWithAI() {
+    await this.page.getByRole('button', { name: 'Parse with AI' }).click();
+  }
+
+  @step
+  async verifyParsingSuccessNotification() {
+    await expect(this.page.getByText('Expense parsed successfully!')).toBeVisible();
+  }
+
+  @step
+  async verifyParsedAmount(expectedAmount: string) {
+    await expect(this.page.getByRole('spinbutton', { name: 'Amount' })).toHaveValue(expectedAmount);
+  }
+
+  @step
+  async verifyParsedDescription(expectedDescription: string) {
+    await expect(this.page.getByRole('textbox', { name: 'Description' })).toHaveValue(expectedDescription);
+  }
+
+  @step
+  async verifyParsedDescriptionContains(text: string) {
+    const description = await this.page.getByRole('textbox', { name: 'Description' }).inputValue();
+    expect(description.toLowerCase()).toContain(text);
+  }
+
+  @step
+  async verifyParsedDate(expectedDate: string) {
+    await expect(this.page.getByRole('textbox', { name: 'Date' })).toHaveValue(expectedDate);
+  }
+
+  @step
+  async verifyExpenseCreatedSuccessfully() {
+    await expect(this.page.getByText('Expense created successfully!')).toBeVisible();
+  }
+
+  @step
+  async verifyExpenseInList(description: string) {
+    await expect(this.page.getByRole('heading', { name: description }).first()).toBeVisible();
   }
 }
