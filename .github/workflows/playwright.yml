@@ -136,5 +136,4 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_branch: gh-pages
         publish_dir: allure-report
-        destination_dir: .
-        keep_files: false
+        force_orphan: true
