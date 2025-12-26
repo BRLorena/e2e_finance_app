@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Authentication Issues",
+    "matchedStatuses": ["broken", "failed"],
+    "messageRegex": ".*(auth|login|register|session).*"
+  },
+  {
+    "name": "Timeout Issues",
+    "matchedStatuses": ["broken", "failed"],
+    "messageRegex": ".*(timeout|timed out|exceeded).*"
+  },
+  {
+    "name": "Network Issues",
+    "matchedStatuses": ["broken", "failed"],
+    "messageRegex": ".*(network|connection|fetch|request).*"
+  },
+  {
+    "name": "Flaky Tests",
+    "matchedStatuses": ["passed"],
+    "messageRegex": ".*"
+  },
+  {
+    "name": "Product Defects",
+    "matchedStatuses": ["failed"]
+  },
+  {
+    "name": "Test Defects",
+    "matchedStatuses": ["broken"]
+  }
+]

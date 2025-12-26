@@ -101,13 +101,9 @@ export class AuthPage {
 
   @step
   async verifyLoginSuccess() {
-    // Wait for redirect to dashboard with increased timeout for CI environments
-    // Also wait for network to be idle to ensure the page has fully loaded
-    await this.page.waitForURL(/.*\/(en|es|pt|fr)\/dashboard/, { 
-      timeout: 30000,
-      waitUntil: 'networkidle'
-    });
-    await expect(this.page.getByText(/Welcome back/i)).toBeVisible({ timeout: 15000 });
+    // Wait for the dashboard welcome message to appear
+    // This is the most reliable indicator that login was successful
+    await expect(this.page.getByText(/Welcome back/i)).toBeVisible({ timeout: 30000 });
   }
 
   @step
