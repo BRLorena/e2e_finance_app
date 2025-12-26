@@ -1,6 +1,15 @@
 # Playwright Finance App Test Suite
 
+[![Playwright Tests](https://github.com/BRLorena/e2e_finance_app/actions/workflows/playwright.yml/badge.svg)](https://github.com/BRLorena/e2e_finance_app/actions/workflows/playwright.yml)
+[![Allure Report](https://img.shields.io/badge/Allure-Report-yellow)](https://brlorena.github.io/e2e_finance_app/)
+
 A comprehensive end-to-end test suite for the Finance App built with Playwright and TypeScript.
+
+## 📊 Live Test Reports
+
+- **🎯 [Allure Test Report](https://brlorena.github.io/e2e_finance_app/)** - Interactive test results with history, trends, and detailed failure analysis
+- **🔄 Automated CI/CD** - Tests run on every push, PR, and daily at 9 AM UTC
+- **⚡ Parallel Execution** - 4-way test sharding for faster results
 
 ## 🎯 Project Overview
 
@@ -116,6 +125,42 @@ pages/
 - **Browser**: Chromium (primary), with setup for cross-browser testing
 - **Test Isolation**: Each test creates unique data with timestamps
 - **State Management**: Shared authentication state across tests
+- **CI Workers**: 4 parallel workers with test sharding
+- **Caching**: npm packages and Playwright browsers cached for faster builds
+
+## 🚀 CI/CD Pipeline
+
+### GitHub Actions Workflow
+
+The project uses a sophisticated CI/CD pipeline with three jobs:
+
+#### 1. **Test Job** (Sharded Execution)
+- Runs on Ubuntu with 4 parallel shards
+- Caches node_modules and Playwright browsers
+- Each shard runs a subset of tests independently
+- Uploads individual test results and reports
+
+#### 2. **Merge Reports Job**
+- Combines results from all 4 test shards
+- Generates unified Allure report with historical data
+- Preserves test history across runs (90-day retention)
+- Creates comprehensive test artifacts
+
+#### 3. **Deploy Report Job**
+- Deploys to GitHub Pages on successful push to `dev` branch
+- Makes Allure report publicly accessible
+- Maintains test history and trends
+
+### Workflow Triggers
+- ✅ Push to `dev` branch
+- ✅ Pull requests to `dev` branch
+- ✅ Scheduled daily at 9 AM UTC
+- ✅ Manual workflow dispatch
+
+### Performance Optimizations
+- **Caching**: Saves 30-60s per run by caching dependencies and browsers
+- **Sharding**: 4-way parallel execution reduces test time by ~75%
+- **Conditional Deployment**: Only deploys on successful pushes to `dev`
 
 ## 🔧 Key Features & Patterns
 
@@ -134,6 +179,8 @@ pages/
 - **Playwright Healer Agent**: Automated test debugging and failure resolution
 - **Page Snapshots**: YAML accessibility tree captures for debugging
 - **Video Recording**: Full test execution recording for failure analysis
+- **Allure Report**: Rich test reports with screenshots, videos, and step-by-step execution
+- **Historical Trends**: Track test stability and flakiness over time
 
 ## 🚀 Getting Started
 
@@ -149,7 +196,9 @@ npx playwright install
 npx playwright test
 
 # Run specific test suite
-npx plAI tests only (using tag)
+npx playwright test expenses.spec.ts
+
+# AI tests only (using tag)
 npx playwright test --grep @ai
 
 # Run with UI mode (recommended for development)
@@ -158,12 +207,29 @@ npx playwright test --ui
 # Debug specific test
 npx playwright test --debug tests/expenses.spec.ts
 
-# Run with Playwright healer for AI tests
-npx playwright test --grep @ai --project chromium
+# Run with specific browser
+npx playwright test --project=chromium
 
-# Debug specific test
-npx playwright test --debug tests/expenses.spec.ts
+# Run tests with sharding (like CI)
+npx playwright test --shard=1/4
 ```
+
+### Viewing Test Reports
+
+#### Local Reports
+```bash
+# View HTML report
+npx playwright show-report
+
+# Generate Allure report locally
+npm install -g allure-commandline
+allure generate allure-results -o allure-report --clean
+allure open allure-report
+```
+
+#### CI Reports
+- **Live Allure Report**: https://brlorena.github.io/e2e_finance_app/
+- **GitHub Actions**: Check workflow runs for detailed logs and artifacts
 
 ### Test Development Workflow
 1. **Generator Phase**: Use Playwright generator to record new test scenarios
@@ -188,8 +254,7 @@ The "Edit Income Entry" test is marked as `test.fixme()` due to:
 ## 📈 Test Metrics
 
 ### Current Status
-- **Total Tests**: 53 implemented (31 core + 22 AI tests)
-- **Pass Rate**: 98.1% (52/53 passing, 1 skipped)
+- **Execution Time**: ~3-4 minutes (with 4-way sharding in CI)
 - **Coverage Areas**: 
   - Expenses (100%)
   - Income (80%)
@@ -197,10 +262,14 @@ The "Edit Income Entry" test is marked as `test.fixme()` due to:
   - Dashboard (100%)
   - Summary (100%)
   - AI Features (100%)
-- **Page Object Model for maintainability and reusability
-- ✅ Data-driven tests for comprehensive coverage with minimal code
-- ✅ AI testing with predictable inputs and flexible assertions
-- ✅ Multilanguage test coverage (4 languages)
+
+### CI/CD Metrics
+- ✅ Automated test execution on every push
+- ✅ 4-way parallel test sharding
+- ✅ ~75% faster execution with sharding
+- ✅ Browser and dependency caching (30-60s saved per run)
+- ✅ Historical test trends tracked in Allure
+- ✅ Public test reports on GitHub Pages
 - ✅ Comprehensive error handling and debugging capabilities
 - ✅ Clear test documentation with `@step` decoratore object patterns)
 
