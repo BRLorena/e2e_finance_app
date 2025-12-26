@@ -1,0 +1,1 @@
+Edit operation completed successfully. Updated expense "Updated expense 1766759562737" (may be on different page due to pagination)
