@@ -159,3 +159,61 @@ jobs:
         publish_branch: gh-pages
         publish_dir: allure-report
         force_orphan: true
+
+  notify:
+    needs: [test, merge-reports]
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+    - name: Download Allure report
+      uses: actions/download-artifact@v4
+      with:
+        name: allure-report
+        path: allure-report
+        
+    - name: Extract test statistics
+      id: stats
+      run: |
+        # Extract stats from Allure widgets.json
+        PASSED=$(cat allure-report/widgets/summary.json | jq -r '.statistic.passed // 0')
+        FAILED=$(cat allure-report/widgets/summary.json | jq -r '.statistic.failed // 0')
+        BROKEN=$(cat allure-report/widgets/summary.json | jq -r '.statistic.broken // 0')
+        SKIPPED=$(cat allure-report/widgets/summary.json | jq -r '.statistic.skipped // 0')
+        TOTAL=$(cat allure-report/widgets/summary.json | jq -r '.statistic.total // 0')
+        
+        echo "passed=$PASSED" >> $GITHUB_OUTPUT
+        echo "failed=$FAILED" >> $GITHUB_OUTPUT
+        echo "broken=$BROKEN" >> $GITHUB_OUTPUT
+        echo "skipped=$SKIPPED" >> $GITHUB_OUTPUT
+        echo "total=$TOTAL" >> $GITHUB_OUTPUT
+    
+    - name: Prepare Slack notification
+      run: |
+        # Determine test status icon
+        if [[ "${{ needs.test.result }}" == "success" ]]; then
+          TEST_STATUS_ICON="✅"
+        else
+          TEST_STATUS_ICON="❌"
+        fi
+        
+        # Replace placeholders in template
+        sed -e "s|{{TEST_STATUS_ICON}}|$TEST_STATUS_ICON|g" \
+            -e "s|{{TEST_STATUS}}|${{ needs.test.result }}|g" \
+            -e "s|{{REPOSITORY}}|${{ github.repository }}|g" \
+            -e "s|{{BRANCH}}|${{ github.ref_name }}|g" \
+            -e "s|{{ACTOR}}|${{ github.actor }}|g" \
+            -e "s|{{EVENT}}|${{ github.event_name }}|g" \
+            -e "s|{{PASSED}}|${{ steps.stats.outputs.passed }}|g" \
+            -e "s|{{FAILED}}|${{ steps.stats.outputs.failed }}|g" \
+            -e "s|{{BROKEN}}|${{ steps.stats.outputs.broken }}|g" \
+            -e "s|{{SKIPPED}}|${{ steps.stats.outputs.skipped }}|g" \
+            -e "s|{{TOTAL}}|${{ steps.stats.outputs.total }}|g" \
+            -e "s|{{WORKFLOW_URL}}|${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|g" \
+            .github/slack-notification-template.json > slack-payload.json
+        
+    - name: Send Slack notification
+      uses: slackapi/slack-github-action@v1.26.0
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      with:
+        payload-file-path: slack-payload.json
