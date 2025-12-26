@@ -189,8 +189,7 @@ jobs:
         echo "skipped=$SKIPPED" >> $GITHUB_OUTPUT
         echo "total=$TOTAL" >> $GITHUB_OUTPUT
     
-    - name: Prepare Slack notification
-      id: slack_payload
+    - name: Prepare and send Slack notification
       run: |
         # Determine test status icon
         if [[ "${{ needs.test.result }}" == "success" ]]; then
@@ -200,7 +199,7 @@ jobs:
         fi
         
         # Replace placeholders in template
-        PAYLOAD=$(sed -e "s|{{TEST_STATUS_ICON}}|$TEST_STATUS_ICON|g" \
+        sed -e "s|{{TEST_STATUS_ICON}}|$TEST_STATUS_ICON|g" \
             -e "s|{{TEST_STATUS}}|${{ needs.test.result }}|g" \
             -e "s|{{REPOSITORY}}|${{ github.repository }}|g" \
             -e "s|{{BRANCH}}|${{ github.ref_name }}|g" \
@@ -212,16 +211,10 @@ jobs:
             -e "s|{{SKIPPED}}|${{ steps.stats.outputs.skipped }}|g" \
             -e "s|{{TOTAL}}|${{ steps.stats.outputs.total }}|g" \
             -e "s|{{WORKFLOW_URL}}|${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|g" \
-            .github/slack-notification-template.json)
+            .github/slack-notification-template.json > slack-payload.json
         
-        # Save as multiline output
-        echo "payload<<EOF" >> $GITHUB_OUTPUT
-        echo "$PAYLOAD" >> $GITHUB_OUTPUT
-        echo "EOF" >> $GITHUB_OUTPUT
-        
-    - name: Send Slack notification
-      uses: slackapi/slack-github-action@v1.26.0
-      env:
-        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-      with:
-        payload: ${{ steps.slack_payload.outputs.payload }}
+        # Send to Slack using curl
+        curl -X POST \
+          -H 'Content-type: application/json' \
+          --data @slack-payload.json \
+          ${{ secrets.SLACK_WEBHOOK_URL }}
