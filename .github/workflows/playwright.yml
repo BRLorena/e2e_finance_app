@@ -71,16 +71,6 @@ jobs:
         fi
         allure generate allure-results -o allure-report --clean
         
-    - name: Deploy Allure report to GitHub Pages
-      if: always()
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_branch: gh-pages
-        publish_dir: allure-report
-        destination_dir: .
-        keep_files: false
-        
     - name: Save Allure history
       if: always()
       run: |
@@ -126,3 +116,25 @@ jobs:
         name: test-results
         path: test-results/
         retention-days: 7
+
+  deploy-report:
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/dev'
+    permissions:
+      contents: write
+    steps:
+    - name: Download Allure report
+      uses: actions/download-artifact@v4
+      with:
+        name: allure-report
+        path: allure-report
+        
+    - name: Deploy Allure report to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_branch: gh-pages
+        publish_dir: allure-report
+        destination_dir: .
+        keep_files: false
