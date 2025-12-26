@@ -1,0 +1,84 @@
+{
+  "blocks": [
+    {
+      "type": "header",
+      "text": {
+        "type": "plain_text",
+        "text": "{{TEST_STATUS_ICON}} Playwright Tests - {{TEST_STATUS}}",
+        "emoji": true
+      }
+    },
+    {
+      "type": "section",
+      "fields": [
+        {
+          "type": "mrkdwn",
+          "text": "*Repository:*\n{{REPOSITORY}}"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Branch:*\n{{BRANCH}}"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Triggered by:*\n{{ACTOR}}"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Event:*\n{{EVENT}}"
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "fields": [
+        {
+          "type": "mrkdwn",
+          "text": "*✅ Passed:*\n{{PASSED}}"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*❌ Failed:*\n{{FAILED}}"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*🔥 Broken:*\n{{BROKEN}}"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*⏭️ Skipped:*\n{{SKIPPED}}"
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "fields": [
+        {
+          "type": "mrkdwn",
+          "text": "*Total Tests:*\n{{TOTAL}}"
+        }
+      ]
+    },
+    {
+      "type": "actions",
+      "elements": [
+        {
+          "type": "button",
+          "text": {
+            "type": "plain_text",
+            "text": "📊 View Allure Report"
+          },
+          "url": "https://brlorena.github.io/e2e_finance_app/"
+        },
+        {
+          "type": "button",
+          "text": {
+            "type": "plain_text",
+            "text": "🔗 View Workflow Run"
+          },
+          "url": "{{WORKFLOW_URL}}"
+        }
+      ]
+    }
+  ]
+}
