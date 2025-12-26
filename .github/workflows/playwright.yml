@@ -139,8 +139,8 @@ jobs:
         path: allure-report/
         retention-days: 7
 
-  deploy-remerge-reports:
-    needs: test
+  deploy-report:
+    needs: merge-reports
     runs-on: ubuntu-latest
     if: github.event_name == 'push' && github.ref == 'refs/heads/dev'
     permissions:
