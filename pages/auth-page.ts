@@ -101,9 +101,13 @@ export class AuthPage {
 
   @step
   async verifyLoginSuccess() {
-    // Wait for redirect to dashboard
-    await this.page.waitForURL(/.*\/(en|es|pt|fr)\/dashboard/, { timeout: 10000 });
-    await expect(this.page.getByText(/Welcome back/i)).toBeVisible({ timeout: 10000 });
+    // Wait for redirect to dashboard with increased timeout for CI environments
+    // Also wait for network to be idle to ensure the page has fully loaded
+    await this.page.waitForURL(/.*\/(en|es|pt|fr)\/dashboard/, { 
+      timeout: 30000,
+      waitUntil: 'networkidle'
+    });
+    await expect(this.page.getByText(/Welcome back/i)).toBeVisible({ timeout: 15000 });
   }
 
   @step
@@ -135,7 +139,13 @@ export class AuthPage {
   async attemptLogin(email: string, password: string): Promise<boolean> {
     await this.navigateToLogin();
     await this.login(email, password);
-    await this.page.waitForTimeout(2000);
+    
+    // Wait for either navigation to dashboard or error message
+    await Promise.race([
+      this.page.waitForURL(/.*\/(en|es|pt|fr)\/dashboard/, { timeout: 15000 }).catch(() => {}),
+      this.page.waitForSelector('text=/invalid|error|wrong/i', { timeout: 15000 }).catch(() => {}),
+      this.page.waitForTimeout(3000)
+    ]);
 
     const loginFailed = await this.isOnLoginPage() || await this.hasError();
     return !loginFailed;
@@ -173,9 +183,11 @@ export class AuthPage {
       
       // Now login with the newly created account
       await this.login(email, password);
-      await this.verifyLoginSuccess();
     } else {
       console.log('Account already exists, login successful');
     }
+    
+    // Verify login success for both paths
+    await this.verifyLoginSuccess();
   }
 }

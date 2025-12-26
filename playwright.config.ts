@@ -45,19 +45,40 @@ export default defineConfig({
       teardown: 'cleanup-setup',
     },
 
-    // Regular tests - fast, run first
+    // Chromium tests
     {
       name: 'chromium',
       use: { 
         ...devices['Desktop Chrome'],
-        // Use saved authentication state
         storageState: '.auth/session.json',
       },
       dependencies: ['setup'],
-      testIgnore: [/.*\.setup\.ts/, /ai-.*.spec.ts/], // Exclude AI tests
+      testIgnore: [/.*\.setup\.ts/, /ai-.*.spec.ts/],
     },
     
-    // AI tests - slower, longer timeouts
+    // Firefox tests
+    {
+      name: 'firefox',
+      use: { 
+        ...devices['Desktop Firefox'],
+        storageState: '.auth/session.json',
+      },
+      dependencies: ['setup'],
+      testIgnore: [/.*\.setup\.ts/, /ai-.*.spec.ts/],
+    },
+    
+    // WebKit tests
+    {
+      name: 'webkit',
+      use: { 
+        ...devices['Desktop Safari'],
+        storageState: '.auth/session.json',
+      },
+      dependencies: ['setup'],
+      testIgnore: [/.*\.setup\.ts/, /ai-.*.spec.ts/],
+    },
+    
+    // AI tests on Chromium (slower, longer timeouts)
     {
       name: 'ai-tests',
       use: { 
@@ -65,8 +86,32 @@ export default defineConfig({
         storageState: '.auth/session.json',
       },
       dependencies: ['setup'],
-      testMatch: /ai-.*.spec.ts/, // Only AI tests
-      timeout: 30000, // 30 seconds for AI API calls
+      testMatch: /ai-.*.spec.ts/,
+      timeout: 30000,
+    },
+    
+    // AI tests on Firefox
+    {
+      name: 'ai-tests-firefox',
+      use: { 
+        ...devices['Desktop Firefox'], 
+        storageState: '.auth/session.json',
+      },
+      dependencies: ['setup'],
+      testMatch: /ai-.*.spec.ts/,
+      timeout: 30000,
+    },
+    
+    // AI tests on WebKit
+    {
+      name: 'ai-tests-webkit',
+      use: { 
+        ...devices['Desktop Safari'], 
+        storageState: '.auth/session.json',
+      },
+      dependencies: ['setup'],
+      testMatch: /ai-.*.spec.ts/,
+      timeout: 30000,
     },
     
     // Cleanup after setup (hidden project)
