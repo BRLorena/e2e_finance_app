@@ -30,8 +30,86 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
       
+    - name: Load Allure history from previous runs
+      uses: actions/checkout@v4
+      if: always()
+      continue-on-error: true
+      with:
+        ref: gh-pages
+        path: gh-pages
+        
+    - name: Copy Allure history to results
+      if: always()
+      continue-on-error: true
+      run: |
+        if [ -d "gh-pages/allure-history" ]; then
+          mkdir -p allure-results/history
+          cp -r gh-pages/allure-history/* allure-results/history/
+          echo "Loaded history from previous runs"
+        else
+          echo "No previous history found"
+        fi
+      
     - name: Run Playwright tests
       run: npx playwright test
+      
+    - name: Get Allure history
+      uses: actions/checkout@v4
+      if: always()
+      continue-on-error: true
+      with:
+        ref: gh-pages
+        path: gh-pages
+        
+    - name: Generate Allure Report
+      if: always()
+      run: |
+        npm install -g allure-commandline
+        mkdir -p allure-report/history
+        if [ -d "gh-pages/allure-history" ]; then
+          cp -r gh-pages/allure-history/* allure-report/history/
+        fi
+        allure generate allure-results -o allure-report --clean
+        
+    - name: Deploy Allure report to GitHub Pages
+      if: always()
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_branch: gh-pages
+        publish_dir: allure-report
+        destination_dir: .
+        keep_files: false
+        
+    - name: Save Allure history
+      if: always()
+      run: |
+        mkdir -p allure-history
+        cp -r allure-report/history/* allure-history/
+        
+    - name: Upload Allure history
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: allure-history
+        path: allure-history/
+        retention-days: 90
+        
+    - name: Upload Allure results
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: allure-results
+        path: allure-results/
+        retention-days: 7
+        
+    - name: Upload Allure report
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: allure-report
+        path: allure-report/
+        retention-days: 7
       
     - name: Upload test results
       uses: actions/upload-artifact@v4

@@ -6,3 +6,9 @@ node_modules/
 .vscode/
 chatmodules/
 .auth/
+
+# Allure
+/allure-results/
+/allure-report/
+# Keep allure-history for historical trending
+!/allure-report/history/

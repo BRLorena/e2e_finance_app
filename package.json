@@ -7,7 +7,11 @@
     "test:headed": "playwright test --headed",
     "test:ui": "playwright test --ui",
     "test:debug": "playwright test --debug",
-    "report": "playwright show-report"
+    "report": "playwright show-report",
+    "allure:generate": "allure generate allure-results --clean -o allure-report",
+    "allure:open": "allure open allure-report",
+    "allure:serve": "allure serve allure-results",
+    "test:allure": "playwright test && npm run allure:generate && npm run allure:open"
   },
   "keywords": [
     "playwright",
@@ -18,6 +22,7 @@
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.48.0",
-    "@types/node": "^22.0.0"
+    "@types/node": "^22.0.0",
+    "allure-playwright": "^3.4.3"
   }
 }
