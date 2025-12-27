@@ -1,12 +1,12 @@
 name: Playwright Tests
 
 on:
-  # Run on push to dev branch
+  # Run on push to dev or master branch
   push:
-    branches: [ dev ]
-  # Run on pull requests to dev
+    branches: [ dev, master ]
+  # Run on pull requests to dev or master
   pull_request:
-    branches: [ dev ]
+    branches: [ dev, master ]
   # Run daily at 9 AM UTC
   schedule:
     - cron: '0 9 * * *'
@@ -142,7 +142,7 @@ jobs:
   deploy-report:
     needs: merge-reports
     runs-on: ubuntu-latest
-    if: github.event_name == 'push' && github.ref == 'refs/heads/dev'
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/dev' || github.ref == 'refs/heads/master')
     permissions:
       contents: write
     steps:
