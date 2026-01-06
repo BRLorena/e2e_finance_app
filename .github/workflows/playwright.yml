@@ -216,7 +216,7 @@ jobs:
   deploy-report:
     needs: merge-reports
     runs-on: ubuntu-latest
-    if: (github.event_name == 'push' || github.event_name == 'schedule') && (github.ref == 'refs/heads/dev' || github.ref == 'refs/heads/master')
+    if: always() && (github.event_name == 'push' || github.event_name == 'schedule') && (github.ref == 'refs/heads/dev' || github.ref == 'refs/heads/master')
     permissions:
       contents: write
     steps:
