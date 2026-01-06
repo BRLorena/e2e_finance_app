@@ -1,21 +1,35 @@
 // spec: TEST_PLAN.md - Income Management
 // seed: tests/seed.spec.ts
-import { test, expect } from '@playwright/test';
+import { test, expect } from '../fixtures/cleanup-fixture';
 import { IncomePage } from '../pages';
 
 test.describe('Income Management', () => {
-  test('Add Valid Income Entry', async ({ page }) => {
+  test('Add Valid Income Entry', async ({ browser, cleanup }) => {
+    // Create context with HAR recording for income creation flow
+    const context = await browser.newContext({
+      recordHar: { 
+        path: './reports/income-create.har',
+        mode: 'full'
+      },
+      storageState: '.auth/session.json'
+    });
+    const page = await context.newPage();
     const incomePage = new IncomePage(page);
     const uniqueDescription = incomePage.generateUniqueDescription('November salary payment');
+    cleanup.trackIncome(uniqueDescription);
 
     await incomePage.navigate();
     await incomePage.addValidIncome('3500', 'Salary', uniqueDescription, '2025-11-20');
     await incomePage.verifyIncomePageLoaded();
+    
+    // Close context to save HAR file
+    await context.close();
   });
 
-  test('Add Recurring Income', async ({ page }) => {
+  test('Add Recurring Income', async ({ page, cleanup }) => {
     const incomePage = new IncomePage(page);
     const uniqueDescription = incomePage.generateUniqueDescription('Monthly retainer client');
+    cleanup.trackIncome(uniqueDescription);
 
     await incomePage.navigate();
     await incomePage.clickAddIncome();
@@ -31,9 +45,10 @@ test.describe('Income Management', () => {
     await incomePage.verifyIncomePageLoaded();
   });
 
-  test('Edit Income Entry', async ({ page }) => {
+  test('Edit Income Entry', async ({ page, cleanup }) => {
     const incomePage = new IncomePage(page);
     const updatedDescription = incomePage.generateUniqueDescription('Edited income entry');
+    cleanup.trackIncome(updatedDescription);
 
     await incomePage.navigate();
     await incomePage.verifyIncomePageLoaded();
@@ -56,9 +71,7 @@ test.describe('Income Management', () => {
     await expect(page.getByText('Your Income History')).toBeVisible();
   });
 
-  // FIXME: clickEditButtonByIndex(2) clicks the disabled "Previous" pagination button instead of the delete button
-  // This is a selector issue - need to use a more specific locator for the delete button within the income card
-  test.fixme('Delete Income Entry', async ({ page }) => {
+  test('Delete Income Entry', async ({ page, cleanup }) => {
     const incomePage = new IncomePage(page);
     const uniqueDescription = incomePage.generateUniqueDescription('Income to delete test');
 
@@ -66,16 +79,25 @@ test.describe('Income Management', () => {
     await incomePage.addValidIncome('500', 'Investment', uniqueDescription, '2025-11-20');
     await incomePage.verifyIncomePageLoaded();
 
-    page.on('dialog', dialog => dialog.accept());
+    cleanup.trackIncome(uniqueDescription);
+
+    // Setup dialog handler before clicking delete
+    page.once('dialog', dialog => dialog.accept());
     
-    await incomePage.clickEditButtonByIndex(2);
+    // Find the income card and click its delete button
+    // Locate the card containing our income description, then find the delete button within it
+    const incomeCard = page.locator('div').filter({ hasText: uniqueDescription }).first();
+    await incomeCard.getByRole('button').nth(1).click(); // nth(0) is Edit, nth(1) is Delete
+    await page.waitForTimeout(1000);
     await incomePage.verifyIncomePageLoaded();
   });
 
-  test('Filter Income by Category', async ({ page }) => {
+  test('Filter Income by Category', async ({ page, cleanup }) => {
     const incomePage = new IncomePage(page);
     const salaryDescription = incomePage.generateUniqueDescription('Salary income for filter test');
     const freelanceDescription = incomePage.generateUniqueDescription('Freelance income for filter test');
+    cleanup.trackIncome(salaryDescription);
+    cleanup.trackIncome(freelanceDescription);
 
     await incomePage.navigate();
     

@@ -1,11 +1,20 @@
 // spec: TEST_PLAN.md Section 5
 // seed: tests/seed.spec.ts
 
-import { test, expect } from '@playwright/test';
+import { test, expect } from '../fixtures/cleanup-fixture';
 import { DashboardPage } from '../pages';
 
 test.describe('Dashboard Functionality', () => {
-  test('View Dashboard with Data', async ({ page }) => {
+  test('View Dashboard with Data', async ({ browser }) => {
+    // Create context with HAR recording for dashboard performance analysis
+    const context = await browser.newContext({
+      recordHar: { 
+        path: './reports/dashboard-load.har',
+        mode: 'full'
+      },
+      storageState: '.auth/session.json'
+    });
+    const page = await context.newPage();
     const dashboardPage = new DashboardPage(page);
 
     await dashboardPage.navigate();
@@ -20,6 +29,9 @@ test.describe('Dashboard Functionality', () => {
 
     await dashboardPage.verifyInvoicesByStatusSection();
     await dashboardPage.verifyRecentActivitySectionsVisible();
+    
+    // Close context to save HAR file
+    await context.close();
   });
 
   test('Filter Dashboard by Time Periods', async ({ page }) => {
@@ -41,11 +53,13 @@ test.describe('Dashboard Functionality', () => {
     await dashboardPage.verifyNetIncomeCalculation();
   });
 
-  test('Verify Recent Activity Updates', async ({ page }) => {
+  test('Verify Recent Activity Updates', async ({ page, cleanup }) => {
     const dashboardPage = new DashboardPage(page);
     const timestamp = Date.now();
+    const description = `Dashboard activity test ${timestamp}`;
+    cleanup.trackExpense(description);
     
-    await dashboardPage.addNewExpenseFromDashboard(`Dashboard activity test ${timestamp}`, '25.99');
+    await dashboardPage.addNewExpenseFromDashboard(description, '25.99');
     await dashboardPage.navigate();
 
     // Wait for dashboard content to fully load

@@ -1,11 +1,21 @@
 // spec: TEST_PLAN.md - Expense Management
-import { test, expect } from '@playwright/test';
+import { test, expect } from '../fixtures/cleanup-fixture';
 import { ExpensePage } from '../pages';
 
 test.describe('Expense Management', () => {
-  test('Add Valid Expense', async ({ page }) => {
+  test('Add Valid Expense', async ({ browser, cleanup }) => {
+    // Create context with HAR recording for expense creation flow
+    const context = await browser.newContext({
+      recordHar: { 
+        path: './reports/expense-create.har',
+        mode: 'full'
+      },
+      storageState: '.auth/session.json'
+    });
+    const page = await context.newPage();
     const expensePage = new ExpensePage(page);
     const uniqueDescription = expensePage.generateUniqueDescription('Coffee and breakfast');
+    cleanup.trackExpense(uniqueDescription);
 
     await expensePage.navigate();
     await expensePage.addValidExpense('75.50', uniqueDescription, 'Food & Dining');
@@ -29,11 +39,15 @@ test.describe('Expense Management', () => {
         console.log(`Expense "${uniqueDescription}" found in search results`);
       }
     }
+    
+    // Close context to save HAR file
+    await context.close();
   });
 
-  test('Edit Existing Expense', async ({ page }) => {
+  test('Edit Existing Expense', async ({ page, cleanup }) => {
     const expensePage = new ExpensePage(page);
     const updatedDescription = expensePage.generateUniqueDescription('Updated expense');
+    cleanup.trackExpense(updatedDescription);
 
     await expensePage.navigate();
     await expensePage.verifyExpensePageLoaded();
