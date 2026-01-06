@@ -60,6 +60,37 @@
       ]
     },
     {
+      "type": "divider"
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "*🔍 HAR Analysis*"
+      }
+    },
+    {
+      "type": "section",
+      "fields": [
+        {
+          "type": "mrkdwn",
+          "text": "*Total Anomalies:*\n{{HAR_TOTAL}}"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*❌ HTTP Errors:*\n{{HAR_ERRORS}}"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*🐌 Slow Responses:*\n{{HAR_SLOW}}"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*📦 Large Payloads:*\n{{HAR_LARGE}}"
+        }
+      ]
+    },
+    {
       "type": "actions",
       "elements": [
         {

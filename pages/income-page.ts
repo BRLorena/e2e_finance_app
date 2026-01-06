@@ -187,4 +187,26 @@ export class IncomePage extends BasePage {
     // Note: Due to pagination, we verify the page loaded successfully
     await this.verifyIncomePageLoaded();
   }
+
+  @step
+  async deleteByDescription(description: string) {
+    if (!description) return;
+    
+    try {
+      await this.navigate();
+      await this.page.getByRole('textbox', { name: 'Search' }).fill(description);
+      await this.page.waitForTimeout(1000);
+      
+      const incomeCard = this.page.getByRole('heading', { name: description }).first();
+      const isVisible = await incomeCard.isVisible().catch(() => false);
+      
+      if (isVisible) {
+        this.page.on('dialog', dialog => dialog.accept());
+        await this.clickEditButtonByIndex(2);
+        await this.page.waitForTimeout(500);
+      }
+    } catch (error) {
+      // Income might already be deleted or not found - ignore errors
+    }
+  }
 }

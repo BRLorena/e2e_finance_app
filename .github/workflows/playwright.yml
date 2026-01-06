@@ -72,6 +72,8 @@ jobs:
         fi
       
     - name: Run Playwright tests
+      env:
+        GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
       run: npx playwright test --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
       
     - name: Upload Allure results
@@ -81,6 +83,14 @@ jobs:
         name: allure-results-${{ matrix.shardIndex }}
         path: allure-results/
         retention-days: 7
+        
+    - name: Upload HAR analysis reports
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: har-reports-${{ matrix.shardIndex }}
+        path: reports/
+        retention-days: 30
         
     - name: Upload Playwright report
       uses: actions/upload-artifact@v4
@@ -103,6 +113,15 @@ jobs:
         path: all-allure-results
         pattern: allure-results-*
         merge-multiple: true
+        
+    - name: Download all HAR reports
+      uses: actions/download-artifact@v4
+      if: always()
+      continue-on-error: true
+      with:
+        path: all-har-reports
+        pattern: har-reports-*
+        merge-multiple: true
     
     - name: Load Allure history from previous runs
       uses: actions/checkout@v4
@@ -114,10 +133,11 @@ jobs:
     - name: Generate Allure Report
       run: |
         npm install -g allure-commandline
-        mkdir -p allure-report/history
+        # Copy history before generating report
         if [ -d "gh-pages/allure-history" ]; then
-          cp -r gh-pages/allure-history/* allure-report/history/
+          cp -r gh-pages/allure-history all-allure-results/history
         fi
+        # Generate fresh report with history
         allure generate all-allure-results -o allure-report --clean
         
     - name: Save Allure history
@@ -138,6 +158,60 @@ jobs:
         name: allure-report
         path: allure-report/
         retention-days: 7
+        
+    - name: Generate HAR Analysis Summary
+      if: always()
+      continue-on-error: true
+      run: |
+        echo "# 🔍 HAR Analysis Summary" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        
+        if [ -f "all-har-reports/aggregate-analysis.json" ]; then
+          TOTAL_ANOMALIES=$(cat all-har-reports/aggregate-analysis.json | jq -r '.totalAnomalies // 0')
+          ERROR_COUNT=$(cat all-har-reports/aggregate-analysis.json | jq -r '.errorCount // 0')
+          SLOW_COUNT=$(cat all-har-reports/aggregate-analysis.json | jq -r '.slowResponseCount // 0')
+          LARGE_COUNT=$(cat all-har-reports/aggregate-analysis.json | jq -r '.largeSizeCount // 0')
+          
+          if [ "$TOTAL_ANOMALIES" -eq 0 ]; then
+            echo "## ✅ No Issues Detected" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "All network requests performed within acceptable thresholds." >> $GITHUB_STEP_SUMMARY
+          else
+            echo "## ⚠️ Issues Found: $TOTAL_ANOMALIES" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "| Category | Count |" >> $GITHUB_STEP_SUMMARY
+            echo "|----------|-------|" >> $GITHUB_STEP_SUMMARY
+            echo "| ❌ HTTP Errors | $ERROR_COUNT |" >> $GITHUB_STEP_SUMMARY
+            echo "| 🐌 Slow Responses | $SLOW_COUNT |" >> $GITHUB_STEP_SUMMARY
+            echo "| 📦 Large Payloads | $LARGE_COUNT |" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### 🤖 AI Analysis" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [ -f "all-har-reports/ai-report.txt" ]; then
+            echo '```' >> $GITHUB_STEP_SUMMARY
+            cat all-har-reports/ai-report.txt >> $GITHUB_STEP_SUMMARY
+            echo '```' >> $GITHUB_STEP_SUMMARY
+          else
+            echo "_AI report not generated (GROQ_API_KEY may not be configured)_" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "📥 Download [HAR Analysis Reports](../../actions/runs/${{ github.run_id }}) from workflow artifacts" >> $GITHUB_STEP_SUMMARY
+        else
+          echo "ℹ️ No HAR files were analyzed (tests may not have HAR recording enabled)" >> $GITHUB_STEP_SUMMARY
+        fi
+        
+    - name: Upload merged HAR reports
+      uses: actions/upload-artifact@v4
+      if: always()
+      continue-on-error: true
+      with:
+        name: har-analysis-report
+        path: all-har-reports/
+        retention-days: 30
 
   deploy-report:
     needs: merge-reports
@@ -158,7 +232,7 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_branch: gh-pages
         publish_dir: allure-report
-        force_orphan: true
+        keep_files: false
 
   notify:
     needs: [test, merge-reports]
@@ -172,6 +246,14 @@ jobs:
       with:
         name: allure-report
         path: allure-report
+        
+    - name: Download HAR analysis reports
+      uses: actions/download-artifact@v4
+      if: always()
+      continue-on-error: true
+      with:
+        name: har-analysis-report
+        path: har-reports
         
     - name: Extract test statistics
       id: stats
@@ -188,6 +270,24 @@ jobs:
         echo "broken=$BROKEN" >> $GITHUB_OUTPUT
         echo "skipped=$SKIPPED" >> $GITHUB_OUTPUT
         echo "total=$TOTAL" >> $GITHUB_OUTPUT
+        
+        # Extract HAR analysis stats
+        if [ -f "har-reports/aggregate-analysis.json" ]; then
+          HAR_TOTAL=$(cat har-reports/aggregate-analysis.json | jq -r '.totalAnomalies // 0')
+          HAR_ERRORS=$(cat har-reports/aggregate-analysis.json | jq -r '.errorCount // 0')
+          HAR_SLOW=$(cat har-reports/aggregate-analysis.json | jq -r '.slowResponseCount // 0')
+          HAR_LARGE=$(cat har-reports/aggregate-analysis.json | jq -r '.largeSizeCount // 0')
+        else
+          HAR_TOTAL=0
+          HAR_ERRORS=0
+          HAR_SLOW=0
+          HAR_LARGE=0
+        fi
+        
+        echo "har_total=$HAR_TOTAL" >> $GITHUB_OUTPUT
+        echo "har_errors=$HAR_ERRORS" >> $GITHUB_OUTPUT
+        echo "har_slow=$HAR_SLOW" >> $GITHUB_OUTPUT
+        echo "har_large=$HAR_LARGE" >> $GITHUB_OUTPUT
     
     - name: Prepare and send Slack notification
       run: |
@@ -210,10 +310,24 @@ jobs:
             -e "s|{{BROKEN}}|${{ steps.stats.outputs.broken }}|g" \
             -e "s|{{SKIPPED}}|${{ steps.stats.outputs.skipped }}|g" \
             -e "s|{{TOTAL}}|${{ steps.stats.outputs.total }}|g" \
+            -e "s|{{HAR_TOTAL}}|${{ steps.stats.outputs.har_total }}|g" \
+            -e "s|{{HAR_ERRORS}}|${{ steps.stats.outputs.har_errors }}|g" \
+            -e "s|{{HAR_SLOW}}|${{ steps.stats.outputs.har_slow }}|g" \
+            -e "s|{{HAR_LARGE}}|${{ steps.stats.outputs.har_large }}|g" \
             -e "s|{{WORKFLOW_URL}}|${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|g" \
             .github/slack-notification-template.json > slack-payload.json
         
-        # Send to Slack using curl
+        # Send to Slack with AI report attachment if it exists
+        if [ -f "har-reports/ai-report.txt" ]; then
+          # Upload file to Slack first
+          curl -F file=@har-reports/ai-report.txt \
+               -F "initial_comment=🤖 HAR Analysis AI Report" \
+               -F channels=${{ secrets.SLACK_CHANNEL_ID }} \
+               -H "Authorization: Bearer ${{ secrets.SLACK_BOT_TOKEN }}" \
+               https://slack.com/api/files.upload
+        fi
+        
+        # Send main notification
         curl -X POST \
           -H 'Content-type: application/json' \
           --data @slack-payload.json \

@@ -246,4 +246,26 @@ export class InvoicePage extends BasePage {
   async verifyInvoiceNotInList(invoiceNumber: string) {
     await expect(this.page.getByRole('heading', { name: invoiceNumber, level: 3 })).not.toBeVisible();
   }
+
+  @step
+  async deleteByClientName(clientName: string) {
+    if (!clientName) return;
+    
+    try {
+      await this.navigate();
+      await this.page.getByPlaceholder('Search invoices...').fill(clientName);
+      await this.page.waitForTimeout(1000);
+      
+      const invoiceCard = this.page.getByText(clientName).first();
+      const isVisible = await invoiceCard.isVisible().catch(() => false);
+      
+      if (isVisible) {
+        this.page.once('dialog', dialog => dialog.accept());
+        await this.page.getByRole('button', { name: 'Delete' }).first().click();
+        await this.page.waitForTimeout(500);
+      }
+    } catch (error) {
+      // Invoice might already be deleted or not found - ignore errors
+    }
+  }
 }

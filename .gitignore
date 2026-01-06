@@ -7,6 +7,14 @@ node_modules/
 chatmodules/
 .auth/
 
+# Environment variables
+.env
+.env.example
+
+# HAR Analysis Reports
+/reports/
+*.har
+
 # Allure
 /allure-results/
 /allure-report/

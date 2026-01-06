@@ -1,5 +1,5 @@
 // spec: new_features.md - Natural Language Expense Parsing
-import { test, expect } from '@playwright/test';
+import { test, expect } from '../fixtures/cleanup-fixture';
 import { ExpensePage } from '../pages';
 
 // Test data for natural language parsing - Data-Driven approach
@@ -33,8 +33,12 @@ const naturalLanguageTestData = [
 test.describe('AI Features', { tag: '@ai' }, () => {
   test.describe('Natural Language Expense Parsing', () => {
     for (const testData of naturalLanguageTestData) {
-      test(`Parse ${testData.testName}: "${testData.input}"`, async ({ page }) => {
-        const expensePage = new ExpensePage(page);
+test(`Parse ${testData.testName}: "${testData.input}"`, async ({ page, cleanup }) => {
+      const expensePage = new ExpensePage(page);
+      
+      // Track for cleanup - use the expected description for tracking
+      const descriptionToTrack = testData.expectedDescription || testData.expectedDescriptionContains || 'groceries';
+      cleanup.trackExpense(descriptionToTrack);
         
         // Navigate to expenses page
         await expensePage.navigate();

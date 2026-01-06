@@ -1,5 +1,5 @@
 // spec: new_features.md - AI Expense Categorization
-import { test, expect } from '@playwright/test';
+import { test, expect } from '../fixtures/cleanup-fixture';
 import { ExpensePage } from '../pages';
 
 // Test data for AI categorization - Data-Driven approach
@@ -31,8 +31,9 @@ const categorizationTestData = [
 test.describe('AI Features', { tag: '@ai' }, () => {
   test.describe('AI Expense Categorization', () => {
   for (const testData of categorizationTestData) {
-    test(`AI categorizes ${testData.testName} to "${testData.expectedCategoryDisplay}"`, async ({ page }) => {
+    test(`AI categorizes ${testData.testName} to "${testData.expectedCategoryDisplay}"`, async ({ page, cleanup }) => {
       const expensePage = new ExpensePage(page);
+      cleanup.trackExpense(testData.description);
       
       // Navigate to expenses page
       await expensePage.navigate();
@@ -62,13 +63,15 @@ test.describe('AI Features', { tag: '@ai' }, () => {
     });
   }
 
-  test('AI categorization shows loading state during processing', async ({ page }) => {
+  test('AI categorization shows loading state during processing', async ({ page, cleanup }) => {
     const expensePage = new ExpensePage(page);
+    const description = 'Expensive lunch';
+    cleanup.trackExpense(description);
     
     await expensePage.navigate();
     await expensePage.clickAddExpense();
     await expensePage.fillExpenseAmount('50.00');
-    await expensePage.fillExpenseDescription('Expensive lunch');
+    await expensePage.fillExpenseDescription(description);
     
     // Click AI Suggest button
     await expensePage.clickAISuggestButton();
@@ -77,13 +80,15 @@ test.describe('AI Features', { tag: '@ai' }, () => {
     await expensePage.verifyAISuggestionNotification();
   });
 
-  test('AI categorization works with vague descriptions', async ({ page }) => {
+  test('AI categorization works with vague descriptions', async ({ page, cleanup }) => {
     const expensePage = new ExpensePage(page);
+    const description = 'stuff from store';
+    cleanup.trackExpense(description);
     
     await expensePage.navigate();
     await expensePage.clickAddExpense();
     await expensePage.fillExpenseAmount('30.00');
-    await expensePage.fillExpenseDescription('stuff from store');
+    await expensePage.fillExpenseDescription(description);
     
     await expensePage.clickAISuggestButton();
     

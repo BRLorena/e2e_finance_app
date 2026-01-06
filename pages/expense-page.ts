@@ -270,4 +270,26 @@ export class ExpensePage extends BasePage {
   async verifyExpenseInList(description: string) {
     await expect(this.page.getByRole('heading', { name: description }).first()).toBeVisible();
   }
+
+  @step
+  async deleteByDescription(description: string) {
+    if (!description) return;
+    
+    try {
+      await this.navigate();
+      await this.page.getByRole('textbox', { name: 'Search' }).fill(description);
+      await this.page.waitForTimeout(1000);
+      
+      const expenseCard = this.page.getByRole('heading', { name: description }).first();
+      const isVisible = await expenseCard.isVisible().catch(() => false);
+      
+      if (isVisible) {
+        this.page.on('dialog', dialog => dialog.accept());
+        await this.clickEditButtonByIndex(2);
+        await this.page.waitForTimeout(500);
+      }
+    } catch (error) {
+      // Expense might already be deleted or not found - ignore errors
+    }
+  }
 }

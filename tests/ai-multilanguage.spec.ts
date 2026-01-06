@@ -1,5 +1,5 @@
 // spec: new_features.md - Multilanguage Support
-import { test, expect } from '@playwright/test';
+import { test, expect } from '../fixtures/cleanup-fixture';
 import { ExpensePage, SummaryPage, LanguageSelector } from '../pages';
 
 // Test data for language switching - Data-Driven approach
@@ -72,7 +72,7 @@ const languageTestData = [
 test.describe('AI Features', { tag: '@ai' }, () => {
   test.describe('Multilanguage Support', () => {
   for (const lang of languageTestData) {
-    test(`Switch language to ${lang.languageButton.split(' ')[1]} and verify UI updates`, async ({ page }) => {
+    test(`Switch language to ${lang.languageButton.split(' ')[1]} and verify UI updates`, async ({ page, cleanup }) => {
       const expensePage = new ExpensePage(page);
       const languageSelector = new LanguageSelector(page);
       
@@ -92,9 +92,10 @@ test.describe('AI Features', { tag: '@ai' }, () => {
       await languageSelector.verifyButtonText(lang.translations.addExpense);
     });
 
-    test(`AI categorization works in ${lang.languageButton.split(' ')[1]}`, async ({ page }) => {
+    test(`AI categorization works in ${lang.languageButton.split(' ')[1]}`, async ({ page, cleanup }) => {
       const expensePage = new ExpensePage(page);
       const languageSelector = new LanguageSelector(page);
+      cleanup.trackExpense(lang.translations.testDescription);
       
       // Navigate to expenses page and switch language
       await expensePage.navigate();
@@ -118,7 +119,7 @@ test.describe('AI Features', { tag: '@ai' }, () => {
     });
   }
 
-  test('Language persists across page navigation', async ({ page }) => {
+  test('Language persists across page navigation', async ({ page, cleanup }) => {
     const expensePage = new ExpensePage(page);
     const summaryPage = new SummaryPage(page);
     const languageSelector = new LanguageSelector(page);
@@ -151,7 +152,7 @@ test.describe('AI Features', { tag: '@ai' }, () => {
     await languageSelector.verifyLanguagePersistence('es');
   });
 
-  test('AI insights are generated in Spanish', async ({ page }) => {
+  test('AI insights are generated in Spanish', async ({ page, cleanup }) => {
     const summaryPage = new SummaryPage(page);
     const languageSelector = new LanguageSelector(page);
     

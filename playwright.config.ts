@@ -40,6 +40,19 @@ export default defineConfig({
       },
     }],
     ['list'],
+    ['./reporters/har-analysis-reporter.ts', {
+      enabled: true,
+      thresholds: {
+        responseTime: 2000,      // milliseconds
+        payloadSize: 1_000_000   // bytes (1MB)
+      },
+      aiReport: {
+        enabled: true,
+        model: 'llama-3.3-70b-versatile',  // Groq model
+        language: 'en'  // English
+      },
+      outputDir: './reports'
+    }],
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
