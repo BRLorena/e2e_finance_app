@@ -1,47 +1,35 @@
 {
   "runs": [
     {
-      "runId": "run-1769088015217",
-      "timestamp": "2026-01-22T13:20:15.217Z"
-    },
-    {
-      "runId": "run-1769124800440",
-      "timestamp": "2026-01-22T23:33:20.440Z"
+      "runId": "run-1769124987040",
+      "timestamp": "2026-01-22T23:36:27.040Z"
     }
   ],
   "tests": {
     "auth.setup.ts::Create Account and Save Auth State": [
       {
-        "passed": true,
-        "duration": 4689,
-        "timestamp": "2026-01-22T13:22:41.950Z",
-        "runId": "run-1769088015217",
+        "passed": false,
+        "duration": 34053,
+        "timestamp": "2026-01-22T23:40:12.207Z",
+        "runId": "run-1769124987040",
         "skipped": false,
         "retry": 0
       },
       {
         "passed": true,
-        "duration": 4837,
-        "timestamp": "2026-01-22T23:35:45.888Z",
-        "runId": "run-1769124800440",
+        "duration": 3798,
+        "timestamp": "2026-01-22T23:40:12.207Z",
+        "runId": "run-1769124987040",
         "skipped": false,
-        "retry": 0
+        "retry": 1
       }
     ],
     "specs/ai-categorization.spec.ts::AI categorizes food-related expenses to \"Food & Dining\"": [
       {
         "passed": true,
-        "duration": 3548,
-        "timestamp": "2026-01-22T13:22:41.950Z",
-        "runId": "run-1769088015217",
-        "skipped": false,
-        "retry": 0
-      },
-      {
-        "passed": true,
-        "duration": 4592,
-        "timestamp": "2026-01-22T23:35:45.888Z",
-        "runId": "run-1769124800440",
+        "duration": 3429,
+        "timestamp": "2026-01-22T23:40:12.207Z",
+        "runId": "run-1769124987040",
         "skipped": false,
         "retry": 0
       }
@@ -49,35 +37,9 @@
     "specs/ai-categorization.spec.ts::AI categorizes transportation expenses to \"Transportation\"": [
       {
         "passed": true,
-        "duration": 3890,
-        "timestamp": "2026-01-22T13:22:41.950Z",
-        "runId": "run-1769088015217",
-        "skipped": false,
-        "retry": 0
-      },
-      {
-        "passed": true,
-        "duration": 5617,
-        "timestamp": "2026-01-22T23:35:45.888Z",
-        "runId": "run-1769124800440",
-        "skipped": false,
-        "retry": 0
-      }
-    ],
-    "specs/summary.spec.ts::View Complete Summary": [
-      {
-        "passed": true,
-        "duration": 12770,
-        "timestamp": "2026-01-22T13:22:41.950Z",
-        "runId": "run-1769088015217",
-        "skipped": false,
-        "retry": 0
-      },
-      {
-        "passed": true,
-        "duration": 12463,
-        "timestamp": "2026-01-22T23:35:45.888Z",
-        "runId": "run-1769124800440",
+        "duration": 3234,
+        "timestamp": "2026-01-22T23:40:12.207Z",
+        "runId": "run-1769124987040",
         "skipped": false,
         "retry": 0
       }
@@ -85,17 +47,19 @@
     "specs/summary.spec.ts::Verify Category Breakdowns": [
       {
         "passed": true,
-        "duration": 13296,
-        "timestamp": "2026-01-22T13:22:41.950Z",
-        "runId": "run-1769088015217",
+        "duration": 14946,
+        "timestamp": "2026-01-22T23:40:12.207Z",
+        "runId": "run-1769124987040",
         "skipped": false,
         "retry": 0
-      },
+      }
+    ],
+    "specs/summary.spec.ts::View Complete Summary": [
       {
         "passed": true,
-        "duration": 7117,
-        "timestamp": "2026-01-22T23:35:45.888Z",
-        "runId": "run-1769124800440",
+        "duration": 15344,
+        "timestamp": "2026-01-22T23:40:12.207Z",
+        "runId": "run-1769124987040",
         "skipped": false,
         "retry": 0
       }
@@ -103,17 +67,9 @@
     "specs/ai-categorization.spec.ts::AI categorization shows loading state during processing": [
       {
         "passed": true,
-        "duration": 4250,
-        "timestamp": "2026-01-22T13:22:41.950Z",
-        "runId": "run-1769088015217",
-        "skipped": false,
-        "retry": 0
-      },
-      {
-        "passed": true,
-        "duration": 3947,
-        "timestamp": "2026-01-22T23:35:45.888Z",
-        "runId": "run-1769124800440",
+        "duration": 3864,
+        "timestamp": "2026-01-22T23:40:12.207Z",
+        "runId": "run-1769124987040",
         "skipped": false,
         "retry": 0
       }
@@ -121,35 +77,9 @@
     "specs/ai-categorization.spec.ts::AI categorization works with vague descriptions": [
       {
         "passed": true,
-        "duration": 4513,
-        "timestamp": "2026-01-22T13:22:41.950Z",
-        "runId": "run-1769088015217",
-        "skipped": false,
-        "retry": 0
-      },
-      {
-        "passed": true,
-        "duration": 3868,
-        "timestamp": "2026-01-22T23:35:45.888Z",
-        "runId": "run-1769124800440",
-        "skipped": false,
-        "retry": 0
-      }
-    ],
-    "specs/summary.spec.ts::Filter Summary by Time Period": [
-      {
-        "passed": true,
-        "duration": 22457,
-        "timestamp": "2026-01-22T13:22:41.950Z",
-        "runId": "run-1769088015217",
-        "skipped": false,
-        "retry": 0
-      },
-      {
-        "passed": true,
-        "duration": 20710,
-        "timestamp": "2026-01-22T23:35:45.888Z",
-        "runId": "run-1769124800440",
+        "duration": 4269,
+        "timestamp": "2026-01-22T23:40:12.207Z",
+        "runId": "run-1769124987040",
         "skipped": false,
         "retry": 0
       }
@@ -157,17 +87,9 @@
     "specs/ai-insights.spec.ts::Display AI-generated financial insights on Summary page": [
       {
         "passed": true,
-        "duration": 3545,
-        "timestamp": "2026-01-22T13:22:41.950Z",
-        "runId": "run-1769088015217",
-        "skipped": false,
-        "retry": 0
-      },
-      {
-        "passed": true,
-        "duration": 4029,
-        "timestamp": "2026-01-22T23:35:45.888Z",
-        "runId": "run-1769124800440",
+        "duration": 3251,
+        "timestamp": "2026-01-22T23:40:12.207Z",
+        "runId": "run-1769124987040",
         "skipped": false,
         "retry": 0
       }
@@ -175,35 +97,9 @@
     "specs/ai-insights.spec.ts::AI insights identify top spending categories": [
       {
         "passed": true,
-        "duration": 3872,
-        "timestamp": "2026-01-22T13:22:41.950Z",
-        "runId": "run-1769088015217",
-        "skipped": false,
-        "retry": 0
-      },
-      {
-        "passed": true,
-        "duration": 3777,
-        "timestamp": "2026-01-22T23:35:45.888Z",
-        "runId": "run-1769124800440",
-        "skipped": false,
-        "retry": 0
-      }
-    ],
-    "specs/ai-insights.spec.ts::Refresh AI insights functionality": [
-      {
-        "passed": true,
-        "duration": 2982,
-        "timestamp": "2026-01-22T13:22:41.950Z",
-        "runId": "run-1769088015217",
-        "skipped": false,
-        "retry": 0
-      },
-      {
-        "passed": true,
-        "duration": 4421,
-        "timestamp": "2026-01-22T23:35:45.888Z",
-        "runId": "run-1769124800440",
+        "duration": 3174,
+        "timestamp": "2026-01-22T23:40:12.207Z",
+        "runId": "run-1769124987040",
         "skipped": false,
         "retry": 0
       }
@@ -211,35 +107,19 @@
     "specs/ai-insights.spec.ts::AI insights provide personalized recommendations": [
       {
         "passed": true,
-        "duration": 3610,
-        "timestamp": "2026-01-22T13:22:41.950Z",
-        "runId": "run-1769088015217",
-        "skipped": false,
-        "retry": 0
-      },
-      {
-        "passed": true,
-        "duration": 3632,
-        "timestamp": "2026-01-22T23:35:45.888Z",
-        "runId": "run-1769124800440",
+        "duration": 2959,
+        "timestamp": "2026-01-22T23:40:12.207Z",
+        "runId": "run-1769124987040",
         "skipped": false,
         "retry": 0
       }
     ],
-    "specs/ai-insights.spec.ts::Collapse and expand AI insights": [
+    "specs/ai-insights.spec.ts::Refresh AI insights functionality": [
       {
         "passed": true,
-        "duration": 3250,
-        "timestamp": "2026-01-22T13:22:41.950Z",
-        "runId": "run-1769088015217",
-        "skipped": false,
-        "retry": 0
-      },
-      {
-        "passed": true,
-        "duration": 3865,
-        "timestamp": "2026-01-22T23:35:45.888Z",
-        "runId": "run-1769124800440",
+        "duration": 3019,
+        "timestamp": "2026-01-22T23:40:12.207Z",
+        "runId": "run-1769124987040",
         "skipped": false,
         "retry": 0
       }
@@ -247,17 +127,19 @@
     "specs/ai-multilanguage.spec.ts::Switch language to Español and verify UI updates": [
       {
         "passed": true,
-        "duration": 1953,
-        "timestamp": "2026-01-22T13:22:41.950Z",
-        "runId": "run-1769088015217",
+        "duration": 1207,
+        "timestamp": "2026-01-22T23:40:12.207Z",
+        "runId": "run-1769124987040",
         "skipped": false,
         "retry": 0
-      },
+      }
+    ],
+    "specs/ai-insights.spec.ts::Collapse and expand AI insights": [
       {
         "passed": true,
-        "duration": 2142,
-        "timestamp": "2026-01-22T23:35:45.888Z",
-        "runId": "run-1769124800440",
+        "duration": 3254,
+        "timestamp": "2026-01-22T23:40:12.207Z",
+        "runId": "run-1769124987040",
         "skipped": false,
         "retry": 0
       }
@@ -265,35 +147,9 @@
     "specs/ai-multilanguage.spec.ts::Switch language to Português and verify UI updates": [
       {
         "passed": true,
-        "duration": 2364,
-        "timestamp": "2026-01-22T13:22:41.950Z",
-        "runId": "run-1769088015217",
-        "skipped": false,
-        "retry": 0
-      },
-      {
-        "passed": true,
-        "duration": 2359,
-        "timestamp": "2026-01-22T23:35:45.888Z",
-        "runId": "run-1769124800440",
-        "skipped": false,
-        "retry": 0
-      }
-    ],
-    "specs/ai-multilanguage.spec.ts::Switch language to Français and verify UI updates": [
-      {
-        "passed": true,
-        "duration": 1994,
-        "timestamp": "2026-01-22T13:22:41.950Z",
-        "runId": "run-1769088015217",
-        "skipped": false,
-        "retry": 0
-      },
-      {
-        "passed": true,
-        "duration": 2335,
-        "timestamp": "2026-01-22T23:35:45.888Z",
-        "runId": "run-1769124800440",
+        "duration": 1687,
+        "timestamp": "2026-01-22T23:40:12.207Z",
+        "runId": "run-1769124987040",
         "skipped": false,
         "retry": 0
       }
@@ -301,49 +157,25 @@
     "specs/ai-categorization.spec.ts::AI categorizes shopping expenses to \"Shopping\"": [
       {
         "passed": false,
-        "duration": 31941,
-        "timestamp": "2026-01-22T13:22:41.950Z",
-        "runId": "run-1769088015217",
+        "duration": 31866,
+        "timestamp": "2026-01-22T23:40:12.207Z",
+        "runId": "run-1769124987040",
         "skipped": false,
         "retry": 0
       },
       {
         "passed": false,
-        "duration": 33548,
-        "timestamp": "2026-01-22T13:22:41.950Z",
-        "runId": "run-1769088015217",
+        "duration": 33455,
+        "timestamp": "2026-01-22T23:40:12.207Z",
+        "runId": "run-1769124987040",
         "skipped": false,
         "retry": 1
       },
       {
         "passed": false,
-        "duration": 32326,
-        "timestamp": "2026-01-22T13:22:41.950Z",
-        "runId": "run-1769088015217",
-        "skipped": false,
-        "retry": 2
-      },
-      {
-        "passed": false,
-        "duration": 32205,
-        "timestamp": "2026-01-22T23:35:45.888Z",
-        "runId": "run-1769124800440",
-        "skipped": false,
-        "retry": 0
-      },
-      {
-        "passed": false,
-        "duration": 33565,
-        "timestamp": "2026-01-22T23:35:45.888Z",
-        "runId": "run-1769124800440",
-        "skipped": false,
-        "retry": 1
-      },
-      {
-        "passed": false,
-        "duration": 32114,
-        "timestamp": "2026-01-22T23:35:45.888Z",
-        "runId": "run-1769124800440",
+        "duration": 32201,
+        "timestamp": "2026-01-22T23:40:12.207Z",
+        "runId": "run-1769124987040",
         "skipped": false,
         "retry": 2
       }
@@ -351,149 +183,79 @@
     "specs/ai-multilanguage.spec.ts::AI categorization works in Español": [
       {
         "passed": false,
-        "duration": 32271,
-        "timestamp": "2026-01-22T13:22:41.950Z",
-        "runId": "run-1769088015217",
+        "duration": 31466,
+        "timestamp": "2026-01-22T23:40:12.207Z",
+        "runId": "run-1769124987040",
         "skipped": false,
         "retry": 0
       },
       {
         "passed": false,
-        "duration": 32220,
-        "timestamp": "2026-01-22T13:22:41.950Z",
-        "runId": "run-1769088015217",
+        "duration": 32173,
+        "timestamp": "2026-01-22T23:40:12.207Z",
+        "runId": "run-1769124987040",
         "skipped": false,
         "retry": 1
       },
       {
         "passed": false,
-        "duration": 32286,
-        "timestamp": "2026-01-22T13:22:41.950Z",
-        "runId": "run-1769088015217",
+        "duration": 32187,
+        "timestamp": "2026-01-22T23:40:12.207Z",
+        "runId": "run-1769124987040",
         "skipped": false,
         "retry": 2
-      },
+      }
+    ],
+    "specs/summary.spec.ts::Filter Summary by Time Period": [
       {
         "passed": false,
-        "duration": 32700,
-        "timestamp": "2026-01-22T23:35:45.888Z",
-        "runId": "run-1769124800440",
+        "duration": 65826,
+        "timestamp": "2026-01-22T23:40:12.207Z",
+        "runId": "run-1769124987040",
         "skipped": false,
         "retry": 0
       },
       {
-        "passed": false,
-        "duration": 32644,
-        "timestamp": "2026-01-22T23:35:45.888Z",
-        "runId": "run-1769124800440",
+        "passed": true,
+        "duration": 9518,
+        "timestamp": "2026-01-22T23:40:12.207Z",
+        "runId": "run-1769124987040",
         "skipped": false,
         "retry": 1
-      },
+      }
+    ],
+    "specs/ai-multilanguage.spec.ts::Switch language to Français and verify UI updates": [
       {
-        "passed": false,
-        "duration": 32603,
-        "timestamp": "2026-01-22T23:35:45.888Z",
-        "runId": "run-1769124800440",
+        "passed": true,
+        "duration": 2204,
+        "timestamp": "2026-01-22T23:40:12.207Z",
+        "runId": "run-1769124987040",
         "skipped": false,
-        "retry": 2
+        "retry": 0
       }
     ],
     "specs/ai-multilanguage.spec.ts::AI categorization works in Português": [
       {
         "passed": false,
-        "duration": 32009,
-        "timestamp": "2026-01-22T13:22:41.950Z",
-        "runId": "run-1769088015217",
+        "duration": 60002,
+        "timestamp": "2026-01-22T23:40:12.207Z",
+        "runId": "run-1769124987040",
         "skipped": false,
         "retry": 0
       },
       {
         "passed": false,
-        "duration": 32568,
-        "timestamp": "2026-01-22T13:22:41.950Z",
-        "runId": "run-1769088015217",
+        "duration": 32651,
+        "timestamp": "2026-01-22T23:40:12.207Z",
+        "runId": "run-1769124987040",
         "skipped": false,
         "retry": 1
       },
       {
         "passed": false,
-        "duration": 32224,
-        "timestamp": "2026-01-22T13:22:41.950Z",
-        "runId": "run-1769088015217",
-        "skipped": false,
-        "retry": 2
-      },
-      {
-        "passed": false,
-        "duration": 32470,
-        "timestamp": "2026-01-22T23:35:45.888Z",
-        "runId": "run-1769124800440",
-        "skipped": false,
-        "retry": 0
-      },
-      {
-        "passed": false,
-        "duration": 32586,
-        "timestamp": "2026-01-22T23:35:45.888Z",
-        "runId": "run-1769124800440",
-        "skipped": false,
-        "retry": 1
-      },
-      {
-        "passed": false,
-        "duration": 32402,
-        "timestamp": "2026-01-22T23:35:45.888Z",
-        "runId": "run-1769124800440",
-        "skipped": false,
-        "retry": 2
-      }
-    ],
-    "specs/ai-multilanguage.spec.ts::AI categorization works in Français": [
-      {
-        "passed": false,
-        "duration": 32002,
-        "timestamp": "2026-01-22T13:22:41.950Z",
-        "runId": "run-1769088015217",
-        "skipped": false,
-        "retry": 0
-      },
-      {
-        "passed": false,
-        "duration": 32149,
-        "timestamp": "2026-01-22T13:22:41.950Z",
-        "runId": "run-1769088015217",
-        "skipped": false,
-        "retry": 1
-      },
-      {
-        "passed": false,
-        "duration": 32050,
-        "timestamp": "2026-01-22T13:22:41.950Z",
-        "runId": "run-1769088015217",
-        "skipped": false,
-        "retry": 2
-      },
-      {
-        "passed": false,
-        "duration": 32343,
-        "timestamp": "2026-01-22T23:35:45.888Z",
-        "runId": "run-1769124800440",
-        "skipped": false,
-        "retry": 0
-      },
-      {
-        "passed": false,
-        "duration": 32516,
-        "timestamp": "2026-01-22T23:35:45.888Z",
-        "runId": "run-1769124800440",
-        "skipped": false,
-        "retry": 1
-      },
-      {
-        "passed": false,
-        "duration": 32316,
-        "timestamp": "2026-01-22T23:35:45.888Z",
-        "runId": "run-1769124800440",
+        "duration": 31676,
+        "timestamp": "2026-01-22T23:40:12.207Z",
+        "runId": "run-1769124987040",
         "skipped": false,
         "retry": 2
       }
@@ -501,35 +263,45 @@
     "specs/ai-multilanguage.spec.ts::Language persists across page navigation": [
       {
         "passed": true,
-        "duration": 2537,
-        "timestamp": "2026-01-22T13:22:41.950Z",
-        "runId": "run-1769088015217",
+        "duration": 2432,
+        "timestamp": "2026-01-22T23:40:12.207Z",
+        "runId": "run-1769124987040",
+        "skipped": false,
+        "retry": 0
+      }
+    ],
+    "specs/ai-multilanguage.spec.ts::AI categorization works in Français": [
+      {
+        "passed": false,
+        "duration": 32087,
+        "timestamp": "2026-01-22T23:40:12.207Z",
+        "runId": "run-1769124987040",
         "skipped": false,
         "retry": 0
       },
       {
-        "passed": true,
-        "duration": 2878,
-        "timestamp": "2026-01-22T23:35:45.888Z",
-        "runId": "run-1769124800440",
+        "passed": false,
+        "duration": 32797,
+        "timestamp": "2026-01-22T23:40:12.207Z",
+        "runId": "run-1769124987040",
         "skipped": false,
-        "retry": 0
+        "retry": 1
+      },
+      {
+        "passed": false,
+        "duration": 31427,
+        "timestamp": "2026-01-22T23:40:12.207Z",
+        "runId": "run-1769124987040",
+        "skipped": false,
+        "retry": 2
       }
     ],
     "specs/ai-multilanguage.spec.ts::AI insights are generated in Spanish": [
       {
         "passed": true,
-        "duration": 4002,
-        "timestamp": "2026-01-22T13:22:41.950Z",
-        "runId": "run-1769088015217",
-        "skipped": false,
-        "retry": 0
-      },
-      {
-        "passed": true,
-        "duration": 4112,
-        "timestamp": "2026-01-22T23:35:45.888Z",
-        "runId": "run-1769124800440",
+        "duration": 4142,
+        "timestamp": "2026-01-22T23:40:12.207Z",
+        "runId": "run-1769124987040",
         "skipped": false,
         "retry": 0
       }
@@ -537,17 +309,9 @@
     "specs/ai-natural-language.spec.ts::Parse groceries with relative date: \"Spent $45.50 on groceries yesterday\"": [
       {
         "passed": true,
-        "duration": 4365,
-        "timestamp": "2026-01-22T13:22:41.950Z",
-        "runId": "run-1769088015217",
-        "skipped": false,
-        "retry": 0
-      },
-      {
-        "passed": true,
-        "duration": 4690,
-        "timestamp": "2026-01-22T23:35:45.888Z",
-        "runId": "run-1769124800440",
+        "duration": 4379,
+        "timestamp": "2026-01-22T23:40:12.207Z",
+        "runId": "run-1769124987040",
         "skipped": false,
         "retry": 0
       }
@@ -555,17 +319,9 @@
     "specs/ai-natural-language.spec.ts::Parse transportation expense: \"Uber ride to airport for $32\"": [
       {
         "passed": true,
-        "duration": 4699,
-        "timestamp": "2026-01-22T13:22:41.950Z",
-        "runId": "run-1769088015217",
-        "skipped": false,
-        "retry": 0
-      },
-      {
-        "passed": true,
-        "duration": 5712,
-        "timestamp": "2026-01-22T23:35:45.888Z",
-        "runId": "run-1769124800440",
+        "duration": 4609,
+        "timestamp": "2026-01-22T23:40:12.207Z",
+        "runId": "run-1769124987040",
         "skipped": false,
         "retry": 0
       }
@@ -573,17 +329,9 @@
     "specs/ai-natural-language.spec.ts::Parse coffee purchase with time reference: \"Coffee at Starbucks $6.50 this morning\"": [
       {
         "passed": true,
-        "duration": 4572,
-        "timestamp": "2026-01-22T13:22:41.950Z",
-        "runId": "run-1769088015217",
-        "skipped": false,
-        "retry": 0
-      },
-      {
-        "passed": true,
-        "duration": 4884,
-        "timestamp": "2026-01-22T23:35:45.888Z",
-        "runId": "run-1769124800440",
+        "duration": 4809,
+        "timestamp": "2026-01-22T23:40:12.207Z",
+        "runId": "run-1769124987040",
         "skipped": false,
         "retry": 0
       }
@@ -591,32 +339,19 @@
   },
   "summaries": [
     {
-      "runId": "run-1769088015217",
-      "timestamp": "2026-01-22T13:20:15.217Z",
-      "total": 33,
+      "runId": "run-1769124987040",
+      "timestamp": "2026-01-22T23:36:27.040Z",
+      "total": 35,
       "passed": 21,
-      "failed": 12,
+      "failed": 14,
       "skipped": 0,
       "flaky": 0,
       "slow": 0,
-      "duration": 146733,
-      "passRate": 64
-    },
-    {
-      "runId": "run-1769124800440",
-      "timestamp": "2026-01-22T23:33:20.440Z",
-      "total": 33,
-      "passed": 21,
-      "failed": 12,
-      "skipped": 0,
-      "flaky": 12,
-      "slow": 4,
-      "duration": 145448,
-      "passRate": 64
+      "duration": 225168,
+      "passRate": 60
     }
   ],
   "runFiles": {
-    "run-1769088015217": "./history-runs/run-1769088015217.json",
-    "run-1769124800440": "./history-runs/run-1769124800440.json"
+    "run-1769124987040": "./history-runs/run-1769124987040.json"
   }
 }
