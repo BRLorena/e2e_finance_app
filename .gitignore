@@ -7,8 +7,10 @@ node_modules/
 chatmodules/
 .auth/
 
-# Allure
-/allure-results/
-/allure-report/
-# Keep allure-history for historical trending
-!/allure-report/history/
+# Environment variables
+.env
+.env.example
+
+# HAR Analysis Reports
+/reports/
+*.har

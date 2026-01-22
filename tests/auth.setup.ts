@@ -3,8 +3,8 @@
 
 import { test as setup, expect } from '@playwright/test';
 import path from 'path';
-import { AuthPage } from '../pages/auth-page';
-import { LanguageSelector } from '../pages/components/language-selector';
+import { AuthPage } from '../src/pages/auth-page';
+import { LanguageSelector } from '../src/pages/components/language-selector';
 
 const authFile = path.join(__dirname, '../.auth/session.json');
 
@@ -16,7 +16,15 @@ const TEST_USER = {
 };
 
 setup.describe('User Registration and Authentication', () => {
-  setup('Create Account and Save Auth State', async ({ page, context }) => {
+  setup('Create Account and Save Auth State', async ({ browser }) => {
+    // Create context with HAR recording for authentication flow analysis
+    const context = await browser.newContext({
+      recordHar: { 
+        path: './reports/auth-flow.har',
+        mode: 'full'
+      }
+    });
+    const page = await context.newPage();
     const authPage = new AuthPage(page);
     
     // Try to login or register if account doesn't exist
@@ -46,5 +54,8 @@ setup.describe('User Registration and Authentication', () => {
     await context.storageState({ path: authFile });
     
     console.log('Authentication state saved successfully');
+    
+    // Close context to save HAR file
+    await context.close();
   });
 });

@@ -50,37 +50,25 @@ jobs:
       
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
-      
-    - name: Load Allure history from previous runs
-      uses: actions/checkout@v4
-      if: always()
-      continue-on-error: true
+
+    - name: Restore test history
+      uses: actions/cache@v4
       with:
-        ref: gh-pages
-        path: gh-pages
-        
-    - name: Copy Allure history to results
-      if: always()
-      continue-on-error: true
-      run: |
-        if [ -d "gh-pages/allure-history" ]; then
-          mkdir -p allure-results/history
-          cp -r gh-pages/allure-history/* allure-results/history/
-          echo "Loaded history from previous runs"
-        else
-          echo "No previous history found"
-        fi
+        path: reports/test-history.json
+        key: test-history-${{ github.ref }}
+        restore-keys: |
+          test-history-
       
     - name: Run Playwright tests
       run: npx playwright test --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
-      
-    - name: Upload Allure results
+        
+    - name: Upload Smart Report
       uses: actions/upload-artifact@v4
       if: always()
       with:
-        name: allure-results-${{ matrix.shardIndex }}
-        path: allure-results/
-        retention-days: 7
+        name: smart-report-${{ matrix.shardIndex }}
+        path: reports/
+        retention-days: 30
         
     - name: Upload Playwright report
       uses: actions/upload-artifact@v4
@@ -90,130 +78,238 @@ jobs:
         path: playwright-report/
         retention-days: 7
 
+    - name: Upload test results
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: test-results-${{ matrix.shardIndex }}
+        path: test-results/
+        retention-days: 7
+
   merge-reports:
     needs: test
     if: always()
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    
-    - name: Download all Allure results
+
+    - uses: actions/setup-node@v4
+      with:
+        node-version: lts/*
+
+    - name: Install dependencies
+      run: npm ci
+        
+    - name: Download all smart reports
       uses: actions/download-artifact@v4
       with:
-        path: all-allure-results
-        pattern: allure-results-*
+        path: all-reports
+        pattern: smart-report-*
         merge-multiple: true
-    
-    - name: Load Allure history from previous runs
-      uses: actions/checkout@v4
-      continue-on-error: true
+
+    - name: Restore test history from cache
+      uses: actions/cache@v4
       with:
-        ref: gh-pages
-        path: gh-pages
-        
-    - name: Generate Allure Report
+        path: reports/test-history.json
+        key: test-history-${{ github.ref }}
+        restore-keys: |
+          test-history-
+
+    - name: Merge test history from shards
       run: |
-        npm install -g allure-commandline
-        mkdir -p allure-report/history
-        if [ -d "gh-pages/allure-history" ]; then
-          cp -r gh-pages/allure-history/* allure-report/history/
+        mkdir -p reports
+        # If we have history files from shards, merge them
+        if ls all-reports/test-history*.json 1> /dev/null 2>&1; then
+          echo "Merging history files from shards..."
+          # Use the smart reporter merge CLI if available, otherwise use the first one
+          if command -v npx playwright-smart-reporter-merge-history &> /dev/null; then
+            npx playwright-smart-reporter-merge-history all-reports/test-history*.json -o reports/test-history.json
+          else
+            # Fallback: copy the most recent history
+            cp $(ls -t all-reports/test-history*.json | head -1) reports/test-history.json 2>/dev/null || true
+          fi
         fi
-        allure generate all-allure-results -o allure-report --clean
-        
-    - name: Save Allure history
+
+    - name: Download all Playwright reports
+      uses: actions/download-artifact@v4
+      with:
+        path: all-playwright-reports
+        pattern: playwright-report-*
+        merge-multiple: true
+
+    - name: Generate merged Smart Report
       run: |
-        mkdir -p allure-history
-        cp -r allure-report/history/* allure-history/
+        # Run a quick report generation to merge all results
+        # The smart reporter will pick up the merged history
+        mkdir -p reports
         
-    - name: Upload Allure history
+        # Copy the latest smart report as the main one
+        if ls all-reports/smart-report.html 1> /dev/null 2>&1; then
+          cp all-reports/smart-report.html reports/smart-report.html
+        fi
+        
+        # Copy history file
+        if ls all-reports/test-history.json 1> /dev/null 2>&1; then
+          cp all-reports/test-history.json reports/test-history.json
+        fi
+
+    - name: Save test history to cache
+      uses: actions/cache/save@v4
+      if: always()
+      with:
+        path: reports/test-history.json
+        key: test-history-${{ github.ref }}-${{ github.run_id }}
+
+    - name: Generate Test Summary
+      if: always()
+      run: |
+        echo "# 📊 Playwright Test Results" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        
+        if [ "${{ needs.test.result }}" == "success" ]; then
+          echo "## ✅ All Tests Passed" >> $GITHUB_STEP_SUMMARY
+        else
+          echo "## ❌ Some Tests Failed" >> $GITHUB_STEP_SUMMARY
+        fi
+        
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "### 📈 Smart Report" >> $GITHUB_STEP_SUMMARY
+        echo "View the detailed test report with flakiness detection, stability scores, and performance trends on [GitHub Pages](https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/)." >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "📥 Download artifacts from [workflow run](../../actions/runs/${{ github.run_id }})" >> $GITHUB_STEP_SUMMARY
+        
+    - name: Upload merged Smart Report
       uses: actions/upload-artifact@v4
       with:
-        name: allure-history
-        path: allure-history/
-        retention-days: 90
-        
-    - name: Upload Allure report
-      uses: actions/upload-artifact@v4
-      with:
-        name: allure-report
-        path: allure-report/
-        retention-days: 7
+        name: smart-report
+        path: reports/
+        retention-days: 30
 
   deploy-report:
     needs: merge-reports
     runs-on: ubuntu-latest
-    if: github.event_name == 'push' && (github.ref == 'refs/heads/dev' || github.ref == 'refs/heads/master')
+    if: always() && (github.event_name == 'push' || github.event_name == 'schedule') && (github.ref == 'refs/heads/dev' || github.ref == 'refs/heads/master')
     permissions:
       contents: write
     steps:
-    - name: Download Allure report
+    - name: Download Smart Report
       uses: actions/download-artifact@v4
       with:
-        name: allure-report
-        path: allure-report
+        name: smart-report
+        path: smart-report
         
-    - name: Deploy Allure report to GitHub Pages
+    - name: Prepare GitHub Pages content
+      run: |
+        mkdir -p gh-pages
+        # Copy the smart report as index.html for GitHub Pages
+        if [ -f "smart-report/smart-report.html" ]; then
+          cp smart-report/smart-report.html gh-pages/index.html
+        fi
+        # Also keep the original filename
+        cp -r smart-report/* gh-pages/ 2>/dev/null || true
+        
+    - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_branch: gh-pages
-        publish_dir: allure-report
-        force_orphan: true
+        publish_dir: gh-pages
+        keep_files: false
 
   notify:
     needs: [test, merge-reports]
     runs-on: ubuntu-latest
-    if: always()
+    if: always() && vars.SLACK_ENABLED == 'true'
     steps:
     - uses: actions/checkout@v4
     
-    - name: Download Allure report
+    - name: Download Smart Report
       uses: actions/download-artifact@v4
+      if: always()
+      continue-on-error: true
       with:
-        name: allure-report
-        path: allure-report
+        name: smart-report
+        path: reports
         
-    - name: Extract test statistics
-      id: stats
+    - name: Send Slack notification
       run: |
-        # Extract stats from Allure widgets.json
-        PASSED=$(cat allure-report/widgets/summary.json | jq -r '.statistic.passed // 0')
-        FAILED=$(cat allure-report/widgets/summary.json | jq -r '.statistic.failed // 0')
-        BROKEN=$(cat allure-report/widgets/summary.json | jq -r '.statistic.broken // 0')
-        SKIPPED=$(cat allure-report/widgets/summary.json | jq -r '.statistic.skipped // 0')
-        TOTAL=$(cat allure-report/widgets/summary.json | jq -r '.statistic.total // 0')
-        
-        echo "passed=$PASSED" >> $GITHUB_OUTPUT
-        echo "failed=$FAILED" >> $GITHUB_OUTPUT
-        echo "broken=$BROKEN" >> $GITHUB_OUTPUT
-        echo "skipped=$SKIPPED" >> $GITHUB_OUTPUT
-        echo "total=$TOTAL" >> $GITHUB_OUTPUT
-    
-    - name: Prepare and send Slack notification
-      run: |
-        # Determine test status icon
+        # Determine test status
         if [[ "${{ needs.test.result }}" == "success" ]]; then
-          TEST_STATUS_ICON="✅"
+          STATUS_EMOJI="✅"
+          STATUS_TEXT="passed"
+          COLOR="good"
         else
-          TEST_STATUS_ICON="❌"
+          STATUS_EMOJI="❌"
+          STATUS_TEXT="failed"
+          COLOR="danger"
         fi
         
-        # Replace placeholders in template
-        sed -e "s|{{TEST_STATUS_ICON}}|$TEST_STATUS_ICON|g" \
-            -e "s|{{TEST_STATUS}}|${{ needs.test.result }}|g" \
-            -e "s|{{REPOSITORY}}|${{ github.repository }}|g" \
-            -e "s|{{BRANCH}}|${{ github.ref_name }}|g" \
-            -e "s|{{ACTOR}}|${{ github.actor }}|g" \
-            -e "s|{{EVENT}}|${{ github.event_name }}|g" \
-            -e "s|{{PASSED}}|${{ steps.stats.outputs.passed }}|g" \
-            -e "s|{{FAILED}}|${{ steps.stats.outputs.failed }}|g" \
-            -e "s|{{BROKEN}}|${{ steps.stats.outputs.broken }}|g" \
-            -e "s|{{SKIPPED}}|${{ steps.stats.outputs.skipped }}|g" \
-            -e "s|{{TOTAL}}|${{ steps.stats.outputs.total }}|g" \
-            -e "s|{{WORKFLOW_URL}}|${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|g" \
-            .github/slack-notification-template.json > slack-payload.json
+        # Build Slack payload
+        cat > slack-payload.json << EOF
+        {
+          "attachments": [
+            {
+              "color": "${COLOR}",
+              "blocks": [
+                {
+                  "type": "header",
+                  "text": {
+                    "type": "plain_text",
+                    "text": "${STATUS_EMOJI} Playwright Tests ${STATUS_TEXT}",
+                    "emoji": true
+                  }
+                },
+                {
+                  "type": "section",
+                  "fields": [
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Repository:*\n${{ github.repository }}"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Branch:*\n${{ github.ref_name }}"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Triggered by:*\n${{ github.actor }}"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Event:*\n${{ github.event_name }}"
+                    }
+                  ]
+                },
+                {
+                  "type": "actions",
+                  "elements": [
+                    {
+                      "type": "button",
+                      "text": {
+                        "type": "plain_text",
+                        "text": "📊 View Report",
+                        "emoji": true
+                      },
+                      "url": "https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
+                    },
+                    {
+                      "type": "button",
+                      "text": {
+                        "type": "plain_text",
+                        "text": "🔗 Workflow Run",
+                        "emoji": true
+                      },
+                      "url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+        EOF
         
-        # Send to Slack using curl
+        # Send to Slack
         curl -X POST \
           -H 'Content-type: application/json' \
           --data @slack-payload.json \

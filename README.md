@@ -11,6 +11,152 @@ A comprehensive end-to-end test suite for the Finance App built with Playwright 
 - **🔄 Automated CI/CD** - Tests run on every push, PR, and daily at 9 AM UTC
 - **⚡ Parallel Execution** - 4-way test sharding for faster results
 
+## 🔍 HAR Analysis & AI Reporting
+
+This project includes **automated HAR (HTTP Archive) analysis** that runs after every test execution, providing:
+
+### Features
+- ✅ **Automatic Analysis** - No manual steps required, runs after every test
+- ✅ **Performance Monitoring** - Detects slow responses (>2000ms default)
+- ✅ **Error Detection** - Identifies HTTP errors (4xx, 5xx status codes)
+- ✅ **Payload Analysis** - Flags large payloads (>1MB default)
+- ✅ **AI-Powered Reports** - Generates detailed analysis in Bahasa Indonesia using Groq AI
+- ✅ **Customizable Thresholds** - Configure response time and size limits
+- ✅ **CI/CD Ready** - Fail builds based on error thresholds
+
+### Quick Start
+
+1. **Install Dependencies**:
+```bash
+npm install
+```
+
+2. **Configure API Key** (optional, for AI reports):
+```bash
+# Copy environment template
+cp .env.example .env
+
+# Add your Groq API key
+# Get your key from: https://console.groq.com/keys
+GROQ_API_KEY=your_api_key_here
+```
+
+3. **Enable HAR Recording in Tests**:
+```typescript
+test('my test with HAR', async ({ browser }) => {
+  const context = await browser.newContext({
+    recordHar: { path: './reports/my-test.har', mode: 'full' }
+  });
+  const page = await context.newPage();
+  
+  // Your test code here
+  
+  await context.close(); // HAR saved automatically
+});
+```
+
+4. **Run Tests**:
+```bash
+npm test
+```
+
+HAR analysis runs automatically after tests complete. Check `./reports/` for:
+- `*.har` - Raw HAR files
+- `*-analysis.json` - Detailed anomaly analysis
+- `aggregate-analysis.json` - Combined analysis of all tests
+- `ai-report.txt` - AI-generated report (if API key configured)
+
+### Configuration
+
+Edit [playwright.config.ts](playwright.config.ts) to customize thresholds:
+
+```typescript
+['./reporters/har-analysis-reporter.ts', {
+  enabled: true,
+  thresholds: {
+    responseTime: 2000,      // milliseconds
+    payloadSize: 1_000_000   // bytes (1MB)
+  },
+  aiReport: {
+    enabled: true,
+    model: 'llama-3.3-70b-versatile',  // Groq model
+    language: 'id'  // Bahasa Indonesia
+  },
+  outputDir: './reports',
+  failOn: {  // Optional: Fail build on thresholds
+    errorCount: 5,
+    slowResponseCount: 10,
+    criticalErrors: true  // 5xx errors
+  }
+}]
+```
+
+### Example Output
+
+```
+🔍 HAR Analysis Reporter initialized
+   Response time threshold: 2000ms
+   Payload size threshold: 1.00MB
+   AI reporting: ✓ enabled
+
+📊 Analyzing HAR files...
+   Found 3 HAR file(s)
+   Analyzing: login-test.har
+   ✓ No anomalies detected
+   Analyzing: expense-test.har
+   Total anomalies: 2
+   └─ HTTP errors: 1
+   └─ Slow responses: 1
+
+📈 Aggregate Analysis:
+   Total anomalies: 2
+   └─ HTTP errors: 1
+   └─ Slow responses: 1
+
+🤖 Generating AI report...
+   ✓ AI report saved to: ./reports/ai-report.txt
+```
+
+### AI Report Sample
+
+```
+📊 Laporan Hasil Analisis HAR
+
+Total permintaan yang dianalisis: 2 anomali ditemukan.
+
+1. URL: https://api.example.com/data
+   - Status: 404 (Not Found)
+   - Dampak: Resource tidak ditemukan
+   - Rekomendasi: Periksa URL dan ketersediaan endpoint
+
+2. URL: https://api.example.com/slow-endpoint
+   - Response time: 3500 ms (exceeds 2000 ms threshold)
+   - Dampak: Slow page load times affecting user experience
+   - Rekomendasi: Investigate backend performance, consider caching
+
+✅ Ringkasan
+[AI-generated summary of issues]
+
+💡 Saran umum:
+[3-4 AI-generated recommendations]
+```
+
+### Implementation Details
+
+The HAR analysis is implemented as a **custom Playwright reporter** that:
+1. Automatically detects HAR files after test execution
+2. Analyzes each file for anomalies using configurable thresholds
+3. Generates JSON reports with detailed findings
+4. Optionally generates AI-powered insights using OpenRouter API
+5. Can fail builds based on configurable thresholds (for CI/CD)
+
+**Architecture**:
+- `types/har.types.ts` - HAR format type definitions
+- `types/anomaly.types.ts` - Analysis result types
+- `utils/har-analyzer.ts` - Core analysis logic
+- `utils/ai-reporter.ts` - AI report generation
+- `reporters/har-analysis-reporter.ts` - Playwright reporter integration
+
 ## 🎯 Project Overview
 
 This project contains automated tests for a personal finance management application that tracks expenses, income, invoices, and provides dashboard analytics. The tests are built using Playwright's generator and healer agents for interactive test creation and automated debugging.

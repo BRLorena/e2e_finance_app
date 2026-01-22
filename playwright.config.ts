@@ -16,30 +16,25 @@ export default defineConfig({
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
     ['html'],
-    ['allure-playwright', {
-      outputFolder: 'allure-results',
-      detail: true,
-      suiteTitle: true,
-      categories: [
-        {
-          name: 'Authentication Issues',
-          messageRegex: '.*auth.*',
-        },
-        {
-          name: 'Timeout Issues',
-          messageRegex: '.*timeout.*',
-        },
-        {
-          name: 'Network Issues',
-          messageRegex: '.*network.*|.*connection.*',
-        },
-      ],
-      environmentInfo: {
-        NODE_VERSION: process.version,
-        BASE_URL: 'https://finance-app-five-rosy.vercel.app',
-      },
-    }],
     ['list'],
+    ['playwright-smart-reporter', {
+      outputFile: '../reports/smart-report.html',
+      historyFile: '../reports/test-history.json',
+      maxHistoryRuns: 10,
+      performanceThreshold: 0.2,
+      // Feature flags
+      enableRetryAnalysis: true,
+      enableFailureClustering: true,
+      enableStabilityScore: true,
+      enableGalleryView: true,
+      enableComparison: true,
+      enableAIRecommendations: true,
+      enableTraceViewer: true,
+      enableHistoryDrilldown: true,
+      enableNetworkLogs: true,
+      stabilityThreshold: 70,
+      retryFailureThreshold: 3,
+    }],
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
