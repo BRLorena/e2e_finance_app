@@ -87,6 +87,7 @@ test.describe('Income Management', () => {
     // Find the income card and click its delete button
     // Locate the card containing our income description, then find the delete button within it
     const incomeCard = page.locator('div').filter({ hasText: uniqueDescription }).first();
+    await incomeCard.waitFor();
     await incomeCard.getByRole('button').nth(1).click(); // nth(0) is Edit, nth(1) is Delete
     await page.waitForTimeout(1000);
     await incomePage.verifyIncomePageLoaded();

@@ -266,10 +266,11 @@ export class ExpensePage extends BasePage {
     await expect(this.page.getByText('Expense created successfully!')).toBeVisible();
   }
 
-  @step
-  async verifyExpenseInList(description: string) {
-    await expect(this.page.getByRole('heading', { name: description }).first()).toBeVisible();
-  }
+@step
+async verifyExpenseInList(description: string) {
+  const element = this.page.getByRole('heading', { name: description });
+  await expect(element).toBeVisible();
+}
 
   @step
   async deleteByDescription(description: string) {

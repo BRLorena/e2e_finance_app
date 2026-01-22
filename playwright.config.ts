@@ -28,7 +28,7 @@ export default defineConfig({
       enableStabilityScore: true,
       enableGalleryView: true,
       enableComparison: true,
-      enableAIRecommendations: false,
+      enableAIRecommendations: true,
       enableTraceViewer: true,
       enableHistoryDrilldown: true,
       enableNetworkLogs: true,
