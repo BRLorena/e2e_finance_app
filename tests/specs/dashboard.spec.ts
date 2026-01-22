@@ -1,0 +1,98 @@
+// spec: TEST_PLAN.md Section 5
+// seed: tests/seed.spec.ts
+
+import { test, expect } from '../../fixtures/cleanup-fixture';
+import { DashboardPage } from '../../src/pages';
+
+test.describe('Dashboard Functionality', () => {
+  test('View Dashboard with Data', async ({ browser }) => {
+    // Create context with HAR recording for dashboard performance analysis
+    const context = await browser.newContext({
+      recordHar: { 
+        path: './reports/dashboard-load.har',
+        mode: 'full'
+      },
+      storageState: '.auth/session.json'
+    });
+    const page = await context.newPage();
+    const dashboardPage = new DashboardPage(page);
+
+    await dashboardPage.navigate();
+    await dashboardPage.verifyWelcomeMessage();
+    await dashboardPage.verifyFinancialOverviewSubtitle();
+    await dashboardPage.verifyTotalIncomeCard();
+    await dashboardPage.verifyTotalExpensesCard();
+    await dashboardPage.verifyNetIncomeCard();
+    await dashboardPage.verifyThisMonthCard();
+    await dashboardPage.verifyIncomeByCategorySection();
+    await dashboardPage.verifyExpensesByCategorySection();
+
+    await dashboardPage.verifyInvoicesByStatusSection();
+    await dashboardPage.verifyRecentActivitySectionsVisible();
+    
+    // Close context to save HAR file
+    await context.close();
+  });
+
+  test('Filter Dashboard by Time Periods', async ({ page }) => {
+    const dashboardPage = new DashboardPage(page);
+
+    await dashboardPage.navigate();
+    await dashboardPage.filterByAllTime();
+    await dashboardPage.verifyTimeFiltersVisible();
+    await dashboardPage.filterByThisMonth();
+    await dashboardPage.verifyTimeFiltersVisible();
+    await dashboardPage.filterByThisYear();
+    await dashboardPage.verifyTimeFiltersVisible();
+  });
+
+  test('Verify Net Income Calculation', async ({ page }) => {
+    const dashboardPage = new DashboardPage(page);
+
+    await dashboardPage.navigate();
+    await dashboardPage.verifyNetIncomeCalculation();
+  });
+
+  test('Verify Recent Activity Updates', async ({ page, cleanup }) => {
+    const dashboardPage = new DashboardPage(page);
+    const timestamp = Date.now();
+    const description = `Dashboard activity test ${timestamp}`;
+    cleanup.trackExpense(description);
+    
+    await dashboardPage.addNewExpenseFromDashboard(description, '25.99');
+    await dashboardPage.navigate();
+
+    // Wait for dashboard content to fully load
+    await new Promise(f => setTimeout(f, 3 * 1000));
+
+    await dashboardPage.verifyRecentActivityUpdated();
+    
+    // In the new UI, recent activities are behind a placeholder card
+    // Just verify the Recent Activities card is visible
+    await expect(page.getByRole('heading', { name: 'Recent Activities' })).toBeVisible();
+  });
+
+  test('Verify Expenses by Category Visualization', async ({ page }) => {
+    const dashboardPage = new DashboardPage(page);
+
+    await dashboardPage.navigate();
+    await dashboardPage.verifyExpensesByCategorySection();
+  });
+
+  test('Verify Invoices by Status Breakdown', async ({ page }) => {
+    const dashboardPage = new DashboardPage(page);
+
+    await dashboardPage.navigate();
+    await dashboardPage.verifyInvoicesByStatusSection();
+    await dashboardPage.verifyInvoicesByStatus('paid', /\$[\d,]+\.\d{2}/);
+    await dashboardPage.verifyInvoicesByStatus('pending', /\(\d+\)/);
+    await dashboardPage.verifyInvoicesByStatus('overdue', /\(\d+\)/);
+  });
+
+  test('Dashboard with Complete Data Verification', async ({ page }) => {
+    const dashboardPage = new DashboardPage(page);
+
+    await dashboardPage.navigate();
+    await dashboardPage.verifyCompleteDataDisplay();
+  });
+});

@@ -1,4 +1,4 @@
-# GitHub Actions + Slack Integration Flow
+# GitHub Actions + Smart Reporter Integration Flow
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
@@ -8,7 +8,7 @@
                               ▼
                     ┌─────────────────────┐
                     │  Tests Run (Shards) │
-                    │  with HAR Recording │
+                    │  with Trace Files   │
                     └─────────────────────┘
                               │
               ┌───────────────┼───────────────┐
@@ -19,8 +19,9 @@
                               ▼
                     ┌─────────────────────┐
                     │  Upload Artifacts   │
-                    │  - Allure Results   │
-                    │  - HAR Reports      │
+                    │  - Smart Report     │
+                    │  - Test History     │
+                    │  - Playwright HTML  │
                     └─────────────────────┘
                               │
                               ▼
@@ -31,21 +32,22 @@
               ┌───────────────┼───────────────┐
               ▼                               ▼
     ┌──────────────────┐            ┌──────────────────┐
-    │ Download Allure  │            │  Download HAR    │
-    │    Results       │            │    Reports       │
+    │  Download Smart  │            │  Restore Test    │
+    │     Reports      │            │    History       │
     └──────────────────┘            └──────────────────┘
               │                               │
               ▼                               ▼
     ┌──────────────────┐            ┌──────────────────┐
-    │ Generate Allure  │            │   Merge HAR      │
-    │     Report       │            │   Reports        │
+    │   Merge Smart    │            │   Merge Test     │
+    │     Reports      │            │    History       │
     └──────────────────┘            └──────────────────┘
               │                               │
               │                               ▼
               │                     ┌──────────────────┐
-              │                     │  aggregate-      │
-              │                     │  analysis.json   │
-              │                     │  ai-report.txt   │
+              │                     │  test-history    │
+              │                     │      .json       │
+              │                     │ (cached for next │
+              │                     │      runs)       │
               │                     └──────────────────┘
               │                               │
               └───────────────┬───────────────┘
@@ -59,86 +61,93 @@
 ┌─────────────────────────────────────────────────────────────────┐
 │                   GITHUB ACTIONS SUMMARY PAGE                    │
 ├─────────────────────────────────────────────────────────────────┤
-│ # 🔍 HAR Analysis Summary                                       │
+│ # 📊 Playwright Test Results                                    │
 │                                                                  │
-│ ## ✅ No Issues Detected                                        │
-│ All network requests performed within acceptable thresholds.    │
+│ ## ✅ All Tests Passed                                          │
 │                                                                  │
-│ ### 🤖 AI Analysis                                              │
-│ ```                                                              │
-│ 📊 HAR Analysis Report                                          │
-│ Total requests analyzed: 0 anomalies found.                     │
-│ ✅ Summary: No issues found...                                  │
-│ 💡 General suggestions: [AI recommendations]                    │
-│ ```                                                              │
+│ ### 📈 Smart Report                                             │
+│ View the detailed test report with flakiness detection,        │
+│ stability scores, and performance trends on GitHub Pages.       │
 │                                                                  │
-│ 📥 Download HAR Analysis Reports                                │
+│ 📥 Download artifacts from workflow run                         │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                     DEPLOY REPORT JOB                            │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+                    ┌─────────────────────┐
+                    │  Download Smart     │
+                    │     Report          │
+                    └─────────────────────┘
+                              │
+                              ▼
+                    ┌─────────────────────┐
+                    │  Prepare GitHub     │
+                    │  Pages Content      │
+                    │  (index.html)       │
+                    └─────────────────────┘
+                              │
+                              ▼
+                    ┌─────────────────────┐
+                    │  Deploy to          │
+                    │  gh-pages branch    │
+                    └─────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                    GITHUB PAGES REPORT                           │
+├─────────────────────────────────────────────────────────────────┤
+│ 📊 StageWright Local - Test Dashboard                           │
+│                                                                  │
+│ ┌─────────┬─────────────────────────────────────────────────┐   │
+│ │ Sidebar │  Overview                                        │   │
+│ │         │  ┌─────────────────────────────────────────────┐│   │
+│ │ Overview│  │ Pass Rate: 95%    Suite Grade: A           ││   │
+│ │ Tests   │  │ Passed: 45  Failed: 2  Skipped: 0         ││   │
+│ │ Trends  │  └─────────────────────────────────────────────┘│   │
+│ │ Compare │                                                  │   │
+│ │ Gallery │  Failure Clusters | Quick Insights | Trends    │   │
+│ └─────────┴─────────────────────────────────────────────────┘   │
+│                                                                  │
+│ Features:                                                       │
+│ • Flakiness Detection    • Stability Scores (A+ to F)          │
+│ • Performance Trends     • Network Logs from Traces            │
+│ • Screenshot Gallery     • Trace Viewer Integration            │
+│ • Historical Navigation  • Failure Clustering                  │
 └─────────────────────────────────────────────────────────────────┘
                               │
                               ▼
 ┌─────────────────────────────────────────────────────────────────┐
 │                        NOTIFY JOB                                │
+│               (Optional - if SLACK_ENABLED=true)                 │
 └─────────────────────────────────────────────────────────────────┘
                               │
-              ┌───────────────┼───────────────┐
-              ▼                               ▼
-    ┌──────────────────┐            ┌──────────────────┐
-    │ Extract Allure   │            │  Extract HAR     │
-    │   Statistics     │            │   Statistics     │
-    │  - Passed: 45    │            │  - Anomalies: 0  │
-    │  - Failed: 0     │            │  - Errors: 0     │
-    │  - Broken: 0     │            │  - Slow: 0       │
-    │  - Skipped: 0    │            │  - Large: 0      │
-    └──────────────────┘            └──────────────────┘
-              │                               │
-              └───────────────┬───────────────┘
                               ▼
                     ┌─────────────────────┐
-                    │  Prepare Slack      │
+                    │  Build Slack        │
                     │  Notification       │
-                    │  (Fill Template)    │
                     └─────────────────────┘
                               │
-              ┌───────────────┼───────────────┐
-              ▼                               ▼
-    ┌──────────────────┐            ┌──────────────────┐
-    │ Upload File to   │            │  Post Message    │
-    │     Slack        │            │   via Webhook    │
-    │ (ai-report.txt)  │            │                  │
-    │                  │            │                  │
-    │ Using:           │            │  Using:          │
-    │ SLACK_BOT_TOKEN  │            │ SLACK_WEBHOOK_   │
-    │ SLACK_CHANNEL_ID │            │      URL         │
-    └──────────────────┘            └──────────────────┘
-              │                               │
-              └───────────────┬───────────────┘
                               ▼
 ┌─────────────────────────────────────────────────────────────────┐
 │                     SLACK CHANNEL MESSAGE                        │
 ├─────────────────────────────────────────────────────────────────┤
-│ ✅ Playwright Tests - success                                   │
+│ ✅ Playwright Tests passed                                      │
 │                                                                  │
 │ Repository: your-org/repo     Branch: dev                       │
 │ Triggered by: username        Event: push                       │
 │                                                                  │
-│ ✅ Passed: 45    ❌ Failed: 0                                   │
-│ 🔥 Broken: 0     ⏭️ Skipped: 0                                  │
-│ Total Tests: 45                                                  │
-│ ─────────────────────────────────────                           │
-│ 🔍 HAR Analysis                                                 │
+│ [📊 View Report] [🔗 Workflow Run]                              │
 │                                                                  │
-│ Total Anomalies: 0    ❌ HTTP Errors: 0                         │
-│ 🐌 Slow Responses: 0  📦 Large Payloads: 0                     │
-│                                                                  │
-│ [📊 View Allure Report] [🔗 View Workflow Run]                 │
-│                                                                  │
-│ 📎 ai-report.txt (attached)                                     │
-│    🤖 HAR Analysis AI Report                                    │
+│ Report URL: https://user.github.io/repo/                        │
 └─────────────────────────────────────────────────────────────────┘
                               │
                               ▼
                     ┌─────────────────────┐
-                    │  Notification       │
+                    │  Integration        │
                     │  Complete!          │
                     └─────────────────────┘
 ```
@@ -147,73 +156,115 @@
 
 ### 1. Test Execution
 ```yaml
-env:
-  GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+# Trace files enable network logs in Smart Reporter
+use:
+  trace: 'on-first-retry'
+  screenshot: 'only-on-failure'
+  video: 'retain-on-failure'
 ```
-- Groq API key enables AI report generation
-- HAR files created automatically by tests
-- Each shard uploads its reports
+- Trace files created for failed tests (on retry)
+- Each shard uploads its Smart Report
+- Test history cached for flakiness detection
 
-### 2. Report Merging
-```bash
-merge-multiple: true
+### 2. Report Configuration
+```typescript
+// playwright.config.ts
+reporter: [
+  ['playwright-smart-reporter', {
+    outputFile: '../reports/smart-report.html',
+    historyFile: '../reports/test-history.json',
+    maxHistoryRuns: 10,
+    enableNetworkLogs: true,
+    enableStabilityScore: true,
+    enableFailureClustering: true,
+  }],
+]
 ```
-- All shard reports combined
-- Single aggregate analysis created
-- Historical data preserved
 
-### 3. GitHub Summary
-```bash
-echo "# 🔍 HAR Analysis Summary" >> $GITHUB_STEP_SUMMARY
-cat ai-report.txt >> $GITHUB_STEP_SUMMARY
+### 3. History Persistence
+```yaml
+# Restore history from previous runs
+- uses: actions/cache@v4
+  with:
+    path: reports/test-history.json
+    key: test-history-${{ github.ref }}
+
+# Save updated history
+- uses: actions/cache/save@v4
+  with:
+    path: reports/test-history.json
+    key: test-history-${{ github.ref }}-${{ github.run_id }}
 ```
-- Markdown formatted
-- Visible on workflow summary page
-- Includes AI analysis
+- History enables flakiness detection
+- Persisted across CI runs
+- Branch-specific caching
 
-### 4. Slack Integration
-```bash
-# Upload file
-curl -F file=@ai-report.txt \
-     -H "Authorization: Bearer $SLACK_BOT_TOKEN"
-
-# Post message  
-curl --data @slack-payload.json \
-     $SLACK_WEBHOOK_URL
+### 4. GitHub Pages Deployment
+```yaml
+- name: Deploy to GitHub Pages
+  uses: peaceiris/actions-gh-pages@v3
+  with:
+    github_token: ${{ secrets.GITHUB_TOKEN }}
+    publish_branch: gh-pages
+    publish_dir: gh-pages
 ```
-- Two API calls (file + message)
-- Stats extracted and templated
-- Links to reports included
+- Smart Report deployed as `index.html`
+- Available at `https://<user>.github.io/<repo>/`
+- Auto-updates on push to dev/master
 
-## Secrets Flow
+### 5. Slack Integration (Optional)
+```yaml
+if: always() && vars.SLACK_ENABLED == 'true'
+```
+- Enable by setting `SLACK_ENABLED=true` in repo variables
+- Requires `SLACK_WEBHOOK_URL` secret
+- Links directly to GitHub Pages report
+
+## Secrets & Variables
 
 ```
 GitHub Secrets
     │
-    ├─ GROQ_API_KEY ────────────► Test Execution ──► AI Report
+    ├─ GITHUB_TOKEN ────────────► Deploy to GitHub Pages
     │
-    ├─ SLACK_WEBHOOK_URL ───────► Post Message
+    └─ SLACK_WEBHOOK_URL ───────► Post Slack Message (optional)
+
+GitHub Variables
     │
-    ├─ SLACK_BOT_TOKEN ─────────► Upload File
-    │
-    └─ SLACK_CHANNEL_ID ────────► Target Channel
+    └─ SLACK_ENABLED ───────────► Enable/Disable Slack notifications
 ```
 
 ## Data Flow
 
 ```
-HAR Files (.har)
+Test Execution
     ↓
-HAR Analyzer (utils/har-analyzer.ts)
+Trace Files (on failure/retry)
     ↓
-Analysis JSON (aggregate-analysis.json)
+playwright-smart-reporter
     ↓
-AI Reporter (utils/ai-reporter.ts) ← GROQ_API_KEY
+┌─────────────────────────────────────┐
+│  smart-report.html                  │
+│  ├─ Test Results & Statistics       │
+│  ├─ Flakiness Detection             │
+│  ├─ Stability Scores (A+ to F)      │
+│  ├─ Performance Trends              │
+│  ├─ Failure Clusters                │
+│  ├─ Network Logs (from traces)      │
+│  └─ Screenshot Gallery              │
+└─────────────────────────────────────┘
     ↓
-AI Report (ai-report.txt)
+┌─────────────────────────────────────┐
+│  test-history.json                  │
+│  ├─ Historical test results         │
+│  ├─ Pass/fail rates per test        │
+│  ├─ Duration trends                 │
+│  └─ Flakiness indicators            │
+└─────────────────────────────────────┘
     ↓
+    ├─► GitHub Pages (public report)
     ├─► GitHub Actions Summary
-    └─► Slack Attachment
+    └─► Slack Notification (optional)
 ```
 
 ## Artifact Storage
@@ -221,30 +272,45 @@ AI Report (ai-report.txt)
 ```
 Workflow Run
 │
-├── allure-results-1,2,3,4 (7 days)
-├── har-reports-1,2,3,4 (30 days)
-├── allure-report (7 days)
-├── allure-history (90 days)
-└── har-analysis-report (30 days)
-    ├── aggregate-analysis.json
-    ├── ai-report.txt
-    └── individual test HAR files
+├── smart-report-1,2,3,4 (30 days)
+│   ├── smart-report.html
+│   └── test-history.json
+│
+├── playwright-report-1,2,3,4 (7 days)
+│
+├── test-results-1,2,3,4 (7 days)
+│
+└── smart-report (merged, 30 days)
+    ├── smart-report.html
+    └── test-history.json
 ```
+
+## Smart Reporter Features
+
+| Feature | Description |
+|---------|-------------|
+| **Flakiness Detection** | Tracks test history to identify unreliable tests |
+| **Stability Scores** | A+ to F grades based on pass rate, stability, performance |
+| **Performance Trends** | Warns when tests get significantly slower |
+| **Failure Clustering** | Groups similar failures by error type |
+| **Network Logs** | Extracts API calls from trace files |
+| **Screenshot Gallery** | Visual grid of test attachments |
+| **Trace Viewer** | One-click access to Playwright traces |
+| **Historical Navigation** | Click trend charts to view past runs |
 
 ## Success Indicators
 
 ✅ **GitHub Actions**:
-- Summary shows HAR analysis section
-- Artifacts include `har-analysis-report`
-- No errors in workflow logs
+- Summary shows test results with GitHub Pages link
+- Smart Report artifact uploaded
+- Test history cached for next run
 
-✅ **Slack**:
-- Message received in channel
-- HAR stats visible
-- File attachment present
-- Links work
+✅ **GitHub Pages**:
+- Report accessible at `https://<user>.github.io/<repo>/`
+- Shows all test results with stability grades
+- Flakiness indicators visible for unstable tests
 
-✅ **Reports**:
-- `aggregate-analysis.json` has data
-- `ai-report.txt` exists
-- Individual HAR files present
+✅ **Slack** (if enabled):
+- Message received with pass/fail status
+- Links to GitHub Pages report
+- Links to workflow run

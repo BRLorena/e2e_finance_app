@@ -1,5 +1,5 @@
 import { test as base } from '@playwright/test';
-import { TestCleanup } from '../utils/test-cleanup';
+import { TestCleanup } from '../src/utils/test-cleanup';
 
 /**
  * Extended test fixture with automatic cleanup

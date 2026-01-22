@@ -3,8 +3,8 @@
 
 import { test as setup, expect } from '@playwright/test';
 import path from 'path';
-import { AuthPage } from '../pages/auth-page';
-import { LanguageSelector } from '../pages/components/language-selector';
+import { AuthPage } from '../src/pages/auth-page';
+import { LanguageSelector } from '../src/pages/components/language-selector';
 
 const authFile = path.join(__dirname, '../.auth/session.json');
 

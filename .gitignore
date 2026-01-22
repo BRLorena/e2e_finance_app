@@ -14,9 +14,3 @@ chatmodules/
 # HAR Analysis Reports
 /reports/
 *.har
-
-# Allure
-/allure-results/
-/allure-report/
-# Keep allure-history for historical trending
-!/allure-report/history/
