@@ -79,6 +79,30 @@ export class IncomePage extends BasePage {
   }
 
   @step
+  async waitForSuccessToast() {
+    // Wait for the success notification to appear
+    await this.page.getByText(/Income added successfully|added successfully/i).waitFor({ timeout: 10000 });
+    // Wait a bit for the list to refresh
+    await this.page.waitForTimeout(1000);
+  }
+
+  @step
+  async searchIncome(description: string) {
+    const searchInput = this.page.getByRole('textbox', { name: 'Search' });
+    await searchInput.clear();
+    await searchInput.fill(description);
+    // Wait for the search results to update
+    await this.page.waitForTimeout(1500);
+  }
+
+  @step
+  async clearSearch() {
+    const searchInput = this.page.getByRole('textbox', { name: 'Search' });
+    await searchInput.clear();
+    await this.page.waitForTimeout(500);
+  }
+
+  @step
   async addValidIncome(amount: string, category: string, description: string, date: string) {
     await this.clickAddIncome();
     await this.fillIncomeAmount(amount);
@@ -86,6 +110,10 @@ export class IncomePage extends BasePage {
     await this.fillDescription(description);
     await this.fillDate(date);
     await this.submitIncomeForm();
+    await this.waitForSuccessToast();
+    
+    // Clear search to refresh the list and ensure we see the new income
+    await this.clearSearch();
   }
 
   @step
