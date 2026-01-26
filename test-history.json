@@ -5,8 +5,8 @@
       "timestamp": "2026-01-22T23:36:27.040Z"
     },
     {
-      "runId": "run-1769332117495",
-      "timestamp": "2026-01-25T09:08:37.495Z"
+      "runId": "run-1769418944675",
+      "timestamp": "2026-01-26T09:15:44.675Z"
     }
   ],
   "tests": {
@@ -29,9 +29,9 @@
       },
       {
         "passed": true,
-        "duration": 5707,
-        "timestamp": "2026-01-25T09:11:30.818Z",
-        "runId": "run-1769332117495",
+        "duration": 3782,
+        "timestamp": "2026-01-26T09:18:12.065Z",
+        "runId": "run-1769418944675",
         "skipped": false,
         "retry": 0
       }
@@ -46,28 +46,12 @@
         "retry": 0
       },
       {
-        "passed": false,
-        "duration": 4346,
-        "timestamp": "2026-01-25T09:11:30.818Z",
-        "runId": "run-1769332117495",
+        "passed": true,
+        "duration": 4032,
+        "timestamp": "2026-01-26T09:18:12.065Z",
+        "runId": "run-1769418944675",
         "skipped": false,
         "retry": 0
-      },
-      {
-        "passed": false,
-        "duration": 5545,
-        "timestamp": "2026-01-25T09:11:30.818Z",
-        "runId": "run-1769332117495",
-        "skipped": false,
-        "retry": 1
-      },
-      {
-        "passed": false,
-        "duration": 5635,
-        "timestamp": "2026-01-25T09:11:30.818Z",
-        "runId": "run-1769332117495",
-        "skipped": false,
-        "retry": 2
       }
     ],
     "specs/ai-categorization.spec.ts::AI categorizes transportation expenses to \"Transportation\"": [
@@ -81,17 +65,17 @@
       },
       {
         "passed": false,
-        "duration": 5462,
-        "timestamp": "2026-01-25T09:11:30.818Z",
-        "runId": "run-1769332117495",
+        "duration": 5077,
+        "timestamp": "2026-01-26T09:18:12.065Z",
+        "runId": "run-1769418944675",
         "skipped": false,
         "retry": 0
       },
       {
         "passed": true,
-        "duration": 4522,
-        "timestamp": "2026-01-25T09:11:30.818Z",
-        "runId": "run-1769332117495",
+        "duration": 6006,
+        "timestamp": "2026-01-26T09:18:12.065Z",
+        "runId": "run-1769418944675",
         "skipped": false,
         "retry": 1
       }
@@ -107,9 +91,9 @@
       },
       {
         "passed": true,
-        "duration": 14061,
-        "timestamp": "2026-01-25T09:11:30.818Z",
-        "runId": "run-1769332117495",
+        "duration": 12610,
+        "timestamp": "2026-01-26T09:18:12.065Z",
+        "runId": "run-1769418944675",
         "skipped": false,
         "retry": 0
       }
@@ -125,9 +109,9 @@
       },
       {
         "passed": true,
-        "duration": 8918,
-        "timestamp": "2026-01-25T09:11:30.818Z",
-        "runId": "run-1769332117495",
+        "duration": 12991,
+        "timestamp": "2026-01-26T09:18:12.065Z",
+        "runId": "run-1769418944675",
         "skipped": false,
         "retry": 0
       }
@@ -143,9 +127,9 @@
       },
       {
         "passed": true,
-        "duration": 3630,
-        "timestamp": "2026-01-25T09:11:30.818Z",
-        "runId": "run-1769332117495",
+        "duration": 4748,
+        "timestamp": "2026-01-26T09:18:12.065Z",
+        "runId": "run-1769418944675",
         "skipped": false,
         "retry": 0
       }
@@ -161,9 +145,9 @@
       },
       {
         "passed": true,
-        "duration": 3410,
-        "timestamp": "2026-01-25T09:11:30.818Z",
-        "runId": "run-1769332117495",
+        "duration": 4877,
+        "timestamp": "2026-01-26T09:18:12.065Z",
+        "runId": "run-1769418944675",
         "skipped": false,
         "retry": 0
       }
@@ -179,9 +163,9 @@
       },
       {
         "passed": true,
-        "duration": 3412,
-        "timestamp": "2026-01-25T09:11:30.818Z",
-        "runId": "run-1769332117495",
+        "duration": 3581,
+        "timestamp": "2026-01-26T09:18:12.065Z",
+        "runId": "run-1769418944675",
         "skipped": false,
         "retry": 0
       }
@@ -197,9 +181,9 @@
       },
       {
         "passed": true,
-        "duration": 3479,
-        "timestamp": "2026-01-25T09:11:30.818Z",
-        "runId": "run-1769332117495",
+        "duration": 3725,
+        "timestamp": "2026-01-26T09:18:12.065Z",
+        "runId": "run-1769418944675",
         "skipped": false,
         "retry": 0
       }
@@ -215,9 +199,9 @@
       },
       {
         "passed": true,
-        "duration": 3069,
-        "timestamp": "2026-01-25T09:11:30.818Z",
-        "runId": "run-1769332117495",
+        "duration": 3495,
+        "timestamp": "2026-01-26T09:18:12.065Z",
+        "runId": "run-1769418944675",
         "skipped": false,
         "retry": 0
       }
@@ -233,9 +217,9 @@
       },
       {
         "passed": true,
-        "duration": 3150,
-        "timestamp": "2026-01-25T09:11:30.818Z",
-        "runId": "run-1769332117495",
+        "duration": 3592,
+        "timestamp": "2026-01-26T09:18:12.065Z",
+        "runId": "run-1769418944675",
         "skipped": false,
         "retry": 0
       }
@@ -251,9 +235,9 @@
       },
       {
         "passed": true,
-        "duration": 1546,
-        "timestamp": "2026-01-25T09:11:30.818Z",
-        "runId": "run-1769332117495",
+        "duration": 2369,
+        "timestamp": "2026-01-26T09:18:12.065Z",
+        "runId": "run-1769418944675",
         "skipped": false,
         "retry": 0
       }
@@ -269,9 +253,9 @@
       },
       {
         "passed": true,
-        "duration": 3603,
-        "timestamp": "2026-01-25T09:11:30.818Z",
-        "runId": "run-1769332117495",
+        "duration": 3563,
+        "timestamp": "2026-01-26T09:18:12.065Z",
+        "runId": "run-1769418944675",
         "skipped": false,
         "retry": 0
       }
@@ -287,9 +271,9 @@
       },
       {
         "passed": true,
-        "duration": 1851,
-        "timestamp": "2026-01-25T09:11:30.818Z",
-        "runId": "run-1769332117495",
+        "duration": 2392,
+        "timestamp": "2026-01-26T09:18:12.065Z",
+        "runId": "run-1769418944675",
         "skipped": false,
         "retry": 0
       }
@@ -320,12 +304,28 @@
         "retry": 2
       },
       {
-        "passed": true,
-        "duration": 5319,
-        "timestamp": "2026-01-25T09:11:30.818Z",
-        "runId": "run-1769332117495",
+        "passed": false,
+        "duration": 32183,
+        "timestamp": "2026-01-26T09:18:12.065Z",
+        "runId": "run-1769418944675",
         "skipped": false,
         "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 33006,
+        "timestamp": "2026-01-26T09:18:12.065Z",
+        "runId": "run-1769418944675",
+        "skipped": false,
+        "retry": 1
+      },
+      {
+        "passed": false,
+        "duration": 32209,
+        "timestamp": "2026-01-26T09:18:12.065Z",
+        "runId": "run-1769418944675",
+        "skipped": false,
+        "retry": 2
       }
     ],
     "specs/ai-multilanguage.spec.ts::AI categorization works in Español": [
@@ -355,25 +355,25 @@
       },
       {
         "passed": false,
-        "duration": 31509,
-        "timestamp": "2026-01-25T09:11:30.818Z",
-        "runId": "run-1769332117495",
+        "duration": 32218,
+        "timestamp": "2026-01-26T09:18:12.065Z",
+        "runId": "run-1769418944675",
         "skipped": false,
         "retry": 0
       },
       {
         "passed": false,
-        "duration": 32218,
-        "timestamp": "2026-01-25T09:11:30.818Z",
-        "runId": "run-1769332117495",
+        "duration": 32417,
+        "timestamp": "2026-01-26T09:18:12.065Z",
+        "runId": "run-1769418944675",
         "skipped": false,
         "retry": 1
       },
       {
         "passed": false,
-        "duration": 31626,
-        "timestamp": "2026-01-25T09:11:30.818Z",
-        "runId": "run-1769332117495",
+        "duration": 32239,
+        "timestamp": "2026-01-26T09:18:12.065Z",
+        "runId": "run-1769418944675",
         "skipped": false,
         "retry": 2
       }
@@ -397,9 +397,9 @@
       },
       {
         "passed": true,
-        "duration": 21664,
-        "timestamp": "2026-01-25T09:11:30.818Z",
-        "runId": "run-1769332117495",
+        "duration": 22405,
+        "timestamp": "2026-01-26T09:18:12.065Z",
+        "runId": "run-1769418944675",
         "skipped": false,
         "retry": 0
       }
@@ -415,9 +415,9 @@
       },
       {
         "passed": true,
-        "duration": 2521,
-        "timestamp": "2026-01-25T09:11:30.818Z",
-        "runId": "run-1769332117495",
+        "duration": 2365,
+        "timestamp": "2026-01-26T09:18:12.065Z",
+        "runId": "run-1769418944675",
         "skipped": false,
         "retry": 0
       }
@@ -449,25 +449,25 @@
       },
       {
         "passed": false,
-        "duration": 31809,
-        "timestamp": "2026-01-25T09:11:30.818Z",
-        "runId": "run-1769332117495",
+        "duration": 32280,
+        "timestamp": "2026-01-26T09:18:12.065Z",
+        "runId": "run-1769418944675",
         "skipped": false,
         "retry": 0
       },
       {
         "passed": false,
-        "duration": 31721,
-        "timestamp": "2026-01-25T09:11:30.818Z",
-        "runId": "run-1769332117495",
+        "duration": 32588,
+        "timestamp": "2026-01-26T09:18:12.065Z",
+        "runId": "run-1769418944675",
         "skipped": false,
         "retry": 1
       },
       {
         "passed": false,
-        "duration": 31537,
-        "timestamp": "2026-01-25T09:11:30.818Z",
-        "runId": "run-1769332117495",
+        "duration": 32367,
+        "timestamp": "2026-01-26T09:18:12.065Z",
+        "runId": "run-1769418944675",
         "skipped": false,
         "retry": 2
       }
@@ -483,9 +483,9 @@
       },
       {
         "passed": true,
-        "duration": 2357,
-        "timestamp": "2026-01-25T09:11:30.818Z",
-        "runId": "run-1769332117495",
+        "duration": 2897,
+        "timestamp": "2026-01-26T09:18:12.065Z",
+        "runId": "run-1769418944675",
         "skipped": false,
         "retry": 0
       }
@@ -517,25 +517,25 @@
       },
       {
         "passed": false,
-        "duration": 31998,
-        "timestamp": "2026-01-25T09:11:30.818Z",
-        "runId": "run-1769332117495",
+        "duration": 32070,
+        "timestamp": "2026-01-26T09:18:12.065Z",
+        "runId": "run-1769418944675",
         "skipped": false,
         "retry": 0
       },
       {
         "passed": false,
-        "duration": 60001,
-        "timestamp": "2026-01-25T09:11:30.818Z",
-        "runId": "run-1769332117495",
+        "duration": 32482,
+        "timestamp": "2026-01-26T09:18:12.065Z",
+        "runId": "run-1769418944675",
         "skipped": false,
         "retry": 1
       },
       {
         "passed": false,
-        "duration": 31362,
-        "timestamp": "2026-01-25T09:11:30.818Z",
-        "runId": "run-1769332117495",
+        "duration": 32345,
+        "timestamp": "2026-01-26T09:18:12.065Z",
+        "runId": "run-1769418944675",
         "skipped": false,
         "retry": 2
       }
@@ -551,9 +551,9 @@
       },
       {
         "passed": true,
-        "duration": 3982,
-        "timestamp": "2026-01-25T09:11:30.818Z",
-        "runId": "run-1769332117495",
+        "duration": 4121,
+        "timestamp": "2026-01-26T09:18:12.065Z",
+        "runId": "run-1769418944675",
         "skipped": false,
         "retry": 0
       }
@@ -569,9 +569,9 @@
       },
       {
         "passed": true,
-        "duration": 4076,
-        "timestamp": "2026-01-25T09:11:30.818Z",
-        "runId": "run-1769332117495",
+        "duration": 4726,
+        "timestamp": "2026-01-26T09:18:12.065Z",
+        "runId": "run-1769418944675",
         "skipped": false,
         "retry": 0
       }
@@ -587,9 +587,9 @@
       },
       {
         "passed": true,
-        "duration": 5097,
-        "timestamp": "2026-01-25T09:11:30.818Z",
-        "runId": "run-1769332117495",
+        "duration": 5013,
+        "timestamp": "2026-01-26T09:18:12.065Z",
+        "runId": "run-1769418944675",
         "skipped": false,
         "retry": 0
       }
@@ -605,9 +605,9 @@
       },
       {
         "passed": true,
-        "duration": 5006,
-        "timestamp": "2026-01-25T09:11:30.818Z",
-        "runId": "run-1769332117495",
+        "duration": 4514,
+        "timestamp": "2026-01-26T09:18:12.065Z",
+        "runId": "run-1769418944675",
         "skipped": false,
         "retry": 0
       }
@@ -627,20 +627,20 @@
       "passRate": 60
     },
     {
-      "runId": "run-1769332117495",
-      "timestamp": "2026-01-25T09:08:37.495Z",
+      "runId": "run-1769418944675",
+      "timestamp": "2026-01-26T09:15:44.675Z",
       "total": 34,
       "passed": 21,
       "failed": 13,
       "skipped": 0,
-      "flaky": 12,
-      "slow": 7,
-      "duration": 173324,
+      "flaky": 14,
+      "slow": 5,
+      "duration": 147390,
       "passRate": 62
     }
   ],
   "runFiles": {
     "run-1769124987040": "./history-runs/run-1769124987040.json",
-    "run-1769332117495": "./history-runs/run-1769332117495.json"
+    "run-1769418944675": "./history-runs/run-1769418944675.json"
   }
 }
