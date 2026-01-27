@@ -1,0 +1,5686 @@
+{
+  "runId": "run-1769552512853",
+  "timestamp": "2026-01-27T22:21:52.853Z",
+  "tests": {
+    "auth.setup.ts::Create Account and Save Auth State": {
+      "testId": "auth.setup.ts::Create Account and Save Auth State",
+      "title": "Create Account and Save Auth State",
+      "file": "auth.setup.ts",
+      "status": "passed",
+      "duration": 4609,
+      "retry": 0,
+      "steps": [
+        {
+          "title": "Launch browser",
+          "duration": 734,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create context",
+          "duration": 7,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create page",
+          "duration": 27,
+          "category": "pw:api"
+        },
+        {
+          "title": "AuthPage.loginOrRegister",
+          "duration": 4348,
+          "category": "test.step",
+          "isSlowest": true
+        },
+        {
+          "title": "AuthPage.attemptLogin",
+          "duration": 4340,
+          "category": "test.step"
+        },
+        {
+          "title": "AuthPage.navigateToLogin",
+          "duration": 1233,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/login\"",
+          "duration": 1179,
+          "category": "pw:api"
+        },
+        {
+          "title": "AuthPage.login",
+          "duration": 91,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"test@example.com\" getByRole('textbox', { name: 'Email Address' })",
+          "duration": 25,
+          "category": "pw:api"
+        },
+        {
+          "title": "Fill \"testpassword123\" getByRole('textbox', { name: 'Password' })",
+          "duration": 7,
+          "category": "pw:api"
+        },
+        {
+          "title": "Click getByRole('button', { name: 'Sign In' })",
+          "duration": 53,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for navigation",
+          "duration": 3222,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for selector locator('text=/invalid|error|wrong/i')",
+          "duration": 3221,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 3002,
+          "category": "pw:api"
+        },
+        {
+          "title": "AuthPage.isOnLoginPage",
+          "duration": 0,
+          "category": "test.step"
+        },
+        {
+          "title": "AuthPage.hasError",
+          "duration": 4,
+          "category": "test.step"
+        },
+        {
+          "title": "AuthPage.verifyLoginSuccess",
+          "duration": 4,
+          "category": "test.step"
+        },
+        {
+          "title": "LanguageSelector.getCurrentLanguageButton",
+          "duration": 0,
+          "category": "test.step"
+        },
+        {
+          "title": "Get storage state",
+          "duration": 3,
+          "category": "pw:api"
+        },
+        {
+          "title": "Close context",
+          "duration": 6,
+          "category": "pw:api"
+        }
+      ]
+    },
+    "specs/dashboard.spec.ts::View Dashboard with Data": {
+      "testId": "specs/dashboard.spec.ts::View Dashboard with Data",
+      "title": "View Dashboard with Data",
+      "file": "specs/dashboard.spec.ts",
+      "status": "passed",
+      "duration": 6163,
+      "retry": 0,
+      "steps": [
+        {
+          "title": "Launch browser",
+          "duration": 663,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create context",
+          "duration": 98,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create page",
+          "duration": 3455,
+          "category": "pw:api",
+          "isSlowest": true
+        },
+        {
+          "title": "DashboardPage.navigate",
+          "duration": 618,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/dashboard\"",
+          "duration": 611,
+          "category": "pw:api"
+        },
+        {
+          "title": "DashboardPage.verifyWelcomeMessage",
+          "duration": 51,
+          "category": "test.step"
+        },
+        {
+          "title": "DashboardPage.verifyFinancialOverviewSubtitle",
+          "duration": 13,
+          "category": "test.step"
+        },
+        {
+          "title": "DashboardPage.verifyTotalIncomeCard",
+          "duration": 1486,
+          "category": "test.step"
+        },
+        {
+          "title": "DashboardPage.verifyTotalExpensesCard",
+          "duration": 4,
+          "category": "test.step"
+        },
+        {
+          "title": "DashboardPage.verifyNetIncomeCard",
+          "duration": 5,
+          "category": "test.step"
+        },
+        {
+          "title": "DashboardPage.verifyThisMonthCard",
+          "duration": 9,
+          "category": "test.step"
+        },
+        {
+          "title": "DashboardPage.verifyIncomeByCategorySection",
+          "duration": 10,
+          "category": "test.step"
+        },
+        {
+          "title": "DashboardPage.verifyExpensesByCategorySection",
+          "duration": 10,
+          "category": "test.step"
+        },
+        {
+          "title": "DashboardPage.verifyInvoicesByStatusSection",
+          "duration": 9,
+          "category": "test.step"
+        },
+        {
+          "title": "DashboardPage.verifyRecentActivitySectionsVisible",
+          "duration": 7,
+          "category": "test.step"
+        },
+        {
+          "title": "Close context",
+          "duration": 3,
+          "category": "pw:api"
+        }
+      ]
+    },
+    "specs/dashboard.spec.ts::Filter Dashboard by Time Periods": {
+      "testId": "specs/dashboard.spec.ts::Filter Dashboard by Time Periods",
+      "title": "Filter Dashboard by Time Periods",
+      "file": "specs/dashboard.spec.ts",
+      "status": "passed",
+      "duration": 2966,
+      "retry": 0,
+      "steps": [
+        {
+          "title": "Create context",
+          "duration": 62,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create page",
+          "duration": 159,
+          "category": "pw:api"
+        },
+        {
+          "title": "DashboardPage.navigate",
+          "duration": 285,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/dashboard\"",
+          "duration": 283,
+          "category": "pw:api"
+        },
+        {
+          "title": "DashboardPage.filterByAllTime",
+          "duration": 922,
+          "category": "test.step",
+          "isSlowest": true
+        },
+        {
+          "title": "Click getByRole('button', { name: 'All Time' })",
+          "duration": 917,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for selector getByRole('button', { name: 'All Time' })",
+          "duration": 8,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for selector getByRole('button', { name: 'This month' })",
+          "duration": 5,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for selector getByRole('button', { name: 'This year' })",
+          "duration": 7,
+          "category": "pw:api"
+        },
+        {
+          "title": "DashboardPage.filterByThisMonth",
+          "duration": 210,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button', { name: 'This month' })",
+          "duration": 208,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for selector getByRole('button', { name: 'All Time' })",
+          "duration": 248,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for selector getByRole('button', { name: 'This month' })",
+          "duration": 3,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for selector getByRole('button', { name: 'This year' })",
+          "duration": 2,
+          "category": "pw:api"
+        },
+        {
+          "title": "DashboardPage.filterByThisYear",
+          "duration": 274,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button', { name: 'This year' })",
+          "duration": 273,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for selector getByRole('button', { name: 'All Time' })",
+          "duration": 242,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for selector getByRole('button', { name: 'This month' })",
+          "duration": 9,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for selector getByRole('button', { name: 'This year' })",
+          "duration": 3,
+          "category": "pw:api"
+        },
+        {
+          "title": "Close context",
+          "duration": 17,
+          "category": "pw:api"
+        }
+      ]
+    },
+    "specs/dashboard.spec.ts::Verify Net Income Calculation": {
+      "testId": "specs/dashboard.spec.ts::Verify Net Income Calculation",
+      "title": "Verify Net Income Calculation",
+      "file": "specs/dashboard.spec.ts",
+      "status": "passed",
+      "duration": 1574,
+      "retry": 0,
+      "steps": [
+        {
+          "title": "Create context",
+          "duration": 79,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create page",
+          "duration": 176,
+          "category": "pw:api"
+        },
+        {
+          "title": "DashboardPage.navigate",
+          "duration": 309,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/dashboard\"",
+          "duration": 307,
+          "category": "pw:api"
+        },
+        {
+          "title": "DashboardPage.verifyNetIncomeCalculation",
+          "duration": 559,
+          "category": "test.step",
+          "isSlowest": true
+        },
+        {
+          "title": "Close context",
+          "duration": 34,
+          "category": "pw:api"
+        }
+      ]
+    },
+    "specs/dashboard.spec.ts::Verify Recent Activity Updates": {
+      "testId": "specs/dashboard.spec.ts::Verify Recent Activity Updates",
+      "title": "Verify Recent Activity Updates",
+      "file": "specs/dashboard.spec.ts",
+      "status": "passed",
+      "duration": 7319,
+      "retry": 0,
+      "steps": [
+        {
+          "title": "Create context",
+          "duration": 73,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create page",
+          "duration": 207,
+          "category": "pw:api"
+        },
+        {
+          "title": "DashboardPage.addNewExpenseFromDashboard",
+          "duration": 1806,
+          "category": "test.step",
+          "isSlowest": true
+        },
+        {
+          "title": "Navigate to \"/expenses\"",
+          "duration": 506,
+          "category": "pw:api"
+        },
+        {
+          "title": "Click getByRole('button', { name: /Add (New )?Expense/i })",
+          "duration": 917,
+          "category": "pw:api"
+        },
+        {
+          "title": "Fill \"25.99\" getByRole('spinbutton', { name: /Amount(\\s*\\(\\$\\))?/i })",
+          "duration": 20,
+          "category": "pw:api"
+        },
+        {
+          "title": "Fill \"Dashboard activity test 1769552748721\" getByRole('textbox', { name: 'Description' })",
+          "duration": 12,
+          "category": "pw:api"
+        },
+        {
+          "title": "Select option getByLabel('Category')",
+          "duration": 14,
+          "category": "pw:api"
+        },
+        {
+          "title": "Click getByRole('button', { name: /Add (New )?Expense/i })",
+          "duration": 328,
+          "category": "pw:api"
+        },
+        {
+          "title": "DashboardPage.navigate",
+          "duration": 152,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/dashboard\"",
+          "duration": 149,
+          "category": "pw:api"
+        },
+        {
+          "title": "DashboardPage.verifyRecentActivityUpdated",
+          "duration": 527,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/dashboard\"",
+          "duration": 124,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.deleteByDescription",
+          "duration": 798,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/expenses\"",
+          "duration": 161,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for load state \"domcontentloaded\"",
+          "duration": 1,
+          "category": "pw:api"
+        },
+        {
+          "title": "Fill \"Dashboard activity test 1769552748721\" getByRole('textbox', { name: 'Search' })",
+          "duration": 116,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 501,
+          "category": "pw:api"
+        },
+        {
+          "title": "Close context",
+          "duration": 30,
+          "category": "pw:api"
+        }
+      ]
+    },
+    "specs/dashboard.spec.ts::Verify Expenses by Category Visualization": {
+      "testId": "specs/dashboard.spec.ts::Verify Expenses by Category Visualization",
+      "title": "Verify Expenses by Category Visualization",
+      "file": "specs/dashboard.spec.ts",
+      "status": "passed",
+      "duration": 1669,
+      "retry": 0,
+      "steps": [
+        {
+          "title": "Create context",
+          "duration": 81,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create page",
+          "duration": 212,
+          "category": "pw:api"
+        },
+        {
+          "title": "DashboardPage.navigate",
+          "duration": 333,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/dashboard\"",
+          "duration": 328,
+          "category": "pw:api"
+        },
+        {
+          "title": "DashboardPage.verifyExpensesByCategorySection",
+          "duration": 609,
+          "category": "test.step",
+          "isSlowest": true
+        },
+        {
+          "title": "Close context",
+          "duration": 28,
+          "category": "pw:api"
+        }
+      ]
+    },
+    "specs/dashboard.spec.ts::Verify Invoices by Status Breakdown": {
+      "testId": "specs/dashboard.spec.ts::Verify Invoices by Status Breakdown",
+      "title": "Verify Invoices by Status Breakdown",
+      "file": "specs/dashboard.spec.ts",
+      "status": "passed",
+      "duration": 1669,
+      "retry": 0,
+      "steps": [
+        {
+          "title": "Create context",
+          "duration": 75,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create page",
+          "duration": 209,
+          "category": "pw:api"
+        },
+        {
+          "title": "DashboardPage.navigate",
+          "duration": 283,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/dashboard\"",
+          "duration": 282,
+          "category": "pw:api"
+        },
+        {
+          "title": "DashboardPage.verifyInvoicesByStatusSection",
+          "duration": 679,
+          "category": "test.step",
+          "isSlowest": true
+        },
+        {
+          "title": "DashboardPage.verifyInvoicesByStatus",
+          "duration": 5,
+          "category": "test.step"
+        },
+        {
+          "title": "DashboardPage.verifyInvoicesByStatus",
+          "duration": 7,
+          "category": "test.step"
+        },
+        {
+          "title": "DashboardPage.verifyInvoicesByStatus",
+          "duration": 4,
+          "category": "test.step"
+        },
+        {
+          "title": "Close context",
+          "duration": 36,
+          "category": "pw:api"
+        }
+      ]
+    },
+    "specs/dashboard.spec.ts::Dashboard with Complete Data Verification": {
+      "testId": "specs/dashboard.spec.ts::Dashboard with Complete Data Verification",
+      "title": "Dashboard with Complete Data Verification",
+      "file": "specs/dashboard.spec.ts",
+      "status": "passed",
+      "duration": 1694,
+      "retry": 0,
+      "steps": [
+        {
+          "title": "Create context",
+          "duration": 83,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create page",
+          "duration": 203,
+          "category": "pw:api"
+        },
+        {
+          "title": "DashboardPage.navigate",
+          "duration": 334,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/dashboard\"",
+          "duration": 333,
+          "category": "pw:api"
+        },
+        {
+          "title": "DashboardPage.verifyCompleteDataDisplay",
+          "duration": 637,
+          "category": "test.step",
+          "isSlowest": true
+        },
+        {
+          "title": "Close context",
+          "duration": 27,
+          "category": "pw:api"
+        }
+      ]
+    },
+    "specs/expenses.spec.ts::Add Valid Expense": {
+      "testId": "specs/expenses.spec.ts::Add Valid Expense",
+      "title": "Add Valid Expense",
+      "file": "specs/expenses.spec.ts",
+      "status": "passed",
+      "duration": 5321,
+      "retry": 0,
+      "steps": [
+        {
+          "title": "Create context",
+          "duration": 79,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create page",
+          "duration": 202,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create context",
+          "duration": 85,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create page",
+          "duration": 168,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.navigate",
+          "duration": 360,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/expenses\"",
+          "duration": 360,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.addValidExpense",
+          "duration": 1050,
+          "category": "test.step",
+          "isSlowest": true
+        },
+        {
+          "title": "ExpensePage.clickAddExpense",
+          "duration": 712,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button', { name: /Add (New )?Expense/i })",
+          "duration": 710,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.fillExpenseAmount",
+          "duration": 16,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"75.50\" getByRole('spinbutton', { name: /Amount(\\s*\\(\\$\\))?/i })",
+          "duration": 14,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.fillExpenseDescription",
+          "duration": 23,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"Coffee and breakfast 1769552761402\" getByRole('textbox', { name: 'Description' })",
+          "duration": 22,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.selectExpenseCategory",
+          "duration": 10,
+          "category": "test.step"
+        },
+        {
+          "title": "Select option getByLabel('Category')",
+          "duration": 8,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.submitExpenseForm",
+          "duration": 280,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button', { name: /Add (New )?Expense/i })",
+          "duration": 279,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.waitForRedirectToExpensesList",
+          "duration": 3,
+          "category": "test.step"
+        },
+        {
+          "title": "Wait for load state \"load\"",
+          "duration": 0,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.verifyExpenseCreated",
+          "duration": 177,
+          "category": "test.step"
+        },
+        {
+          "title": "ExpensePage.verifyExpensePageLoaded",
+          "duration": 154,
+          "category": "test.step"
+        },
+        {
+          "title": "Wait for load state \"networkidle\"",
+          "duration": 0,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.verifyExpenseCount",
+          "duration": 13,
+          "category": "test.step"
+        },
+        {
+          "title": "ExpensePage.verifyTotalExpenses",
+          "duration": 9,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"Coffee and breakfast 1769552761402\" getByRole('textbox', { name: 'Search' })",
+          "duration": 17,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 1001,
+          "category": "pw:api"
+        },
+        {
+          "title": "Clear getByRole('textbox', { name: 'Search' })",
+          "duration": 29,
+          "category": "pw:api"
+        },
+        {
+          "title": "Close context",
+          "duration": 2,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.deleteByDescription",
+          "duration": 1009,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/expenses\"",
+          "duration": 405,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for load state \"domcontentloaded\"",
+          "duration": 1,
+          "category": "pw:api"
+        },
+        {
+          "title": "Fill \"Coffee and breakfast 1769552761402\" getByRole('textbox', { name: 'Search' })",
+          "duration": 90,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 500,
+          "category": "pw:api"
+        },
+        {
+          "title": "Close context",
+          "duration": 16,
+          "category": "pw:api"
+        }
+      ]
+    },
+    "specs/expenses.spec.ts::Edit Existing Expense": {
+      "testId": "specs/expenses.spec.ts::Edit Existing Expense",
+      "title": "Edit Existing Expense",
+      "file": "specs/expenses.spec.ts",
+      "status": "passed",
+      "duration": 8159,
+      "retry": 0,
+      "steps": [
+        {
+          "title": "Create context",
+          "duration": 82,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create page",
+          "duration": 193,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.navigate",
+          "duration": 371,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/expenses\"",
+          "duration": 370,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.verifyExpensePageLoaded",
+          "duration": 1147,
+          "category": "test.step"
+        },
+        {
+          "title": "Wait for load state \"networkidle\"",
+          "duration": 1102,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 1001,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for selector locator('h3').first()",
+          "duration": 8,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.clickEditButtonByIndex",
+          "duration": 122,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button').nth(1)",
+          "duration": 121,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.verifyEditFormOpened",
+          "duration": 11,
+          "category": "test.step"
+        },
+        {
+          "title": "ExpensePage.clearAndFillAmount",
+          "duration": 526,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"50\" getByRole('spinbutton', { name: /Amount(\\s*\\(\\$\\))?/i })",
+          "duration": 23,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 500,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.updateDescription",
+          "duration": 31,
+          "category": "test.step"
+        },
+        {
+          "title": "Clear getByRole('textbox', { name: 'Description' })",
+          "duration": 16,
+          "category": "pw:api"
+        },
+        {
+          "title": "Fill \"Updated expense 1769552766465\" getByRole('textbox', { name: 'Description' })",
+          "duration": 13,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.updateCategory",
+          "duration": 13,
+          "category": "test.step"
+        },
+        {
+          "title": "Select option getByLabel('Category')",
+          "duration": 12,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.saveChanges",
+          "duration": 1315,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button', { name: /Update Expense|Save|Add New Expense/i })",
+          "duration": 300,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 1003,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 2000,
+          "category": "pw:api",
+          "isSlowest": true
+        },
+        {
+          "title": "ExpensePage.verifyExpenseUpdated",
+          "duration": 21,
+          "category": "test.step"
+        },
+        {
+          "title": "ExpensePage.verifyExpensePageLoaded",
+          "duration": 19,
+          "category": "test.step"
+        },
+        {
+          "title": "Wait for load state \"networkidle\"",
+          "duration": 0,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.deleteByDescription",
+          "duration": 740,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/expenses\"",
+          "duration": 177,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for load state \"domcontentloaded\"",
+          "duration": 1,
+          "category": "pw:api"
+        },
+        {
+          "title": "Fill \"Updated expense 1769552766465\" getByRole('textbox', { name: 'Search' })",
+          "duration": 51,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 501,
+          "category": "pw:api"
+        },
+        {
+          "title": "Close context",
+          "duration": 20,
+          "category": "pw:api"
+        }
+      ]
+    },
+    "specs/expenses.spec.ts::Delete Expense": {
+      "testId": "specs/expenses.spec.ts::Delete Expense",
+      "title": "Delete Expense",
+      "file": "specs/expenses.spec.ts",
+      "status": "passed",
+      "duration": 2746,
+      "retry": 0,
+      "steps": [
+        {
+          "title": "Create context",
+          "duration": 84,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create page",
+          "duration": 182,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.navigate",
+          "duration": 421,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/expenses\"",
+          "duration": 418,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for selector locator('h3.text-lg.font-semibold.text-gray-100').first()",
+          "duration": 173,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.clickEditButtonByIndex",
+          "duration": 725,
+          "category": "test.step",
+          "isSlowest": true
+        },
+        {
+          "title": "Click getByRole('button').nth(2)",
+          "duration": 724,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 499,
+          "category": "pw:api"
+        },
+        {
+          "title": "Close context",
+          "duration": 32,
+          "category": "pw:api"
+        }
+      ]
+    },
+    "specs/expenses.spec.ts::Filter Expenses by Category": {
+      "testId": "specs/expenses.spec.ts::Filter Expenses by Category",
+      "title": "Filter Expenses by Category",
+      "file": "specs/expenses.spec.ts",
+      "status": "passed",
+      "duration": 2515,
+      "retry": 0,
+      "steps": [
+        {
+          "title": "Create context",
+          "duration": 80,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create page",
+          "duration": 154,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.navigate",
+          "duration": 374,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/expenses\"",
+          "duration": 373,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.filterByCategory",
+          "duration": 96,
+          "category": "test.step"
+        },
+        {
+          "title": "Select option getByLabel('Category')",
+          "duration": 95,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.verifyFilteredResults",
+          "duration": 1082,
+          "category": "test.step",
+          "isSlowest": true
+        },
+        {
+          "title": "ExpensePage.verifyExpensePageLoaded",
+          "duration": 1082,
+          "category": "test.step"
+        },
+        {
+          "title": "Wait for load state \"networkidle\"",
+          "duration": 1048,
+          "category": "pw:api"
+        },
+        {
+          "title": "Close context",
+          "duration": 18,
+          "category": "pw:api"
+        }
+      ]
+    },
+    "specs/incomes.spec.ts::Add Valid Income Entry": {
+      "testId": "specs/incomes.spec.ts::Add Valid Income Entry",
+      "title": "Add Valid Income Entry",
+      "file": "specs/incomes.spec.ts",
+      "status": "passed",
+      "duration": 7093,
+      "retry": 0,
+      "steps": [
+        {
+          "title": "Create context",
+          "duration": 80,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create page",
+          "duration": 202,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create context",
+          "duration": 80,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create page",
+          "duration": 199,
+          "category": "pw:api"
+        },
+        {
+          "title": "IncomePage.navigate",
+          "duration": 400,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/incomes\"",
+          "duration": 395,
+          "category": "pw:api"
+        },
+        {
+          "title": "IncomePage.addValidIncome",
+          "duration": 3539,
+          "category": "test.step",
+          "isSlowest": true
+        },
+        {
+          "title": "IncomePage.clickAddIncome",
+          "duration": 1171,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button', { name: /Add (New )?Income/i })",
+          "duration": 1168,
+          "category": "pw:api"
+        },
+        {
+          "title": "IncomePage.fillIncomeAmount",
+          "duration": 20,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"3500\" getByRole('spinbutton', { name: 'Amount' })",
+          "duration": 18,
+          "category": "pw:api"
+        },
+        {
+          "title": "IncomePage.selectCategory",
+          "duration": 10,
+          "category": "test.step"
+        },
+        {
+          "title": "Select option getByLabel('Category')",
+          "duration": 8,
+          "category": "pw:api"
+        },
+        {
+          "title": "IncomePage.fillDescription",
+          "duration": 18,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"November salary payment 1769552780220\" getByRole('textbox', { name: 'Description' })",
+          "duration": 17,
+          "category": "pw:api"
+        },
+        {
+          "title": "IncomePage.fillDate",
+          "duration": 13,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"2026-01-27\" getByRole('textbox', { name: 'Date' })",
+          "duration": 10,
+          "category": "pw:api"
+        },
+        {
+          "title": "IncomePage.submitIncomeForm",
+          "duration": 633,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button', { name: /Add (New )?Income/i })",
+          "duration": 631,
+          "category": "pw:api"
+        },
+        {
+          "title": "IncomePage.waitForSuccessToast",
+          "duration": 1153,
+          "category": "test.step"
+        },
+        {
+          "title": "Wait for selector getByText(/Income added successfully|added successfully/i)",
+          "duration": 148,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 1003,
+          "category": "pw:api"
+        },
+        {
+          "title": "IncomePage.clearSearch",
+          "duration": 519,
+          "category": "test.step"
+        },
+        {
+          "title": "Clear getByRole('textbox', { name: 'Search' })",
+          "duration": 15,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 500,
+          "category": "pw:api"
+        },
+        {
+          "title": "IncomePage.verifyIncomePageLoaded",
+          "duration": 12,
+          "category": "test.step"
+        },
+        {
+          "title": "Close context",
+          "duration": 4,
+          "category": "pw:api"
+        },
+        {
+          "title": "IncomePage.deleteByDescription",
+          "duration": 1088,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/incomes\"",
+          "duration": 472,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for load state \"domcontentloaded\"",
+          "duration": 0,
+          "category": "pw:api"
+        },
+        {
+          "title": "Fill \"November salary payment 1769552780220\" getByRole('textbox', { name: 'Search' })",
+          "duration": 100,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 500,
+          "category": "pw:api"
+        },
+        {
+          "title": "Close context",
+          "duration": 226,
+          "category": "pw:api"
+        }
+      ]
+    },
+    "specs/incomes.spec.ts::Add Recurring Income": {
+      "testId": "specs/incomes.spec.ts::Add Recurring Income",
+      "title": "Add Recurring Income",
+      "file": "specs/incomes.spec.ts",
+      "status": "passed",
+      "duration": 4813,
+      "retry": 0,
+      "steps": [
+        {
+          "title": "Create context",
+          "duration": 78,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create page",
+          "duration": 153,
+          "category": "pw:api"
+        },
+        {
+          "title": "IncomePage.navigate",
+          "duration": 387,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/incomes\"",
+          "duration": 386,
+          "category": "pw:api"
+        },
+        {
+          "title": "IncomePage.clickAddIncome",
+          "duration": 1122,
+          "category": "test.step",
+          "isSlowest": true
+        },
+        {
+          "title": "Click getByRole('button', { name: /Add (New )?Income/i })",
+          "duration": 1121,
+          "category": "pw:api"
+        },
+        {
+          "title": "IncomePage.fillIncomeAmount",
+          "duration": 18,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"2000\" getByRole('spinbutton', { name: 'Amount' })",
+          "duration": 17,
+          "category": "pw:api"
+        },
+        {
+          "title": "IncomePage.selectCategory",
+          "duration": 12,
+          "category": "test.step"
+        },
+        {
+          "title": "Select option getByLabel('Category')",
+          "duration": 11,
+          "category": "pw:api"
+        },
+        {
+          "title": "IncomePage.fillDescription",
+          "duration": 11,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"Monthly retainer client 1769552786989\" getByRole('textbox', { name: 'Description' })",
+          "duration": 10,
+          "category": "pw:api"
+        },
+        {
+          "title": "IncomePage.fillDate",
+          "duration": 11,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"2026-01-27\" getByRole('textbox', { name: 'Date' })",
+          "duration": 9,
+          "category": "pw:api"
+        },
+        {
+          "title": "IncomePage.enableRecurringIncome",
+          "duration": 701,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('checkbox', { name: 'This is recurring income' })",
+          "duration": 700,
+          "category": "pw:api"
+        },
+        {
+          "title": "Select option getByLabel('Frequency')",
+          "duration": 10,
+          "category": "pw:api"
+        },
+        {
+          "title": "IncomePage.submitIncomeForm",
+          "duration": 831,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button', { name: /Add (New )?Income/i })",
+          "duration": 830,
+          "category": "pw:api"
+        },
+        {
+          "title": "IncomePage.verifyIncomePageLoaded",
+          "duration": 7,
+          "category": "test.step"
+        },
+        {
+          "title": "IncomePage.deleteByDescription",
+          "duration": 769,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/incomes\"",
+          "duration": 155,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for load state \"domcontentloaded\"",
+          "duration": 0,
+          "category": "pw:api"
+        },
+        {
+          "title": "Fill \"Monthly retainer client 1769552786989\" getByRole('textbox', { name: 'Search' })",
+          "duration": 103,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 500,
+          "category": "pw:api"
+        },
+        {
+          "title": "Close context",
+          "duration": 17,
+          "category": "pw:api"
+        }
+      ]
+    },
+    "specs/incomes.spec.ts::Edit Income Entry": {
+      "testId": "specs/incomes.spec.ts::Edit Income Entry",
+      "title": "Edit Income Entry",
+      "file": "specs/incomes.spec.ts",
+      "status": "passed",
+      "duration": 5363,
+      "retry": 0,
+      "steps": [
+        {
+          "title": "Create context",
+          "duration": 81,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create page",
+          "duration": 218,
+          "category": "pw:api"
+        },
+        {
+          "title": "IncomePage.navigate",
+          "duration": 429,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/incomes\"",
+          "duration": 428,
+          "category": "pw:api"
+        },
+        {
+          "title": "IncomePage.verifyIncomePageLoaded",
+          "duration": 48,
+          "category": "test.step"
+        },
+        {
+          "title": "IncomePage.clickEditButtonByIndex",
+          "duration": 1101,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button').nth(1)",
+          "duration": 1100,
+          "category": "pw:api"
+        },
+        {
+          "title": "IncomePage.verifyEditFormOpened",
+          "duration": 9,
+          "category": "test.step"
+        },
+        {
+          "title": "IncomePage.clearAndFillAmount",
+          "duration": 514,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"5000\" getByRole('spinbutton', { name: 'Amount' })",
+          "duration": 12,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 500,
+          "category": "pw:api"
+        },
+        {
+          "title": "Clear getByRole('textbox', { name: 'Description' })",
+          "duration": 14,
+          "category": "pw:api"
+        },
+        {
+          "title": "Fill \"Edited income entry 1769552791884\" getByRole('textbox', { name: 'Description' })",
+          "duration": 9,
+          "category": "pw:api"
+        },
+        {
+          "title": "Fill \"2026-01-27\" getByRole('textbox', { name: 'Date' })",
+          "duration": 12,
+          "category": "pw:api"
+        },
+        {
+          "title": "IncomePage.updateCategory",
+          "duration": 20,
+          "category": "test.step"
+        },
+        {
+          "title": "Select option getByLabel('Category')",
+          "duration": 18,
+          "category": "pw:api"
+        },
+        {
+          "title": "IncomePage.saveChanges",
+          "duration": 1500,
+          "category": "test.step",
+          "isSlowest": true
+        },
+        {
+          "title": "Click getByRole('button', { name: /Update Income|Save|Add Income/i })",
+          "duration": 489,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 1000,
+          "category": "pw:api"
+        },
+        {
+          "title": "IncomePage.verifyIncomePageLoaded",
+          "duration": 11,
+          "category": "test.step"
+        },
+        {
+          "title": "IncomePage.deleteByDescription",
+          "duration": 737,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/incomes\"",
+          "duration": 174,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for load state \"domcontentloaded\"",
+          "duration": 0,
+          "category": "pw:api"
+        },
+        {
+          "title": "Fill \"Edited income entry 1769552791884\" getByRole('textbox', { name: 'Search' })",
+          "duration": 52,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 502,
+          "category": "pw:api"
+        },
+        {
+          "title": "Close context",
+          "duration": 16,
+          "category": "pw:api"
+        }
+      ]
+    },
+    "specs/incomes.spec.ts::Delete Income Entry": {
+      "testId": "specs/incomes.spec.ts::Delete Income Entry",
+      "title": "Delete Income Entry",
+      "file": "specs/incomes.spec.ts",
+      "status": "failed",
+      "duration": 24003,
+      "retry": 2,
+      "error": "Error: expect(locator).toBeVisible() failed\n\nLocator: getByRole('heading', { name: 'Income to delete test 1769552847926' })\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" with timeout 15000ms\n  - waiting for getByRole('heading', { name: 'Income to delete test 1769552847926' })\n\n    at /home/runner/work/e2e_finance_app/e2e_finance_app/tests/specs/incomes.spec.ts:107:33",
+      "steps": [
+        {
+          "title": "Launch browser",
+          "duration": 74,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create context",
+          "duration": 63,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create page",
+          "duration": 152,
+          "category": "pw:api"
+        },
+        {
+          "title": "IncomePage.navigate",
+          "duration": 383,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/incomes\"",
+          "duration": 374,
+          "category": "pw:api"
+        },
+        {
+          "title": "IncomePage.addValidIncome",
+          "duration": 3601,
+          "category": "test.step",
+          "isSlowest": true
+        },
+        {
+          "title": "IncomePage.clickAddIncome",
+          "duration": 1120,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button', { name: /Add (New )?Income/i })",
+          "duration": 1115,
+          "category": "pw:api"
+        },
+        {
+          "title": "IncomePage.fillIncomeAmount",
+          "duration": 24,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"500\" getByRole('spinbutton', { name: 'Amount' })",
+          "duration": 19,
+          "category": "pw:api"
+        },
+        {
+          "title": "IncomePage.selectCategory",
+          "duration": 13,
+          "category": "test.step"
+        },
+        {
+          "title": "Select option getByLabel('Category')",
+          "duration": 11,
+          "category": "pw:api"
+        },
+        {
+          "title": "IncomePage.fillDescription",
+          "duration": 20,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"Income to delete test 1769552847926\" getByRole('textbox', { name: 'Description' })",
+          "duration": 17,
+          "category": "pw:api"
+        },
+        {
+          "title": "IncomePage.fillDate",
+          "duration": 19,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"2026-01-27\" getByRole('textbox', { name: 'Date' })",
+          "duration": 17,
+          "category": "pw:api"
+        },
+        {
+          "title": "IncomePage.submitIncomeForm",
+          "duration": 692,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button', { name: /Add (New )?Income/i })",
+          "duration": 690,
+          "category": "pw:api"
+        },
+        {
+          "title": "IncomePage.waitForSuccessToast",
+          "duration": 1185,
+          "category": "test.step"
+        },
+        {
+          "title": "Wait for selector getByText(/Income added successfully|added successfully/i)",
+          "duration": 180,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 1002,
+          "category": "pw:api"
+        },
+        {
+          "title": "IncomePage.clearSearch",
+          "duration": 521,
+          "category": "test.step"
+        },
+        {
+          "title": "Clear getByRole('textbox', { name: 'Search' })",
+          "duration": 15,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 502,
+          "category": "pw:api"
+        },
+        {
+          "title": "IncomePage.verifyIncomePageLoaded",
+          "duration": 21,
+          "category": "test.step"
+        },
+        {
+          "title": "IncomePage.searchIncome",
+          "duration": 1542,
+          "category": "test.step"
+        },
+        {
+          "title": "Clear getByRole('textbox', { name: 'Search' })",
+          "duration": 10,
+          "category": "pw:api"
+        },
+        {
+          "title": "Fill \"Income to delete test 176955\" getByRole('textbox', { name: 'Search' })",
+          "duration": 25,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 1504,
+          "category": "pw:api"
+        },
+        {
+          "title": "Reload",
+          "duration": 197,
+          "category": "pw:api"
+        },
+        {
+          "title": "IncomePage.verifyIncomePageLoaded",
+          "duration": 45,
+          "category": "test.step"
+        },
+        {
+          "title": "IncomePage.searchIncome",
+          "duration": 1545,
+          "category": "test.step"
+        },
+        {
+          "title": "Clear getByRole('textbox', { name: 'Search' })",
+          "duration": 22,
+          "category": "pw:api"
+        },
+        {
+          "title": "Fill \"Income to delete test 176955\" getByRole('textbox', { name: 'Search' })",
+          "duration": 15,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 1501,
+          "category": "pw:api"
+        },
+        {
+          "title": "IncomePage.deleteByDescription",
+          "duration": 742,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/incomes\"",
+          "duration": 174,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for load state \"domcontentloaded\"",
+          "duration": 4,
+          "category": "pw:api"
+        },
+        {
+          "title": "Fill \"Income to delete test 1769552847926\" getByRole('textbox', { name: 'Search' })",
+          "duration": 45,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 500,
+          "category": "pw:api"
+        },
+        {
+          "title": "Close context",
+          "duration": 56,
+          "category": "pw:api"
+        }
+      ],
+      "attachments": {
+        "screenshots": [],
+        "videos": [
+          "/home/runner/work/e2e_finance_app/e2e_finance_app/test-results/specs-incomes-Income-Management-Delete-Income-Entry-webkit-retry2/video.webm"
+        ],
+        "traces": []
+      }
+    },
+    "specs/incomes.spec.ts::Filter Income by Category": {
+      "testId": "specs/incomes.spec.ts::Filter Income by Category",
+      "title": "Filter Income by Category",
+      "file": "specs/incomes.spec.ts",
+      "status": "passed",
+      "duration": 8890,
+      "retry": 0,
+      "steps": [
+        {
+          "title": "Launch browser",
+          "duration": 75,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create context",
+          "duration": 63,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create page",
+          "duration": 162,
+          "category": "pw:api"
+        },
+        {
+          "title": "IncomePage.navigate",
+          "duration": 412,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/incomes\"",
+          "duration": 404,
+          "category": "pw:api"
+        },
+        {
+          "title": "IncomePage.addValidIncome",
+          "duration": 3437,
+          "category": "test.step",
+          "isSlowest": true
+        },
+        {
+          "title": "IncomePage.clickAddIncome",
+          "duration": 1133,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button', { name: /Add (New )?Income/i })",
+          "duration": 1129,
+          "category": "pw:api"
+        },
+        {
+          "title": "IncomePage.fillIncomeAmount",
+          "duration": 30,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"3500\" getByRole('spinbutton', { name: 'Amount' })",
+          "duration": 24,
+          "category": "pw:api"
+        },
+        {
+          "title": "IncomePage.selectCategory",
+          "duration": 14,
+          "category": "test.step"
+        },
+        {
+          "title": "Select option getByLabel('Category')",
+          "duration": 10,
+          "category": "pw:api"
+        },
+        {
+          "title": "IncomePage.fillDescription",
+          "duration": 33,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"Salary income for filter test 1769552872894\" getByRole('textbox', { name: 'Description' })",
+          "duration": 31,
+          "category": "pw:api"
+        },
+        {
+          "title": "IncomePage.fillDate",
+          "duration": 23,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"2026-01-27\" getByRole('textbox', { name: 'Date' })",
+          "duration": 16,
+          "category": "pw:api"
+        },
+        {
+          "title": "IncomePage.submitIncomeForm",
+          "duration": 549,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button', { name: /Add (New )?Income/i })",
+          "duration": 547,
+          "category": "pw:api"
+        },
+        {
+          "title": "IncomePage.waitForSuccessToast",
+          "duration": 1132,
+          "category": "test.step"
+        },
+        {
+          "title": "Wait for selector getByText(/Income added successfully|added successfully/i)",
+          "duration": 124,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 1003,
+          "category": "pw:api"
+        },
+        {
+          "title": "IncomePage.clearSearch",
+          "duration": 517,
+          "category": "test.step"
+        },
+        {
+          "title": "Clear getByRole('textbox', { name: 'Search' })",
+          "duration": 13,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 501,
+          "category": "pw:api"
+        },
+        {
+          "title": "IncomePage.verifyIncomePageLoaded",
+          "duration": 12,
+          "category": "test.step"
+        },
+        {
+          "title": "IncomePage.addValidIncome",
+          "duration": 2516,
+          "category": "test.step"
+        },
+        {
+          "title": "IncomePage.clickAddIncome",
+          "duration": 273,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button', { name: /Add (New )?Income/i })",
+          "duration": 271,
+          "category": "pw:api"
+        },
+        {
+          "title": "IncomePage.fillIncomeAmount",
+          "duration": 19,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"2000\" getByRole('spinbutton', { name: 'Amount' })",
+          "duration": 17,
+          "category": "pw:api"
+        },
+        {
+          "title": "IncomePage.selectCategory",
+          "duration": 10,
+          "category": "test.step"
+        },
+        {
+          "title": "Select option getByLabel('Category')",
+          "duration": 8,
+          "category": "pw:api"
+        },
+        {
+          "title": "IncomePage.fillDescription",
+          "duration": 12,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"Freelance income for filter test 1769552872894\" getByRole('textbox', { name: 'Description' })",
+          "duration": 9,
+          "category": "pw:api"
+        },
+        {
+          "title": "IncomePage.fillDate",
+          "duration": 12,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"2026-01-27\" getByRole('textbox', { name: 'Date' })",
+          "duration": 10,
+          "category": "pw:api"
+        },
+        {
+          "title": "IncomePage.submitIncomeForm",
+          "duration": 658,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button', { name: /Add (New )?Income/i })",
+          "duration": 652,
+          "category": "pw:api"
+        },
+        {
+          "title": "IncomePage.waitForSuccessToast",
+          "duration": 1011,
+          "category": "test.step"
+        },
+        {
+          "title": "Wait for selector getByText(/Income added successfully|added successfully/i)",
+          "duration": 6,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 1000,
+          "category": "pw:api"
+        },
+        {
+          "title": "IncomePage.clearSearch",
+          "duration": 518,
+          "category": "test.step"
+        },
+        {
+          "title": "Clear getByRole('textbox', { name: 'Search' })",
+          "duration": 15,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 500,
+          "category": "pw:api"
+        },
+        {
+          "title": "IncomePage.verifyIncomePageLoaded",
+          "duration": 10,
+          "category": "test.step"
+        },
+        {
+          "title": "IncomePage.filterByCategory",
+          "duration": 34,
+          "category": "test.step"
+        },
+        {
+          "title": "Select option getByLabel('Category')",
+          "duration": 32,
+          "category": "pw:api"
+        },
+        {
+          "title": "IncomePage.verifyFilteredResults",
+          "duration": 6,
+          "category": "test.step"
+        },
+        {
+          "title": "IncomePage.deleteByDescription",
+          "duration": 734,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/incomes\"",
+          "duration": 165,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for load state \"domcontentloaded\"",
+          "duration": 1,
+          "category": "pw:api"
+        },
+        {
+          "title": "Fill \"Salary income for filter test 1769552872894\" getByRole('textbox', { name: 'Search' })",
+          "duration": 55,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 500,
+          "category": "pw:api"
+        },
+        {
+          "title": "IncomePage.deleteByDescription",
+          "duration": 731,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/incomes\"",
+          "duration": 158,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for load state \"domcontentloaded\"",
+          "duration": 0,
+          "category": "pw:api"
+        },
+        {
+          "title": "Fill \"Freelance income for filter test 1769552872894\" getByRole('textbox', { name: 'Search' })",
+          "duration": 56,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 501,
+          "category": "pw:api"
+        },
+        {
+          "title": "Close context",
+          "duration": 32,
+          "category": "pw:api"
+        }
+      ]
+    },
+    "specs/invoices.spec.ts::Create Complete Invoice": {
+      "testId": "specs/invoices.spec.ts::Create Complete Invoice",
+      "title": "Create Complete Invoice",
+      "file": "specs/invoices.spec.ts",
+      "status": "passed",
+      "duration": 6198,
+      "retry": 0,
+      "steps": [
+        {
+          "title": "Create context",
+          "duration": 81,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create page",
+          "duration": 192,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create context",
+          "duration": 74,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create page",
+          "duration": 159,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.navigate",
+          "duration": 391,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/invoices\"",
+          "duration": 387,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.createCompleteInvoice",
+          "duration": 1559,
+          "category": "test.step"
+        },
+        {
+          "title": "InvoicePage.fillInvoiceNumber",
+          "duration": 148,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"INV-2025-1769552882085\" getByRole('textbox', { name: /Invoice Number/i })",
+          "duration": 144,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.fillClientName",
+          "duration": 18,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"Tech Solutions Ltd 1769552882085\" getByRole('textbox', { name: /Client Name/i })",
+          "duration": 13,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.fillClientEmail",
+          "duration": 66,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"billing@techsolutions.com\" getByRole('textbox', { name: /Client Email/i })",
+          "duration": 63,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.fillInvoiceAmount",
+          "duration": 12,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"2500\" getByRole('spinbutton', { name: /Amount/i })",
+          "duration": 10,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.fillInvoiceDescription",
+          "duration": 10,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"Website redesign and development 1769552882085\" getByRole('textbox', { name: /Description/i })",
+          "duration": 8,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.fillDueDate",
+          "duration": 54,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"2025-12-20\" getByRole('textbox', { name: /Due Date/i })",
+          "duration": 53,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.fillNotes",
+          "duration": 16,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"Net 30 payment terms apply\" getByRole('textbox', { name: /Notes/i })",
+          "duration": 14,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.submitInvoice",
+          "duration": 1232,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button', { name: /Create (New )?Invoice/i })",
+          "duration": 1231,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.verifyInvoiceInList",
+          "duration": 418,
+          "category": "test.step"
+        },
+        {
+          "title": "Close context",
+          "duration": 3,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.deleteByClientName",
+          "duration": 2102,
+          "category": "test.step",
+          "isSlowest": true
+        },
+        {
+          "title": "Navigate to \"/invoices\"",
+          "duration": 490,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for load state \"domcontentloaded\"",
+          "duration": 0,
+          "category": "pw:api"
+        },
+        {
+          "title": "Fill \"Tech Solutions Ltd 1769552882085\" getByPlaceholder('Search invoices...')",
+          "duration": 192,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 500,
+          "category": "pw:api"
+        },
+        {
+          "title": "Click getByRole('button', { name: 'Delete' }).first()",
+          "duration": 591,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 300,
+          "category": "pw:api"
+        },
+        {
+          "title": "Accept dialog",
+          "duration": 1,
+          "category": "pw:api"
+        },
+        {
+          "title": "Close context",
+          "duration": 43,
+          "category": "pw:api"
+        }
+      ]
+    },
+    "specs/invoices.spec.ts::Create Invoice with Auto-Generated Number": {
+      "testId": "specs/invoices.spec.ts::Create Invoice with Auto-Generated Number",
+      "title": "Create Invoice with Auto-Generated Number",
+      "file": "specs/invoices.spec.ts",
+      "status": "passed",
+      "duration": 4178,
+      "retry": 0,
+      "steps": [
+        {
+          "title": "Create context",
+          "duration": 81,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create page",
+          "duration": 187,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.navigate",
+          "duration": 379,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/invoices\"",
+          "duration": 377,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.createInvoiceWithAutoNumber",
+          "duration": 1034,
+          "category": "test.step"
+        },
+        {
+          "title": "InvoicePage.fillClientName",
+          "duration": 134,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"Auto Number Client 1769552888065\" getByRole('textbox', { name: /Client Name/i })",
+          "duration": 132,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.fillInvoiceAmount",
+          "duration": 15,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"1000\" getByRole('spinbutton', { name: /Amount/i })",
+          "duration": 13,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.fillInvoiceDescription",
+          "duration": 18,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"Consulting services 1769552888065\" getByRole('textbox', { name: /Description/i })",
+          "duration": 17,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.fillDueDate",
+          "duration": 55,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"2025-12-25\" getByRole('textbox', { name: /Due Date/i })",
+          "duration": 53,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.submitInvoice",
+          "duration": 809,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button', { name: /Create (New )?Invoice/i })",
+          "duration": 807,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.verifyAutoGeneratedInvoiceNumber",
+          "duration": 395,
+          "category": "test.step"
+        },
+        {
+          "title": "InvoicePage.deleteByClientName",
+          "duration": 1563,
+          "category": "test.step",
+          "isSlowest": true
+        },
+        {
+          "title": "Navigate to \"/invoices\"",
+          "duration": 222,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for load state \"domcontentloaded\"",
+          "duration": 1,
+          "category": "pw:api"
+        },
+        {
+          "title": "Fill \"Auto Number Client 1769552888065\" getByPlaceholder('Search invoices...')",
+          "duration": 115,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 501,
+          "category": "pw:api"
+        },
+        {
+          "title": "Click getByRole('button', { name: 'Delete' }).first()",
+          "duration": 403,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 301,
+          "category": "pw:api"
+        },
+        {
+          "title": "Accept dialog",
+          "duration": 2,
+          "category": "pw:api"
+        },
+        {
+          "title": "Close context",
+          "duration": 23,
+          "category": "pw:api"
+        }
+      ]
+    },
+    "specs/invoices.spec.ts::Edit Existing Invoice": {
+      "testId": "specs/invoices.spec.ts::Edit Existing Invoice",
+      "title": "Edit Existing Invoice",
+      "file": "specs/invoices.spec.ts",
+      "status": "passed",
+      "duration": 6539,
+      "retry": 0,
+      "steps": [
+        {
+          "title": "Create context",
+          "duration": 82,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create page",
+          "duration": 204,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.navigate",
+          "duration": 378,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/invoices\"",
+          "duration": 376,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.createBasicInvoice",
+          "duration": 1007,
+          "category": "test.step"
+        },
+        {
+          "title": "InvoicePage.fillClientName",
+          "duration": 152,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"Edit Test Client 1769552892280\" getByRole('textbox', { name: /Client Name/i })",
+          "duration": 149,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.fillInvoiceAmount",
+          "duration": 17,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"1500\" getByRole('spinbutton', { name: /Amount/i })",
+          "duration": 14,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.fillInvoiceDescription",
+          "duration": 14,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"Original description\" getByRole('textbox', { name: /Description/i })",
+          "duration": 12,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.fillDueDate",
+          "duration": 77,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"2025-12-30\" getByRole('textbox', { name: /Due Date/i })",
+          "duration": 75,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.submitInvoice",
+          "duration": 743,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button', { name: /Create (New )?Invoice/i })",
+          "duration": 742,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.clickEditButton",
+          "duration": 1454,
+          "category": "test.step",
+          "isSlowest": true
+        },
+        {
+          "title": "Click getByRole('button', { name: 'Edit' }).first()",
+          "duration": 1452,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.updateInvoiceAmount",
+          "duration": 21,
+          "category": "test.step"
+        },
+        {
+          "title": "Clear getByRole('spinbutton', { name: /Amount/i })",
+          "duration": 8,
+          "category": "pw:api"
+        },
+        {
+          "title": "Fill \"3000\" getByRole('spinbutton', { name: /Amount/i })",
+          "duration": 8,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.updateInvoiceStatus",
+          "duration": 10,
+          "category": "test.step"
+        },
+        {
+          "title": "Select option getByLabel('Status')",
+          "duration": 9,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.updateInvoiceDescription",
+          "duration": 23,
+          "category": "test.step"
+        },
+        {
+          "title": "Clear getByRole('textbox', { name: /Description/i })",
+          "duration": 11,
+          "category": "pw:api"
+        },
+        {
+          "title": "Fill \"Original description - UPDATED\" getByRole('textbox', { name: /Description/i })",
+          "duration": 10,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.fillNotes",
+          "duration": 10,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"Payment received - invoice completed\" getByRole('textbox', { name: /Notes/i })",
+          "duration": 9,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.fillClientName",
+          "duration": 17,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"Edit Test Client 1769552892280\" getByRole('textbox', { name: /Client Name/i })",
+          "duration": 16,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.fillDueDate",
+          "duration": 11,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"2025-12-30\" getByRole('textbox', { name: /Due Date/i })",
+          "duration": 10,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.clickUpdateInvoiceButton",
+          "duration": 922,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button', { name: 'Update Invoice' })",
+          "duration": 920,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.deleteByClientName",
+          "duration": 1407,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/invoices\"",
+          "duration": 178,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for load state \"domcontentloaded\"",
+          "duration": 1,
+          "category": "pw:api"
+        },
+        {
+          "title": "Fill \"Edit Test Client 1769552892280\" getByPlaceholder('Search invoices...')",
+          "duration": 86,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 501,
+          "category": "pw:api"
+        },
+        {
+          "title": "Click getByRole('button', { name: 'Delete' }).first()",
+          "duration": 327,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 300,
+          "category": "pw:api"
+        },
+        {
+          "title": "Accept dialog",
+          "duration": 0,
+          "category": "pw:api"
+        },
+        {
+          "title": "Close context",
+          "duration": 21,
+          "category": "pw:api"
+        }
+      ]
+    },
+    "specs/invoices.spec.ts::Delete Invoice": {
+      "testId": "specs/invoices.spec.ts::Delete Invoice",
+      "title": "Delete Invoice",
+      "file": "specs/invoices.spec.ts",
+      "status": "passed",
+      "duration": 5452,
+      "retry": 0,
+      "steps": [
+        {
+          "title": "Create context",
+          "duration": 77,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create page",
+          "duration": 213,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.navigate",
+          "duration": 383,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/invoices\"",
+          "duration": 382,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.createInvoiceWithAutoNumber",
+          "duration": 972,
+          "category": "test.step"
+        },
+        {
+          "title": "InvoicePage.fillClientName",
+          "duration": 158,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"Delete Test Client 1769552898834\" getByRole('textbox', { name: /Client Name/i })",
+          "duration": 157,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.fillInvoiceAmount",
+          "duration": 17,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"500\" getByRole('spinbutton', { name: /Amount/i })",
+          "duration": 14,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.fillInvoiceDescription",
+          "duration": 15,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"Services to be deleted\" getByRole('textbox', { name: /Description/i })",
+          "duration": 14,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.fillDueDate",
+          "duration": 49,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"2025-12-31\" getByRole('textbox', { name: /Due Date/i })",
+          "duration": 48,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.submitInvoice",
+          "duration": 729,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button', { name: /Create (New )?Invoice/i })",
+          "duration": 728,
+          "category": "pw:api"
+        },
+        {
+          "title": "Click getByRole('button', { name: 'Delete' }).first()",
+          "duration": 2132,
+          "category": "pw:api",
+          "isSlowest": true
+        },
+        {
+          "title": "Accept dialog",
+          "duration": 0,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 1000,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for load state \"networkidle\"",
+          "duration": 0,
+          "category": "pw:api"
+        },
+        {
+          "title": "Close context",
+          "duration": 36,
+          "category": "pw:api"
+        }
+      ]
+    },
+    "specs/invoices.spec.ts::Filter Invoices by Status": {
+      "testId": "specs/invoices.spec.ts::Filter Invoices by Status",
+      "title": "Filter Invoices by Status",
+      "file": "specs/invoices.spec.ts",
+      "status": "passed",
+      "duration": 12582,
+      "retry": 0,
+      "steps": [
+        {
+          "title": "Create context",
+          "duration": 77,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create page",
+          "duration": 195,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.navigate",
+          "duration": 407,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/invoices\"",
+          "duration": 401,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.createBasicInvoice",
+          "duration": 1034,
+          "category": "test.step"
+        },
+        {
+          "title": "InvoicePage.fillClientName",
+          "duration": 138,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"Pending Client 1769552904285\" getByRole('textbox', { name: /Client Name/i })",
+          "duration": 137,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.fillInvoiceAmount",
+          "duration": 15,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"1200\" getByRole('spinbutton', { name: /Amount/i })",
+          "duration": 14,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.fillInvoiceDescription",
+          "duration": 54,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"Pending services\" getByRole('textbox', { name: /Description/i })",
+          "duration": 52,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.fillDueDate",
+          "duration": 16,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"2025-12-15\" getByRole('textbox', { name: /Due Date/i })",
+          "duration": 15,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.submitInvoice",
+          "duration": 808,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button', { name: /Create (New )?Invoice/i })",
+          "duration": 806,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.createBasicInvoice",
+          "duration": 988,
+          "category": "test.step"
+        },
+        {
+          "title": "InvoicePage.fillClientName",
+          "duration": 14,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"Paid Client 1769552904285\" getByRole('textbox', { name: /Client Name/i })",
+          "duration": 13,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.fillInvoiceAmount",
+          "duration": 10,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"2000\" getByRole('spinbutton', { name: /Amount/i })",
+          "duration": 9,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.fillInvoiceDescription",
+          "duration": 19,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"Paid services\" getByRole('textbox', { name: /Description/i })",
+          "duration": 18,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.fillDueDate",
+          "duration": 10,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"2025-12-10\" getByRole('textbox', { name: /Due Date/i })",
+          "duration": 9,
+          "category": "pw:api"
+        },
+        {
+          "title": "Select option getByLabel('Status')",
+          "duration": 10,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.submitInvoice",
+          "duration": 921,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button', { name: /Create (New )?Invoice/i })",
+          "duration": 920,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.createBasicInvoice",
+          "duration": 619,
+          "category": "test.step"
+        },
+        {
+          "title": "InvoicePage.fillClientName",
+          "duration": 21,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"Overdue Client 1769552904285\" getByRole('textbox', { name: /Client Name/i })",
+          "duration": 20,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.fillInvoiceAmount",
+          "duration": 16,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"800\" getByRole('spinbutton', { name: /Amount/i })",
+          "duration": 14,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.fillInvoiceDescription",
+          "duration": 18,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"Overdue services\" getByRole('textbox', { name: /Description/i })",
+          "duration": 16,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.fillDueDate",
+          "duration": 9,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"2025-11-01\" getByRole('textbox', { name: /Due Date/i })",
+          "duration": 8,
+          "category": "pw:api"
+        },
+        {
+          "title": "Select option getByLabel('Status')",
+          "duration": 11,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.submitInvoice",
+          "duration": 540,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button', { name: /Create (New )?Invoice/i })",
+          "duration": 538,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 2002,
+          "category": "pw:api",
+          "isSlowest": true
+        },
+        {
+          "title": "InvoicePage.filterByStatus",
+          "duration": 27,
+          "category": "test.step"
+        },
+        {
+          "title": "Select option getByRole('combobox').nth(1)",
+          "duration": 25,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 1000,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.filterByStatus",
+          "duration": 23,
+          "category": "test.step"
+        },
+        {
+          "title": "Select option getByRole('combobox').nth(1)",
+          "duration": 22,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 1000,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.filterByStatus",
+          "duration": 15,
+          "category": "test.step"
+        },
+        {
+          "title": "Select option getByRole('combobox').nth(1)",
+          "duration": 14,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 1000,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.deleteByClientName",
+          "duration": 1407,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/invoices\"",
+          "duration": 187,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for load state \"domcontentloaded\"",
+          "duration": 0,
+          "category": "pw:api"
+        },
+        {
+          "title": "Fill \"Pending Client 1769552904285\" getByPlaceholder('Search invoices...')",
+          "duration": 79,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 502,
+          "category": "pw:api"
+        },
+        {
+          "title": "Click getByRole('button', { name: 'Delete' }).first()",
+          "duration": 325,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 301,
+          "category": "pw:api"
+        },
+        {
+          "title": "Accept dialog",
+          "duration": 0,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.deleteByClientName",
+          "duration": 779,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/invoices\"",
+          "duration": 148,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for load state \"domcontentloaded\"",
+          "duration": 0,
+          "category": "pw:api"
+        },
+        {
+          "title": "Fill \"Paid Client 1769552904285\" getByPlaceholder('Search invoices...')",
+          "duration": 114,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 502,
+          "category": "pw:api"
+        },
+        {
+          "title": "InvoicePage.deleteByClientName",
+          "duration": 1435,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/invoices\"",
+          "duration": 153,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for load state \"domcontentloaded\"",
+          "duration": 1,
+          "category": "pw:api"
+        },
+        {
+          "title": "Fill \"Overdue Client 1769552904285\" getByPlaceholder('Search invoices...')",
+          "duration": 70,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 500,
+          "category": "pw:api"
+        },
+        {
+          "title": "Click getByRole('button', { name: 'Delete' }).first()",
+          "duration": 394,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 301,
+          "category": "pw:api"
+        },
+        {
+          "title": "Accept dialog",
+          "duration": 3,
+          "category": "pw:api"
+        },
+        {
+          "title": "Close context",
+          "duration": 19,
+          "category": "pw:api"
+        }
+      ]
+    },
+    "specs/seed.spec.ts::seed": {
+      "testId": "specs/seed.spec.ts::seed",
+      "title": "seed",
+      "file": "specs/seed.spec.ts",
+      "status": "passed",
+      "duration": 538,
+      "retry": 0,
+      "steps": [
+        {
+          "title": "Create context",
+          "duration": 89,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create page",
+          "duration": 202,
+          "category": "pw:api",
+          "isSlowest": true
+        },
+        {
+          "title": "Close context",
+          "duration": 8,
+          "category": "pw:api"
+        }
+      ]
+    },
+    "specs/summary.spec.ts::View Complete Summary": {
+      "testId": "specs/summary.spec.ts::View Complete Summary",
+      "title": "View Complete Summary",
+      "file": "specs/summary.spec.ts",
+      "status": "passed",
+      "duration": 1804,
+      "retry": 0,
+      "steps": [
+        {
+          "title": "Create context",
+          "duration": 68,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create page",
+          "duration": 142,
+          "category": "pw:api"
+        },
+        {
+          "title": "SummaryPage.navigate",
+          "duration": 333,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/summary\"",
+          "duration": 330,
+          "category": "pw:api"
+        },
+        {
+          "title": "SummaryPage.verifyCompleteSummaryDisplay",
+          "duration": 380,
+          "category": "test.step",
+          "isSlowest": true
+        },
+        {
+          "title": "SummaryPage.verifyPageHeader",
+          "duration": 51,
+          "category": "test.step"
+        },
+        {
+          "title": "SummaryPage.verifyPageSubtitle",
+          "duration": 15,
+          "category": "test.step"
+        },
+        {
+          "title": "SummaryPage.verifyAllTimeFilterButtons",
+          "duration": 272,
+          "category": "test.step"
+        },
+        {
+          "title": "Wait for selector getByRole('button', { name: 'All Time' })",
+          "duration": 258,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for selector getByRole('button', { name: 'This month' })",
+          "duration": 5,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for selector getByRole('button', { name: 'This year' })",
+          "duration": 4,
+          "category": "pw:api"
+        },
+        {
+          "title": "SummaryPage.verifyAllMetricCards",
+          "duration": 22,
+          "category": "test.step"
+        },
+        {
+          "title": "Wait for selector getByRole('heading', { name: 'Total Income' })",
+          "duration": 3,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for selector getByRole('heading', { name: 'Total Expenses' })",
+          "duration": 4,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for selector getByRole('heading', { name: 'Net Income' })",
+          "duration": 4,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for selector getByRole('heading', { name: 'This Month' })",
+          "duration": 6,
+          "category": "pw:api"
+        },
+        {
+          "title": "SummaryPage.verifyIncomeDataDisplay",
+          "duration": 10,
+          "category": "test.step"
+        },
+        {
+          "title": "SummaryPage.verifyAllCategoryBreakdowns",
+          "duration": 4,
+          "category": "test.step"
+        },
+        {
+          "title": "SummaryPage.verifyAllRecentActivitySections",
+          "duration": 3,
+          "category": "test.step"
+        },
+        {
+          "title": "Close context",
+          "duration": 23,
+          "category": "pw:api"
+        }
+      ]
+    },
+    "specs/summary.spec.ts::Filter Summary by Time Period": {
+      "testId": "specs/summary.spec.ts::Filter Summary by Time Period",
+      "title": "Filter Summary by Time Period",
+      "file": "specs/summary.spec.ts",
+      "status": "passed",
+      "duration": 3445,
+      "retry": 0,
+      "steps": [
+        {
+          "title": "Create context",
+          "duration": 87,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create page",
+          "duration": 167,
+          "category": "pw:api"
+        },
+        {
+          "title": "SummaryPage.navigate",
+          "duration": 223,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/summary\"",
+          "duration": 222,
+          "category": "pw:api"
+        },
+        {
+          "title": "SummaryPage.filterByThisMonth",
+          "duration": 1062,
+          "category": "test.step",
+          "isSlowest": true
+        },
+        {
+          "title": "Click getByRole('button', { name: 'This month' })",
+          "duration": 1061,
+          "category": "pw:api"
+        },
+        {
+          "title": "SummaryPage.verifySummaryAfterFilter",
+          "duration": 389,
+          "category": "test.step"
+        },
+        {
+          "title": "SummaryPage.filterByThisYear",
+          "duration": 326,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button', { name: 'This year' })",
+          "duration": 325,
+          "category": "pw:api"
+        },
+        {
+          "title": "SummaryPage.verifySummaryAfterFilter",
+          "duration": 371,
+          "category": "test.step"
+        },
+        {
+          "title": "SummaryPage.filterByAllTime",
+          "duration": 333,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button', { name: 'All Time' })",
+          "duration": 332,
+          "category": "pw:api"
+        },
+        {
+          "title": "SummaryPage.verifySummaryAfterFilter",
+          "duration": 14,
+          "category": "test.step"
+        },
+        {
+          "title": "Close context",
+          "duration": 33,
+          "category": "pw:api"
+        }
+      ]
+    },
+    "specs/summary.spec.ts::Verify Category Breakdowns": {
+      "testId": "specs/summary.spec.ts::Verify Category Breakdowns",
+      "title": "Verify Category Breakdowns",
+      "file": "specs/summary.spec.ts",
+      "status": "passed",
+      "duration": 1873,
+      "retry": 0,
+      "steps": [
+        {
+          "title": "Create context",
+          "duration": 78,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create page",
+          "duration": 184,
+          "category": "pw:api"
+        },
+        {
+          "title": "SummaryPage.navigate",
+          "duration": 346,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/summary\"",
+          "duration": 345,
+          "category": "pw:api"
+        },
+        {
+          "title": "SummaryPage.verifyAllCategoryBreakdownDetails",
+          "duration": 445,
+          "category": "test.step",
+          "isSlowest": true
+        },
+        {
+          "title": "SummaryPage.verifyIncomeCategoryBreakdown",
+          "duration": 414,
+          "category": "test.step"
+        },
+        {
+          "title": "SummaryPage.verifyIncomeCategoryAmounts",
+          "duration": 8,
+          "category": "test.step"
+        },
+        {
+          "title": "SummaryPage.verifyExpenseCategoryBreakdown",
+          "duration": 5,
+          "category": "test.step"
+        },
+        {
+          "title": "SummaryPage.verifyInvoiceStatusBreakdown",
+          "duration": 5,
+          "category": "test.step"
+        },
+        {
+          "title": "SummaryPage.verifyInvoiceStatusTotals",
+          "duration": 6,
+          "category": "test.step"
+        },
+        {
+          "title": "SummaryPage.verifyRecentActivityFormats",
+          "duration": 4,
+          "category": "test.step"
+        },
+        {
+          "title": "Close context",
+          "duration": 26,
+          "category": "pw:api"
+        }
+      ]
+    },
+    "specs/ai-categorization.spec.ts::AI categorizes food-related expenses to \"Food & Dining\"": {
+      "testId": "specs/ai-categorization.spec.ts::AI categorizes food-related expenses to \"Food & Dining\"",
+      "title": "AI categorizes food-related expenses to \"Food & Dining\"",
+      "file": "specs/ai-categorization.spec.ts",
+      "status": "passed",
+      "duration": 2410,
+      "retry": 0,
+      "steps": [
+        {
+          "title": "Launch browser",
+          "duration": 49,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create context",
+          "duration": 8,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create page",
+          "duration": 27,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.navigate",
+          "duration": 232,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/expenses\"",
+          "duration": 223,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.clickAddExpense",
+          "duration": 163,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button', { name: /Add (New )?Expense/i })",
+          "duration": 158,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.fillExpenseAmount",
+          "duration": 21,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"25.50\" getByRole('spinbutton', { name: /Amount(\\s*\\(\\$\\))?/i })",
+          "duration": 18,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.fillExpenseDescription",
+          "duration": 14,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"Pizza delivery\" getByRole('textbox', { name: 'Description' })",
+          "duration": 12,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.clickAISuggestButton",
+          "duration": 69,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button', { name: 'AI Suggest' })",
+          "duration": 67,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.verifyAICategoryAutofilled",
+          "duration": 364,
+          "category": "test.step"
+        },
+        {
+          "title": "ExpensePage.verifyAISuggestionNotification",
+          "duration": 5,
+          "category": "test.step"
+        },
+        {
+          "title": "ExpensePage.submitExpenseForm",
+          "duration": 20,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button', { name: /Add (New )?Expense/i })",
+          "duration": 19,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.verifyExpenseCreatedSuccessfully",
+          "duration": 109,
+          "category": "test.step"
+        },
+        {
+          "title": "ExpensePage.verifyExpenseInList",
+          "duration": 18,
+          "category": "test.step"
+        },
+        {
+          "title": "ExpensePage.deleteByDescription",
+          "duration": 1065,
+          "category": "test.step",
+          "isSlowest": true
+        },
+        {
+          "title": "Navigate to \"/expenses\"",
+          "duration": 147,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for load state \"domcontentloaded\"",
+          "duration": 1,
+          "category": "pw:api"
+        },
+        {
+          "title": "Fill \"Pizza delivery\" getByRole('textbox', { name: 'Search' })",
+          "duration": 43,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 500,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.clickEditButtonByIndex",
+          "duration": 60,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button').nth(2)",
+          "duration": 59,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 300,
+          "category": "pw:api"
+        },
+        {
+          "title": "Close context",
+          "duration": 33,
+          "category": "pw:api"
+        }
+      ]
+    },
+    "specs/ai-categorization.spec.ts::AI categorizes transportation expenses to \"Transportation\"": {
+      "testId": "specs/ai-categorization.spec.ts::AI categorizes transportation expenses to \"Transportation\"",
+      "title": "AI categorizes transportation expenses to \"Transportation\"",
+      "file": "specs/ai-categorization.spec.ts",
+      "status": "passed",
+      "duration": 2316,
+      "retry": 0,
+      "steps": [
+        {
+          "title": "Create context",
+          "duration": 2,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create page",
+          "duration": 27,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.navigate",
+          "duration": 195,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/expenses\"",
+          "duration": 194,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.clickAddExpense",
+          "duration": 133,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button', { name: /Add (New )?Expense/i })",
+          "duration": 132,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.fillExpenseAmount",
+          "duration": 9,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"15.00\" getByRole('spinbutton', { name: /Amount(\\s*\\(\\$\\))?/i })",
+          "duration": 8,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.fillExpenseDescription",
+          "duration": 25,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"Uber ride downtown\" getByRole('textbox', { name: 'Description' })",
+          "duration": 24,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.clickAISuggestButton",
+          "duration": 69,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button', { name: 'AI Suggest' })",
+          "duration": 67,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.verifyAICategoryAutofilled",
+          "duration": 360,
+          "category": "test.step"
+        },
+        {
+          "title": "ExpensePage.verifyAISuggestionNotification",
+          "duration": 5,
+          "category": "test.step"
+        },
+        {
+          "title": "ExpensePage.submitExpenseForm",
+          "duration": 49,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button', { name: /Add (New )?Expense/i })",
+          "duration": 48,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.verifyExpenseCreatedSuccessfully",
+          "duration": 117,
+          "category": "test.step"
+        },
+        {
+          "title": "ExpensePage.verifyExpenseInList",
+          "duration": 5,
+          "category": "test.step"
+        },
+        {
+          "title": "ExpensePage.deleteByDescription",
+          "duration": 1038,
+          "category": "test.step",
+          "isSlowest": true
+        },
+        {
+          "title": "Navigate to \"/expenses\"",
+          "duration": 117,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for load state \"domcontentloaded\"",
+          "duration": 1,
+          "category": "pw:api"
+        },
+        {
+          "title": "Fill \"Uber ride downtown\" getByRole('textbox', { name: 'Search' })",
+          "duration": 52,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 501,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.clickEditButtonByIndex",
+          "duration": 58,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button').nth(2)",
+          "duration": 57,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 300,
+          "category": "pw:api"
+        },
+        {
+          "title": "Close context",
+          "duration": 29,
+          "category": "pw:api"
+        }
+      ]
+    },
+    "specs/ai-categorization.spec.ts::AI categorizes shopping expenses to \"Shopping\"": {
+      "testId": "specs/ai-categorization.spec.ts::AI categorizes shopping expenses to \"Shopping\"",
+      "title": "AI categorizes shopping expenses to \"Shopping\"",
+      "file": "specs/ai-categorization.spec.ts",
+      "status": "passed",
+      "duration": 2417,
+      "retry": 0,
+      "steps": [
+        {
+          "title": "Create context",
+          "duration": 3,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create page",
+          "duration": 22,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.navigate",
+          "duration": 250,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/expenses\"",
+          "duration": 249,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.clickAddExpense",
+          "duration": 179,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button', { name: /Add (New )?Expense/i })",
+          "duration": 178,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.fillExpenseAmount",
+          "duration": 14,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"89.99\" getByRole('spinbutton', { name: /Amount(\\s*\\(\\$\\))?/i })",
+          "duration": 13,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.fillExpenseDescription",
+          "duration": 10,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"New shoes from Amazon\" getByRole('textbox', { name: 'Description' })",
+          "duration": 9,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.clickAISuggestButton",
+          "duration": 51,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button', { name: 'AI Suggest' })",
+          "duration": 49,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.verifyAICategoryAutofilled",
+          "duration": 359,
+          "category": "test.step"
+        },
+        {
+          "title": "ExpensePage.verifyAISuggestionNotification",
+          "duration": 4,
+          "category": "test.step"
+        },
+        {
+          "title": "ExpensePage.submitExpenseForm",
+          "duration": 77,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button', { name: /Add (New )?Expense/i })",
+          "duration": 76,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.verifyExpenseCreatedSuccessfully",
+          "duration": 109,
+          "category": "test.step"
+        },
+        {
+          "title": "ExpensePage.verifyExpenseInList",
+          "duration": 6,
+          "category": "test.step"
+        },
+        {
+          "title": "ExpensePage.deleteByDescription",
+          "duration": 1049,
+          "category": "test.step",
+          "isSlowest": true
+        },
+        {
+          "title": "Navigate to \"/expenses\"",
+          "duration": 116,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for load state \"domcontentloaded\"",
+          "duration": 1,
+          "category": "pw:api"
+        },
+        {
+          "title": "Fill \"New shoes from Amazon\" getByRole('textbox', { name: 'Search' })",
+          "duration": 47,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 500,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.clickEditButtonByIndex",
+          "duration": 74,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button').nth(2)",
+          "duration": 73,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 300,
+          "category": "pw:api"
+        },
+        {
+          "title": "Close context",
+          "duration": 35,
+          "category": "pw:api"
+        }
+      ]
+    },
+    "specs/ai-categorization.spec.ts::AI categorization shows loading state during processing": {
+      "testId": "specs/ai-categorization.spec.ts::AI categorization shows loading state during processing",
+      "title": "AI categorization shows loading state during processing",
+      "file": "specs/ai-categorization.spec.ts",
+      "status": "passed",
+      "duration": 1804,
+      "retry": 0,
+      "steps": [
+        {
+          "title": "Create context",
+          "duration": 2,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create page",
+          "duration": 22,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.navigate",
+          "duration": 214,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/expenses\"",
+          "duration": 213,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.clickAddExpense",
+          "duration": 164,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button', { name: /Add (New )?Expense/i })",
+          "duration": 161,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.fillExpenseAmount",
+          "duration": 13,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"50.00\" getByRole('spinbutton', { name: /Amount(\\s*\\(\\$\\))?/i })",
+          "duration": 12,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.fillExpenseDescription",
+          "duration": 10,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"Expensive lunch\" getByRole('textbox', { name: 'Description' })",
+          "duration": 9,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.clickAISuggestButton",
+          "duration": 58,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button', { name: 'AI Suggest' })",
+          "duration": 57,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.verifyAISuggestionNotification",
+          "duration": 361,
+          "category": "test.step"
+        },
+        {
+          "title": "ExpensePage.deleteByDescription",
+          "duration": 662,
+          "category": "test.step",
+          "isSlowest": true
+        },
+        {
+          "title": "Navigate to \"/expenses\"",
+          "duration": 105,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for load state \"domcontentloaded\"",
+          "duration": 1,
+          "category": "pw:api"
+        },
+        {
+          "title": "Fill \"Expensive lunch\" getByRole('textbox', { name: 'Search' })",
+          "duration": 47,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 500,
+          "category": "pw:api"
+        },
+        {
+          "title": "Close context",
+          "duration": 44,
+          "category": "pw:api"
+        }
+      ]
+    },
+    "specs/ai-categorization.spec.ts::AI categorization works with vague descriptions": {
+      "testId": "specs/ai-categorization.spec.ts::AI categorization works with vague descriptions",
+      "title": "AI categorization works with vague descriptions",
+      "file": "specs/ai-categorization.spec.ts",
+      "status": "passed",
+      "duration": 1805,
+      "retry": 0,
+      "steps": [
+        {
+          "title": "Create context",
+          "duration": 2,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create page",
+          "duration": 23,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.navigate",
+          "duration": 204,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/expenses\"",
+          "duration": 203,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.clickAddExpense",
+          "duration": 165,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button', { name: /Add (New )?Expense/i })",
+          "duration": 164,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.fillExpenseAmount",
+          "duration": 16,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"30.00\" getByRole('spinbutton', { name: /Amount(\\s*\\(\\$\\))?/i })",
+          "duration": 11,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.fillExpenseDescription",
+          "duration": 11,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"stuff from store\" getByRole('textbox', { name: 'Description' })",
+          "duration": 10,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.clickAISuggestButton",
+          "duration": 89,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button', { name: 'AI Suggest' })",
+          "duration": 87,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.verifyAISuggestionNotification",
+          "duration": 361,
+          "category": "test.step"
+        },
+        {
+          "title": "ExpensePage.deleteByDescription",
+          "duration": 680,
+          "category": "test.step",
+          "isSlowest": true
+        },
+        {
+          "title": "Navigate to \"/expenses\"",
+          "duration": 137,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for load state \"domcontentloaded\"",
+          "duration": 0,
+          "category": "pw:api"
+        },
+        {
+          "title": "Fill \"stuff from store\" getByRole('textbox', { name: 'Search' })",
+          "duration": 34,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 500,
+          "category": "pw:api"
+        },
+        {
+          "title": "Close context",
+          "duration": 32,
+          "category": "pw:api"
+        }
+      ]
+    },
+    "specs/ai-insights.spec.ts::Display AI-generated financial insights on Summary page": {
+      "testId": "specs/ai-insights.spec.ts::Display AI-generated financial insights on Summary page",
+      "title": "Display AI-generated financial insights on Summary page",
+      "file": "specs/ai-insights.spec.ts",
+      "status": "passed",
+      "duration": 2656,
+      "retry": 0,
+      "steps": [
+        {
+          "title": "Create context",
+          "duration": 3,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create page",
+          "duration": 21,
+          "category": "pw:api"
+        },
+        {
+          "title": "SummaryPage.navigate",
+          "duration": 176,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/summary\"",
+          "duration": 172,
+          "category": "pw:api"
+        },
+        {
+          "title": "SummaryPage.verifyAIInsightsHeading",
+          "duration": 43,
+          "category": "test.step"
+        },
+        {
+          "title": "SummaryPage.clickAIInsights",
+          "duration": 77,
+          "category": "test.step"
+        },
+        {
+          "title": "SummaryPage.getAIInsightsSection",
+          "duration": 0,
+          "category": "test.step"
+        },
+        {
+          "title": "Click locator('div').filter({ hasText: /AI Financial Insights|Perspectivas Financieras|Insights Financeiros/i }).first()",
+          "duration": 74,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 2000,
+          "category": "pw:api",
+          "isSlowest": true
+        },
+        {
+          "title": "SummaryPage.verifyAIInsightsHeading",
+          "duration": 3,
+          "category": "test.step"
+        },
+        {
+          "title": "Close context",
+          "duration": 150,
+          "category": "pw:api"
+        }
+      ]
+    },
+    "specs/ai-insights.spec.ts::AI insights identify top spending categories": {
+      "testId": "specs/ai-insights.spec.ts::AI insights identify top spending categories",
+      "title": "AI insights identify top spending categories",
+      "file": "specs/ai-insights.spec.ts",
+      "status": "passed",
+      "duration": 2653,
+      "retry": 0,
+      "steps": [
+        {
+          "title": "Create context",
+          "duration": 2,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create page",
+          "duration": 21,
+          "category": "pw:api"
+        },
+        {
+          "title": "SummaryPage.navigate",
+          "duration": 177,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/summary\"",
+          "duration": 175,
+          "category": "pw:api"
+        },
+        {
+          "title": "SummaryPage.verifyAIInsightsHeading",
+          "duration": 47,
+          "category": "test.step"
+        },
+        {
+          "title": "SummaryPage.clickAIInsights",
+          "duration": 71,
+          "category": "test.step"
+        },
+        {
+          "title": "SummaryPage.getAIInsightsSection",
+          "duration": 1,
+          "category": "test.step"
+        },
+        {
+          "title": "Click locator('div').filter({ hasText: /AI Financial Insights|Perspectivas Financieras|Insights Financeiros/i }).first()",
+          "duration": 67,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 2000,
+          "category": "pw:api",
+          "isSlowest": true
+        },
+        {
+          "title": "SummaryPage.verifyAIInsightsHeading",
+          "duration": 3,
+          "category": "test.step"
+        },
+        {
+          "title": "Close context",
+          "duration": 164,
+          "category": "pw:api"
+        }
+      ]
+    },
+    "specs/ai-insights.spec.ts::AI insights provide personalized recommendations": {
+      "testId": "specs/ai-insights.spec.ts::AI insights provide personalized recommendations",
+      "title": "AI insights provide personalized recommendations",
+      "file": "specs/ai-insights.spec.ts",
+      "status": "passed",
+      "duration": 2665,
+      "retry": 0,
+      "steps": [
+        {
+          "title": "Create context",
+          "duration": 2,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create page",
+          "duration": 23,
+          "category": "pw:api"
+        },
+        {
+          "title": "SummaryPage.navigate",
+          "duration": 163,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/summary\"",
+          "duration": 162,
+          "category": "pw:api"
+        },
+        {
+          "title": "SummaryPage.verifyAIInsightsHeading",
+          "duration": 39,
+          "category": "test.step"
+        },
+        {
+          "title": "SummaryPage.clickAIInsights",
+          "duration": 95,
+          "category": "test.step"
+        },
+        {
+          "title": "SummaryPage.getAIInsightsSection",
+          "duration": 0,
+          "category": "test.step"
+        },
+        {
+          "title": "Click locator('div').filter({ hasText: /AI Financial Insights|Perspectivas Financieras|Insights Financeiros/i }).first()",
+          "duration": 94,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 1999,
+          "category": "pw:api",
+          "isSlowest": true
+        },
+        {
+          "title": "SummaryPage.verifyAIInsightsHeading",
+          "duration": 4,
+          "category": "test.step"
+        },
+        {
+          "title": "Close context",
+          "duration": 170,
+          "category": "pw:api"
+        }
+      ]
+    },
+    "specs/ai-insights.spec.ts::Refresh AI insights functionality": {
+      "testId": "specs/ai-insights.spec.ts::Refresh AI insights functionality",
+      "title": "Refresh AI insights functionality",
+      "file": "specs/ai-insights.spec.ts",
+      "status": "passed",
+      "duration": 2677,
+      "retry": 0,
+      "steps": [
+        {
+          "title": "Create context",
+          "duration": 8,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create page",
+          "duration": 27,
+          "category": "pw:api"
+        },
+        {
+          "title": "SummaryPage.navigate",
+          "duration": 187,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/summary\"",
+          "duration": 186,
+          "category": "pw:api"
+        },
+        {
+          "title": "SummaryPage.verifyAIInsightsHeading",
+          "duration": 40,
+          "category": "test.step"
+        },
+        {
+          "title": "SummaryPage.clickAIInsights",
+          "duration": 86,
+          "category": "test.step"
+        },
+        {
+          "title": "SummaryPage.getAIInsightsSection",
+          "duration": 0,
+          "category": "test.step"
+        },
+        {
+          "title": "Click locator('div').filter({ hasText: /AI Financial Insights|Perspectivas Financieras|Insights Financeiros/i }).first()",
+          "duration": 84,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 2000,
+          "category": "pw:api",
+          "isSlowest": true
+        },
+        {
+          "title": "SummaryPage.verifyAIInsightsHeading",
+          "duration": 4,
+          "category": "test.step"
+        },
+        {
+          "title": "Close context",
+          "duration": 152,
+          "category": "pw:api"
+        }
+      ]
+    },
+    "specs/ai-insights.spec.ts::Collapse and expand AI insights": {
+      "testId": "specs/ai-insights.spec.ts::Collapse and expand AI insights",
+      "title": "Collapse and expand AI insights",
+      "file": "specs/ai-insights.spec.ts",
+      "status": "passed",
+      "duration": 2642,
+      "retry": 0,
+      "steps": [
+        {
+          "title": "Create context",
+          "duration": 2,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create page",
+          "duration": 22,
+          "category": "pw:api"
+        },
+        {
+          "title": "SummaryPage.navigate",
+          "duration": 178,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/summary\"",
+          "duration": 176,
+          "category": "pw:api"
+        },
+        {
+          "title": "SummaryPage.verifyAIInsightsHeading",
+          "duration": 46,
+          "category": "test.step"
+        },
+        {
+          "title": "SummaryPage.clickAIInsights",
+          "duration": 72,
+          "category": "test.step"
+        },
+        {
+          "title": "SummaryPage.getAIInsightsSection",
+          "duration": 0,
+          "category": "test.step"
+        },
+        {
+          "title": "Click locator('div').filter({ hasText: /AI Financial Insights|Perspectivas Financieras|Insights Financeiros/i }).first()",
+          "duration": 71,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 1999,
+          "category": "pw:api",
+          "isSlowest": true
+        },
+        {
+          "title": "SummaryPage.verifyAIInsightsHeading",
+          "duration": 3,
+          "category": "test.step"
+        },
+        {
+          "title": "Close context",
+          "duration": 150,
+          "category": "pw:api"
+        }
+      ]
+    },
+    "specs/ai-multilanguage.spec.ts::Switch language to Español and verify UI updates": {
+      "testId": "specs/ai-multilanguage.spec.ts::Switch language to Español and verify UI updates",
+      "title": "Switch language to Español and verify UI updates",
+      "file": "specs/ai-multilanguage.spec.ts",
+      "status": "passed",
+      "duration": 1006,
+      "retry": 0,
+      "steps": [
+        {
+          "title": "Create context",
+          "duration": 2,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create page",
+          "duration": 22,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.navigate",
+          "duration": 253,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/expenses\"",
+          "duration": 252,
+          "category": "pw:api"
+        },
+        {
+          "title": "LanguageSelector.switchToLanguage",
+          "duration": 358,
+          "category": "test.step",
+          "isSlowest": true
+        },
+        {
+          "title": "LanguageSelector.selectLanguage",
+          "duration": 290,
+          "category": "test.step"
+        },
+        {
+          "title": "LanguageSelector.clickLanguageButton",
+          "duration": 210,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button', { name: /🇺🇸 English|🇪🇸 Español|🇧🇷 Português|🇫🇷 Français/ })",
+          "duration": 208,
+          "category": "pw:api"
+        },
+        {
+          "title": "Click getByRole('button', { name: '🇪🇸 Español' })",
+          "duration": 77,
+          "category": "pw:api"
+        },
+        {
+          "title": "LanguageSelector.waitForLanguageChange",
+          "duration": 64,
+          "category": "test.step"
+        },
+        {
+          "title": "Wait for navigation",
+          "duration": 63,
+          "category": "pw:api"
+        },
+        {
+          "title": "LanguageSelector.verifyPageInLanguage",
+          "duration": 4,
+          "category": "test.step"
+        },
+        {
+          "title": "Wait for load state \"load\"",
+          "duration": 0,
+          "category": "pw:api"
+        },
+        {
+          "title": "LanguageSelector.verifyNavigationLinks",
+          "duration": 21,
+          "category": "test.step"
+        },
+        {
+          "title": "LanguageSelector.verifyNavigationLink",
+          "duration": 7,
+          "category": "test.step"
+        },
+        {
+          "title": "LanguageSelector.verifyNavigationLink",
+          "duration": 5,
+          "category": "test.step"
+        },
+        {
+          "title": "LanguageSelector.verifyNavigationLink",
+          "duration": 4,
+          "category": "test.step"
+        },
+        {
+          "title": "LanguageSelector.verifyNavigationLink",
+          "duration": 3,
+          "category": "test.step"
+        },
+        {
+          "title": "LanguageSelector.verifyButtonText",
+          "duration": 3,
+          "category": "test.step"
+        },
+        {
+          "title": "Close context",
+          "duration": 46,
+          "category": "pw:api"
+        }
+      ]
+    },
+    "specs/ai-multilanguage.spec.ts::AI categorization works in Español": {
+      "testId": "specs/ai-multilanguage.spec.ts::AI categorization works in Español",
+      "title": "AI categorization works in Español",
+      "file": "specs/ai-multilanguage.spec.ts",
+      "status": "passed",
+      "duration": 6871,
+      "retry": 0,
+      "steps": [
+        {
+          "title": "Create context",
+          "duration": 2,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create page",
+          "duration": 23,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.navigate",
+          "duration": 598,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/expenses\"",
+          "duration": 597,
+          "category": "pw:api"
+        },
+        {
+          "title": "LanguageSelector.switchToLanguage",
+          "duration": 257,
+          "category": "test.step"
+        },
+        {
+          "title": "LanguageSelector.selectLanguage",
+          "duration": 198,
+          "category": "test.step"
+        },
+        {
+          "title": "LanguageSelector.clickLanguageButton",
+          "duration": 130,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button', { name: /🇺🇸 English|🇪🇸 Español|🇧🇷 Português|🇫🇷 Français/ })",
+          "duration": 128,
+          "category": "pw:api"
+        },
+        {
+          "title": "Click getByRole('button', { name: '🇪🇸 Español' })",
+          "duration": 64,
+          "category": "pw:api"
+        },
+        {
+          "title": "LanguageSelector.waitForLanguageChange",
+          "duration": 59,
+          "category": "test.step"
+        },
+        {
+          "title": "Wait for navigation",
+          "duration": 58,
+          "category": "pw:api"
+        },
+        {
+          "title": "Click getByRole('button', { name: 'Agregar Nuevo Gasto' })",
+          "duration": 104,
+          "category": "pw:api"
+        },
+        {
+          "title": "Fill \"20.00\" getByRole('spinbutton', { name: 'Monto' })",
+          "duration": 36,
+          "category": "pw:api"
+        },
+        {
+          "title": "Fill \"Comida para llevar\" getByRole('textbox', { name: 'Descripción' })",
+          "duration": 7,
+          "category": "pw:api"
+        },
+        {
+          "title": "Click getByRole('button', { name: 'Sugerencia IA' })",
+          "duration": 42,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.verifyAISuggestionNotification",
+          "duration": 4,
+          "category": "test.step"
+        },
+        {
+          "title": "ExpensePage.deleteByDescription",
+          "duration": 5177,
+          "category": "test.step",
+          "isSlowest": true
+        },
+        {
+          "title": "Navigate to \"/expenses\"",
+          "duration": 167,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for load state \"domcontentloaded\"",
+          "duration": 0,
+          "category": "pw:api"
+        },
+        {
+          "title": "Fill \"Comida para llevar\" getByRole('textbox', { name: 'Search' })",
+          "duration": 5002,
+          "category": "pw:api"
+        },
+        {
+          "title": "Close context",
+          "duration": 25,
+          "category": "pw:api"
+        }
+      ]
+    },
+    "specs/ai-multilanguage.spec.ts::Switch language to Português and verify UI updates": {
+      "testId": "specs/ai-multilanguage.spec.ts::Switch language to Português and verify UI updates",
+      "title": "Switch language to Português and verify UI updates",
+      "file": "specs/ai-multilanguage.spec.ts",
+      "status": "passed",
+      "duration": 928,
+      "retry": 0,
+      "steps": [
+        {
+          "title": "Create context",
+          "duration": 3,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create page",
+          "duration": 22,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.navigate",
+          "duration": 227,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/expenses\"",
+          "duration": 226,
+          "category": "pw:api"
+        },
+        {
+          "title": "LanguageSelector.switchToLanguage",
+          "duration": 282,
+          "category": "test.step",
+          "isSlowest": true
+        },
+        {
+          "title": "LanguageSelector.selectLanguage",
+          "duration": 197,
+          "category": "test.step"
+        },
+        {
+          "title": "LanguageSelector.clickLanguageButton",
+          "duration": 142,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button', { name: /🇺🇸 English|🇪🇸 Español|🇧🇷 Português|🇫🇷 Français/ })",
+          "duration": 140,
+          "category": "pw:api"
+        },
+        {
+          "title": "Click getByRole('button', { name: '🇧🇷 Português' })",
+          "duration": 53,
+          "category": "pw:api"
+        },
+        {
+          "title": "LanguageSelector.waitForLanguageChange",
+          "duration": 84,
+          "category": "test.step"
+        },
+        {
+          "title": "Wait for navigation",
+          "duration": 83,
+          "category": "pw:api"
+        },
+        {
+          "title": "LanguageSelector.verifyPageInLanguage",
+          "duration": 3,
+          "category": "test.step"
+        },
+        {
+          "title": "Wait for load state \"load\"",
+          "duration": 0,
+          "category": "pw:api"
+        },
+        {
+          "title": "LanguageSelector.verifyNavigationLinks",
+          "duration": 35,
+          "category": "test.step"
+        },
+        {
+          "title": "LanguageSelector.verifyNavigationLink",
+          "duration": 17,
+          "category": "test.step"
+        },
+        {
+          "title": "LanguageSelector.verifyNavigationLink",
+          "duration": 7,
+          "category": "test.step"
+        },
+        {
+          "title": "LanguageSelector.verifyNavigationLink",
+          "duration": 5,
+          "category": "test.step"
+        },
+        {
+          "title": "LanguageSelector.verifyNavigationLink",
+          "duration": 4,
+          "category": "test.step"
+        },
+        {
+          "title": "LanguageSelector.verifyButtonText",
+          "duration": 4,
+          "category": "test.step"
+        },
+        {
+          "title": "Close context",
+          "duration": 61,
+          "category": "pw:api"
+        }
+      ]
+    },
+    "specs/ai-multilanguage.spec.ts::AI categorization works in Português": {
+      "testId": "specs/ai-multilanguage.spec.ts::AI categorization works in Português",
+      "title": "AI categorization works in Português",
+      "file": "specs/ai-multilanguage.spec.ts",
+      "status": "passed",
+      "duration": 6442,
+      "retry": 0,
+      "steps": [
+        {
+          "title": "Create context",
+          "duration": 2,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create page",
+          "duration": 21,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.navigate",
+          "duration": 216,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/expenses\"",
+          "duration": 215,
+          "category": "pw:api"
+        },
+        {
+          "title": "LanguageSelector.switchToLanguage",
+          "duration": 233,
+          "category": "test.step"
+        },
+        {
+          "title": "LanguageSelector.selectLanguage",
+          "duration": 181,
+          "category": "test.step"
+        },
+        {
+          "title": "LanguageSelector.clickLanguageButton",
+          "duration": 125,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button', { name: /🇺🇸 English|🇪🇸 Español|🇧🇷 Português|🇫🇷 Français/ })",
+          "duration": 123,
+          "category": "pw:api"
+        },
+        {
+          "title": "Click getByRole('button', { name: '🇧🇷 Português' })",
+          "duration": 53,
+          "category": "pw:api"
+        },
+        {
+          "title": "LanguageSelector.waitForLanguageChange",
+          "duration": 51,
+          "category": "test.step"
+        },
+        {
+          "title": "Wait for navigation",
+          "duration": 50,
+          "category": "pw:api"
+        },
+        {
+          "title": "Click getByRole('button', { name: 'Adicionar Nova Despesa' })",
+          "duration": 116,
+          "category": "pw:api"
+        },
+        {
+          "title": "Fill \"20.00\" getByRole('spinbutton', { name: 'Valor' })",
+          "duration": 8,
+          "category": "pw:api"
+        },
+        {
+          "title": "Fill \"Pizza delivery\" getByRole('textbox', { name: 'Descrição' })",
+          "duration": 19,
+          "category": "pw:api"
+        },
+        {
+          "title": "Click getByRole('button', { name: 'Sugestão IA' })",
+          "duration": 61,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.verifyAISuggestionNotification",
+          "duration": 5,
+          "category": "test.step"
+        },
+        {
+          "title": "ExpensePage.deleteByDescription",
+          "duration": 5147,
+          "category": "test.step",
+          "isSlowest": true
+        },
+        {
+          "title": "Navigate to \"/expenses\"",
+          "duration": 141,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for load state \"domcontentloaded\"",
+          "duration": 0,
+          "category": "pw:api"
+        },
+        {
+          "title": "Fill \"Pizza delivery\" getByRole('textbox', { name: 'Search' })",
+          "duration": 5001,
+          "category": "pw:api"
+        },
+        {
+          "title": "Close context",
+          "duration": 28,
+          "category": "pw:api"
+        }
+      ]
+    },
+    "specs/ai-multilanguage.spec.ts::Switch language to Français and verify UI updates": {
+      "testId": "specs/ai-multilanguage.spec.ts::Switch language to Français and verify UI updates",
+      "title": "Switch language to Français and verify UI updates",
+      "file": "specs/ai-multilanguage.spec.ts",
+      "status": "passed",
+      "duration": 890,
+      "retry": 0,
+      "steps": [
+        {
+          "title": "Create context",
+          "duration": 2,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create page",
+          "duration": 21,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.navigate",
+          "duration": 215,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/expenses\"",
+          "duration": 215,
+          "category": "pw:api"
+        },
+        {
+          "title": "LanguageSelector.switchToLanguage",
+          "duration": 275,
+          "category": "test.step",
+          "isSlowest": true
+        },
+        {
+          "title": "LanguageSelector.selectLanguage",
+          "duration": 198,
+          "category": "test.step"
+        },
+        {
+          "title": "LanguageSelector.clickLanguageButton",
+          "duration": 147,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button', { name: /🇺🇸 English|🇪🇸 Español|🇧🇷 Português|🇫🇷 Français/ })",
+          "duration": 145,
+          "category": "pw:api"
+        },
+        {
+          "title": "Click getByRole('button', { name: '🇫🇷 Français' })",
+          "duration": 50,
+          "category": "pw:api"
+        },
+        {
+          "title": "LanguageSelector.waitForLanguageChange",
+          "duration": 77,
+          "category": "test.step"
+        },
+        {
+          "title": "Wait for navigation",
+          "duration": 76,
+          "category": "pw:api"
+        },
+        {
+          "title": "LanguageSelector.verifyPageInLanguage",
+          "duration": 2,
+          "category": "test.step"
+        },
+        {
+          "title": "Wait for load state \"load\"",
+          "duration": 0,
+          "category": "pw:api"
+        },
+        {
+          "title": "LanguageSelector.verifyNavigationLinks",
+          "duration": 25,
+          "category": "test.step"
+        },
+        {
+          "title": "LanguageSelector.verifyNavigationLink",
+          "duration": 9,
+          "category": "test.step"
+        },
+        {
+          "title": "LanguageSelector.verifyNavigationLink",
+          "duration": 3,
+          "category": "test.step"
+        },
+        {
+          "title": "LanguageSelector.verifyNavigationLink",
+          "duration": 4,
+          "category": "test.step"
+        },
+        {
+          "title": "LanguageSelector.verifyNavigationLink",
+          "duration": 7,
+          "category": "test.step"
+        },
+        {
+          "title": "LanguageSelector.verifyButtonText",
+          "duration": 9,
+          "category": "test.step"
+        },
+        {
+          "title": "Close context",
+          "duration": 56,
+          "category": "pw:api"
+        }
+      ]
+    },
+    "specs/ai-multilanguage.spec.ts::AI categorization works in Français": {
+      "testId": "specs/ai-multilanguage.spec.ts::AI categorization works in Français",
+      "title": "AI categorization works in Français",
+      "file": "specs/ai-multilanguage.spec.ts",
+      "status": "passed",
+      "duration": 6525,
+      "retry": 0,
+      "steps": [
+        {
+          "title": "Create context",
+          "duration": 2,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create page",
+          "duration": 22,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.navigate",
+          "duration": 252,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/expenses\"",
+          "duration": 251,
+          "category": "pw:api"
+        },
+        {
+          "title": "LanguageSelector.switchToLanguage",
+          "duration": 276,
+          "category": "test.step"
+        },
+        {
+          "title": "LanguageSelector.selectLanguage",
+          "duration": 217,
+          "category": "test.step"
+        },
+        {
+          "title": "LanguageSelector.clickLanguageButton",
+          "duration": 148,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button', { name: /🇺🇸 English|🇪🇸 Español|🇧🇷 Português|🇫🇷 Français/ })",
+          "duration": 146,
+          "category": "pw:api"
+        },
+        {
+          "title": "Click getByRole('button', { name: '🇫🇷 Français' })",
+          "duration": 67,
+          "category": "pw:api"
+        },
+        {
+          "title": "LanguageSelector.waitForLanguageChange",
+          "duration": 58,
+          "category": "test.step"
+        },
+        {
+          "title": "Wait for navigation",
+          "duration": 57,
+          "category": "pw:api"
+        },
+        {
+          "title": "Click getByRole('button', { name: 'Ajouter Nouvelle Dépense' })",
+          "duration": 99,
+          "category": "pw:api"
+        },
+        {
+          "title": "Fill \"20.00\" getByRole('spinbutton', { name: 'Montant' })",
+          "duration": 6,
+          "category": "pw:api"
+        },
+        {
+          "title": "Fill \"Nourriture à emporter\" getByRole('textbox', { name: 'Description' })",
+          "duration": 7,
+          "category": "pw:api"
+        },
+        {
+          "title": "Click getByRole('button', { name: 'Suggestion IA' })",
+          "duration": 30,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.verifyAISuggestionNotification",
+          "duration": 5,
+          "category": "test.step"
+        },
+        {
+          "title": "ExpensePage.deleteByDescription",
+          "duration": 5177,
+          "category": "test.step",
+          "isSlowest": true
+        },
+        {
+          "title": "Navigate to \"/expenses\"",
+          "duration": 170,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for load state \"domcontentloaded\"",
+          "duration": 0,
+          "category": "pw:api"
+        },
+        {
+          "title": "Fill \"Nourriture à emporter\" getByRole('textbox', { name: 'Search' })",
+          "duration": 5002,
+          "category": "pw:api"
+        },
+        {
+          "title": "Close context",
+          "duration": 28,
+          "category": "pw:api"
+        }
+      ]
+    },
+    "specs/ai-multilanguage.spec.ts::Language persists across page navigation": {
+      "testId": "specs/ai-multilanguage.spec.ts::Language persists across page navigation",
+      "title": "Language persists across page navigation",
+      "file": "specs/ai-multilanguage.spec.ts",
+      "status": "passed",
+      "duration": 1196,
+      "retry": 0,
+      "steps": [
+        {
+          "title": "Create context",
+          "duration": 3,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create page",
+          "duration": 22,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.navigate",
+          "duration": 242,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/expenses\"",
+          "duration": 241,
+          "category": "pw:api"
+        },
+        {
+          "title": "LanguageSelector.switchToLanguage",
+          "duration": 265,
+          "category": "test.step",
+          "isSlowest": true
+        },
+        {
+          "title": "LanguageSelector.selectLanguage",
+          "duration": 211,
+          "category": "test.step"
+        },
+        {
+          "title": "LanguageSelector.clickLanguageButton",
+          "duration": 132,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button', { name: /🇺🇸 English|🇪🇸 Español|🇧🇷 Português|🇫🇷 Français/ })",
+          "duration": 129,
+          "category": "pw:api"
+        },
+        {
+          "title": "Click getByRole('button', { name: '🇪🇸 Español' })",
+          "duration": 78,
+          "category": "pw:api"
+        },
+        {
+          "title": "LanguageSelector.waitForLanguageChange",
+          "duration": 52,
+          "category": "test.step"
+        },
+        {
+          "title": "Wait for navigation",
+          "duration": 51,
+          "category": "pw:api"
+        },
+        {
+          "title": "Click getByRole('link', { name: '📊 Resumen' })",
+          "duration": 62,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for navigation",
+          "duration": 113,
+          "category": "pw:api"
+        },
+        {
+          "title": "LanguageSelector.verifyLanguagePersistence",
+          "duration": 2,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('link', { name: '🏠 Panel' })",
+          "duration": 80,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for navigation",
+          "duration": 114,
+          "category": "pw:api"
+        },
+        {
+          "title": "LanguageSelector.verifyLanguagePersistence",
+          "duration": 1,
+          "category": "test.step"
+        },
+        {
+          "title": "Close context",
+          "duration": 47,
+          "category": "pw:api"
+        }
+      ]
+    },
+    "specs/ai-multilanguage.spec.ts::AI insights are generated in Spanish": {
+      "testId": "specs/ai-multilanguage.spec.ts::AI insights are generated in Spanish",
+      "title": "AI insights are generated in Spanish",
+      "file": "specs/ai-multilanguage.spec.ts",
+      "status": "passed",
+      "duration": 2951,
+      "retry": 0,
+      "steps": [
+        {
+          "title": "Create context",
+          "duration": 2,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create page",
+          "duration": 22,
+          "category": "pw:api"
+        },
+        {
+          "title": "SummaryPage.navigate",
+          "duration": 173,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/summary\"",
+          "duration": 172,
+          "category": "pw:api"
+        },
+        {
+          "title": "LanguageSelector.switchToLanguage",
+          "duration": 306,
+          "category": "test.step"
+        },
+        {
+          "title": "LanguageSelector.selectLanguage",
+          "duration": 240,
+          "category": "test.step"
+        },
+        {
+          "title": "LanguageSelector.clickLanguageButton",
+          "duration": 170,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button', { name: /🇺🇸 English|🇪🇸 Español|🇧🇷 Português|🇫🇷 Français/ })",
+          "duration": 169,
+          "category": "pw:api"
+        },
+        {
+          "title": "Click getByRole('button', { name: '🇪🇸 Español' })",
+          "duration": 68,
+          "category": "pw:api"
+        },
+        {
+          "title": "LanguageSelector.waitForLanguageChange",
+          "duration": 65,
+          "category": "test.step"
+        },
+        {
+          "title": "Wait for navigation",
+          "duration": 64,
+          "category": "pw:api"
+        },
+        {
+          "title": "SummaryPage.verifyAIInsightsHeading",
+          "duration": 9,
+          "category": "test.step"
+        },
+        {
+          "title": "SummaryPage.clickAIInsights",
+          "duration": 106,
+          "category": "test.step"
+        },
+        {
+          "title": "SummaryPage.getAIInsightsSection",
+          "duration": 0,
+          "category": "test.step"
+        },
+        {
+          "title": "Click locator('div').filter({ hasText: /AI Financial Insights|Perspectivas Financieras|Insights Financeiros/i }).first()",
+          "duration": 104,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 2000,
+          "category": "pw:api",
+          "isSlowest": true
+        },
+        {
+          "title": "SummaryPage.verifyAIInsightsHeading",
+          "duration": 2,
+          "category": "test.step"
+        },
+        {
+          "title": "Close context",
+          "duration": 162,
+          "category": "pw:api"
+        }
+      ]
+    },
+    "specs/ai-natural-language.spec.ts::Parse groceries with relative date: \"Spent $45.50 on groceries yesterday\"": {
+      "testId": "specs/ai-natural-language.spec.ts::Parse groceries with relative date: \"Spent $45.50 on groceries yesterday\"",
+      "title": "Parse groceries with relative date: \"Spent $45.50 on groceries yesterday\"",
+      "file": "specs/ai-natural-language.spec.ts",
+      "status": "passed",
+      "duration": 2029,
+      "retry": 0,
+      "steps": [
+        {
+          "title": "Create context",
+          "duration": 2,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create page",
+          "duration": 21,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.navigate",
+          "duration": 209,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/expenses\"",
+          "duration": 209,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.clickAddExpense",
+          "duration": 146,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button', { name: /Add (New )?Expense/i })",
+          "duration": 145,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.clickQuickAddButton",
+          "duration": 53,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button', { name: 'Quick Add' })",
+          "duration": 51,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.fillNaturalLanguageInput",
+          "duration": 8,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"Spent $45.50 on groceries yesterday\" getByRole('textbox', { name: 'Describe your expense' })",
+          "duration": 7,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.clickParseWithAI",
+          "duration": 55,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button', { name: 'Parse with AI' })",
+          "duration": 54,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.verifyParsingSuccessNotification",
+          "duration": 361,
+          "category": "test.step"
+        },
+        {
+          "title": "ExpensePage.verifyParsedAmount",
+          "duration": 3,
+          "category": "test.step"
+        },
+        {
+          "title": "ExpensePage.verifyParsedDescription",
+          "duration": 4,
+          "category": "test.step"
+        },
+        {
+          "title": "ExpensePage.verifyAICategoryAutofilled",
+          "duration": 6,
+          "category": "test.step"
+        },
+        {
+          "title": "ExpensePage.verifyParsedDate",
+          "duration": 3,
+          "category": "test.step"
+        },
+        {
+          "title": "ExpensePage.submitExpenseForm",
+          "duration": 76,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button', { name: /Add (New )?Expense/i })",
+          "duration": 75,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.verifyExpenseCreatedSuccessfully",
+          "duration": 109,
+          "category": "test.step"
+        },
+        {
+          "title": "ExpensePage.deleteByDescription",
+          "duration": 685,
+          "category": "test.step",
+          "isSlowest": true
+        },
+        {
+          "title": "Navigate to \"/expenses\"",
+          "duration": 125,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for load state \"domcontentloaded\"",
+          "duration": 0,
+          "category": "pw:api"
+        },
+        {
+          "title": "Fill \"groceries\" getByRole('textbox', { name: 'Search' })",
+          "duration": 49,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 500,
+          "category": "pw:api"
+        },
+        {
+          "title": "Close context",
+          "duration": 46,
+          "category": "pw:api"
+        }
+      ]
+    },
+    "specs/ai-natural-language.spec.ts::Parse transportation expense: \"Uber ride to airport for $32\"": {
+      "testId": "specs/ai-natural-language.spec.ts::Parse transportation expense: \"Uber ride to airport for $32\"",
+      "title": "Parse transportation expense: \"Uber ride to airport for $32\"",
+      "file": "specs/ai-natural-language.spec.ts",
+      "status": "passed",
+      "duration": 2964,
+      "retry": 0,
+      "steps": [
+        {
+          "title": "Create context",
+          "duration": 2,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create page",
+          "duration": 23,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.navigate",
+          "duration": 215,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/expenses\"",
+          "duration": 214,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.clickAddExpense",
+          "duration": 151,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button', { name: /Add (New )?Expense/i })",
+          "duration": 150,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.clickQuickAddButton",
+          "duration": 84,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button', { name: 'Quick Add' })",
+          "duration": 83,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.fillNaturalLanguageInput",
+          "duration": 8,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"Uber ride to airport for $32\" getByRole('textbox', { name: 'Describe your expense' })",
+          "duration": 7,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.clickParseWithAI",
+          "duration": 53,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button', { name: 'Parse with AI' })",
+          "duration": 52,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.verifyParsingSuccessNotification",
+          "duration": 861,
+          "category": "test.step"
+        },
+        {
+          "title": "ExpensePage.verifyParsedAmount",
+          "duration": 4,
+          "category": "test.step"
+        },
+        {
+          "title": "ExpensePage.verifyParsedDescriptionContains",
+          "duration": 4,
+          "category": "test.step"
+        },
+        {
+          "title": "ExpensePage.verifyAICategoryAutofilled",
+          "duration": 3,
+          "category": "test.step"
+        },
+        {
+          "title": "ExpensePage.verifyParsedDate",
+          "duration": 3,
+          "category": "test.step"
+        },
+        {
+          "title": "ExpensePage.submitExpenseForm",
+          "duration": 52,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button', { name: /Add (New )?Expense/i })",
+          "duration": 51,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.verifyExpenseCreatedSuccessfully",
+          "duration": 109,
+          "category": "test.step"
+        },
+        {
+          "title": "ExpensePage.deleteByDescription",
+          "duration": 1079,
+          "category": "test.step",
+          "isSlowest": true
+        },
+        {
+          "title": "Navigate to \"/expenses\"",
+          "duration": 111,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for load state \"domcontentloaded\"",
+          "duration": 0,
+          "category": "pw:api"
+        },
+        {
+          "title": "Fill \"uber\" getByRole('textbox', { name: 'Search' })",
+          "duration": 89,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 500,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.clickEditButtonByIndex",
+          "duration": 66,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button').nth(2)",
+          "duration": 65,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 300,
+          "category": "pw:api"
+        },
+        {
+          "title": "Close context",
+          "duration": 34,
+          "category": "pw:api"
+        }
+      ]
+    },
+    "specs/ai-natural-language.spec.ts::Parse coffee purchase with time reference: \"Coffee at Starbucks $6.50 this morning\"": {
+      "testId": "specs/ai-natural-language.spec.ts::Parse coffee purchase with time reference: \"Coffee at Starbucks $6.50 this morning\"",
+      "title": "Parse coffee purchase with time reference: \"Coffee at Starbucks $6.50 this morning\"",
+      "file": "specs/ai-natural-language.spec.ts",
+      "status": "passed",
+      "duration": 2353,
+      "retry": 0,
+      "steps": [
+        {
+          "title": "Create context",
+          "duration": 2,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create page",
+          "duration": 22,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.navigate",
+          "duration": 227,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/expenses\"",
+          "duration": 226,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.clickAddExpense",
+          "duration": 115,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button', { name: /Add (New )?Expense/i })",
+          "duration": 113,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.clickQuickAddButton",
+          "duration": 96,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button', { name: 'Quick Add' })",
+          "duration": 95,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.fillNaturalLanguageInput",
+          "duration": 9,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"Coffee at Starbucks $6.50 this morning\" getByRole('textbox', { name: 'Describe your expense' })",
+          "duration": 8,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.clickParseWithAI",
+          "duration": 26,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button', { name: 'Parse with AI' })",
+          "duration": 25,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.verifyParsingSuccessNotification",
+          "duration": 362,
+          "category": "test.step"
+        },
+        {
+          "title": "ExpensePage.verifyParsedAmount",
+          "duration": 3,
+          "category": "test.step"
+        },
+        {
+          "title": "ExpensePage.verifyParsedDescriptionContains",
+          "duration": 4,
+          "category": "test.step"
+        },
+        {
+          "title": "ExpensePage.verifyAICategoryAutofilled",
+          "duration": 3,
+          "category": "test.step"
+        },
+        {
+          "title": "ExpensePage.verifyParsedDate",
+          "duration": 3,
+          "category": "test.step"
+        },
+        {
+          "title": "ExpensePage.submitExpenseForm",
+          "duration": 52,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button', { name: /Add (New )?Expense/i })",
+          "duration": 51,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.verifyExpenseCreatedSuccessfully",
+          "duration": 105,
+          "category": "test.step"
+        },
+        {
+          "title": "ExpensePage.deleteByDescription",
+          "duration": 1050,
+          "category": "test.step",
+          "isSlowest": true
+        },
+        {
+          "title": "Navigate to \"/expenses\"",
+          "duration": 119,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for load state \"domcontentloaded\"",
+          "duration": 0,
+          "category": "pw:api"
+        },
+        {
+          "title": "Fill \"coffee\" getByRole('textbox', { name: 'Search' })",
+          "duration": 48,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 500,
+          "category": "pw:api"
+        },
+        {
+          "title": "ExpensePage.clickEditButtonByIndex",
+          "duration": 74,
+          "category": "test.step"
+        },
+        {
+          "title": "Click getByRole('button').nth(2)",
+          "duration": 72,
+          "category": "pw:api"
+        },
+        {
+          "title": "Wait for timeout",
+          "duration": 300,
+          "category": "pw:api"
+        },
+        {
+          "title": "Close context",
+          "duration": 36,
+          "category": "pw:api"
+        }
+      ]
+    }
+  }
+}
