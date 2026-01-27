@@ -87,8 +87,10 @@ test.describe('Income Management', () => {
 
     cleanup.trackIncome(uniqueDescription);
 
-    // Search for the newly created income to ensure it's visible
-    await incomePage.searchIncome(uniqueDescription);
+    // Search using shorter query - search feature has character limit
+    // Extract base text + first 6 digits of timestamp for search
+    const searchQuery = uniqueDescription.substring(0, 'Income to delete test '.length + 6);
+    await incomePage.searchIncome(searchQuery);
     
     // Wait for the income card with our description to be visible
     // Retry the search if not found initially (handles potential timing issues)
@@ -99,7 +101,7 @@ test.describe('Income Management', () => {
     if (!isVisible) {
       await page.reload();
       await incomePage.verifyIncomePageLoaded();
-      await incomePage.searchIncome(uniqueDescription);
+      await incomePage.searchIncome(searchQuery);
     }
     
     await expect(incomeHeading).toBeVisible({ timeout: 15000 });

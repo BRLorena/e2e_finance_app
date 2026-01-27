@@ -221,9 +221,13 @@ export class IncomePage extends BasePage {
     if (!description) return;
     
     try {
-      await this.navigate();
-      await this.page.getByRole('textbox', { name: 'Search' }).fill(description);
-      await this.page.waitForTimeout(1000);
+      // Navigate directly to English incomes page with short timeout
+      await this.page.goto(`${this.baseUrl}/incomes`, { timeout: 10000 });
+      await this.page.waitForLoadState('domcontentloaded', { timeout: 5000 });
+      
+      const searchInput = this.page.getByRole('textbox', { name: 'Search' });
+      await searchInput.fill(description, { timeout: 5000 });
+      await this.page.waitForTimeout(500);
       
       const incomeCard = this.page.getByRole('heading', { name: description }).first();
       const isVisible = await incomeCard.isVisible().catch(() => false);
@@ -231,7 +235,7 @@ export class IncomePage extends BasePage {
       if (isVisible) {
         this.page.on('dialog', dialog => dialog.accept());
         await this.clickEditButtonByIndex(2);
-        await this.page.waitForTimeout(500);
+        await this.page.waitForTimeout(300);
       }
     } catch (error) {
       // Income might already be deleted or not found - ignore errors

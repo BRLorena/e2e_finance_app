@@ -30,8 +30,7 @@ const naturalLanguageTestData = [
   }
 ];
 
-test.describe('AI Features', { tag: '@ai' }, () => {
-  test.describe('Natural Language Expense Parsing', () => {
+test.describe('Natural Language Expense Parsing', { tag: '@ai' }, () => {
     for (const testData of naturalLanguageTestData) {
 test(`Parse ${testData.testName}: "${testData.input}"`, async ({ page, cleanup }) => {
       const expensePage = new ExpensePage(page);
@@ -85,5 +84,4 @@ test(`Parse ${testData.testName}: "${testData.input}"`, async ({ page, cleanup }
         await expensePage.verifyExpenseCreatedSuccessfully();
       });
     }
-  });
 });

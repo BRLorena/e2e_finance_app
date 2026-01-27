@@ -252,9 +252,13 @@ export class InvoicePage extends BasePage {
     if (!clientName) return;
     
     try {
-      await this.navigate();
-      await this.page.getByPlaceholder('Search invoices...').fill(clientName);
-      await this.page.waitForTimeout(1000);
+      // Navigate directly to English invoices page with short timeout
+      await this.page.goto(`${this.baseUrl}/invoices`, { timeout: 10000 });
+      await this.page.waitForLoadState('domcontentloaded', { timeout: 5000 });
+      
+      const searchInput = this.page.getByPlaceholder('Search invoices...');
+      await searchInput.fill(clientName, { timeout: 5000 });
+      await this.page.waitForTimeout(500);
       
       const invoiceCard = this.page.getByText(clientName).first();
       const isVisible = await invoiceCard.isVisible().catch(() => false);
@@ -262,7 +266,7 @@ export class InvoicePage extends BasePage {
       if (isVisible) {
         this.page.once('dialog', dialog => dialog.accept());
         await this.page.getByRole('button', { name: 'Delete' }).first().click();
-        await this.page.waitForTimeout(500);
+        await this.page.waitForTimeout(300);
       }
     } catch (error) {
       // Invoice might already be deleted or not found - ignore errors
