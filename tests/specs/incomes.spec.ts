@@ -87,22 +87,9 @@ test.describe('Income Management', () => {
 
     cleanup.trackIncome(uniqueDescription);
 
-    // Search using shorter query - search feature has character limit
-    // Extract base text + first 6 digits of timestamp for search
-    const searchQuery = uniqueDescription.substring(0, 'Income to delete test '.length + 6);
-    await incomePage.searchIncome(searchQuery);
-    
-    // Wait for the income card with our description to be visible
-    // Retry the search if not found initially (handles potential timing issues)
+    // The newly created income should be visible at the top of the list
+    // Wait for the income card with our exact description to be visible
     const incomeHeading = page.getByRole('heading', { name: uniqueDescription });
-    
-    // If not visible after first search, reload and try again
-    const isVisible = await incomeHeading.isVisible().catch(() => false);
-    if (!isVisible) {
-      await page.reload();
-      await incomePage.verifyIncomePageLoaded();
-      await incomePage.searchIncome(searchQuery);
-    }
     
     await expect(incomeHeading).toBeVisible({ timeout: 15000 });
 
@@ -110,8 +97,6 @@ test.describe('Income Management', () => {
     page.once('dialog', dialog => dialog.accept());
     
     // Find the delete button in the same row as our income entry
-    // The income card has a container with the heading and a sibling container with buttons
-    // Use a more robust locator: find the list item/card containing the description, then its delete button
     const incomeCard = page.locator('div').filter({ has: incomeHeading }).first();
     const buttons = incomeCard.getByRole('button');
     

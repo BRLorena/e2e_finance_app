@@ -138,13 +138,15 @@ export class BasePage {
   }
 
   /**
-   * Generate a unique description with timestamp
-   * Useful for creating unique test data
+   * Generate a unique description with a 6-digit number (not full timestamp)
+   * Useful for creating unique test data with a short unique suffix
    * @param prefix - The prefix for the description
-   * @returns A unique description string
+   * @returns A unique description string (e.g., 'Income to delete test 176955')
    */
   generateUniqueDescription(prefix: string): string {
-    return `${prefix} ${Date.now()}`;
+    // Use last 6 digits of current timestamp for uniqueness
+    const shortNumber = Date.now().toString().slice(-6);
+    return `${prefix} ${shortNumber}`;
   }
 
   /**
