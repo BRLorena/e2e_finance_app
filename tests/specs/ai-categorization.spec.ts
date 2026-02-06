@@ -28,8 +28,7 @@ const categorizationTestData = [
   }
 ];
 
-test.describe('AI Features', { tag: '@ai' }, () => {
-  test.describe('AI Expense Categorization', () => {
+test.describe('AI Expense Categorization', { tag: '@ai' }, () => {
   for (const testData of categorizationTestData) {
     test(`AI categorizes ${testData.testName} to "${testData.expectedCategoryDisplay}"`, async ({ page, cleanup }) => {
       const expensePage = new ExpensePage(page);
@@ -99,6 +98,5 @@ test.describe('AI Features', { tag: '@ai' }, () => {
     const categoryValue = await page.getByRole('combobox', { name: 'Category' }).inputValue();
     expect(categoryValue).not.toBe('');
     expect(categoryValue.length).toBeGreaterThan(0);
-  });
   });
 });

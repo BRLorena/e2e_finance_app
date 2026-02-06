@@ -2,8 +2,7 @@
 import { test, expect } from '@playwright/test';
 import { SummaryPage } from '../../src/pages';
 
-test.describe('AI Features', { tag: '@ai' }, () => {
-  test.describe('AI Financial Insights', () => {
+test.describe('AI Financial Insights', { tag: '@ai' }, () => {
   test('Display AI-generated financial insights on Summary page', async ({ page }) => {
     const summaryPage = new SummaryPage(page);
     
@@ -135,6 +134,5 @@ test.describe('AI Features', { tag: '@ai' }, () => {
       // Just verify the feature is interactive
       await summaryPage.verifyAIInsightsHeading();
     }
-  });
   });
 });

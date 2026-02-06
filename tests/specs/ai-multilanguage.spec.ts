@@ -69,8 +69,7 @@ const languageTestData = [
   }
 ];
 
-test.describe('AI Features', { tag: '@ai' }, () => {
-  test.describe('Multilanguage Support', () => {
+test.describe('Multilanguage Support', { tag: '@ai' }, () => {
   for (const lang of languageTestData) {
     test(`Switch language to ${lang.languageButton.split(' ')[1]} and verify UI updates`, async ({ page, cleanup }) => {
       const expensePage = new ExpensePage(page);
@@ -177,6 +176,5 @@ test.describe('AI Features', { tag: '@ai' }, () => {
       // Just verify the AI insights feature is available in Spanish
       await summaryPage.verifyAIInsightsHeading(/Perspectivas Financieras (con )?IA|Insights Financieros/i);
     }
-  });
   });
 });

@@ -268,7 +268,7 @@ export class ExpensePage extends BasePage {
 
 @step
 async verifyExpenseInList(description: string) {
-  const element = this.page.getByRole('heading', { name: description });
+  const element = this.page.locator(`h3:text("${description}")`).first();
   await expect(element).toBeVisible();
 }
 
@@ -277,9 +277,13 @@ async verifyExpenseInList(description: string) {
     if (!description) return;
     
     try {
-      await this.navigate();
-      await this.page.getByRole('textbox', { name: 'Search' }).fill(description);
-      await this.page.waitForTimeout(1000);
+      // Navigate directly to English expenses page with short timeout
+      await this.page.goto(`${this.baseUrl}/expenses`, { timeout: 10000 });
+      await this.page.waitForLoadState('domcontentloaded', { timeout: 5000 });
+      
+      const searchInput = this.page.getByRole('textbox', { name: 'Search' });
+      await searchInput.fill(description, { timeout: 5000 });
+      await this.page.waitForTimeout(500);
       
       const expenseCard = this.page.getByRole('heading', { name: description }).first();
       const isVisible = await expenseCard.isVisible().catch(() => false);
@@ -287,7 +291,7 @@ async verifyExpenseInList(description: string) {
       if (isVisible) {
         this.page.on('dialog', dialog => dialog.accept());
         await this.clickEditButtonByIndex(2);
-        await this.page.waitForTimeout(500);
+        await this.page.waitForTimeout(300);
       }
     } catch (error) {
       // Expense might already be deleted or not found - ignore errors

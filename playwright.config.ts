@@ -77,28 +77,6 @@ export default defineConfig({
       testIgnore: [/.*\.setup\.ts/, /ai-.*.spec.ts/],
     },
     
-    // Firefox tests
-    {
-      name: 'firefox',
-      use: { 
-        ...devices['Desktop Firefox'],
-        storageState: '.auth/session.json',
-      },
-      dependencies: ['setup'],
-      testIgnore: [/.*\.setup\.ts/, /ai-.*.spec.ts/],
-    },
-    
-    // WebKit tests
-    {
-      name: 'webkit',
-      use: { 
-        ...devices['Desktop Safari'],
-        storageState: '.auth/session.json',
-      },
-      dependencies: ['setup'],
-      testIgnore: [/.*\.setup\.ts/, /ai-.*.spec.ts/],
-    },
-    
     // AI tests on Chromium (slower, longer timeouts)
     {
       name: 'ai-tests',

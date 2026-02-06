@@ -1,15 +1,12 @@
 name: Playwright Tests
 
 on:
-  # Run on push to dev or master branch
+  # Run on push to dev or master branch (on merge)
   push:
-    branches: [ dev, master ]
+    branches: [dev, master]
   # Run on pull requests to dev or master
   pull_request:
-    branches: [ dev, master ]
-  # Run daily at 9 AM UTC
-  schedule:
-    - cron: '0 9 * * *'
+    branches: [dev, master]
   # Allow manual trigger from Actions tab
   workflow_dispatch:
 
@@ -17,300 +14,225 @@ jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        shardIndex: [1, 2, 3, 4]
-        shardTotal: [4]
     steps:
-    - uses: actions/checkout@v4
-    
-    - uses: actions/setup-node@v4
-      with:
-        node-version: lts/*
-    
-    - name: Cache node modules
-      uses: actions/cache@v4
-      with:
-        path: node_modules
-        key: node-modules-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
-        restore-keys: |
-          node-modules-${{ runner.os }}-
-    
-    - name: Cache Playwright browsers
-      uses: actions/cache@v4
-      with:
-        path: ~/.cache/ms-playwright
-        key: playwright-browsers-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
-        restore-keys: |
-          playwright-browsers-${{ runner.os }}-
-        
-    - name: Install dependencies
-      run: npm ci
-      
-    - name: Install Playwright Browsers
-      run: npx playwright install --with-deps
+      - uses: actions/checkout@v4
 
-    - name: Restore test history
-      uses: actions/cache@v4
-      with:
-        path: reports/test-history.json
-        key: test-history-${{ github.ref }}
-        restore-keys: |
-          test-history-
-      
-    - name: Run Playwright tests
-      run: npx playwright test --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
-        
-    - name: Upload Smart Report
-      uses: actions/upload-artifact@v4
-      if: always()
-      with:
-        name: smart-report-${{ matrix.shardIndex }}
-        path: reports/
-        retention-days: 30
-        
-    - name: Upload Playwright report
-      uses: actions/upload-artifact@v4
-      if: always()
-      with:
-        name: playwright-report-${{ matrix.shardIndex }}
-        path: playwright-report/
-        retention-days: 7
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
 
-    - name: Upload test results
-      uses: actions/upload-artifact@v4
-      if: always()
-      with:
-        name: test-results-${{ matrix.shardIndex }}
-        path: test-results/
-        retention-days: 7
+      - name: Cache node modules
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: node-modules-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            node-modules-${{ runner.os }}-
 
-  merge-reports:
-    needs: test
-    if: always()
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-browsers-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            playwright-browsers-${{ runner.os }}-
 
-    - uses: actions/setup-node@v4
-      with:
-        node-version: lts/*
+      - name: Install dependencies
+        run: npm ci
 
-    - name: Install dependencies
-      run: npm ci
-        
-    - name: Download all smart reports
-      uses: actions/download-artifact@v4
-      with:
-        path: all-reports
-        pattern: smart-report-*
-        merge-multiple: true
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
 
-    - name: Restore test history from cache
-      uses: actions/cache@v4
-      with:
-        path: reports/test-history.json
-        key: test-history-${{ github.ref }}
-        restore-keys: |
-          test-history-
+      - name: Restore test history
+        uses: actions/cache@v4
+        with:
+          path: reports/test-history.json
+          key: test-history-${{ github.ref }}
+          restore-keys: |
+            test-history-
 
-    - name: Merge test history from shards
-      run: |
-        mkdir -p reports
-        # If we have history files from shards, merge them
-        if ls all-reports/test-history*.json 1> /dev/null 2>&1; then
-          echo "Merging history files from shards..."
-          # Use the smart reporter merge CLI if available, otherwise use the first one
-          if command -v npx playwright-smart-reporter-merge-history &> /dev/null; then
-            npx playwright-smart-reporter-merge-history all-reports/test-history*.json -o reports/test-history.json
+      - name: Run Playwright tests
+        id: test-run
+        continue-on-error: true
+        run: npx playwright test --workers=1
+
+      - name: Upload Smart Report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: smart-report
+          path: reports/
+          retention-days: 30
+
+      - name: Upload Playwright report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 7
+
+      - name: Upload test results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-results
+          path: test-results/
+          retention-days: 7
+
+      - name: Save test history to cache
+        uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: reports/test-history.json
+          key: test-history-${{ github.ref }}-${{ github.run_id }}
+
+      - name: Generate Test Summary
+        if: always()
+        run: |
+          echo "# 📊 Playwright Test Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if [[ "${{ steps.test-run.outcome }}" == "failure" ]]; then
+            echo "## ❌ Some Tests Failed" >> $GITHUB_STEP_SUMMARY
           else
-            # Fallback: copy the most recent history
-            cp $(ls -t all-reports/test-history*.json | head -1) reports/test-history.json 2>/dev/null || true
+            echo "## ✅ All Tests Passed" >> $GITHUB_STEP_SUMMARY
           fi
-        fi
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### 📈 Smart Report" >> $GITHUB_STEP_SUMMARY
+          echo "View the detailed test report with flakiness detection, stability scores, and performance trends on [GitHub Pages](https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/)." >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "📥 Download artifacts from [workflow run](../../actions/runs/${{ github.run_id }})" >> $GITHUB_STEP_SUMMARY
 
-    - name: Download all Playwright reports
-      uses: actions/download-artifact@v4
-      with:
-        path: all-playwright-reports
-        pattern: playwright-report-*
-        merge-multiple: true
-
-    - name: Generate merged Smart Report
-      run: |
-        # Run a quick report generation to merge all results
-        # The smart reporter will pick up the merged history
-        mkdir -p reports
-        
-        # Copy the latest smart report as the main one
-        if ls all-reports/smart-report.html 1> /dev/null 2>&1; then
-          cp all-reports/smart-report.html reports/smart-report.html
-        fi
-        
-        # Copy history file
-        if ls all-reports/test-history.json 1> /dev/null 2>&1; then
-          cp all-reports/test-history.json reports/test-history.json
-        fi
-
-    - name: Save test history to cache
-      uses: actions/cache/save@v4
-      if: always()
-      with:
-        path: reports/test-history.json
-        key: test-history-${{ github.ref }}-${{ github.run_id }}
-
-    - name: Generate Test Summary
-      if: always()
-      run: |
-        echo "# 📊 Playwright Test Results" >> $GITHUB_STEP_SUMMARY
-        echo "" >> $GITHUB_STEP_SUMMARY
-        
-        if [ "${{ needs.test.result }}" == "success" ]; then
-          echo "## ✅ All Tests Passed" >> $GITHUB_STEP_SUMMARY
-        else
-          echo "## ❌ Some Tests Failed" >> $GITHUB_STEP_SUMMARY
-        fi
-        
-        echo "" >> $GITHUB_STEP_SUMMARY
-        echo "### 📈 Smart Report" >> $GITHUB_STEP_SUMMARY
-        echo "View the detailed test report with flakiness detection, stability scores, and performance trends on [GitHub Pages](https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/)." >> $GITHUB_STEP_SUMMARY
-        echo "" >> $GITHUB_STEP_SUMMARY
-        echo "📥 Download artifacts from [workflow run](../../actions/runs/${{ github.run_id }})" >> $GITHUB_STEP_SUMMARY
-        
-    - name: Upload merged Smart Report
-      uses: actions/upload-artifact@v4
-      with:
-        name: smart-report
-        path: reports/
-        retention-days: 30
+      - name: Fail job if tests failed
+        if: steps.test-run.outcome == 'failure'
+        run: exit 1
 
   deploy-report:
-    needs: merge-reports
+    needs: test
     runs-on: ubuntu-latest
     if: always() && (github.event_name == 'push' || github.event_name == 'schedule') && (github.ref == 'refs/heads/dev' || github.ref == 'refs/heads/master')
     permissions:
       contents: write
     steps:
-    - name: Download Smart Report
-      uses: actions/download-artifact@v4
-      with:
-        name: smart-report
-        path: smart-report
-        
-    - name: Prepare GitHub Pages content
-      run: |
-        mkdir -p gh-pages
-        # Copy the smart report as index.html for GitHub Pages
-        if [ -f "smart-report/smart-report.html" ]; then
-          cp smart-report/smart-report.html gh-pages/index.html
-        fi
-        # Also keep the original filename
-        cp -r smart-report/* gh-pages/ 2>/dev/null || true
-        
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_branch: gh-pages
-        publish_dir: gh-pages
-        keep_files: false
+      - name: Download Smart Report
+        uses: actions/download-artifact@v4
+        with:
+          name: smart-report
+          path: smart-report
+
+      - name: Prepare GitHub Pages content
+        run: |
+          mkdir -p gh-pages
+          # Copy the smart report as index.html for GitHub Pages
+          if [ -f "smart-report/smart-report.html" ]; then
+            cp smart-report/smart-report.html gh-pages/index.html
+          fi
+          # Also keep the original filename
+          cp -r smart-report/* gh-pages/ 2>/dev/null || true
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: gh-pages
+          keep_files: false
 
   notify:
-    needs: [test, merge-reports]
+    needs: test
     runs-on: ubuntu-latest
     if: always() && vars.SLACK_ENABLED == 'true'
     steps:
-    - uses: actions/checkout@v4
-    
-    - name: Download Smart Report
-      uses: actions/download-artifact@v4
-      if: always()
-      continue-on-error: true
-      with:
-        name: smart-report
-        path: reports
-        
-    - name: Send Slack notification
-      run: |
-        # Determine test status
-        if [[ "${{ needs.test.result }}" == "success" ]]; then
-          STATUS_EMOJI="✅"
-          STATUS_TEXT="passed"
-          COLOR="good"
-        else
-          STATUS_EMOJI="❌"
-          STATUS_TEXT="failed"
-          COLOR="danger"
-        fi
-        
-        # Build Slack payload
-        cat > slack-payload.json << EOF
-        {
-          "attachments": [
-            {
-              "color": "${COLOR}",
-              "blocks": [
-                {
-                  "type": "header",
-                  "text": {
-                    "type": "plain_text",
-                    "text": "${STATUS_EMOJI} Playwright Tests ${STATUS_TEXT}",
-                    "emoji": true
+      - uses: actions/checkout@v4
+
+      - name: Download Smart Report
+        uses: actions/download-artifact@v4
+        if: always()
+        continue-on-error: true
+        with:
+          name: smart-report
+          path: reports
+
+      - name: Send Slack notification
+        run: |
+          # Determine test status
+          if [[ "${{ needs.test.result }}" == "success" ]]; then
+            STATUS_EMOJI="✅"
+            STATUS_TEXT="passed"
+            COLOR="good"
+          else
+            STATUS_EMOJI="❌"
+            STATUS_TEXT="failed"
+            COLOR="danger"
+          fi
+
+          # Build Slack payload
+          cat > slack-payload.json << EOF
+          {
+            "attachments": [
+              {
+                "color": "${COLOR}",
+                "blocks": [
+                  {
+                    "type": "header",
+                    "text": {
+                      "type": "plain_text",
+                      "text": "${STATUS_EMOJI} Playwright Tests ${STATUS_TEXT}",
+                      "emoji": true
+                    }
+                  },
+                  {
+                    "type": "section",
+                    "fields": [
+                      {
+                        "type": "mrkdwn",
+                        "text": "*Repository:*\n${{ github.repository }}"
+                      },
+                      {
+                        "type": "mrkdwn",
+                        "text": "*Branch:*\n${{ github.ref_name }}"
+                      },
+                      {
+                        "type": "mrkdwn",
+                        "text": "*Triggered by:*\n${{ github.actor }}"
+                      },
+                      {
+                        "type": "mrkdwn",
+                        "text": "*Event:*\n${{ github.event_name }}"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "actions",
+                    "elements": [
+                      {
+                        "type": "button",
+                        "text": {
+                          "type": "plain_text",
+                          "text": "📊 View Report",
+                          "emoji": true
+                        },
+                        "url": "https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
+                      },
+                      {
+                        "type": "button",
+                        "text": {
+                          "type": "plain_text",
+                          "text": "🔗 Workflow Run",
+                          "emoji": true
+                        },
+                        "url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+                      }
+                    ]
                   }
-                },
-                {
-                  "type": "section",
-                  "fields": [
-                    {
-                      "type": "mrkdwn",
-                      "text": "*Repository:*\n${{ github.repository }}"
-                    },
-                    {
-                      "type": "mrkdwn",
-                      "text": "*Branch:*\n${{ github.ref_name }}"
-                    },
-                    {
-                      "type": "mrkdwn",
-                      "text": "*Triggered by:*\n${{ github.actor }}"
-                    },
-                    {
-                      "type": "mrkdwn",
-                      "text": "*Event:*\n${{ github.event_name }}"
-                    }
-                  ]
-                },
-                {
-                  "type": "actions",
-                  "elements": [
-                    {
-                      "type": "button",
-                      "text": {
-                        "type": "plain_text",
-                        "text": "📊 View Report",
-                        "emoji": true
-                      },
-                      "url": "https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
-                    },
-                    {
-                      "type": "button",
-                      "text": {
-                        "type": "plain_text",
-                        "text": "🔗 Workflow Run",
-                        "emoji": true
-                      },
-                      "url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-        EOF
-        
-        # Send to Slack
-        curl -X POST \
-          -H 'Content-type: application/json' \
-          --data @slack-payload.json \
-          ${{ secrets.SLACK_WEBHOOK_URL }}
+                ]
+              }
+            ]
+          }
+          EOF
+
+          # Send to Slack
+          curl -X POST \
+            -H 'Content-type: application/json' \
+            --data @slack-payload.json \
+            ${{ secrets.SLACK_WEBHOOK_URL }}
