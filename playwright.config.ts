@@ -1,10 +1,10 @@
-import { defineConfig, devices } from '@playwright/test';
+import { defineConfig, devices } from "@playwright/test";
 
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  testDir: './tests',
+  testDir: "./tests",
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -15,40 +15,23 @@ export default defineConfig({
   workers: process.env.CI ? 4 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
-    ['html'],
-    ['list'],
-    ['playwright-smart-reporter', {
-      outputFile: '../reports/smart-report.html',
-      historyFile: '../reports/test-history.json',
-      maxHistoryRuns: 10,
-      performanceThreshold: 0.2,
-      // Feature flags
-      enableRetryAnalysis: true,
-      enableFailureClustering: true,
-      enableStabilityScore: true,
-      enableGalleryView: true,
-      enableComparison: true,
-      enableAIRecommendations: true,
-      enableTraceViewer: true,
-      enableHistoryDrilldown: true,
-      enableNetworkLogs: true,
-      stabilityThreshold: 70,
-      retryFailureThreshold: 3,
-    }],
+    ["html"],
+    ["list"],
+
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: 'https://finance-app-five-rosy.vercel.app',
+    baseURL: "http://localhost:3000",
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry',
-    
+    trace: "on-first-retry",
+
     /* Take screenshot on failure */
-    screenshot: 'only-on-failure',
-    
+    screenshot: "only-on-failure",
+
     /* Video on first retry */
-    video: 'retain-on-failure',
+    video: "retain-on-failure",
   },
 
   /* Increase timeout for cloud environments like Checkly */
@@ -61,45 +44,46 @@ export default defineConfig({
   projects: [
     // Setup project - runs authentication and saves state
     {
-      name: 'setup',
+      name: "setup",
       testMatch: /.*\.setup\.ts/,
-      teardown: 'cleanup-setup',
+      teardown: "cleanup-setup",
     },
 
     // Chromium tests
     {
-      name: 'chromium',
-      use: { 
-        ...devices['Desktop Chrome'],
-        storageState: '.auth/session.json',
+      name: "chromium",
+      use: {
+        ...devices["Desktop Chrome"],
+        storageState: ".auth/session.json",
       },
-      dependencies: ['setup'],
+      dependencies: ["setup"],
       testIgnore: [/.*\.setup\.ts/, /ai-.*.spec.ts/],
     },
-    
+
     // AI tests on Chromium (slower, longer timeouts)
     {
-      name: 'ai-tests',
-      use: { 
-        ...devices['Desktop Chrome'], 
-        storageState: '.auth/session.json',
+      name: "ai-tests",
+      use: {
+        ...devices["Desktop Chrome"],
+        storageState: ".auth/session.json",
       },
-      dependencies: ['setup'],
+      dependencies: ["setup"],
       testMatch: /ai-.*.spec.ts/,
       timeout: 30000,
     },
-    
+
     // Cleanup after setup (hidden project)
     {
-      name: 'cleanup-setup',
+      name: "cleanup-setup",
       testMatch: /no-tests-to-match/,
     },
   ],
 
   /* Run your local dev server before starting the tests */
-  // webServer: {
-  //   command: 'npm run start',
-  //   url: 'http://127.0.0.1:3000',
-  //   reuseExistingServer: !process.env.CI,
-  // },
+  webServer: {
+    command: 'cd ../finance_app && npm run dev',
+    url: 'http://127.0.0.1:3000',
+    reuseExistingServer: !process.env.CI,
+    timeout: 120 * 1000,
+  },
 });
