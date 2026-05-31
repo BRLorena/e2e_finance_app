@@ -9,6 +9,9 @@ on:
     branches: [dev, master]
   # Allow manual trigger from Actions tab
   workflow_dispatch:
+  # Run daily at 09:00 UTC
+  schedule:
+    - cron: '0 9 * * *'
 
 jobs:
   test:
