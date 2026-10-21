@@ -3,6 +3,7 @@
 
 import { test, expect } from '../../fixtures/cleanup-fixture';
 import { DashboardPage } from '../../src/pages';
+import { createExpenseViaApi, createIncomeViaApi } from '../../src/utils/api-data';
 
 test.describe('Dashboard Functionality', () => {
   test('View Dashboard with Data', async ({ browser }) => {
@@ -89,8 +90,15 @@ test.describe('Dashboard Functionality', () => {
     await dashboardPage.verifyInvoicesByStatus('overdue', /\(\d+\)/);
   });
 
-  test('Dashboard with Complete Data Verification', async ({ page }) => {
+  test('Dashboard with Complete Data Verification', async ({ page, cleanup }) => {
     const dashboardPage = new DashboardPage(page);
+    // Arrange the data the dashboard should summarise instead of relying on existing data
+    const income = dashboardPage.generateUniqueDescription('Dashboard income');
+    const expense = dashboardPage.generateUniqueDescription('Dashboard expense');
+    cleanup.trackIncome(income);
+    cleanup.trackExpense(expense);
+    await createIncomeViaApi(page, { description: income, amount: '1000', category: 'salary' });
+    await createExpenseViaApi(page, { description: expense, amount: '250', category: 'foodDining' });
 
     await dashboardPage.navigate();
     await dashboardPage.verifyCompleteDataDisplay();

@@ -1,6 +1,7 @@
 // spec: TEST_PLAN.md - Expense Management
 import { test, expect } from '../../fixtures/cleanup-fixture';
 import { ExpensePage } from '../../src/pages';
+import { createExpenseViaApi } from '../../src/utils/api-data';
 
 test.describe('Expense Management', () => {
   test('Add Valid Expense', async ({ browser, cleanup }) => {
@@ -70,32 +71,43 @@ test.describe('Expense Management', () => {
     await expensePage.verifyExpenseUpdated(updatedDescription);
   });
 
-  test('Delete Expense', async ({ page }) => {
+  test('Delete Expense', async ({ page, cleanup }) => {
     const expensePage = new ExpensePage(page);
+    // Delete an expense this test owns, never whatever happens to be first in the list
+    const description = expensePage.generateUniqueDescription('Expense to delete');
+    cleanup.trackExpense(description);
+    await createExpenseViaApi(page, { description, amount: '12.34', category: 'other' });
 
     await expensePage.navigate();
+    const expenseHeading = page.getByRole('heading', { name: description });
+    await expect(expenseHeading).toBeVisible();
 
-    const firstExpenseHeading = page.locator('h3.text-lg.font-semibold.text-gray-100').first();
-    await firstExpenseHeading.waitFor({ state: 'visible' });
-    const firstExpenseTitle = await firstExpenseHeading.textContent();
+    page.once('dialog', dialog => dialog.accept());
+    // The card is the innermost element holding both the heading and its buttons;
+    // its icon buttons have no accessible name, so Delete is the second one (Edit is first)
+    const expenseCard = page.locator('div')
+      .filter({ has: expenseHeading })
+      .filter({ has: page.getByRole('button') })
+      .last();
+    await expenseCard.getByRole('button').nth(1).click();
 
-    page.on('dialog', dialog => dialog.accept());
-
-    await expensePage.clickEditButtonByIndex(2);
-    await page.waitForTimeout(500);
-
-    await expect(page.getByRole('heading', { name: firstExpenseTitle || '' })).not.toBeVisible();
+    await expect(expenseHeading).toBeHidden();
   });
 
-  test('Filter Expenses by Category', async ({ page }) => {
+  test('Filter Expenses by Category', async ({ page, cleanup }) => {
     const expensePage = new ExpensePage(page);
+    const food = expensePage.generateUniqueDescription('Filter food expense');
+    const transport = expensePage.generateUniqueDescription('Filter transport expense');
+    cleanup.trackExpense(food);
+    cleanup.trackExpense(transport);
+    await createExpenseViaApi(page, { description: food, amount: '20', category: 'foodDining' });
+    await createExpenseViaApi(page, { description: transport, amount: '30', category: 'transportation' });
 
     await expensePage.navigate();
     await expensePage.filterByCategory('Food & Dining');
 
-    const categoryBadges = page.locator('span.inline-flex').filter({ hasText: 'Food & Dining' });
-    await expect(categoryBadges.first()).toBeVisible();
-
+    await expect(page.getByRole('heading', { name: food })).toBeVisible();
+    await expect(page.getByRole('heading', { name: transport })).toBeHidden();
     await expensePage.verifyFilteredResults();
   });
 });

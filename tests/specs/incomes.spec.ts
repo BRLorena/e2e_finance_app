@@ -49,6 +49,7 @@ test.describe('Income Management', () => {
     
     await incomePage.submitIncomeForm();
     await incomePage.verifyIncomePageLoaded();
+    await expect(page.getByRole('heading', { name: uniqueDescription })).toBeVisible();
   });
 
   test('Edit Income Entry', async ({ page, cleanup }) => {
@@ -96,14 +97,16 @@ test.describe('Income Management', () => {
     // Setup dialog handler before clicking delete
     page.once('dialog', dialog => dialog.accept());
     
-    // Find the delete button in the same row as our income entry
-    const incomeCard = page.locator('div').filter({ has: incomeHeading }).first();
-    const buttons = incomeCard.getByRole('button');
-    
-    // The delete button is the second button (index 1) - first is Edit
-    await buttons.nth(1).click();
-    
-    await page.waitForTimeout(1000);
+    // The card is the innermost element holding both the heading and its buttons;
+    // its icon buttons have no accessible name, so Delete is the second one (Edit is first)
+    const incomeCard = page.locator('div')
+      .filter({ has: incomeHeading })
+      .filter({ has: page.getByRole('button') })
+      .last();
+    await incomeCard.getByRole('button').nth(1).click();
+
+    // The deleted income disappears from the list
+    await expect(incomeHeading).toBeHidden();
     await incomePage.verifyIncomePageLoaded();
   });
 

@@ -75,13 +75,19 @@ export class IncomePage extends BasePage {
 
   @step
   async submitIncomeForm() {
+    // Wait for the API to confirm, so the test (and its cleanup) never races the request
+    const saved = this.page.waitForResponse(
+      (res) => res.url().includes('/api/incomes') && ['POST', 'PUT'].includes(res.request().method())
+    );
     await this.addIncomeButton.click();
+    expect((await saved).ok()).toBe(true);
   }
 
   @step
   async waitForSuccessToast() {
     // Wait for the success notification to appear
-    await this.page.getByText(/Income added successfully|added successfully/i).waitFor({ timeout: 10000 });
+    // .last(): the previous toast can still be visible when adding several incomes in a row
+    await this.page.getByText(/Income added successfully|added successfully/i).last().waitFor({ timeout: 10000 });
     // Wait a bit for the list to refresh
     await this.page.waitForTimeout(1000);
   }

@@ -32,7 +32,9 @@ test.describe('AI Expense Categorization', { tag: '@ai' }, () => {
   for (const testData of categorizationTestData) {
     test(`AI categorizes ${testData.testName} to "${testData.expectedCategoryDisplay}"`, async ({ page, cleanup }) => {
       const expensePage = new ExpensePage(page);
-      cleanup.trackExpense(testData.description);
+      // Unique suffix so the expense can't be confused with data from earlier runs
+      const description = expensePage.generateUniqueDescription(testData.description);
+      cleanup.trackExpense(description);
       
       // Navigate to expenses page
       await expensePage.navigate();
@@ -40,7 +42,7 @@ test.describe('AI Expense Categorization', { tag: '@ai' }, () => {
       // Click Add New Expense button and fill form
       await expensePage.clickAddExpense();
       await expensePage.fillExpenseAmount(testData.amount);
-      await expensePage.fillExpenseDescription(testData.description);
+      await expensePage.fillExpenseDescription(description);
       
       // Click AI Suggest button
       await expensePage.clickAISuggestButton();
@@ -58,13 +60,13 @@ test.describe('AI Expense Categorization', { tag: '@ai' }, () => {
       await expensePage.verifyExpenseCreatedSuccessfully();
       
       // Verify expense appears in the list
-      await expensePage.verifyExpenseInList(testData.description);
+      await expensePage.verifyExpenseInList(description);
     });
   }
 
   test('AI categorization shows loading state during processing', async ({ page, cleanup }) => {
     const expensePage = new ExpensePage(page);
-    const description = 'Expensive lunch';
+    const description = expensePage.generateUniqueDescription('Expensive lunch');
     cleanup.trackExpense(description);
     
     await expensePage.navigate();
@@ -81,7 +83,7 @@ test.describe('AI Expense Categorization', { tag: '@ai' }, () => {
 
   test('AI categorization works with vague descriptions', async ({ page, cleanup }) => {
     const expensePage = new ExpensePage(page);
-    const description = 'stuff from store';
+    const description = expensePage.generateUniqueDescription('stuff from store');
     cleanup.trackExpense(description);
     
     await expensePage.navigate();

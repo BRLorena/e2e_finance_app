@@ -35,9 +35,9 @@ test.describe('Natural Language Expense Parsing', { tag: '@ai' }, () => {
 test(`Parse ${testData.testName}: "${testData.input}"`, async ({ page, cleanup }) => {
       const expensePage = new ExpensePage(page);
       
-      // Track for cleanup - use the expected description for tracking
+      // Track for cleanup - the AI writes the description, so match on the expected fragment
       const descriptionToTrack = testData.expectedDescription || testData.expectedDescriptionContains || 'groceries';
-      cleanup.trackExpense(descriptionToTrack);
+      cleanup.trackExpense(descriptionToTrack, { exact: false });
         
         // Navigate to expenses page
         await expensePage.navigate();
