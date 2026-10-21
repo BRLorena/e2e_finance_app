@@ -13,32 +13,26 @@ on:
   schedule:
     - cron: '0 9 * * *'
 
+# Only one Pages publish at a time; a new run doesn't cancel one that is publishing.
+concurrency:
+  group: playwright-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+    permissions:
+      contents: write # publish the reports to the gh-pages branch
+    env:
+      PAGES_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
     steps:
       - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
         with:
-          node-version: lts/*
-
-      - name: Cache node modules
-        uses: actions/cache@v4
-        with:
-          path: node_modules
-          key: node-modules-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
-          restore-keys: |
-            node-modules-${{ runner.os }}-
-
-      - name: Cache Playwright browsers
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/ms-playwright
-          key: playwright-browsers-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
-          restore-keys: |
-            playwright-browsers-${{ runner.os }}-
+          node-version: 24
+          cache: npm
 
       - name: Install dependencies
         run: npm ci
@@ -50,54 +44,48 @@ jobs:
             exit 1
           fi
 
-      - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
-
-      - name: Restore test history
+      - name: Cache Playwright browsers
         uses: actions/cache@v4
         with:
-          path: reports/test-history.json
-          key: test-history-${{ github.ref }}
-          restore-keys: |
-            test-history-
+          path: ~/.cache/ms-playwright
+          key: playwright-browsers-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps chromium
 
       - name: Run Playwright tests
         id: test-run
         continue-on-error: true
-        run: npx playwright test --workers=1
+        run: npm test -- --workers=1
         env:
           BASE_URL: ${{ vars.BASE_URL }}
 
-      - name: Upload Smart Report
-        uses: actions/upload-artifact@v4
+      # History of previous runs, published to GitHub Pages by the last publish.
+      # Jev uses it to tell "always fails" from "sometimes fails"; Allure uses it for trends.
+      - name: Download report history from GitHub Pages
         if: always()
-        with:
-          name: smart-report
-          path: reports/
-          retention-days: 30
+        run: |
+          mkdir -p .history
+          curl -fsSL "$PAGES_URL/history.json" -o .history/triage.json && echo "Triage history downloaded" || echo "No triage history"
+          curl -fsSL "$PAGES_URL/allure-history.jsonl" -o .history/allure.jsonl && echo "Allure history downloaded" || echo "No Allure history"
 
-      - name: Upload Playwright report
-        uses: actions/upload-artifact@v4
+      # Jev classifies each failure as bug / flaky / environment (or needs_review).
+      # Without the secret it runs in fallback mode (unclassified) and never breaks the pipeline.
+      # It only fails the job for verdicts listed in the TRIAGE_FAIL_ON variable (empty by default).
+      - name: Triage failures with Jev
+        id: triage
         if: always()
-        with:
-          name: playwright-report
-          path: playwright-report/
-          retention-days: 7
+        continue-on-error: true
+        run: npm run triage
+        env:
+          TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
+          TRIAGE_FAIL_ON: ${{ vars.TRIAGE_FAIL_ON }}
+          TRIAGE_CONFIDENCE_THRESHOLD: ${{ vars.TRIAGE_CONFIDENCE_THRESHOLD || '0.6' }}
+          TRIAGE_TEST_DEFECT_THRESHOLD: ${{ vars.TRIAGE_TEST_DEFECT_THRESHOLD || '0.7' }}
 
-      - name: Upload test results
-        uses: actions/upload-artifact@v4
+      - name: Generate Allure report
         if: always()
-        with:
-          name: test-results
-          path: test-results/
-          retention-days: 7
-
-      - name: Save test history to cache
-        uses: actions/cache/save@v4
-        if: always()
-        with:
-          path: reports/test-history.json
-          key: test-history-${{ github.ref }}-${{ github.run_id }}
+        run: npm run allure
 
       - name: Generate Test Summary
         if: always()
@@ -121,42 +109,51 @@ jobs:
             fi
             echo "" >> $GITHUB_STEP_SUMMARY
           fi
-          echo "### 📈 Smart Report" >> $GITHUB_STEP_SUMMARY
-          echo "View the detailed test report with flakiness detection, stability scores, and performance trends on [GitHub Pages](https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/)." >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "📥 Download artifacts from [workflow run](../../actions/runs/${{ github.run_id }})" >> $GITHUB_STEP_SUMMARY
+          echo "### 📈 Reports" >> $GITHUB_STEP_SUMMARY
+          echo "- [Jev failure triage]($PAGES_URL/) and [Allure report]($PAGES_URL/allure/) on GitHub Pages (updated on master)" >> $GITHUB_STEP_SUMMARY
+          echo "- 📥 This run's reports: [workflow artifacts](../../actions/runs/${{ github.run_id }})" >> $GITHUB_STEP_SUMMARY
 
-      - name: Fail job if tests failed
-        if: steps.test-run.outcome == 'failure'
-        run: exit 1
-
-  deploy-report:
-    needs: test
-    runs-on: ubuntu-latest
-    if: always() && (github.event_name == 'push' || github.event_name == 'schedule') && (github.ref == 'refs/heads/dev' || github.ref == 'refs/heads/master')
-    permissions:
-      contents: write
-    steps:
-      - name: Download Smart Report
-        uses: actions/download-artifact@v4
+      - name: Upload reports
+        uses: actions/upload-artifact@v4
+        if: always()
         with:
-          name: smart-report
-          path: smart-report
+          name: reports
+          path: |
+            playwright-report/
+            reports/allure-report/
+            reports/triage/
+            reports/results.json
+          retention-days: 14
 
-      - name: Prepare GitHub Pages content
+      - name: Upload test results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-results
+          path: test-results/
+          retention-days: 7
+
+      # Site layout: / = Jev triage, /allure/ = Allure report, /playwright-report/ = Playwright HTML report,
+      # plus both history files so the next run can download them.
+      - name: Build GitHub Pages site
+        if: always() && github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
         run: |
-          mkdir -p gh-pages
-          # Copy the smart report as index.html for GitHub Pages
-          if [ -f "smart-report/smart-report.html" ]; then
-            cp smart-report/smart-report.html gh-pages/index.html
-          fi
-          # Also keep the original filename
-          cp -r smart-report/* gh-pages/ 2>/dev/null || true
+          mkdir -p site
+          cp reports/triage/index.html site/index.html
+          cp reports/triage/history.json site/history.json
+          cp -r reports/allure-report site/allure
+          cp .history/allure.jsonl site/allure-history.jsonl 2>/dev/null || true
+          cp -r playwright-report site/playwright-report 2>/dev/null || true
 
       - name: Deploy to GitHub Pages
+        if: always() && github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
-          publish_dir: gh-pages
+          publish_dir: site
           keep_files: false
+
+      - name: Fail job if tests or blocking triage verdicts failed
+        if: steps.test-run.outcome == 'failure' || steps.triage.outcome == 'failure'
+        run: exit 1
