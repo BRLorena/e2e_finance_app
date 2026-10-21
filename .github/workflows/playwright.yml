@@ -43,6 +43,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Check BASE_URL is configured
+        run: |
+          if [ -z "${{ vars.BASE_URL }}" ]; then
+            echo "::error::Set the BASE_URL repository variable (Settings > Secrets and variables > Actions > Variables)"
+            exit 1
+          fi
+
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
@@ -58,6 +65,8 @@ jobs:
         id: test-run
         continue-on-error: true
         run: npx playwright test --workers=1
+        env:
+          BASE_URL: ${{ vars.BASE_URL }}
 
       - name: Upload Smart Report
         uses: actions/upload-artifact@v4
