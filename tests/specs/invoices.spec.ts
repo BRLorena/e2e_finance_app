@@ -152,24 +152,21 @@ test.describe('Invoice Management', () => {
 
     cleanup.trackInvoice(uniqueOverdueClient);
 
-    // Wait for invoices to be created
-    await page.waitForTimeout(2000);
-
-    // Test filtering by Paid status
-    await invoicePage.filterByStatus('Paid');
-    await page.waitForTimeout(1000);
-    // Verify paid invoices are shown (look for the ✅ Paid status badge, not the dropdown option)
-    await expect(page.locator('text=/✅\\s*paid/i').first()).toBeVisible();
-
-    // Test filtering by Overdue status
-    await invoicePage.filterByStatus('Overdue');
-    await page.waitForTimeout(1000);
-    // Look for the ⚠️ Overdue status badge
-    await expect(page.locator('text=/⚠️\\s*overdue/i').first()).toBeVisible();
-
-    // Test filtering by Pending status
-    await invoicePage.filterByStatus('Pending');
-    await page.waitForTimeout(1000);
-    await expect(page.getByText('⏳ pending').first()).toBeVisible();
+    // Each filter shows only the invoice with that status
+    const expectedByStatus = {
+      Paid: uniquePaidClient,
+      Overdue: uniqueOverdueClient,
+      Pending: uniquePendingClient,
+    };
+    for (const [status, visibleClient] of Object.entries(expectedByStatus)) {
+      await invoicePage.filterByStatus(status);
+      for (const client of Object.values(expectedByStatus)) {
+        if (client === visibleClient) {
+          await expect(page.getByText(client)).toBeVisible();
+        } else {
+          await expect(page.getByText(client)).toBeHidden();
+        }
+      }
+    }
   });
 });

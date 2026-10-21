@@ -103,7 +103,7 @@ export class AuthPage {
   async verifyLoginSuccess() {
     // Wait for the dashboard welcome message to appear
     // This is the most reliable indicator that login was successful
-    await expect(this.page.getByText(/Welcome back/i)).toBeVisible({ timeout: 30000 });
+    await expect(this.page.getByRole('heading', { name: /Welcome back/i })).toBeVisible({ timeout: 30000 });
   }
 
   @step
