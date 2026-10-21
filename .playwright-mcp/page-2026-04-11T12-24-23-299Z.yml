@@ -1,0 +1,81 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e4]:
+      - generic [ref=e5]:
+        - link "💰 FinanceApp" [ref=e6] [cursor=pointer]:
+          - /url: /dashboard
+          - generic [ref=e8]: 💰
+          - generic [ref=e9]: FinanceApp
+        - generic [ref=e10]:
+          - link "🏠 Dashboard" [ref=e11] [cursor=pointer]:
+            - /url: /dashboard
+            - generic [ref=e12]: 🏠
+            - generic [ref=e13]: Dashboard
+          - link "💸 Expenses" [ref=e14] [cursor=pointer]:
+            - /url: /expenses
+            - generic [ref=e15]: 💸
+            - generic [ref=e16]: Expenses
+          - link "💰 Incomes" [ref=e17] [cursor=pointer]:
+            - /url: /incomes
+            - generic [ref=e18]: 💰
+            - generic [ref=e19]: Incomes
+          - link "🧾 Invoices" [ref=e20] [cursor=pointer]:
+            - /url: /invoices
+            - generic [ref=e21]: 🧾
+            - generic [ref=e22]: Invoices
+          - link "📊 Summary" [ref=e23] [cursor=pointer]:
+            - /url: /summary
+            - generic [ref=e24]: 📊
+            - generic [ref=e25]: Summary
+      - button "🇺🇸 English" [ref=e28]:
+        - generic [ref=e29]: 🇺🇸
+        - generic [ref=e30]: English
+        - img [ref=e31]
+  - generic [ref=e37]:
+    - generic [ref=e38]:
+      - generic [ref=e40]: 💰 Smart Expense Tracking
+      - heading "Expense Management" [level=1] [ref=e41]
+      - paragraph [ref=e42]: Take control of your spending with intelligent tracking, powerful insights, and beautiful visualizations that help you make better financial decisions.
+    - generic [ref=e81]:
+      - generic [ref=e83]:
+        - generic [ref=e84]:
+          - heading "Add New Expense" [level=3] [ref=e85]
+          - paragraph [ref=e86]: Track your spending by adding a new expense
+        - button "Quick Add" [ref=e87]:
+          - img [ref=e88]
+          - text: Quick Add
+      - generic [ref=e91]:
+        - generic [ref=e92]:
+          - generic [ref=e93]:
+            - text: Amount
+            - spinbutton "Amount" [ref=e94]
+          - generic [ref=e95]:
+            - text: Date
+            - textbox "Date" [ref=e96]: 2026-04-11
+        - generic [ref=e97]:
+          - text: Description
+          - textbox "Description" [ref=e98]:
+            - /placeholder: What did you spend on?
+        - generic [ref=e99]:
+          - generic [ref=e100]:
+            - generic [ref=e101]: Category
+            - button "AI Suggest" [disabled]:
+              - img
+              - text: AI Suggest
+          - combobox "Category" [ref=e102]:
+            - option "Select a category" [selected]
+            - option "Food & Dining"
+            - option "Transportation"
+            - option "Shopping"
+            - option "Entertainment"
+            - option "Bills & Utilities"
+            - option "Healthcare"
+            - option "Travel"
+            - option "Education"
+            - option "Business"
+            - option "Other"
+        - generic [ref=e103]:
+          - button "Add New Expense" [ref=e104]
+          - button "Cancel" [ref=e105]
+  - region "Notifications alt+T"
+  - alert [ref=e80]

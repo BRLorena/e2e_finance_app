@@ -1,0 +1,102 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e4]:
+      - generic [ref=e5]:
+        - link "💰 FinanceApp" [ref=e6] [cursor=pointer]:
+          - /url: /dashboard
+          - generic [ref=e8]: 💰
+          - generic [ref=e9]: FinanceApp
+        - generic [ref=e10]:
+          - link "🏠 Dashboard" [ref=e11] [cursor=pointer]:
+            - /url: /dashboard
+            - generic [ref=e12]: 🏠
+            - generic [ref=e13]: Dashboard
+          - link "💸 Expenses" [ref=e14] [cursor=pointer]:
+            - /url: /expenses
+            - generic [ref=e15]: 💸
+            - generic [ref=e16]: Expenses
+          - link "💰 Incomes" [ref=e17] [cursor=pointer]:
+            - /url: /incomes
+            - generic [ref=e18]: 💰
+            - generic [ref=e19]: Incomes
+          - link "🧾 Invoices" [ref=e20] [cursor=pointer]:
+            - /url: /invoices
+            - generic [ref=e21]: 🧾
+            - generic [ref=e22]: Invoices
+          - link "📊 Summary" [ref=e23] [cursor=pointer]:
+            - /url: /summary
+            - generic [ref=e24]: 📊
+            - generic [ref=e25]: Summary
+      - button "🇺🇸 English" [ref=e28]:
+        - generic [ref=e29]: 🇺🇸
+        - generic [ref=e30]: English
+        - img [ref=e31]
+  - generic [ref=e38]:
+    - generic [ref=e39]:
+      - generic [ref=e40]:
+        - heading "Invoice Management" [level=1] [ref=e41]
+        - paragraph [ref=e42]: Create, track, and manage your professional invoices
+      - generic [ref=e43]:
+        - generic [ref=e44]:
+          - paragraph [ref=e45]: Welcome back,
+          - paragraph [ref=e46]: John Doe
+        - generic [ref=e48]: 📄
+    - generic [ref=e49]:
+      - generic [ref=e51]:
+        - generic [ref=e52]:
+          - heading "Create New Invoice" [level=3] [ref=e53]
+          - paragraph [ref=e54]: Fill in the invoice details below
+        - generic [ref=e56]:
+          - generic [ref=e57]:
+            - generic [ref=e58]:
+              - text: Invoice Number
+              - textbox "Invoice Number" [ref=e59]:
+                - /placeholder: e.g., INV-001
+            - generic [ref=e60]:
+              - generic [ref=e61]: Client Name *
+              - textbox "Client Name *" [ref=e62]:
+                - /placeholder: e.g., John Doe
+            - generic [ref=e63]:
+              - text: Client Email
+              - textbox "Client Email" [ref=e64]:
+                - /placeholder: client@example.com
+            - generic [ref=e65]:
+              - generic [ref=e66]: Amount *
+              - spinbutton "Amount *" [ref=e67]
+            - generic [ref=e68]:
+              - generic [ref=e69]: Description *
+              - textbox "Description *" [ref=e70]:
+                - /placeholder: Describe the services or products
+            - generic [ref=e71]:
+              - generic [ref=e72]:
+                - generic [ref=e73]: Issue Date *
+                - textbox "Issue Date *" [ref=e74]: 2026-04-11
+              - generic [ref=e75]:
+                - generic [ref=e76]: Due Date *
+                - textbox "Due Date *" [ref=e77]
+            - generic [ref=e78]:
+              - text: Status
+              - combobox "Status" [ref=e79]:
+                - option "Pending" [selected]
+                - option "Paid"
+                - option "Overdue"
+                - option "Cancelled"
+            - generic [ref=e80]:
+              - text: Notes
+              - textbox "Notes" [ref=e81]:
+                - /placeholder: Additional notes (optional)
+          - button "Create Invoice" [ref=e83]
+      - generic [ref=e85]:
+        - generic [ref=e86]:
+          - heading "Your Invoices" [level=3] [ref=e87]
+          - paragraph [ref=e88]: Manage all your invoices in one place
+        - generic [ref=e90]:
+          - textbox "Search invoices..." [ref=e91]
+          - combobox [ref=e92]:
+            - option "All Statuses" [selected]
+            - option "Pending"
+            - option "Paid"
+            - option "Overdue"
+            - option "Cancelled"
+  - region "Notifications alt+T"
+  - alert [ref=e95]

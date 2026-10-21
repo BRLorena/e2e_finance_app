@@ -1,0 +1,89 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e4]:
+      - generic [ref=e5]:
+        - link "💰 FinanceApp" [ref=e6] [cursor=pointer]:
+          - /url: /dashboard
+          - generic [ref=e8]: 💰
+          - generic [ref=e9]: FinanceApp
+        - generic [ref=e10]:
+          - link "🏠 Dashboard" [ref=e11] [cursor=pointer]:
+            - /url: /dashboard
+            - generic [ref=e12]: 🏠
+            - generic [ref=e13]: Dashboard
+          - link "💸 Expenses" [ref=e14] [cursor=pointer]:
+            - /url: /expenses
+            - generic [ref=e15]: 💸
+            - generic [ref=e16]: Expenses
+          - link "💰 Incomes" [ref=e17] [cursor=pointer]:
+            - /url: /incomes
+            - generic [ref=e18]: 💰
+            - generic [ref=e19]: Incomes
+          - link "🧾 Invoices" [ref=e20] [cursor=pointer]:
+            - /url: /invoices
+            - generic [ref=e21]: 🧾
+            - generic [ref=e22]: Invoices
+          - link "📊 Summary" [ref=e23] [cursor=pointer]:
+            - /url: /summary
+            - generic [ref=e24]: 📊
+            - generic [ref=e25]: Summary
+      - button "🇺🇸 English" [ref=e28]:
+        - generic [ref=e29]: 🇺🇸
+        - generic [ref=e30]: English
+        - img [ref=e31]
+  - generic [ref=e38]:
+    - generic [ref=e39]:
+      - generic [ref=e40]: ✨ Modern Financial Management
+      - heading "Your Money, Simplified" [level=1] [ref=e41]:
+        - text: Your Money,
+        - text: Simplified
+      - paragraph [ref=e42]: Experience the future of personal finance. Track expenses, manage invoices, and unlock powerful insights with our beautiful, intuitive platform.
+      - generic [ref=e43]:
+        - link "🚀 Start Free Today" [ref=e44] [cursor=pointer]:
+          - /url: /register
+        - link "✨ Sign In" [ref=e45] [cursor=pointer]:
+          - /url: /login
+    - generic [ref=e46]:
+      - generic [ref=e47]:
+        - generic [ref=e49]:
+          - generic [ref=e51]: �
+          - heading "Expense Tracking" [level=3] [ref=e52]
+          - paragraph [ref=e53]: Effortlessly monitor and categorize your daily spending with our intelligent expense tracking system. Get real-time insights and never lose track of your money.
+        - generic [ref=e54]:
+          - list [ref=e55]:
+            - listitem [ref=e56]: ✓ Smart categorization
+            - listitem [ref=e57]: ✓ Real-time updates
+            - listitem [ref=e58]: ✓ Advanced filtering
+          - link "Get Started" [ref=e59] [cursor=pointer]:
+            - /url: /expenses
+      - generic [ref=e60]:
+        - generic [ref=e62]:
+          - generic [ref=e64]: 📄
+          - heading "Invoice Management" [level=3] [ref=e65]
+          - paragraph [ref=e66]: Create stunning, professional invoices in seconds. Track payment status, send reminders, and manage your client billing with ease.
+        - generic [ref=e67]:
+          - list [ref=e68]:
+            - listitem [ref=e69]: ✓ Professional templates
+            - listitem [ref=e70]: ✓ Payment tracking
+            - listitem [ref=e71]: ✓ Client management
+          - link "Get Started" [ref=e72] [cursor=pointer]:
+            - /url: /invoices
+      - generic [ref=e73]:
+        - generic [ref=e75]:
+          - generic [ref=e77]: �
+          - heading "Financial Insights" [level=3] [ref=e78]
+          - paragraph [ref=e79]: Unlock powerful analytics and visualizations. Understand your spending patterns, identify trends, and make data-driven financial decisions.
+        - generic [ref=e80]:
+          - list [ref=e81]:
+            - listitem [ref=e82]: ✓ Visual dashboards
+            - listitem [ref=e83]: ✓ Spending trends
+            - listitem [ref=e84]: ✓ Custom reports
+          - link "Get Started" [ref=e85] [cursor=pointer]:
+            - /url: /dashboard
+    - generic [ref=e88]:
+      - heading "Ready to Transform Your Finances?" [level=2] [ref=e89]
+      - paragraph [ref=e90]: Join thousands of users who have already taken control of their financial future. Start your journey today—completely free.
+      - link "🎉 Get Started Free" [ref=e91] [cursor=pointer]:
+        - /url: /register
+  - region "Notifications alt+T"
+  - alert [ref=e92]

@@ -20,8 +20,7 @@
   "devDependencies": {
     "@playwright/test": "^1.48.0",
     "@types/node": "^22.0.0",
-    "dotenv": "^16.6.1",
-    "playwright-smart-reporter": "^1.0.3"
+    "dotenv": "^16.6.1"
   },
   "dependencies": {
     "node-fetch": "^3.3.2"

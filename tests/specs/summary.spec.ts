@@ -1,18 +1,25 @@
 // spec: TEST_PLAN.md
 // seed: tests/seed.spec.ts
 
-import { test, expect } from '@playwright/test';
-import { SummaryPage } from '../../src/pages';
+import { test, expect } from "../../fixtures/cleanup-fixture";
+import { SummaryPage } from "../../src/pages";
 
-test.describe('Summary Page Functionality', () => {
-  test('View Complete Summary', async ({ page }) => {
+test.describe("Summary Page Functionality", () => {
+  test("View Complete Summary", async ({ browser }) => {
+    const context = await browser.newContext({
+      recordHar: { path: "./reports/summary-view.har", mode: "full" },
+      storageState: ".auth/session.json",
+    });
+    const page = await context.newPage();
     const summaryPage = new SummaryPage(page);
 
     await summaryPage.navigate();
     await summaryPage.verifyCompleteSummaryDisplay();
+
+    await context.close();
   });
 
-  test('Filter Summary by Time Period', async ({ page }) => {
+  test("Filter Summary by Time Period", async ({ page }) => {
     const summaryPage = new SummaryPage(page);
 
     await summaryPage.navigate();
@@ -24,7 +31,7 @@ test.describe('Summary Page Functionality', () => {
     await summaryPage.verifySummaryAfterFilter();
   });
 
-  test('Verify Category Breakdowns', async ({ page }) => {
+  test("Verify Category Breakdowns", async ({ page }) => {
     const summaryPage = new SummaryPage(page);
 
     await summaryPage.navigate();

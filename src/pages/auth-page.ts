@@ -31,7 +31,7 @@ export class AuthPage {
 
   constructor(page: Page) {
     this.page = page;
-    this.baseUrl = 'https://finance-app-five-rosy.vercel.app';
+    this.baseUrl = '';
 
     // Login page elements
     this.loginWelcomeHeading = page.getByText('Welcome Back');
@@ -138,7 +138,7 @@ export class AuthPage {
     
     // Wait for either navigation to dashboard or error message
     await Promise.race([
-      this.page.waitForURL(/.*\/(en|es|pt|fr)\/dashboard/, { timeout: 15000 }).catch(() => {}),
+      this.page.waitForURL(/.*\/dashboard/, { timeout: 15000 }).catch(() => {}),
       this.page.waitForSelector('text=/invalid|error|wrong/i', { timeout: 15000 }).catch(() => {}),
       this.page.waitForTimeout(3000)
     ]);
@@ -162,6 +162,8 @@ export class AuthPage {
       console.log('User already exists, navigating to login...');
       // Click "Sign in instead" link
       await this.page.getByRole('link', { name: /Sign in instead/i }).click();
+      // Wait for the login page to fully load before returning, to prevent race conditions
+      await expect(this.loginWelcomeHeading).toBeVisible({ timeout: 10000 });
       return;
     }
     
@@ -179,6 +181,9 @@ export class AuthPage {
       
       // Now login with the newly created account
       await this.login(email, password);
+      
+      // Wait for dashboard to load
+      await this.page.waitForURL(/.*\/dashboard/, { timeout: 30000 });
     } else {
       console.log('Account already exists, login successful');
     }
