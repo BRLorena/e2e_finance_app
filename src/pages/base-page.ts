@@ -48,7 +48,7 @@ export class BasePage {
   readonly currencyPattern: RegExp;
   readonly countPattern: RegExp;
 
-  constructor(page: Page, baseUrl: string = 'https://finance-app-five-rosy.vercel.app') {
+  constructor(page: Page, baseUrl: string = '') {
     this.page = page;
     this.baseUrl = baseUrl;
 

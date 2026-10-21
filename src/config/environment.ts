@@ -21,7 +21,7 @@ export const env = {
   harAiLanguage: process.env.HAR_AI_LANGUAGE || 'id',
   
   // Application Configuration
-  baseUrl: process.env.BASE_URL || 'https://finance-app-five-rosy.vercel.app',
+  baseUrl: process.env.BASE_URL || 'http://localhost:3000',
   
   // CI/CD Configuration
   isCI: !!process.env.CI,

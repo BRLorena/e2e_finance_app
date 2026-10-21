@@ -1,4 +1,9 @@
 import { defineConfig, devices } from "@playwright/test";
+import { env } from "./src/config/environment";
+
+// When BASE_URL is set (e.g. CI against Vercel) tests run against it;
+// otherwise the local finance_app dev server is started.
+const useLocalServer = !process.env.BASE_URL;
 
 /**
  * See https://playwright.dev/docs/test-configuration.
@@ -22,7 +27,7 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: "http://localhost:3000",
+    baseURL: env.baseUrl,
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: "on-first-retry",
@@ -80,10 +85,12 @@ export default defineConfig({
   ],
 
   /* Run your local dev server before starting the tests */
-  webServer: {
-    command: 'cd ../finance_app && npm run dev',
-    url: 'http://127.0.0.1:3000',
-    reuseExistingServer: !process.env.CI,
-    timeout: 120 * 1000,
-  },
+  webServer: useLocalServer
+    ? {
+        command: 'cd ../finance_app && npm run dev',
+        url: 'http://127.0.0.1:3000',
+        reuseExistingServer: !process.env.CI,
+        timeout: 120 * 1000,
+      }
+    : undefined,
 });
