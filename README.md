@@ -308,12 +308,10 @@ The project uses a sophisticated CI/CD pipeline with three jobs:
 - **Sharding**: 4-way parallel execution reduces test time by ~75%
 - **Conditional Deployment**: Only deploys on successful pushes to `dev`
 
-### Slack Notifications
-- **Automated alerts** sent after every test run (success or failure)
-- **Test statistics** including passed, failed, broken, and skipped counts
-- **Direct links** to Allure report and workflow run
-- **Template-based** notification system (`.github/slack-notification-template.json`)
-- Configure via `SLACK_WEBHOOK_URL` secret in repository settings
+### Retries & Flaky Tests
+- **One retry on CI** (`retries: 1`) to absorb free-tier cold starts (Neon, Vercel)
+- Tests that pass only on retry are listed as **flaky** in the GitHub job summary and treated as bugs
+- Failed runs are reported by GitHub's built-in email notifications
 
 ## 🔧 Key Features & Patterns
 

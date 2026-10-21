@@ -110,6 +110,17 @@ jobs:
             echo "## ✅ All Tests Passed" >> $GITHUB_STEP_SUMMARY
           fi
           echo "" >> $GITHUB_STEP_SUMMARY
+          if [ -f reports/results.json ]; then
+            jq -r '.stats | "| ✅ Passed | ❌ Failed | ⚠️ Flaky | ⏭️ Skipped |\n|---|---|---|---|\n| \(.expected) | \(.unexpected) | \(.flaky) | \(.skipped) |"' reports/results.json >> $GITHUB_STEP_SUMMARY
+            FLAKY=$(jq -r '[.. | objects | select(has("specs")) | .specs[] | select(any(.tests[]; .status == "flaky")) | "- \(.file):\(.line) › \(.title)"] | .[]' reports/results.json)
+            if [ -n "$FLAKY" ]; then
+              echo "" >> $GITHUB_STEP_SUMMARY
+              echo "### ⚠️ Flaky tests (passed only on retry — treat as bugs)" >> $GITHUB_STEP_SUMMARY
+              echo "$FLAKY" >> $GITHUB_STEP_SUMMARY
+              echo "::warning::$(echo "$FLAKY" | wc -l) flaky test(s) passed only on retry"
+            fi
+            echo "" >> $GITHUB_STEP_SUMMARY
+          fi
           echo "### 📈 Smart Report" >> $GITHUB_STEP_SUMMARY
           echo "View the detailed test report with flakiness detection, stability scores, and performance trends on [GitHub Pages](https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/)." >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
@@ -149,102 +160,3 @@ jobs:
           publish_branch: gh-pages
           publish_dir: gh-pages
           keep_files: false
-
-  notify:
-    needs: test
-    runs-on: ubuntu-latest
-    if: always() && vars.SLACK_ENABLED == 'true'
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Download Smart Report
-        uses: actions/download-artifact@v4
-        if: always()
-        continue-on-error: true
-        with:
-          name: smart-report
-          path: reports
-
-      - name: Send Slack notification
-        run: |
-          # Determine test status
-          if [[ "${{ needs.test.result }}" == "success" ]]; then
-            STATUS_EMOJI="✅"
-            STATUS_TEXT="passed"
-            COLOR="good"
-          else
-            STATUS_EMOJI="❌"
-            STATUS_TEXT="failed"
-            COLOR="danger"
-          fi
-
-          # Build Slack payload
-          cat > slack-payload.json << EOF
-          {
-            "attachments": [
-              {
-                "color": "${COLOR}",
-                "blocks": [
-                  {
-                    "type": "header",
-                    "text": {
-                      "type": "plain_text",
-                      "text": "${STATUS_EMOJI} Playwright Tests ${STATUS_TEXT}",
-                      "emoji": true
-                    }
-                  },
-                  {
-                    "type": "section",
-                    "fields": [
-                      {
-                        "type": "mrkdwn",
-                        "text": "*Repository:*\n${{ github.repository }}"
-                      },
-                      {
-                        "type": "mrkdwn",
-                        "text": "*Branch:*\n${{ github.ref_name }}"
-                      },
-                      {
-                        "type": "mrkdwn",
-                        "text": "*Triggered by:*\n${{ github.actor }}"
-                      },
-                      {
-                        "type": "mrkdwn",
-                        "text": "*Event:*\n${{ github.event_name }}"
-                      }
-                    ]
-                  },
-                  {
-                    "type": "actions",
-                    "elements": [
-                      {
-                        "type": "button",
-                        "text": {
-                          "type": "plain_text",
-                          "text": "📊 View Report",
-                          "emoji": true
-                        },
-                        "url": "https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
-                      },
-                      {
-                        "type": "button",
-                        "text": {
-                          "type": "plain_text",
-                          "text": "🔗 Workflow Run",
-                          "emoji": true
-                        },
-                        "url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ]
-          }
-          EOF
-
-          # Send to Slack
-          curl -X POST \
-            -H 'Content-type: application/json' \
-            --data @slack-payload.json \
-            ${{ secrets.SLACK_WEBHOOK_URL }}
