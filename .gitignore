@@ -16,3 +16,5 @@ chatmodules/
 # HAR Analysis Reports
 /reports/
 *.har
+# Report history (downloaded from GitHub Pages in CI)
+.history/

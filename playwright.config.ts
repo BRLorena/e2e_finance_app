@@ -23,7 +23,10 @@ export default defineConfig({
   reporter: [
     ["html"],
     ["list"],
+    // Read by the summary step and by the Jev triage (triage/report-parser.ts)
     ["json", { outputFile: "reports/results.json" }],
+    // Allure 3 results; triage adds Jev's verdict to failed results before the report is generated
+    ["allure-playwright", { resultsDir: "reports/allure-results" }],
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {

@@ -5,7 +5,7 @@ import { TestCleanup } from '../src/utils/test-cleanup';
  * Extended test fixture with automatic cleanup
  * Usage: import { test } from '../fixtures/cleanup-fixture';
  */
-export const test = base.extend<{ cleanup: TestCleanup }>({
+export const test = base.extend<{ cleanup: TestCleanup; failedRequests: void }>({
   cleanup: async ({ page }, use, testInfo) => {
     const cleanup = new TestCleanup();
     await use(cleanup);
@@ -23,6 +23,28 @@ export const test = base.extend<{ cleanup: TestCleanup }>({
       });
     }
   },
+
+  // Records the app's API responses with status >= 400 and attaches them to failed tests.
+  // A UI timeout often hides a server error; the Jev triage reads this attachment as evidence.
+  failedRequests: [
+    async ({ page }, use, testInfo) => {
+      const failed: string[] = [];
+      page.on('response', async (response) => {
+        const url = new URL(response.url());
+        if (response.status() < 400 || !url.pathname.startsWith('/api/')) return;
+        const body = await response.text().catch(() => '');
+        failed.push(`${response.request().method()} ${url.pathname} → ${response.status()} ${body.slice(0, 200)}`);
+      });
+      await use();
+      if (failed.length > 0 && testInfo.status !== testInfo.expectedStatus) {
+        await testInfo.attach('failed-requests', {
+          body: JSON.stringify(failed),
+          contentType: 'application/json',
+        });
+      }
+    },
+    { auto: true },
+  ],
 });
 
 export { expect } from '@playwright/test';
