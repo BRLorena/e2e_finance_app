@@ -14,7 +14,7 @@
       "ci": {
         "commitHref": "https://github.com/BRLorena/e2e_finance_app/commit/4d4a376d11a879927eb04e3696fb7f7973b1ef05",
         "commitHash": "4d4a376d11a879927eb04e3696fb7f7973b1ef05",
-        "buildHref": "https://github.com/BRLorena/e2e_finance_app/actions/runs/39700019366"
+        "buildHref": "https://github.com/BRLorena/e2e_finance_app/actions/runs/39795345034"
       },
       "gitCommit": {
         "shortHash": "4d4a376",
@@ -66,7 +66,7 @@
           "ci": {
             "commitHref": "https://github.com/BRLorena/e2e_finance_app/commit/4d4a376d11a879927eb04e3696fb7f7973b1ef05",
             "commitHash": "4d4a376d11a879927eb04e3696fb7f7973b1ef05",
-            "buildHref": "https://github.com/BRLorena/e2e_finance_app/actions/runs/39700019366"
+            "buildHref": "https://github.com/BRLorena/e2e_finance_app/actions/runs/39795345034"
           },
           "gitCommit": {
             "shortHash": "4d4a376",
@@ -104,7 +104,7 @@
           "ci": {
             "commitHref": "https://github.com/BRLorena/e2e_finance_app/commit/4d4a376d11a879927eb04e3696fb7f7973b1ef05",
             "commitHash": "4d4a376d11a879927eb04e3696fb7f7973b1ef05",
-            "buildHref": "https://github.com/BRLorena/e2e_finance_app/actions/runs/39700019366"
+            "buildHref": "https://github.com/BRLorena/e2e_finance_app/actions/runs/39795345034"
           },
           "gitCommit": {
             "shortHash": "4d4a376",
@@ -145,7 +145,7 @@
           "ci": {
             "commitHref": "https://github.com/BRLorena/e2e_finance_app/commit/4d4a376d11a879927eb04e3696fb7f7973b1ef05",
             "commitHash": "4d4a376d11a879927eb04e3696fb7f7973b1ef05",
-            "buildHref": "https://github.com/BRLorena/e2e_finance_app/actions/runs/39700019366"
+            "buildHref": "https://github.com/BRLorena/e2e_finance_app/actions/runs/39795345034"
           },
           "gitCommit": {
             "shortHash": "4d4a376",
@@ -183,7 +183,7 @@
           "ci": {
             "commitHref": "https://github.com/BRLorena/e2e_finance_app/commit/4d4a376d11a879927eb04e3696fb7f7973b1ef05",
             "commitHash": "4d4a376d11a879927eb04e3696fb7f7973b1ef05",
-            "buildHref": "https://github.com/BRLorena/e2e_finance_app/actions/runs/39700019366"
+            "buildHref": "https://github.com/BRLorena/e2e_finance_app/actions/runs/39795345034"
           },
           "gitCommit": {
             "shortHash": "4d4a376",
@@ -251,7 +251,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 10709,
+                      "duration": 10132,
                       "errors": [],
                       "stdout": [
                         {
@@ -272,15 +272,15 @@
                       "steps": [
                         {
                           "title": "AuthPage.loginOrRegister",
-                          "duration": 10439,
+                          "duration": 9877,
                           "steps": [
                             {
                               "title": "AuthPage.attemptLogin",
-                              "duration": 6220,
+                              "duration": 5897,
                               "steps": [
                                 {
                                   "title": "AuthPage.navigateToLogin",
-                                  "duration": 3126
+                                  "duration": 2803
                                 },
                                 {
                                   "title": "AuthPage.login",
@@ -288,31 +288,31 @@
                                 },
                                 {
                                   "title": "AuthPage.isOnLoginPage",
-                                  "duration": 1
+                                  "duration": 0
                                 }
                               ]
                             },
                             {
                               "title": "AuthPage.registerNewAccount",
-                              "duration": 2675,
+                              "duration": 2230,
                               "steps": [
                                 {
                                   "title": "AuthPage.navigateToRegister",
-                                  "duration": 1221
+                                  "duration": 784
                                 },
                                 {
                                   "title": "AuthPage.register",
-                                  "duration": 72
+                                  "duration": 61
                                 }
                               ]
                             },
                             {
                               "title": "AuthPage.login",
-                              "duration": 63
+                              "duration": 47
                             },
                             {
                               "title": "AuthPage.verifyLoginSuccess",
-                              "duration": 8
+                              "duration": 12
                             }
                           ]
                         },
@@ -321,7 +321,7 @@
                           "duration": 0
                         }
                       ],
-                      "startTime": "2026-10-22T00:30:50.239Z",
+                      "startTime": "2026-10-22T14:31:02.105Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -367,7 +367,7 @@
                       "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1132,
+                      "duration": 1798,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
@@ -375,23 +375,23 @@
                       "steps": [
                         {
                           "title": "DashboardPage.navigate",
-                          "duration": 383
+                          "duration": 564
                         },
                         {
                           "title": "DashboardPage.verifyWelcomeMessage",
-                          "duration": 45
+                          "duration": 39
                         },
                         {
                           "title": "DashboardPage.verifyFinancialOverviewSubtitle",
-                          "duration": 8
+                          "duration": 14
                         },
                         {
                           "title": "DashboardPage.verifyTotalIncomeCard",
-                          "duration": 384
+                          "duration": 872
                         },
                         {
                           "title": "DashboardPage.verifyTotalExpensesCard",
-                          "duration": 3
+                          "duration": 4
                         },
                         {
                           "title": "DashboardPage.verifyNetIncomeCard",
@@ -399,26 +399,26 @@
                         },
                         {
                           "title": "DashboardPage.verifyThisMonthCard",
-                          "duration": 9
+                          "duration": 7
                         },
                         {
                           "title": "DashboardPage.verifyIncomeByCategorySection",
-                          "duration": 7
+                          "duration": 6
                         },
                         {
                           "title": "DashboardPage.verifyExpensesByCategorySection",
-                          "duration": 7
+                          "duration": 6
                         },
                         {
                           "title": "DashboardPage.verifyInvoicesByStatusSection",
-                          "duration": 7
+                          "duration": 13
                         },
                         {
                           "title": "DashboardPage.verifyRecentActivitySectionsVisible",
-                          "duration": 14
+                          "duration": 6
                         }
                       ],
-                      "startTime": "2026-10-22T00:31:01.802Z",
+                      "startTime": "2026-10-22T14:31:13.706Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -447,7 +447,7 @@
                       "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1319,
+                      "duration": 1217,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
@@ -455,22 +455,22 @@
                       "steps": [
                         {
                           "title": "DashboardPage.navigate",
-                          "duration": 318
+                          "duration": 317
                         },
                         {
                           "title": "DashboardPage.filterByAllTime",
-                          "duration": 432
+                          "duration": 318
                         },
                         {
                           "title": "DashboardPage.filterByThisMonth",
-                          "duration": 51
+                          "duration": 65
                         },
                         {
                           "title": "DashboardPage.filterByThisYear",
-                          "duration": 199
+                          "duration": 218
                         }
                       ],
-                      "startTime": "2026-10-22T00:31:03.037Z",
+                      "startTime": "2026-10-22T14:31:15.598Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -499,7 +499,7 @@
                       "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1194,
+                      "duration": 1325,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
@@ -507,14 +507,14 @@
                       "steps": [
                         {
                           "title": "DashboardPage.navigate",
-                          "duration": 519
+                          "duration": 675
                         },
                         {
                           "title": "DashboardPage.verifyNetIncomeCalculation",
-                          "duration": 419
+                          "duration": 403
                         }
                       ],
-                      "startTime": "2026-10-22T00:31:04.372Z",
+                      "startTime": "2026-10-22T14:31:16.827Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -543,7 +543,7 @@
                       "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 5265,
+                      "duration": 5060,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
@@ -551,18 +551,18 @@
                       "steps": [
                         {
                           "title": "DashboardPage.addNewExpenseFromDashboard",
-                          "duration": 808
+                          "duration": 638
                         },
                         {
                           "title": "DashboardPage.navigate",
-                          "duration": 231
+                          "duration": 226
                         },
                         {
                           "title": "DashboardPage.verifyRecentActivityUpdated",
-                          "duration": 620
+                          "duration": 576
                         }
                       ],
-                      "startTime": "2026-10-22T00:31:05.576Z",
+                      "startTime": "2026-10-22T14:31:18.162Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -591,7 +591,7 @@
                       "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2391,
+                      "duration": 1005,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
@@ -599,14 +599,14 @@
                       "steps": [
                         {
                           "title": "DashboardPage.navigate",
-                          "duration": 1714
+                          "duration": 328
                         },
                         {
                           "title": "DashboardPage.verifyExpensesByCategorySection",
-                          "duration": 423
+                          "duration": 427
                         }
                       ],
-                      "startTime": "2026-10-22T00:31:10.857Z",
+                      "startTime": "2026-10-22T14:31:23.233Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -635,7 +635,7 @@
                       "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1006,
+                      "duration": 985,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
@@ -643,11 +643,15 @@
                       "steps": [
                         {
                           "title": "DashboardPage.navigate",
-                          "duration": 314
+                          "duration": 304
                         },
                         {
                           "title": "DashboardPage.verifyInvoicesByStatusSection",
-                          "duration": 421
+                          "duration": 417
+                        },
+                        {
+                          "title": "DashboardPage.verifyInvoicesByStatus",
+                          "duration": 3
                         },
                         {
                           "title": "DashboardPage.verifyInvoicesByStatus",
@@ -656,13 +660,9 @@
                         {
                           "title": "DashboardPage.verifyInvoicesByStatus",
                           "duration": 4
-                        },
-                        {
-                          "title": "DashboardPage.verifyInvoicesByStatus",
-                          "duration": 3
                         }
                       ],
-                      "startTime": "2026-10-22T00:31:13.259Z",
+                      "startTime": "2026-10-22T14:31:24.249Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -691,7 +691,7 @@
                       "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1770,
+                      "duration": 1800,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
@@ -699,14 +699,14 @@
                       "steps": [
                         {
                           "title": "DashboardPage.navigate",
-                          "duration": 384
+                          "duration": 341
                         },
                         {
                           "title": "DashboardPage.verifyCompleteDataDisplay",
-                          "duration": 455
+                          "duration": 450
                         }
                       ],
-                      "startTime": "2026-10-22T00:31:14.275Z",
+                      "startTime": "2026-10-22T14:31:25.243Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -752,11 +752,11 @@
                       "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3273,
+                      "duration": 3387,
                       "errors": [],
                       "stdout": [
                         {
-                          "text": "Expense \"Coffee and breakfast 076155\" found in search results\n"
+                          "text": "Expense \"Coffee and breakfast 487139\" found in search results\n"
                         }
                       ],
                       "stderr": [],
@@ -764,58 +764,58 @@
                       "steps": [
                         {
                           "title": "ExpensePage.navigate",
-                          "duration": 469
+                          "duration": 424
                         },
                         {
                           "title": "ExpensePage.addValidExpense",
-                          "duration": 214,
+                          "duration": 242,
                           "steps": [
                             {
                               "title": "ExpensePage.clickAddExpense",
-                              "duration": 116
+                              "duration": 134
                             },
                             {
                               "title": "ExpensePage.fillExpenseAmount",
-                              "duration": 16
+                              "duration": 25
                             },
                             {
                               "title": "ExpensePage.fillExpenseDescription",
-                              "duration": 18
+                              "duration": 22
                             },
                             {
                               "title": "ExpensePage.selectExpenseCategory",
-                              "duration": 9
+                              "duration": 8
                             },
                             {
                               "title": "ExpensePage.submitExpenseForm",
-                              "duration": 49
+                              "duration": 45
                             },
                             {
                               "title": "ExpensePage.waitForRedirectToExpensesList",
-                              "duration": 3
+                              "duration": 4
                             }
                           ]
                         },
                         {
                           "title": "ExpensePage.verifyExpenseCreated",
-                          "duration": 791,
+                          "duration": 840,
                           "steps": [
                             {
                               "title": "ExpensePage.verifyExpensePageLoaded",
-                              "duration": 769
+                              "duration": 814
                             },
                             {
                               "title": "ExpensePage.verifyExpenseCount",
-                              "duration": 12
+                              "duration": 14
                             },
                             {
                               "title": "ExpensePage.verifyTotalExpenses",
-                              "duration": 7
+                              "duration": 9
                             }
                           ]
                         }
                       ],
-                      "startTime": "2026-10-22T00:31:16.060Z",
+                      "startTime": "2026-10-22T14:31:27.059Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -844,11 +844,11 @@
                       "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 6673,
+                      "duration": 6792,
                       "errors": [],
                       "stdout": [
                         {
-                          "text": "Edit operation completed successfully. Updated expense \"Updated expense 079391\" (may be on different page due to pagination)\n"
+                          "text": "Edit operation completed successfully. Updated expense \"Updated expense 490504\" (may be on different page due to pagination)\n"
                         }
                       ],
                       "stderr": [],
@@ -856,15 +856,15 @@
                       "steps": [
                         {
                           "title": "ExpensePage.navigate",
-                          "duration": 402
+                          "duration": 362
                         },
                         {
                           "title": "ExpensePage.verifyExpensePageLoaded",
-                          "duration": 1014
+                          "duration": 1147
                         },
                         {
                           "title": "ExpensePage.clickEditButtonByIndex",
-                          "duration": 63
+                          "duration": 78
                         },
                         {
                           "title": "ExpensePage.verifyEditFormOpened",
@@ -872,32 +872,32 @@
                         },
                         {
                           "title": "ExpensePage.clearAndFillAmount",
-                          "duration": 517
+                          "duration": 510
                         },
                         {
                           "title": "ExpensePage.updateDescription",
-                          "duration": 19
+                          "duration": 26
                         },
                         {
                           "title": "ExpensePage.updateCategory",
-                          "duration": 9
+                          "duration": 7
                         },
                         {
                           "title": "ExpensePage.saveChanges",
-                          "duration": 1088
+                          "duration": 1082
                         },
                         {
                           "title": "ExpensePage.verifyExpenseUpdated",
-                          "duration": 13,
+                          "duration": 12,
                           "steps": [
                             {
                               "title": "ExpensePage.verifyExpensePageLoaded",
-                              "duration": 13
+                              "duration": 11
                             }
                           ]
                         }
                       ],
-                      "startTime": "2026-10-22T00:31:19.346Z",
+                      "startTime": "2026-10-22T14:31:30.458Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -926,7 +926,7 @@
                       "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1867,
+                      "duration": 1545,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
@@ -934,10 +934,10 @@
                       "steps": [
                         {
                           "title": "ExpensePage.navigate",
-                          "duration": 482
+                          "duration": 413
                         }
                       ],
-                      "startTime": "2026-10-22T00:31:26.033Z",
+                      "startTime": "2026-10-22T14:31:37.265Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -966,7 +966,7 @@
                       "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2338,
+                      "duration": 2408,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
@@ -974,24 +974,24 @@
                       "steps": [
                         {
                           "title": "ExpensePage.navigate",
-                          "duration": 366
+                          "duration": 376
                         },
                         {
                           "title": "ExpensePage.filterByCategory",
-                          "duration": 73
+                          "duration": 82
                         },
                         {
                           "title": "ExpensePage.verifyFilteredResults",
-                          "duration": 830,
+                          "duration": 824,
                           "steps": [
                             {
                               "title": "ExpensePage.verifyExpensePageLoaded",
-                              "duration": 830
+                              "duration": 824
                             }
                           ]
                         }
                       ],
-                      "startTime": "2026-10-22T00:31:27.914Z",
+                      "startTime": "2026-10-22T14:31:38.821Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1037,7 +1037,7 @@
                       "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3242,
+                      "duration": 3220,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
@@ -1045,43 +1045,43 @@
                       "steps": [
                         {
                           "title": "IncomePage.navigate",
-                          "duration": 431
+                          "duration": 498
                         },
                         {
                           "title": "IncomePage.addValidIncome",
-                          "duration": 1946,
+                          "duration": 1906,
                           "steps": [
                             {
                               "title": "IncomePage.clickAddIncome",
-                              "duration": 132
+                              "duration": 140
                             },
                             {
                               "title": "IncomePage.fillIncomeAmount",
-                              "duration": 10
+                              "duration": 11
                             },
                             {
                               "title": "IncomePage.selectCategory",
-                              "duration": 7
+                              "duration": 9
                             },
                             {
                               "title": "IncomePage.fillDescription",
-                              "duration": 8
+                              "duration": 17
                             },
                             {
                               "title": "IncomePage.fillDate",
-                              "duration": 7
+                              "duration": 16
                             },
                             {
                               "title": "IncomePage.submitIncomeForm",
-                              "duration": 245
+                              "duration": 179
                             },
                             {
                               "title": "IncomePage.waitForSuccessToast",
-                              "duration": 1020
+                              "duration": 1019
                             },
                             {
                               "title": "IncomePage.clearSearch",
-                              "duration": 512
+                              "duration": 510
                             }
                           ]
                         },
@@ -1090,7 +1090,7 @@
                           "duration": 6
                         }
                       ],
-                      "startTime": "2026-10-22T00:31:30.269Z",
+                      "startTime": "2026-10-22T14:31:41.243Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1119,7 +1119,7 @@
                       "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1704,
+                      "duration": 1932,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
@@ -1127,11 +1127,11 @@
                       "steps": [
                         {
                           "title": "IncomePage.navigate",
-                          "duration": 457
+                          "duration": 356
                         },
                         {
                           "title": "IncomePage.clickAddIncome",
-                          "duration": 159
+                          "duration": 150
                         },
                         {
                           "title": "IncomePage.fillIncomeAmount",
@@ -1151,18 +1151,18 @@
                         },
                         {
                           "title": "IncomePage.enableRecurringIncome",
-                          "duration": 169
+                          "duration": 123
                         },
                         {
                           "title": "IncomePage.submitIncomeForm",
-                          "duration": 241
+                          "duration": 169
                         },
                         {
                           "title": "IncomePage.verifyIncomePageLoaded",
-                          "duration": 18
+                          "duration": 13
                         }
                       ],
-                      "startTime": "2026-10-22T00:31:33.523Z",
+                      "startTime": "2026-10-22T14:31:44.475Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1191,7 +1191,7 @@
                       "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2824,
+                      "duration": 2651,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
@@ -1199,15 +1199,15 @@
                       "steps": [
                         {
                           "title": "IncomePage.navigate",
-                          "duration": 364
+                          "duration": 347
                         },
                         {
                           "title": "IncomePage.verifyIncomePageLoaded",
-                          "duration": 46
+                          "duration": 40
                         },
                         {
                           "title": "IncomePage.clickEditButtonByIndex",
-                          "duration": 171
+                          "duration": 114
                         },
                         {
                           "title": "IncomePage.verifyEditFormOpened",
@@ -1215,22 +1215,22 @@
                         },
                         {
                           "title": "IncomePage.clearAndFillAmount",
-                          "duration": 510
+                          "duration": 509
                         },
                         {
                           "title": "IncomePage.updateCategory",
-                          "duration": 8
+                          "duration": 7
                         },
                         {
                           "title": "IncomePage.saveChanges",
-                          "duration": 1050
+                          "duration": 1119
                         },
                         {
                           "title": "IncomePage.verifyIncomePageLoaded",
-                          "duration": 5
+                          "duration": 4
                         }
                       ],
-                      "startTime": "2026-10-22T00:31:35.240Z",
+                      "startTime": "2026-10-22T14:31:46.419Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1259,7 +1259,7 @@
                       "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3312,
+                      "duration": 3183,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
@@ -1267,15 +1267,15 @@
                       "steps": [
                         {
                           "title": "IncomePage.navigate",
-                          "duration": 423
+                          "duration": 347
                         },
                         {
                           "title": "IncomePage.addValidIncome",
-                          "duration": 1953,
+                          "duration": 1952,
                           "steps": [
                             {
                               "title": "IncomePage.clickAddIncome",
-                              "duration": 192
+                              "duration": 158
                             },
                             {
                               "title": "IncomePage.fillIncomeAmount",
@@ -1287,19 +1287,19 @@
                             },
                             {
                               "title": "IncomePage.fillDescription",
-                              "duration": 9
-                            },
-                            {
-                              "title": "IncomePage.fillDate",
                               "duration": 8
                             },
                             {
+                              "title": "IncomePage.fillDate",
+                              "duration": 10
+                            },
+                            {
                               "title": "IncomePage.submitIncomeForm",
-                              "duration": 199
+                              "duration": 229
                             },
                             {
                               "title": "IncomePage.waitForSuccessToast",
-                              "duration": 1015
+                              "duration": 1018
                             },
                             {
                               "title": "IncomePage.clearSearch",
@@ -1309,14 +1309,14 @@
                         },
                         {
                           "title": "IncomePage.verifyIncomePageLoaded",
-                          "duration": 6
+                          "duration": 5
                         },
                         {
                           "title": "IncomePage.verifyIncomePageLoaded",
                           "duration": 4
                         }
                       ],
-                      "startTime": "2026-10-22T00:31:38.079Z",
+                      "startTime": "2026-10-22T14:31:49.087Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1345,7 +1345,7 @@
                       "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4881,
+                      "duration": 4814,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
@@ -1353,19 +1353,19 @@
                       "steps": [
                         {
                           "title": "IncomePage.navigate",
-                          "duration": 368
+                          "duration": 345
                         },
                         {
                           "title": "IncomePage.addValidIncome",
-                          "duration": 2006,
+                          "duration": 1932,
                           "steps": [
                             {
                               "title": "IncomePage.clickAddIncome",
-                              "duration": 201
+                              "duration": 156
                             },
                             {
                               "title": "IncomePage.fillIncomeAmount",
-                              "duration": 15
+                              "duration": 10
                             },
                             {
                               "title": "IncomePage.selectCategory",
@@ -1373,23 +1373,23 @@
                             },
                             {
                               "title": "IncomePage.fillDescription",
-                              "duration": 35
+                              "duration": 11
                             },
                             {
                               "title": "IncomePage.fillDate",
-                              "duration": 16
+                              "duration": 7
                             },
                             {
                               "title": "IncomePage.submitIncomeForm",
-                              "duration": 195
+                              "duration": 213
                             },
                             {
                               "title": "IncomePage.waitForSuccessToast",
-                              "duration": 1023
+                              "duration": 1016
                             },
                             {
                               "title": "IncomePage.clearSearch",
-                              "duration": 510
+                              "duration": 509
                             }
                           ]
                         },
@@ -1399,15 +1399,15 @@
                         },
                         {
                           "title": "IncomePage.addValidIncome",
-                          "duration": 1833,
+                          "duration": 1866,
                           "steps": [
                             {
                               "title": "IncomePage.clickAddIncome",
-                              "duration": 75
+                              "duration": 82
                             },
                             {
                               "title": "IncomePage.fillIncomeAmount",
-                              "duration": 8
+                              "duration": 7
                             },
                             {
                               "title": "IncomePage.selectCategory",
@@ -1415,40 +1415,40 @@
                             },
                             {
                               "title": "IncomePage.fillDescription",
-                              "duration": 8
+                              "duration": 7
                             },
                             {
                               "title": "IncomePage.fillDate",
-                              "duration": 8
+                              "duration": 7
                             },
                             {
                               "title": "IncomePage.submitIncomeForm",
-                              "duration": 198
+                              "duration": 237
                             },
                             {
                               "title": "IncomePage.waitForSuccessToast",
-                              "duration": 1018
+                              "duration": 1009
                             },
                             {
                               "title": "IncomePage.clearSearch",
-                              "duration": 510
+                              "duration": 509
                             }
                           ]
                         },
                         {
                           "title": "IncomePage.verifyIncomePageLoaded",
-                          "duration": 5
+                          "duration": 4
                         },
                         {
                           "title": "IncomePage.filterByCategory",
-                          "duration": 13
+                          "duration": 11
                         },
                         {
                           "title": "IncomePage.verifyFilteredResults",
-                          "duration": 5
+                          "duration": 2
                         }
                       ],
-                      "startTime": "2026-10-22T00:31:41.404Z",
+                      "startTime": "2026-10-22T14:31:52.282Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1494,7 +1494,7 @@
                       "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1748,
+                      "duration": 1831,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
@@ -1502,39 +1502,39 @@
                       "steps": [
                         {
                           "title": "InvoicePage.navigate",
-                          "duration": 524
+                          "duration": 357
                         },
                         {
                           "title": "InvoicePage.createCompleteInvoice",
-                          "duration": 322,
+                          "duration": 381,
                           "steps": [
                             {
                               "title": "InvoicePage.fillInvoiceNumber",
-                              "duration": 44
+                              "duration": 104
                             },
                             {
                               "title": "InvoicePage.fillClientName",
-                              "duration": 11
+                              "duration": 17
                             },
                             {
                               "title": "InvoicePage.fillClientEmail",
-                              "duration": 14
+                              "duration": 9
                             },
                             {
                               "title": "InvoicePage.fillInvoiceAmount",
-                              "duration": 9
+                              "duration": 12
                             },
                             {
                               "title": "InvoicePage.fillInvoiceDescription",
-                              "duration": 9
+                              "duration": 7
                             },
                             {
                               "title": "InvoicePage.fillDueDate",
-                              "duration": 9
+                              "duration": 7
                             },
                             {
                               "title": "InvoicePage.fillNotes",
-                              "duration": 11
+                              "duration": 10
                             },
                             {
                               "title": "InvoicePage.submitInvoice",
@@ -1544,10 +1544,10 @@
                         },
                         {
                           "title": "InvoicePage.verifyInvoiceInList",
-                          "duration": 130
+                          "duration": 376
                         }
                       ],
-                      "startTime": "2026-10-22T00:31:46.300Z",
+                      "startTime": "2026-10-22T14:31:57.110Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1576,7 +1576,7 @@
                       "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1451,
+                      "duration": 1381,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
@@ -1584,40 +1584,40 @@
                       "steps": [
                         {
                           "title": "InvoicePage.navigate",
-                          "duration": 374
+                          "duration": 332
                         },
                         {
                           "title": "InvoicePage.createInvoiceWithAutoNumber",
-                          "duration": 388,
+                          "duration": 357,
                           "steps": [
                             {
                               "title": "InvoicePage.fillClientName",
-                              "duration": 113
+                              "duration": 104
                             },
                             {
                               "title": "InvoicePage.fillInvoiceAmount",
-                              "duration": 18
-                            },
-                            {
-                              "title": "InvoicePage.fillInvoiceDescription",
-                              "duration": 14
-                            },
-                            {
-                              "title": "InvoicePage.fillDueDate",
                               "duration": 9
                             },
                             {
+                              "title": "InvoicePage.fillInvoiceDescription",
+                              "duration": 21
+                            },
+                            {
+                              "title": "InvoicePage.fillDueDate",
+                              "duration": 7
+                            },
+                            {
                               "title": "InvoicePage.submitInvoice",
-                              "duration": 231
+                              "duration": 212
                             }
                           ]
                         },
                         {
                           "title": "InvoicePage.verifyAutoGeneratedInvoiceNumber",
-                          "duration": 129
+                          "duration": 115
                         }
                       ],
-                      "startTime": "2026-10-22T00:31:48.059Z",
+                      "startTime": "2026-10-22T14:31:58.954Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1646,7 +1646,7 @@
                       "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4030,
+                      "duration": 3008,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
@@ -1654,19 +1654,19 @@
                       "steps": [
                         {
                           "title": "InvoicePage.navigate",
-                          "duration": 321
+                          "duration": 422
                         },
                         {
                           "title": "InvoicePage.createBasicInvoice",
-                          "duration": 360,
+                          "duration": 357,
                           "steps": [
                             {
                               "title": "InvoicePage.fillClientName",
-                              "duration": 118
+                              "duration": 127
                             },
                             {
                               "title": "InvoicePage.fillInvoiceAmount",
-                              "duration": 19
+                              "duration": 12
                             },
                             {
                               "title": "InvoicePage.fillInvoiceDescription",
@@ -1678,17 +1678,17 @@
                             },
                             {
                               "title": "InvoicePage.submitInvoice",
-                              "duration": 201
+                              "duration": 197
                             }
                           ]
                         },
                         {
                           "title": "InvoicePage.clickEditButton",
-                          "duration": 1132
+                          "duration": 1074
                         },
                         {
                           "title": "InvoicePage.updateInvoiceAmount",
-                          "duration": 16
+                          "duration": 13
                         },
                         {
                           "title": "InvoicePage.updateInvoiceStatus",
@@ -1696,26 +1696,26 @@
                         },
                         {
                           "title": "InvoicePage.updateInvoiceDescription",
-                          "duration": 24
+                          "duration": 14
                         },
                         {
                           "title": "InvoicePage.fillNotes",
-                          "duration": 9
+                          "duration": 12
                         },
                         {
                           "title": "InvoicePage.fillClientName",
-                          "duration": 8
+                          "duration": 6
                         },
                         {
                           "title": "InvoicePage.fillDueDate",
-                          "duration": 8
+                          "duration": 9
                         },
                         {
                           "title": "InvoicePage.clickUpdateInvoiceButton",
-                          "duration": 1060
+                          "duration": 66
                         }
                       ],
-                      "startTime": "2026-10-22T00:31:49.520Z",
+                      "startTime": "2026-10-22T14:32:00.345Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1744,7 +1744,7 @@
                       "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3316,
+                      "duration": 3678,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
@@ -1752,19 +1752,19 @@
                       "steps": [
                         {
                           "title": "InvoicePage.navigate",
-                          "duration": 354
+                          "duration": 327
                         },
                         {
                           "title": "InvoicePage.createInvoiceWithAutoNumber",
-                          "duration": 346,
+                          "duration": 816,
                           "steps": [
                             {
                               "title": "InvoicePage.fillClientName",
-                              "duration": 116
+                              "duration": 113
                             },
                             {
                               "title": "InvoicePage.fillInvoiceAmount",
-                              "duration": 17
+                              "duration": 11
                             },
                             {
                               "title": "InvoicePage.fillInvoiceDescription",
@@ -1772,16 +1772,16 @@
                             },
                             {
                               "title": "InvoicePage.fillDueDate",
-                              "duration": 9
+                              "duration": 10
                             },
                             {
                               "title": "InvoicePage.submitInvoice",
-                              "duration": 189
+                              "duration": 667
                             }
                           ]
                         }
                       ],
-                      "startTime": "2026-10-22T00:31:53.560Z",
+                      "startTime": "2026-10-22T14:32:03.368Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1810,7 +1810,7 @@
                       "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3012,
+                      "duration": 2736,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
@@ -1818,15 +1818,15 @@
                       "steps": [
                         {
                           "title": "InvoicePage.navigate",
-                          "duration": 375
+                          "duration": 502
                         },
                         {
                           "title": "InvoicePage.createBasicInvoice",
-                          "duration": 343,
+                          "duration": 333,
                           "steps": [
                             {
                               "title": "InvoicePage.fillClientName",
-                              "duration": 101
+                              "duration": 104
                             },
                             {
                               "title": "InvoicePage.fillInvoiceAmount",
@@ -1834,25 +1834,25 @@
                             },
                             {
                               "title": "InvoicePage.fillInvoiceDescription",
-                              "duration": 22
+                              "duration": 18
                             },
                             {
                               "title": "InvoicePage.fillDueDate",
-                              "duration": 9
+                              "duration": 10
                             },
                             {
                               "title": "InvoicePage.submitInvoice",
-                              "duration": 200
+                              "duration": 192
                             }
                           ]
                         },
                         {
                           "title": "InvoicePage.createBasicInvoice",
-                          "duration": 308,
+                          "duration": 246,
                           "steps": [
                             {
                               "title": "InvoicePage.fillClientName",
-                              "duration": 9
+                              "duration": 8
                             },
                             {
                               "title": "InvoicePage.fillInvoiceAmount",
@@ -1860,7 +1860,7 @@
                             },
                             {
                               "title": "InvoicePage.fillInvoiceDescription",
-                              "duration": 12
+                              "duration": 10
                             },
                             {
                               "title": "InvoicePage.fillDueDate",
@@ -1868,50 +1868,50 @@
                             },
                             {
                               "title": "InvoicePage.submitInvoice",
-                              "duration": 258
+                              "duration": 201
                             }
                           ]
                         },
                         {
                           "title": "InvoicePage.createBasicInvoice",
-                          "duration": 397,
+                          "duration": 294,
                           "steps": [
                             {
                               "title": "InvoicePage.fillClientName",
-                              "duration": 11
-                            },
-                            {
-                              "title": "InvoicePage.fillInvoiceAmount",
                               "duration": 7
                             },
                             {
+                              "title": "InvoicePage.fillInvoiceAmount",
+                              "duration": 8
+                            },
+                            {
                               "title": "InvoicePage.fillInvoiceDescription",
-                              "duration": 6
+                              "duration": 10
                             },
                             {
                               "title": "InvoicePage.fillDueDate",
-                              "duration": 14
+                              "duration": 17
                             },
                             {
                               "title": "InvoicePage.submitInvoice",
-                              "duration": 348
+                              "duration": 244
                             }
                           ]
                         },
                         {
                           "title": "InvoicePage.filterByStatus",
-                          "duration": 137
+                          "duration": 147
                         },
                         {
                           "title": "InvoicePage.filterByStatus",
-                          "duration": 113
+                          "duration": 128
                         },
                         {
                           "title": "InvoicePage.filterByStatus",
-                          "duration": 174
+                          "duration": 167
                         }
                       ],
-                      "startTime": "2026-10-22T00:31:56.885Z",
+                      "startTime": "2026-10-22T14:32:07.056Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1957,12 +1957,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 105,
+                      "duration": 88,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-22T00:31:59.910Z",
+                      "startTime": "2026-10-22T14:32:09.803Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2008,7 +2008,7 @@
                       "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 382,
+                      "duration": 354,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
@@ -2016,14 +2016,14 @@
                       "steps": [
                         {
                           "title": "DashboardPage.navigate",
-                          "duration": 339
+                          "duration": 314
                         },
                         {
                           "title": "DashboardPage.verifyWelcomeMessage",
-                          "duration": 42
+                          "duration": 37
                         }
                       ],
-                      "startTime": "2026-10-22T00:32:00.027Z",
+                      "startTime": "2026-10-22T14:32:09.902Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2052,7 +2052,7 @@
                       "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 320,
+                      "duration": 296,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
@@ -2060,10 +2060,10 @@
                       "steps": [
                         {
                           "title": "ExpensePage.navigate",
-                          "duration": 301
+                          "duration": 273
                         }
                       ],
-                      "startTime": "2026-10-22T00:32:00.464Z",
+                      "startTime": "2026-10-22T14:32:10.306Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2097,7 +2097,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-22T00:32:00.794Z",
+                      "startTime": "2026-10-22T14:32:10.611Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2143,7 +2143,7 @@
                       "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 837,
+                      "duration": 905,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
@@ -2151,44 +2151,44 @@
                       "steps": [
                         {
                           "title": "SummaryPage.navigate",
-                          "duration": 400
+                          "duration": 416
                         },
                         {
                           "title": "SummaryPage.verifyCompleteSummaryDisplay",
-                          "duration": 203,
+                          "duration": 266,
                           "steps": [
                             {
                               "title": "SummaryPage.verifyPageHeader",
-                              "duration": 40
+                              "duration": 33
                             },
                             {
                               "title": "SummaryPage.verifyPageSubtitle",
-                              "duration": 6
+                              "duration": 9
                             },
                             {
                               "title": "SummaryPage.verifyAllTimeFilterButtons",
-                              "duration": 105
+                              "duration": 195
                             },
                             {
                               "title": "SummaryPage.verifyAllMetricCards",
-                              "duration": 37
+                              "duration": 15
                             },
                             {
                               "title": "SummaryPage.verifyIncomeDataDisplay",
-                              "duration": 7
+                              "duration": 6
                             },
                             {
                               "title": "SummaryPage.verifyAllCategoryBreakdowns",
-                              "duration": 3
+                              "duration": 2
                             },
                             {
                               "title": "SummaryPage.verifyAllRecentActivitySections",
-                              "duration": 3
+                              "duration": 2
                             }
                           ]
                         }
                       ],
-                      "startTime": "2026-10-22T00:32:01.111Z",
+                      "startTime": "2026-10-22T14:32:10.925Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2217,7 +2217,7 @@
                       "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1809,
+                      "duration": 1765,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
@@ -2225,34 +2225,34 @@
                       "steps": [
                         {
                           "title": "SummaryPage.navigate",
-                          "duration": 344
+                          "duration": 331
                         },
                         {
                           "title": "SummaryPage.filterByThisMonth",
-                          "duration": 316
-                        },
-                        {
-                          "title": "SummaryPage.verifySummaryAfterFilter",
-                          "duration": 371
-                        },
-                        {
-                          "title": "SummaryPage.filterByThisYear",
-                          "duration": 58
+                          "duration": 297
                         },
                         {
                           "title": "SummaryPage.verifySummaryAfterFilter",
                           "duration": 366
                         },
                         {
-                          "title": "SummaryPage.filterByAllTime",
-                          "duration": 78
+                          "title": "SummaryPage.filterByThisYear",
+                          "duration": 67
                         },
                         {
                           "title": "SummaryPage.verifySummaryAfterFilter",
-                          "duration": 9
+                          "duration": 365
+                        },
+                        {
+                          "title": "SummaryPage.filterByAllTime",
+                          "duration": 53
+                        },
+                        {
+                          "title": "SummaryPage.verifySummaryAfterFilter",
+                          "duration": 8
                         }
                       ],
-                      "startTime": "2026-10-22T00:32:01.959Z",
+                      "startTime": "2026-10-22T14:32:11.840Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2281,7 +2281,7 @@
                       "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 992,
+                      "duration": 1022,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
@@ -2289,19 +2289,19 @@
                       "steps": [
                         {
                           "title": "SummaryPage.navigate",
-                          "duration": 312
+                          "duration": 354
                         },
                         {
                           "title": "SummaryPage.verifyAllCategoryBreakdownDetails",
-                          "duration": 432,
+                          "duration": 443,
                           "steps": [
                             {
                               "title": "SummaryPage.verifyIncomeCategoryBreakdown",
-                              "duration": 412
+                              "duration": 422
                             },
                             {
                               "title": "SummaryPage.verifyIncomeCategoryAmounts",
-                              "duration": 7
+                              "duration": 6
                             },
                             {
                               "title": "SummaryPage.verifyExpenseCategoryBreakdown",
@@ -2322,7 +2322,7 @@
                           ]
                         }
                       ],
-                      "startTime": "2026-10-22T00:32:03.780Z",
+                      "startTime": "2026-10-22T14:32:13.616Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2370,7 +2370,7 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "timedOut",
-                      "duration": 30538,
+                      "duration": 30510,
                       "error": {
                         "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
                         "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
@@ -2394,27 +2394,27 @@
                       "steps": [
                         {
                           "title": "ExpensePage.navigate",
-                          "duration": 402
+                          "duration": 371
                         },
                         {
                           "title": "ExpensePage.clickAddExpense",
-                          "duration": 162
+                          "duration": 134
                         },
                         {
                           "title": "ExpensePage.fillExpenseAmount",
-                          "duration": 25
+                          "duration": 23
                         },
                         {
                           "title": "ExpensePage.fillExpenseDescription",
-                          "duration": 26
+                          "duration": 22
                         },
                         {
                           "title": "ExpensePage.clickAISuggestButton",
-                          "duration": 93
+                          "duration": 94
                         },
                         {
                           "title": "ExpensePage.verifyAICategoryAutofilled",
-                          "duration": 29762,
+                          "duration": 29795,
                           "error": {
                             "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveValue\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByLabel('Category')\nExpected: \u001b[32m\"foodDining\"\u001b[39m\nReceived: \u001b[31m\"\"\u001b[39m\n\nCall log:\n\u001b[2m  - Expect \"toHaveValue\" with timeout 30000ms\u001b[22m\n\u001b[2m  - waiting for getByLabel('Category')\u001b[22m\n\u001b[2m    33 × locator resolved to <select id=\"category\" name=\"category\" class=\"w-full px-3 py-2 bg-white/5 border border-white/20 rounded-md text-white placeholder:text-gray-400 focus:border-blue-400 focus:ring-blue-400/20 focus:outline-none\">…</select>\u001b[22m\n\u001b[2m       - unexpected value \"\"\u001b[22m\n",
                             "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveValue\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByLabel('Category')\nExpected: \u001b[32m\"foodDining\"\u001b[39m\nReceived: \u001b[31m\"\"\u001b[39m\n\nCall log:\n\u001b[2m  - Expect \"toHaveValue\" with timeout 30000ms\u001b[22m\n\u001b[2m  - waiting for getByLabel('Category')\u001b[22m\n\u001b[2m    33 × locator resolved to <select id=\"category\" name=\"category\" class=\"w-full px-3 py-2 bg-white/5 border border-white/20 rounded-md text-white placeholder:text-gray-400 focus:border-blue-400 focus:ring-blue-400/20 focus:outline-none\">…</select>\u001b[22m\n\u001b[2m       - unexpected value \"\"\u001b[22m\n\n    at ExpensePage.call (/home/runner/work/e2e_finance_app/e2e_finance_app/src/pages/expense-page.ts:214:41)\n    at /home/runner/work/e2e_finance_app/e2e_finance_app/decorators/test-step.ts:22:33\n    at ExpensePage.verifyAICategoryAutofilled (/home/runner/work/e2e_finance_app/e2e_finance_app/decorators/test-step.ts:21:21)\n    at /home/runner/work/e2e_finance_app/e2e_finance_app/tests/specs/ai-categorization.spec.ts:51:25",
@@ -2427,7 +2427,7 @@
                           }
                         }
                       ],
-                      "startTime": "2026-10-22T00:32:05.429Z",
+                      "startTime": "2026-10-22T14:32:15.286Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -2451,7 +2451,7 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "timedOut",
-                      "duration": 30992,
+                      "duration": 30954,
                       "error": {
                         "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
                         "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
@@ -2475,27 +2475,27 @@
                       "steps": [
                         {
                           "title": "ExpensePage.navigate",
-                          "duration": 472
+                          "duration": 424
                         },
                         {
                           "title": "ExpensePage.clickAddExpense",
-                          "duration": 132
+                          "duration": 164
                         },
                         {
                           "title": "ExpensePage.fillExpenseAmount",
-                          "duration": 36
+                          "duration": 40
                         },
                         {
                           "title": "ExpensePage.fillExpenseDescription",
-                          "duration": 20
+                          "duration": 36
                         },
                         {
                           "title": "ExpensePage.clickAISuggestButton",
-                          "duration": 98
+                          "duration": 82
                         },
                         {
                           "title": "ExpensePage.verifyAICategoryAutofilled",
-                          "duration": 30019,
+                          "duration": 30012,
                           "error": {
                             "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveValue\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByLabel('Category')\nExpected: \u001b[32m\"foodDining\"\u001b[39m\nReceived: \u001b[31m\"\"\u001b[39m\nTimeout:  30000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveValue\" with timeout 30000ms\u001b[22m\n\u001b[2m  - waiting for getByLabel('Category')\u001b[22m\n\u001b[2m    34 × locator resolved to <select id=\"category\" name=\"category\" class=\"w-full px-3 py-2 bg-white/5 border border-white/20 rounded-md text-white placeholder:text-gray-400 focus:border-blue-400 focus:ring-blue-400/20 focus:outline-none\">…</select>\u001b[22m\n\u001b[2m       - unexpected value \"\"\u001b[22m\n",
                             "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveValue\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByLabel('Category')\nExpected: \u001b[32m\"foodDining\"\u001b[39m\nReceived: \u001b[31m\"\"\u001b[39m\nTimeout:  30000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveValue\" with timeout 30000ms\u001b[22m\n\u001b[2m  - waiting for getByLabel('Category')\u001b[22m\n\u001b[2m    34 × locator resolved to <select id=\"category\" name=\"category\" class=\"w-full px-3 py-2 bg-white/5 border border-white/20 rounded-md text-white placeholder:text-gray-400 focus:border-blue-400 focus:ring-blue-400/20 focus:outline-none\">…</select>\u001b[22m\n\u001b[2m       - unexpected value \"\"\u001b[22m\n\n    at ExpensePage.call (/home/runner/work/e2e_finance_app/e2e_finance_app/src/pages/expense-page.ts:214:41)\n    at /home/runner/work/e2e_finance_app/e2e_finance_app/decorators/test-step.ts:22:33\n    at ExpensePage.verifyAICategoryAutofilled (/home/runner/work/e2e_finance_app/e2e_finance_app/decorators/test-step.ts:21:21)\n    at /home/runner/work/e2e_finance_app/e2e_finance_app/tests/specs/ai-categorization.spec.ts:51:25",
@@ -2508,7 +2508,7 @@
                           }
                         }
                       ],
-                      "startTime": "2026-10-22T00:32:36.722Z",
+                      "startTime": "2026-10-22T14:32:46.564Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -2560,7 +2560,7 @@
                       "workerIndex": 4,
                       "parallelIndex": 0,
                       "status": "timedOut",
-                      "duration": 30516,
+                      "duration": 30485,
                       "error": {
                         "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
                         "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
@@ -2584,27 +2584,27 @@
                       "steps": [
                         {
                           "title": "ExpensePage.navigate",
-                          "duration": 368
+                          "duration": 393
                         },
                         {
                           "title": "ExpensePage.clickAddExpense",
-                          "duration": 164
+                          "duration": 149
                         },
                         {
                           "title": "ExpensePage.fillExpenseAmount",
-                          "duration": 28
+                          "duration": 35
                         },
                         {
                           "title": "ExpensePage.fillExpenseDescription",
-                          "duration": 28
+                          "duration": 24
                         },
                         {
                           "title": "ExpensePage.clickAISuggestButton",
-                          "duration": 76
+                          "duration": 86
                         },
                         {
                           "title": "ExpensePage.verifyAICategoryAutofilled",
-                          "duration": 29776,
+                          "duration": 29721,
                           "error": {
                             "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveValue\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByLabel('Category')\nExpected: \u001b[32m\"transportation\"\u001b[39m\nReceived: \u001b[31m\"\"\u001b[39m\n\nCall log:\n\u001b[2m  - Expect \"toHaveValue\" with timeout 30000ms\u001b[22m\n\u001b[2m  - waiting for getByLabel('Category')\u001b[22m\n\u001b[2m    33 × locator resolved to <select id=\"category\" name=\"category\" class=\"w-full px-3 py-2 bg-white/5 border border-white/20 rounded-md text-white placeholder:text-gray-400 focus:border-blue-400 focus:ring-blue-400/20 focus:outline-none\">…</select>\u001b[22m\n\u001b[2m       - unexpected value \"\"\u001b[22m\n",
                             "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveValue\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByLabel('Category')\nExpected: \u001b[32m\"transportation\"\u001b[39m\nReceived: \u001b[31m\"\"\u001b[39m\n\nCall log:\n\u001b[2m  - Expect \"toHaveValue\" with timeout 30000ms\u001b[22m\n\u001b[2m  - waiting for getByLabel('Category')\u001b[22m\n\u001b[2m    33 × locator resolved to <select id=\"category\" name=\"category\" class=\"w-full px-3 py-2 bg-white/5 border border-white/20 rounded-md text-white placeholder:text-gray-400 focus:border-blue-400 focus:ring-blue-400/20 focus:outline-none\">…</select>\u001b[22m\n\u001b[2m       - unexpected value \"\"\u001b[22m\n\n    at ExpensePage.call (/home/runner/work/e2e_finance_app/e2e_finance_app/src/pages/expense-page.ts:214:41)\n    at /home/runner/work/e2e_finance_app/e2e_finance_app/decorators/test-step.ts:22:33\n    at ExpensePage.verifyAICategoryAutofilled (/home/runner/work/e2e_finance_app/e2e_finance_app/decorators/test-step.ts:21:21)\n    at /home/runner/work/e2e_finance_app/e2e_finance_app/tests/specs/ai-categorization.spec.ts:51:25",
@@ -2617,7 +2617,7 @@
                           }
                         }
                       ],
-                      "startTime": "2026-10-22T00:33:08.967Z",
+                      "startTime": "2026-10-22T14:33:18.738Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -2641,7 +2641,7 @@
                       "workerIndex": 5,
                       "parallelIndex": 0,
                       "status": "timedOut",
-                      "duration": 31062,
+                      "duration": 30933,
                       "error": {
                         "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
                         "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
@@ -2665,15 +2665,15 @@
                       "steps": [
                         {
                           "title": "ExpensePage.navigate",
-                          "duration": 436
+                          "duration": 421
                         },
                         {
                           "title": "ExpensePage.clickAddExpense",
-                          "duration": 181
+                          "duration": 161
                         },
                         {
                           "title": "ExpensePage.fillExpenseAmount",
-                          "duration": 48
+                          "duration": 45
                         },
                         {
                           "title": "ExpensePage.fillExpenseDescription",
@@ -2681,11 +2681,11 @@
                         },
                         {
                           "title": "ExpensePage.clickAISuggestButton",
-                          "duration": 80
+                          "duration": 61
                         },
                         {
                           "title": "ExpensePage.verifyAICategoryAutofilled",
-                          "duration": 30013,
+                          "duration": 30010,
                           "error": {
                             "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveValue\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByLabel('Category')\nExpected: \u001b[32m\"transportation\"\u001b[39m\nReceived: \u001b[31m\"\"\u001b[39m\nTimeout:  30000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveValue\" with timeout 30000ms\u001b[22m\n\u001b[2m  - waiting for getByLabel('Category')\u001b[22m\n\u001b[2m    34 × locator resolved to <select id=\"category\" name=\"category\" class=\"w-full px-3 py-2 bg-white/5 border border-white/20 rounded-md text-white placeholder:text-gray-400 focus:border-blue-400 focus:ring-blue-400/20 focus:outline-none\">…</select>\u001b[22m\n\u001b[2m       - unexpected value \"\"\u001b[22m\n",
                             "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveValue\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByLabel('Category')\nExpected: \u001b[32m\"transportation\"\u001b[39m\nReceived: \u001b[31m\"\"\u001b[39m\nTimeout:  30000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveValue\" with timeout 30000ms\u001b[22m\n\u001b[2m  - waiting for getByLabel('Category')\u001b[22m\n\u001b[2m    34 × locator resolved to <select id=\"category\" name=\"category\" class=\"w-full px-3 py-2 bg-white/5 border border-white/20 rounded-md text-white placeholder:text-gray-400 focus:border-blue-400 focus:ring-blue-400/20 focus:outline-none\">…</select>\u001b[22m\n\u001b[2m       - unexpected value \"\"\u001b[22m\n\n    at ExpensePage.call (/home/runner/work/e2e_finance_app/e2e_finance_app/src/pages/expense-page.ts:214:41)\n    at /home/runner/work/e2e_finance_app/e2e_finance_app/decorators/test-step.ts:22:33\n    at ExpensePage.verifyAICategoryAutofilled (/home/runner/work/e2e_finance_app/e2e_finance_app/decorators/test-step.ts:21:21)\n    at /home/runner/work/e2e_finance_app/e2e_finance_app/tests/specs/ai-categorization.spec.ts:51:25",
@@ -2698,7 +2698,7 @@
                           }
                         }
                       ],
-                      "startTime": "2026-10-22T00:33:40.265Z",
+                      "startTime": "2026-10-22T14:33:49.969Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -2750,7 +2750,7 @@
                       "workerIndex": 6,
                       "parallelIndex": 0,
                       "status": "timedOut",
-                      "duration": 30564,
+                      "duration": 30512,
                       "error": {
                         "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
                         "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
@@ -2774,27 +2774,27 @@
                       "steps": [
                         {
                           "title": "ExpensePage.navigate",
-                          "duration": 409
+                          "duration": 383
                         },
                         {
                           "title": "ExpensePage.clickAddExpense",
-                          "duration": 146
+                          "duration": 166
                         },
                         {
                           "title": "ExpensePage.fillExpenseAmount",
-                          "duration": 26
+                          "duration": 28
                         },
                         {
                           "title": "ExpensePage.fillExpenseDescription",
-                          "duration": 24
+                          "duration": 22
                         },
                         {
                           "title": "ExpensePage.clickAISuggestButton",
-                          "duration": 104
+                          "duration": 89
                         },
                         {
                           "title": "ExpensePage.verifyAICategoryAutofilled",
-                          "duration": 29772,
+                          "duration": 29745,
                           "error": {
                             "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveValue\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByLabel('Category')\nExpected: \u001b[32m\"shopping\"\u001b[39m\nReceived: \u001b[31m\"\"\u001b[39m\n\nCall log:\n\u001b[2m  - Expect \"toHaveValue\" with timeout 30000ms\u001b[22m\n\u001b[2m  - waiting for getByLabel('Category')\u001b[22m\n\u001b[2m    33 × locator resolved to <select id=\"category\" name=\"category\" class=\"w-full px-3 py-2 bg-white/5 border border-white/20 rounded-md text-white placeholder:text-gray-400 focus:border-blue-400 focus:ring-blue-400/20 focus:outline-none\">…</select>\u001b[22m\n\u001b[2m       - unexpected value \"\"\u001b[22m\n",
                             "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveValue\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByLabel('Category')\nExpected: \u001b[32m\"shopping\"\u001b[39m\nReceived: \u001b[31m\"\"\u001b[39m\n\nCall log:\n\u001b[2m  - Expect \"toHaveValue\" with timeout 30000ms\u001b[22m\n\u001b[2m  - waiting for getByLabel('Category')\u001b[22m\n\u001b[2m    33 × locator resolved to <select id=\"category\" name=\"category\" class=\"w-full px-3 py-2 bg-white/5 border border-white/20 rounded-md text-white placeholder:text-gray-400 focus:border-blue-400 focus:ring-blue-400/20 focus:outline-none\">…</select>\u001b[22m\n\u001b[2m       - unexpected value \"\"\u001b[22m\n\n    at ExpensePage.call (/home/runner/work/e2e_finance_app/e2e_finance_app/src/pages/expense-page.ts:214:41)\n    at /home/runner/work/e2e_finance_app/e2e_finance_app/decorators/test-step.ts:22:33\n    at ExpensePage.verifyAICategoryAutofilled (/home/runner/work/e2e_finance_app/e2e_finance_app/decorators/test-step.ts:21:21)\n    at /home/runner/work/e2e_finance_app/e2e_finance_app/tests/specs/ai-categorization.spec.ts:51:25",
@@ -2807,7 +2807,7 @@
                           }
                         }
                       ],
-                      "startTime": "2026-10-22T00:34:12.626Z",
+                      "startTime": "2026-10-22T14:34:22.111Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -2831,7 +2831,7 @@
                       "workerIndex": 7,
                       "parallelIndex": 0,
                       "status": "timedOut",
-                      "duration": 30959,
+                      "duration": 30981,
                       "error": {
                         "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
                         "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
@@ -2855,23 +2855,23 @@
                       "steps": [
                         {
                           "title": "ExpensePage.navigate",
-                          "duration": 455
+                          "duration": 445
                         },
                         {
                           "title": "ExpensePage.clickAddExpense",
-                          "duration": 198
+                          "duration": 158
                         },
                         {
                           "title": "ExpensePage.fillExpenseAmount",
-                          "duration": 46
+                          "duration": 35
                         },
                         {
                           "title": "ExpensePage.fillExpenseDescription",
-                          "duration": 30
+                          "duration": 20
                         },
                         {
                           "title": "ExpensePage.clickAISuggestButton",
-                          "duration": 73
+                          "duration": 90
                         },
                         {
                           "title": "ExpensePage.verifyAICategoryAutofilled",
@@ -2888,7 +2888,7 @@
                           }
                         }
                       ],
-                      "startTime": "2026-10-22T00:34:43.972Z",
+                      "startTime": "2026-10-22T14:34:53.372Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -2940,7 +2940,7 @@
                       "workerIndex": 8,
                       "parallelIndex": 0,
                       "status": "timedOut",
-                      "duration": 30533,
+                      "duration": 30508,
                       "error": {
                         "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
                         "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
@@ -2964,27 +2964,27 @@
                       "steps": [
                         {
                           "title": "ExpensePage.navigate",
-                          "duration": 381
+                          "duration": 470
                         },
                         {
                           "title": "ExpensePage.clickAddExpense",
-                          "duration": 161
+                          "duration": 177
                         },
                         {
                           "title": "ExpensePage.fillExpenseAmount",
-                          "duration": 21
+                          "duration": 20
                         },
                         {
                           "title": "ExpensePage.fillExpenseDescription",
-                          "duration": 24
+                          "duration": 26
                         },
                         {
                           "title": "ExpensePage.clickAISuggestButton",
-                          "duration": 84
+                          "duration": 66
                         },
                         {
                           "title": "ExpensePage.verifyAISuggestionNotification",
-                          "duration": 29780,
+                          "duration": 29669,
                           "error": {
                             "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/AI suggested/i)\nExpected: visible\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 30000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/AI suggested/i)\u001b[22m\n",
                             "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/AI suggested/i)\nExpected: visible\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 30000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/AI suggested/i)\u001b[22m\n\n    at ExpensePage.call (/home/runner/work/e2e_finance_app/e2e_finance_app/src/pages/expense-page.ts:209:56)\n    at /home/runner/work/e2e_finance_app/e2e_finance_app/decorators/test-step.ts:22:33\n    at ExpensePage.verifyAISuggestionNotification (/home/runner/work/e2e_finance_app/e2e_finance_app/decorators/test-step.ts:21:21)\n    at /home/runner/work/e2e_finance_app/e2e_finance_app/tests/specs/ai-categorization.spec.ts:81:23",
@@ -2997,7 +2997,7 @@
                           }
                         }
                       ],
-                      "startTime": "2026-10-22T00:35:16.188Z",
+                      "startTime": "2026-10-22T14:35:25.611Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -3021,7 +3021,7 @@
                       "workerIndex": 9,
                       "parallelIndex": 0,
                       "status": "timedOut",
-                      "duration": 30960,
+                      "duration": 30981,
                       "error": {
                         "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
                         "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
@@ -3045,27 +3045,27 @@
                       "steps": [
                         {
                           "title": "ExpensePage.navigate",
-                          "duration": 427
+                          "duration": 422
                         },
                         {
                           "title": "ExpensePage.clickAddExpense",
-                          "duration": 157
+                          "duration": 146
                         },
                         {
                           "title": "ExpensePage.fillExpenseAmount",
-                          "duration": 29
+                          "duration": 39
                         },
                         {
                           "title": "ExpensePage.fillExpenseDescription",
-                          "duration": 34
+                          "duration": 18
                         },
                         {
                           "title": "ExpensePage.clickAISuggestButton",
-                          "duration": 94
+                          "duration": 114
                         },
                         {
                           "title": "ExpensePage.verifyAISuggestionNotification",
-                          "duration": 30016,
+                          "duration": 30017,
                           "error": {
                             "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/AI suggested/i)\nExpected: visible\nTimeout: 30000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 30000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/AI suggested/i)\u001b[22m\n",
                             "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/AI suggested/i)\nExpected: visible\nTimeout: 30000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 30000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/AI suggested/i)\u001b[22m\n\n    at ExpensePage.call (/home/runner/work/e2e_finance_app/e2e_finance_app/src/pages/expense-page.ts:209:56)\n    at /home/runner/work/e2e_finance_app/e2e_finance_app/decorators/test-step.ts:22:33\n    at ExpensePage.verifyAISuggestionNotification (/home/runner/work/e2e_finance_app/e2e_finance_app/decorators/test-step.ts:21:21)\n    at /home/runner/work/e2e_finance_app/e2e_finance_app/tests/specs/ai-categorization.spec.ts:81:23",
@@ -3078,7 +3078,7 @@
                           }
                         }
                       ],
-                      "startTime": "2026-10-22T00:35:47.488Z",
+                      "startTime": "2026-10-22T14:35:56.868Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -3130,7 +3130,7 @@
                       "workerIndex": 10,
                       "parallelIndex": 0,
                       "status": "timedOut",
-                      "duration": 30540,
+                      "duration": 30588,
                       "error": {
                         "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
                         "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
@@ -3154,27 +3154,27 @@
                       "steps": [
                         {
                           "title": "ExpensePage.navigate",
-                          "duration": 382
+                          "duration": 394
                         },
                         {
                           "title": "ExpensePage.clickAddExpense",
-                          "duration": 133
+                          "duration": 139
                         },
                         {
                           "title": "ExpensePage.fillExpenseAmount",
-                          "duration": 23
+                          "duration": 26
                         },
                         {
                           "title": "ExpensePage.fillExpenseDescription",
-                          "duration": 23
+                          "duration": 24
                         },
                         {
                           "title": "ExpensePage.clickAISuggestButton",
-                          "duration": 67
+                          "duration": 83
                         },
                         {
                           "title": "ExpensePage.verifyAISuggestionNotification",
-                          "duration": 29835,
+                          "duration": 29843,
                           "error": {
                             "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/AI suggested/i)\nExpected: visible\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 30000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/AI suggested/i)\u001b[22m\n",
                             "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/AI suggested/i)\nExpected: visible\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 30000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/AI suggested/i)\u001b[22m\n\n    at ExpensePage.call (/home/runner/work/e2e_finance_app/e2e_finance_app/src/pages/expense-page.ts:209:56)\n    at /home/runner/work/e2e_finance_app/e2e_finance_app/decorators/test-step.ts:22:33\n    at ExpensePage.verifyAISuggestionNotification (/home/runner/work/e2e_finance_app/e2e_finance_app/decorators/test-step.ts:21:21)\n    at /home/runner/work/e2e_finance_app/e2e_finance_app/tests/specs/ai-categorization.spec.ts:97:23",
@@ -3187,7 +3187,7 @@
                           }
                         }
                       ],
-                      "startTime": "2026-10-22T00:36:19.704Z",
+                      "startTime": "2026-10-22T14:36:29.078Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -3211,7 +3211,7 @@
                       "workerIndex": 11,
                       "parallelIndex": 0,
                       "status": "timedOut",
-                      "duration": 30958,
+                      "duration": 30976,
                       "error": {
                         "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
                         "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
@@ -3235,27 +3235,27 @@
                       "steps": [
                         {
                           "title": "ExpensePage.navigate",
-                          "duration": 414
+                          "duration": 441
                         },
                         {
                           "title": "ExpensePage.clickAddExpense",
-                          "duration": 144
+                          "duration": 141
                         },
                         {
                           "title": "ExpensePage.fillExpenseAmount",
-                          "duration": 49
+                          "duration": 39
                         },
                         {
                           "title": "ExpensePage.fillExpenseDescription",
-                          "duration": 27
+                          "duration": 42
                         },
                         {
                           "title": "ExpensePage.clickAISuggestButton",
-                          "duration": 103
+                          "duration": 78
                         },
                         {
                           "title": "ExpensePage.verifyAISuggestionNotification",
-                          "duration": 30009,
+                          "duration": 30012,
                           "error": {
                             "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/AI suggested/i)\nExpected: visible\nTimeout: 30000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 30000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/AI suggested/i)\u001b[22m\n",
                             "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/AI suggested/i)\nExpected: visible\nTimeout: 30000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 30000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/AI suggested/i)\u001b[22m\n\n    at ExpensePage.call (/home/runner/work/e2e_finance_app/e2e_finance_app/src/pages/expense-page.ts:209:56)\n    at /home/runner/work/e2e_finance_app/e2e_finance_app/decorators/test-step.ts:22:33\n    at ExpensePage.verifyAISuggestionNotification (/home/runner/work/e2e_finance_app/e2e_finance_app/decorators/test-step.ts:21:21)\n    at /home/runner/work/e2e_finance_app/e2e_finance_app/tests/specs/ai-categorization.spec.ts:97:23",
@@ -3268,7 +3268,7 @@
                           }
                         }
                       ],
-                      "startTime": "2026-10-22T00:36:50.986Z",
+                      "startTime": "2026-10-22T14:37:00.425Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -3337,7 +3337,7 @@
                       "workerIndex": 12,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2919,
+                      "duration": 2897,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
@@ -3345,15 +3345,15 @@
                       "steps": [
                         {
                           "title": "SummaryPage.navigate",
-                          "duration": 337
+                          "duration": 352
                         },
                         {
                           "title": "SummaryPage.verifyAIInsightsHeading",
-                          "duration": 66
+                          "duration": 55
                         },
                         {
                           "title": "SummaryPage.clickAIInsights",
-                          "duration": 78,
+                          "duration": 103,
                           "steps": [
                             {
                               "title": "SummaryPage.getAIInsightsSection",
@@ -3363,10 +3363,10 @@
                         },
                         {
                           "title": "SummaryPage.verifyAIInsightsHeading",
-                          "duration": 4
+                          "duration": 5
                         }
                       ],
-                      "startTime": "2026-10-22T00:37:23.187Z",
+                      "startTime": "2026-10-22T14:37:32.609Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -3397,7 +3397,7 @@
                       "workerIndex": 12,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2852,
+                      "duration": 2861,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
@@ -3405,19 +3405,19 @@
                       "steps": [
                         {
                           "title": "SummaryPage.navigate",
-                          "duration": 354
+                          "duration": 310
                         },
                         {
                           "title": "SummaryPage.verifyAIInsightsHeading",
-                          "duration": 43
+                          "duration": 48
                         },
                         {
                           "title": "SummaryPage.clickAIInsights",
-                          "duration": 93,
+                          "duration": 109,
                           "steps": [
                             {
                               "title": "SummaryPage.getAIInsightsSection",
-                              "duration": 1
+                              "duration": 0
                             }
                           ]
                         },
@@ -3426,7 +3426,7 @@
                           "duration": 4
                         }
                       ],
-                      "startTime": "2026-10-22T00:37:26.222Z",
+                      "startTime": "2026-10-22T14:37:35.589Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -3457,7 +3457,7 @@
                       "workerIndex": 12,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2801,
+                      "duration": 2876,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
@@ -3465,15 +3465,15 @@
                       "steps": [
                         {
                           "title": "SummaryPage.navigate",
-                          "duration": 296
+                          "duration": 370
                         },
                         {
                           "title": "SummaryPage.verifyAIInsightsHeading",
-                          "duration": 55
+                          "duration": 54
                         },
                         {
                           "title": "SummaryPage.clickAIInsights",
-                          "duration": 75,
+                          "duration": 67,
                           "steps": [
                             {
                               "title": "SummaryPage.getAIInsightsSection",
@@ -3486,7 +3486,7 @@
                           "duration": 4
                         }
                       ],
-                      "startTime": "2026-10-22T00:37:29.086Z",
+                      "startTime": "2026-10-22T14:37:38.461Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -3517,7 +3517,7 @@
                       "workerIndex": 12,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2828,
+                      "duration": 2788,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
@@ -3525,15 +3525,15 @@
                       "steps": [
                         {
                           "title": "SummaryPage.navigate",
-                          "duration": 299
+                          "duration": 312
                         },
                         {
                           "title": "SummaryPage.verifyAIInsightsHeading",
-                          "duration": 52
+                          "duration": 57
                         },
                         {
                           "title": "SummaryPage.clickAIInsights",
-                          "duration": 105,
+                          "duration": 93,
                           "steps": [
                             {
                               "title": "SummaryPage.getAIInsightsSection",
@@ -3543,10 +3543,10 @@
                         },
                         {
                           "title": "SummaryPage.verifyAIInsightsHeading",
-                          "duration": 3
+                          "duration": 4
                         }
                       ],
-                      "startTime": "2026-10-22T00:37:31.899Z",
+                      "startTime": "2026-10-22T14:37:41.348Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -3577,7 +3577,7 @@
                       "workerIndex": 12,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2839,
+                      "duration": 2918,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
@@ -3585,15 +3585,15 @@
                       "steps": [
                         {
                           "title": "SummaryPage.navigate",
-                          "duration": 315
+                          "duration": 439
                         },
                         {
                           "title": "SummaryPage.verifyAIInsightsHeading",
-                          "duration": 49
+                          "duration": 46
                         },
                         {
                           "title": "SummaryPage.clickAIInsights",
-                          "duration": 92,
+                          "duration": 79,
                           "steps": [
                             {
                               "title": "SummaryPage.getAIInsightsSection",
@@ -3606,7 +3606,7 @@
                           "duration": 5
                         }
                       ],
-                      "startTime": "2026-10-22T00:37:34.744Z",
+                      "startTime": "2026-10-22T14:37:44.151Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -3654,7 +3654,7 @@
                       "workerIndex": 12,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1192,
+                      "duration": 1165,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
@@ -3662,60 +3662,60 @@
                       "steps": [
                         {
                           "title": "ExpensePage.navigate",
-                          "duration": 379
+                          "duration": 383
                         },
                         {
                           "title": "LanguageSelector.switchToLanguage",
-                          "duration": 367,
+                          "duration": 330,
                           "steps": [
                             {
                               "title": "LanguageSelector.selectLanguage",
-                              "duration": 206,
+                              "duration": 175,
                               "steps": [
                                 {
                                   "title": "LanguageSelector.clickLanguageButton",
-                                  "duration": 128
+                                  "duration": 132
                                 }
                               ]
                             },
                             {
                               "title": "LanguageSelector.waitForLanguageChange",
-                              "duration": 156
+                              "duration": 152
                             }
                           ]
                         },
                         {
                           "title": "LanguageSelector.verifyPageInLanguage",
-                          "duration": 3
+                          "duration": 4
                         },
                         {
                           "title": "LanguageSelector.verifyNavigationLinks",
-                          "duration": 44,
+                          "duration": 38,
                           "steps": [
                             {
                               "title": "LanguageSelector.verifyNavigationLink",
-                              "duration": 10
+                              "duration": 16
                             },
                             {
                               "title": "LanguageSelector.verifyNavigationLink",
-                              "duration": 10
+                              "duration": 7
                             },
                             {
                               "title": "LanguageSelector.verifyNavigationLink",
-                              "duration": 8
+                              "duration": 7
                             },
                             {
                               "title": "LanguageSelector.verifyNavigationLink",
-                              "duration": 13
+                              "duration": 5
                             }
                           ]
                         },
                         {
                           "title": "LanguageSelector.verifyButtonText",
-                          "duration": 7
+                          "duration": 9
                         }
                       ],
-                      "startTime": "2026-10-22T00:37:37.612Z",
+                      "startTime": "2026-10-22T14:37:47.097Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -3746,7 +3746,7 @@
                       "workerIndex": 12,
                       "parallelIndex": 0,
                       "status": "timedOut",
-                      "duration": 30477,
+                      "duration": 30511,
                       "error": {
                         "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
                         "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
@@ -3770,30 +3770,30 @@
                       "steps": [
                         {
                           "title": "ExpensePage.navigate",
-                          "duration": 345
+                          "duration": 352
                         },
                         {
                           "title": "LanguageSelector.switchToLanguage",
-                          "duration": 350,
+                          "duration": 357,
                           "steps": [
                             {
                               "title": "LanguageSelector.selectLanguage",
-                              "duration": 211,
+                              "duration": 199,
                               "steps": [
                                 {
                                   "title": "LanguageSelector.clickLanguageButton",
-                                  "duration": 129
+                                  "duration": 151
                                 }
                               ]
                             },
                             {
                               "title": "LanguageSelector.waitForLanguageChange",
-                              "duration": 138
+                              "duration": 157
                             }
                           ]
                         }
                       ],
-                      "startTime": "2026-10-22T00:37:38.822Z",
+                      "startTime": "2026-10-22T14:37:48.282Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -3817,7 +3817,7 @@
                       "workerIndex": 13,
                       "parallelIndex": 0,
                       "status": "timedOut",
-                      "duration": 30967,
+                      "duration": 30953,
                       "error": {
                         "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
                         "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
@@ -3841,30 +3841,30 @@
                       "steps": [
                         {
                           "title": "ExpensePage.navigate",
-                          "duration": 423
+                          "duration": 417
                         },
                         {
                           "title": "LanguageSelector.switchToLanguage",
-                          "duration": 425,
+                          "duration": 431,
                           "steps": [
                             {
                               "title": "LanguageSelector.selectLanguage",
-                              "duration": 249,
+                              "duration": 266,
                               "steps": [
                                 {
                                   "title": "LanguageSelector.clickLanguageButton",
-                                  "duration": 98
+                                  "duration": 155
                                 }
                               ]
                             },
                             {
                               "title": "LanguageSelector.waitForLanguageChange",
-                              "duration": 173
+                              "duration": 156
                             }
                           ]
                         }
                       ],
-                      "startTime": "2026-10-22T00:38:09.968Z",
+                      "startTime": "2026-10-22T14:38:19.479Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -3916,7 +3916,7 @@
                       "workerIndex": 14,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1171,
+                      "duration": 1213,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
@@ -3924,39 +3924,43 @@
                       "steps": [
                         {
                           "title": "ExpensePage.navigate",
-                          "duration": 361
+                          "duration": 407
                         },
                         {
                           "title": "LanguageSelector.switchToLanguage",
-                          "duration": 343,
+                          "duration": 360,
                           "steps": [
                             {
                               "title": "LanguageSelector.selectLanguage",
-                              "duration": 189,
+                              "duration": 201,
                               "steps": [
                                 {
                                   "title": "LanguageSelector.clickLanguageButton",
-                                  "duration": 116
+                                  "duration": 125
                                 }
                               ]
                             },
                             {
                               "title": "LanguageSelector.waitForLanguageChange",
-                              "duration": 149
+                              "duration": 155
                             }
                           ]
                         },
                         {
                           "title": "LanguageSelector.verifyPageInLanguage",
-                          "duration": 3
+                          "duration": 4
                         },
                         {
                           "title": "LanguageSelector.verifyNavigationLinks",
-                          "duration": 43,
+                          "duration": 47,
                           "steps": [
                             {
                               "title": "LanguageSelector.verifyNavigationLink",
-                              "duration": 16
+                              "duration": 12
+                            },
+                            {
+                              "title": "LanguageSelector.verifyNavigationLink",
+                              "duration": 11
                             },
                             {
                               "title": "LanguageSelector.verifyNavigationLink",
@@ -3964,20 +3968,16 @@
                             },
                             {
                               "title": "LanguageSelector.verifyNavigationLink",
-                              "duration": 5
-                            },
-                            {
-                              "title": "LanguageSelector.verifyNavigationLink",
-                              "duration": 5
+                              "duration": 9
                             }
                           ]
                         },
                         {
                           "title": "LanguageSelector.verifyButtonText",
-                          "duration": 4
+                          "duration": 6
                         }
                       ],
-                      "startTime": "2026-10-22T00:38:42.187Z",
+                      "startTime": "2026-10-22T14:38:51.692Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -4008,7 +4008,7 @@
                       "workerIndex": 14,
                       "parallelIndex": 0,
                       "status": "timedOut",
-                      "duration": 30603,
+                      "duration": 30463,
                       "error": {
                         "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
                         "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
@@ -4036,26 +4036,26 @@
                         },
                         {
                           "title": "LanguageSelector.switchToLanguage",
-                          "duration": 369,
+                          "duration": 348,
                           "steps": [
                             {
                               "title": "LanguageSelector.selectLanguage",
-                              "duration": 219,
+                              "duration": 193,
                               "steps": [
                                 {
                                   "title": "LanguageSelector.clickLanguageButton",
-                                  "duration": 131
+                                  "duration": 124
                                 }
                               ]
                             },
                             {
                               "title": "LanguageSelector.waitForLanguageChange",
-                              "duration": 149
+                              "duration": 153
                             }
                           ]
                         }
                       ],
-                      "startTime": "2026-10-22T00:38:43.450Z",
+                      "startTime": "2026-10-22T14:38:52.999Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -4079,7 +4079,7 @@
                       "workerIndex": 15,
                       "parallelIndex": 0,
                       "status": "timedOut",
-                      "duration": 30970,
+                      "duration": 30981,
                       "error": {
                         "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
                         "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
@@ -4103,30 +4103,30 @@
                       "steps": [
                         {
                           "title": "ExpensePage.navigate",
-                          "duration": 416
+                          "duration": 406
                         },
                         {
                           "title": "LanguageSelector.switchToLanguage",
-                          "duration": 410,
+                          "duration": 397,
                           "steps": [
                             {
                               "title": "LanguageSelector.selectLanguage",
-                              "duration": 236,
+                              "duration": 239,
                               "steps": [
                                 {
                                   "title": "LanguageSelector.clickLanguageButton",
-                                  "duration": 126
+                                  "duration": 147
                                 }
                               ]
                             },
                             {
                               "title": "LanguageSelector.waitForLanguageChange",
-                              "duration": 170
+                              "duration": 153
                             }
                           ]
                         }
                       ],
-                      "startTime": "2026-10-22T00:39:14.707Z",
+                      "startTime": "2026-10-22T14:39:24.125Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -4178,7 +4178,7 @@
                       "workerIndex": 16,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1237,
+                      "duration": 1217,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
@@ -4186,60 +4186,60 @@
                       "steps": [
                         {
                           "title": "ExpensePage.navigate",
-                          "duration": 365
+                          "duration": 374
                         },
                         {
                           "title": "LanguageSelector.switchToLanguage",
-                          "duration": 383,
+                          "duration": 370,
                           "steps": [
                             {
                               "title": "LanguageSelector.selectLanguage",
-                              "duration": 229,
+                              "duration": 223,
                               "steps": [
                                 {
                                   "title": "LanguageSelector.clickLanguageButton",
-                                  "duration": 140
+                                  "duration": 134
                                 }
                               ]
                             },
                             {
                               "title": "LanguageSelector.waitForLanguageChange",
-                              "duration": 150
+                              "duration": 143
                             }
                           ]
                         },
                         {
                           "title": "LanguageSelector.verifyPageInLanguage",
-                          "duration": 4
+                          "duration": 6
                         },
                         {
                           "title": "LanguageSelector.verifyNavigationLinks",
-                          "duration": 38,
+                          "duration": 43,
                           "steps": [
+                            {
+                              "title": "LanguageSelector.verifyNavigationLink",
+                              "duration": 11
+                            },
                             {
                               "title": "LanguageSelector.verifyNavigationLink",
                               "duration": 14
                             },
                             {
                               "title": "LanguageSelector.verifyNavigationLink",
-                              "duration": 5
+                              "duration": 9
                             },
                             {
                               "title": "LanguageSelector.verifyNavigationLink",
-                              "duration": 8
-                            },
-                            {
-                              "title": "LanguageSelector.verifyNavigationLink",
-                              "duration": 11
+                              "duration": 7
                             }
                           ]
                         },
                         {
                           "title": "LanguageSelector.verifyButtonText",
-                          "duration": 6
+                          "duration": 7
                         }
                       ],
-                      "startTime": "2026-10-22T00:39:46.911Z",
+                      "startTime": "2026-10-22T14:39:56.368Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -4270,7 +4270,7 @@
                       "workerIndex": 16,
                       "parallelIndex": 0,
                       "status": "timedOut",
-                      "duration": 30502,
+                      "duration": 30500,
                       "error": {
                         "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
                         "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
@@ -4294,30 +4294,30 @@
                       "steps": [
                         {
                           "title": "ExpensePage.navigate",
-                          "duration": 534
+                          "duration": 426
                         },
                         {
                           "title": "LanguageSelector.switchToLanguage",
-                          "duration": 353,
+                          "duration": 370,
                           "steps": [
                             {
                               "title": "LanguageSelector.selectLanguage",
-                              "duration": 207,
+                              "duration": 211,
                               "steps": [
                                 {
                                   "title": "LanguageSelector.clickLanguageButton",
-                                  "duration": 127
+                                  "duration": 128
                                 }
                               ]
                             },
                             {
                               "title": "LanguageSelector.waitForLanguageChange",
-                              "duration": 145
+                              "duration": 158
                             }
                           ]
                         }
                       ],
-                      "startTime": "2026-10-22T00:39:48.247Z",
+                      "startTime": "2026-10-22T14:39:57.675Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -4341,7 +4341,7 @@
                       "workerIndex": 17,
                       "parallelIndex": 0,
                       "status": "timedOut",
-                      "duration": 30999,
+                      "duration": 30987,
                       "error": {
                         "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
                         "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
@@ -4365,30 +4365,30 @@
                       "steps": [
                         {
                           "title": "ExpensePage.navigate",
-                          "duration": 397
+                          "duration": 434
                         },
                         {
                           "title": "LanguageSelector.switchToLanguage",
-                          "duration": 361,
+                          "duration": 384,
                           "steps": [
                             {
                               "title": "LanguageSelector.selectLanguage",
-                              "duration": 204,
+                              "duration": 228,
                               "steps": [
                                 {
                                   "title": "LanguageSelector.clickLanguageButton",
-                                  "duration": 149
+                                  "duration": 144
                                 }
                               ]
                             },
                             {
                               "title": "LanguageSelector.waitForLanguageChange",
-                              "duration": 153
+                              "duration": 152
                             }
                           ]
                         }
                       ],
-                      "startTime": "2026-10-22T00:40:19.408Z",
+                      "startTime": "2026-10-22T14:40:28.841Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -4440,7 +4440,7 @@
                       "workerIndex": 18,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1640,
+                      "duration": 1687,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
@@ -4448,38 +4448,38 @@
                       "steps": [
                         {
                           "title": "ExpensePage.navigate",
-                          "duration": 416
+                          "duration": 385
                         },
                         {
                           "title": "LanguageSelector.switchToLanguage",
-                          "duration": 369,
+                          "duration": 372,
                           "steps": [
                             {
                               "title": "LanguageSelector.selectLanguage",
-                              "duration": 219,
+                              "duration": 217,
                               "steps": [
                                 {
                                   "title": "LanguageSelector.clickLanguageButton",
-                                  "duration": 137
+                                  "duration": 131
                                 }
                               ]
                             },
                             {
                               "title": "LanguageSelector.waitForLanguageChange",
-                              "duration": 146
+                              "duration": 151
                             }
                           ]
                         },
                         {
                           "title": "LanguageSelector.verifyLanguagePersistence",
-                          "duration": 4
+                          "duration": 2
                         },
                         {
                           "title": "LanguageSelector.verifyLanguagePersistence",
                           "duration": 1
                         }
                       ],
-                      "startTime": "2026-10-22T00:40:51.692Z",
+                      "startTime": "2026-10-22T14:41:01.100Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -4510,7 +4510,7 @@
                       "workerIndex": 18,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3215,
+                      "duration": 3233,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
@@ -4518,35 +4518,35 @@
                       "steps": [
                         {
                           "title": "SummaryPage.navigate",
-                          "duration": 332
+                          "duration": 334
                         },
                         {
                           "title": "LanguageSelector.switchToLanguage",
-                          "duration": 400,
+                          "duration": 425,
                           "steps": [
                             {
                               "title": "LanguageSelector.selectLanguage",
-                              "duration": 262,
+                              "duration": 285,
                               "steps": [
                                 {
                                   "title": "LanguageSelector.clickLanguageButton",
-                                  "duration": 146
+                                  "duration": 168
                                 }
                               ]
                             },
                             {
                               "title": "LanguageSelector.waitForLanguageChange",
-                              "duration": 136
+                              "duration": 138
                             }
                           ]
                         },
                         {
                           "title": "SummaryPage.verifyAIInsightsHeading",
-                          "duration": 8
+                          "duration": 15
                         },
                         {
                           "title": "SummaryPage.clickAIInsights",
-                          "duration": 83,
+                          "duration": 69,
                           "steps": [
                             {
                               "title": "SummaryPage.getAIInsightsSection",
@@ -4556,10 +4556,10 @@
                         },
                         {
                           "title": "SummaryPage.verifyAIInsightsHeading",
-                          "duration": 4
+                          "duration": 5
                         }
                       ],
-                      "startTime": "2026-10-22T00:40:53.426Z",
+                      "startTime": "2026-10-22T14:41:02.881Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -4607,7 +4607,7 @@
                       "workerIndex": 18,
                       "parallelIndex": 0,
                       "status": "timedOut",
-                      "duration": 30572,
+                      "duration": 30508,
                       "error": {
                         "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
                         "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
@@ -4631,27 +4631,27 @@
                       "steps": [
                         {
                           "title": "ExpensePage.navigate",
-                          "duration": 335
+                          "duration": 343
                         },
                         {
                           "title": "ExpensePage.clickAddExpense",
-                          "duration": 156
+                          "duration": 162
                         },
                         {
                           "title": "ExpensePage.clickQuickAddButton",
-                          "duration": 85
+                          "duration": 43
                         },
                         {
                           "title": "ExpensePage.fillNaturalLanguageInput",
-                          "duration": 12
+                          "duration": 14
                         },
                         {
                           "title": "ExpensePage.clickParseWithAI",
-                          "duration": 89
+                          "duration": 76
                         },
                         {
                           "title": "ExpensePage.verifyParsingSuccessNotification",
-                          "duration": 363
+                          "duration": 361
                         },
                         {
                           "title": "ExpensePage.verifyParsedAmount",
@@ -4659,7 +4659,7 @@
                         },
                         {
                           "title": "ExpensePage.verifyParsedDescription",
-                          "duration": 29483,
+                          "duration": 29455,
                           "error": {
                             "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveValue\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('textbox', { name: 'Description' })\nExpected: \u001b[32m\"groceries\"\u001b[39m\nReceived: \u001b[31m\"Spent $45.50 on groceries yesterday\"\u001b[39m\n\nCall log:\n\u001b[2m  - Expect \"toHaveValue\" with timeout 30000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('textbox', { name: 'Description' })\u001b[22m\n\u001b[2m    33 × locator resolved to <input id=\"description\" name=\"description\" placeholder=\"What did you spend on?\" class=\"flex h-10 w-full rounded-md border px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 bg-white/5 border-white/20 text-white placeholder:text-gray-400 focus:border-blue-400 focus:ring-blue-400/20\"/>\u001b[22m\n\u001b[2m       - unexpected value \"Spent $45.50 on groceries yesterday\"\u001b[22m\n",
                             "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveValue\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('textbox', { name: 'Description' })\nExpected: \u001b[32m\"groceries\"\u001b[39m\nReceived: \u001b[31m\"Spent $45.50 on groceries yesterday\"\u001b[39m\n\nCall log:\n\u001b[2m  - Expect \"toHaveValue\" with timeout 30000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('textbox', { name: 'Description' })\u001b[22m\n\u001b[2m    33 × locator resolved to <input id=\"description\" name=\"description\" placeholder=\"What did you spend on?\" class=\"flex h-10 w-full rounded-md border px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 bg-white/5 border-white/20 text-white placeholder:text-gray-400 focus:border-blue-400 focus:ring-blue-400/20\"/>\u001b[22m\n\u001b[2m       - unexpected value \"Spent $45.50 on groceries yesterday\"\u001b[22m\n\n    at ExpensePage.call (/home/runner/work/e2e_finance_app/e2e_finance_app/src/pages/expense-page.ts:250:75)\n    at /home/runner/work/e2e_finance_app/e2e_finance_app/decorators/test-step.ts:22:33\n    at ExpensePage.verifyParsedDescription (/home/runner/work/e2e_finance_app/e2e_finance_app/decorators/test-step.ts:21:21)\n    at /home/runner/work/e2e_finance_app/e2e_finance_app/tests/specs/ai-natural-language.spec.ts:61:29",
@@ -4672,7 +4672,7 @@
                           }
                         }
                       ],
-                      "startTime": "2026-10-22T00:40:56.656Z",
+                      "startTime": "2026-10-22T14:41:06.129Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -4696,7 +4696,7 @@
                       "workerIndex": 19,
                       "parallelIndex": 0,
                       "status": "timedOut",
-                      "duration": 30926,
+                      "duration": 31034,
                       "error": {
                         "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
                         "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
@@ -4720,35 +4720,35 @@
                       "steps": [
                         {
                           "title": "ExpensePage.navigate",
-                          "duration": 398
+                          "duration": 742
                         },
                         {
                           "title": "ExpensePage.clickAddExpense",
-                          "duration": 161
+                          "duration": 133
                         },
                         {
                           "title": "ExpensePage.clickQuickAddButton",
-                          "duration": 102
+                          "duration": 81
                         },
                         {
                           "title": "ExpensePage.fillNaturalLanguageInput",
-                          "duration": 32
+                          "duration": 23
                         },
                         {
                           "title": "ExpensePage.clickParseWithAI",
-                          "duration": 64
+                          "duration": 70
                         },
                         {
                           "title": "ExpensePage.verifyParsingSuccessNotification",
-                          "duration": 371
+                          "duration": 376
                         },
                         {
                           "title": "ExpensePage.verifyParsedAmount",
-                          "duration": 9
+                          "duration": 8
                         },
                         {
                           "title": "ExpensePage.verifyParsedDescription",
-                          "duration": 29709,
+                          "duration": 29510,
                           "error": {
                             "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveValue\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('textbox', { name: 'Description' })\nExpected: \u001b[32m\"groceries\"\u001b[39m\nReceived: \u001b[31m\"Spent $45.50 on groceries yesterday\"\u001b[39m\n\nCall log:\n\u001b[2m  - Expect \"toHaveValue\" with timeout 30000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('textbox', { name: 'Description' })\u001b[22m\n\u001b[2m    33 × locator resolved to <input id=\"description\" name=\"description\" placeholder=\"What did you spend on?\" class=\"flex h-10 w-full rounded-md border px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 bg-white/5 border-white/20 text-white placeholder:text-gray-400 focus:border-blue-400 focus:ring-blue-400/20\"/>\u001b[22m\n\u001b[2m       - unexpected value \"Spent $45.50 on groceries yesterday\"\u001b[22m\n",
                             "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveValue\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('textbox', { name: 'Description' })\nExpected: \u001b[32m\"groceries\"\u001b[39m\nReceived: \u001b[31m\"Spent $45.50 on groceries yesterday\"\u001b[39m\n\nCall log:\n\u001b[2m  - Expect \"toHaveValue\" with timeout 30000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('textbox', { name: 'Description' })\u001b[22m\n\u001b[2m    33 × locator resolved to <input id=\"description\" name=\"description\" placeholder=\"What did you spend on?\" class=\"flex h-10 w-full rounded-md border px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 bg-white/5 border-white/20 text-white placeholder:text-gray-400 focus:border-blue-400 focus:ring-blue-400/20\"/>\u001b[22m\n\u001b[2m       - unexpected value \"Spent $45.50 on groceries yesterday\"\u001b[22m\n\n    at ExpensePage.call (/home/runner/work/e2e_finance_app/e2e_finance_app/src/pages/expense-page.ts:250:75)\n    at /home/runner/work/e2e_finance_app/e2e_finance_app/decorators/test-step.ts:22:33\n    at ExpensePage.verifyParsedDescription (/home/runner/work/e2e_finance_app/e2e_finance_app/decorators/test-step.ts:21:21)\n    at /home/runner/work/e2e_finance_app/e2e_finance_app/tests/specs/ai-natural-language.spec.ts:61:29",
@@ -4761,7 +4761,7 @@
                           }
                         }
                       ],
-                      "startTime": "2026-10-22T00:41:27.885Z",
+                      "startTime": "2026-10-22T14:41:37.285Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -4813,7 +4813,7 @@
                       "workerIndex": 20,
                       "parallelIndex": 0,
                       "status": "timedOut",
-                      "duration": 30513,
+                      "duration": 30580,
                       "error": {
                         "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
                         "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
@@ -4837,39 +4837,39 @@
                       "steps": [
                         {
                           "title": "ExpensePage.navigate",
-                          "duration": 447
+                          "duration": 616
                         },
                         {
                           "title": "ExpensePage.clickAddExpense",
-                          "duration": 149
+                          "duration": 141
                         },
                         {
                           "title": "ExpensePage.clickQuickAddButton",
-                          "duration": 96
+                          "duration": 66
                         },
                         {
                           "title": "ExpensePage.fillNaturalLanguageInput",
-                          "duration": 14
+                          "duration": 15
                         },
                         {
                           "title": "ExpensePage.clickParseWithAI",
-                          "duration": 77
+                          "duration": 79
                         },
                         {
                           "title": "ExpensePage.verifyParsingSuccessNotification",
-                          "duration": 366
+                          "duration": 370
                         },
                         {
                           "title": "ExpensePage.verifyParsedAmount",
-                          "duration": 6
-                        },
-                        {
-                          "title": "ExpensePage.verifyParsedDescriptionContains",
                           "duration": 5
                         },
                         {
+                          "title": "ExpensePage.verifyParsedDescriptionContains",
+                          "duration": 4
+                        },
+                        {
                           "title": "ExpensePage.verifyAICategoryAutofilled",
-                          "duration": 29275,
+                          "duration": 29197,
                           "error": {
                             "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveValue\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByLabel('Category')\nExpected: \u001b[32m\"transportation\"\u001b[39m\nReceived: \u001b[31m\"\"\u001b[39m\n\nCall log:\n\u001b[2m  - Expect \"toHaveValue\" with timeout 30000ms\u001b[22m\n\u001b[2m  - waiting for getByLabel('Category')\u001b[22m\n\u001b[2m    33 × locator resolved to <select id=\"category\" name=\"category\" class=\"w-full px-3 py-2 bg-white/5 border border-white/20 rounded-md text-white placeholder:text-gray-400 focus:border-blue-400 focus:ring-blue-400/20 focus:outline-none\">…</select>\u001b[22m\n\u001b[2m       - unexpected value \"\"\u001b[22m\n",
                             "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveValue\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByLabel('Category')\nExpected: \u001b[32m\"transportation\"\u001b[39m\nReceived: \u001b[31m\"\"\u001b[39m\n\nCall log:\n\u001b[2m  - Expect \"toHaveValue\" with timeout 30000ms\u001b[22m\n\u001b[2m  - waiting for getByLabel('Category')\u001b[22m\n\u001b[2m    33 × locator resolved to <select id=\"category\" name=\"category\" class=\"w-full px-3 py-2 bg-white/5 border border-white/20 rounded-md text-white placeholder:text-gray-400 focus:border-blue-400 focus:ring-blue-400/20 focus:outline-none\">…</select>\u001b[22m\n\u001b[2m       - unexpected value \"\"\u001b[22m\n\n    at ExpensePage.call (/home/runner/work/e2e_finance_app/e2e_finance_app/src/pages/expense-page.ts:214:41)\n    at /home/runner/work/e2e_finance_app/e2e_finance_app/decorators/test-step.ts:22:33\n    at ExpensePage.verifyAICategoryAutofilled (/home/runner/work/e2e_finance_app/e2e_finance_app/decorators/test-step.ts:21:21)\n    at /home/runner/work/e2e_finance_app/e2e_finance_app/tests/specs/ai-natural-language.spec.ts:67:27",
@@ -4882,7 +4882,7 @@
                           }
                         }
                       ],
-                      "startTime": "2026-10-22T00:42:00.055Z",
+                      "startTime": "2026-10-22T14:42:09.568Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -4906,7 +4906,7 @@
                       "workerIndex": 21,
                       "parallelIndex": 0,
                       "status": "timedOut",
-                      "duration": 30967,
+                      "duration": 31005,
                       "error": {
                         "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
                         "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
@@ -4930,31 +4930,31 @@
                       "steps": [
                         {
                           "title": "ExpensePage.navigate",
-                          "duration": 399
+                          "duration": 578
                         },
                         {
                           "title": "ExpensePage.clickAddExpense",
-                          "duration": 160
+                          "duration": 157
                         },
                         {
                           "title": "ExpensePage.clickQuickAddButton",
-                          "duration": 86
+                          "duration": 82
                         },
                         {
                           "title": "ExpensePage.fillNaturalLanguageInput",
-                          "duration": 26
+                          "duration": 31
                         },
                         {
                           "title": "ExpensePage.clickParseWithAI",
-                          "duration": 77
+                          "duration": 63
                         },
                         {
                           "title": "ExpensePage.verifyParsingSuccessNotification",
-                          "duration": 371
+                          "duration": 372
                         },
                         {
                           "title": "ExpensePage.verifyParsedAmount",
-                          "duration": 9
+                          "duration": 8
                         },
                         {
                           "title": "ExpensePage.verifyParsedDescriptionContains",
@@ -4962,7 +4962,7 @@
                         },
                         {
                           "title": "ExpensePage.verifyAICategoryAutofilled",
-                          "duration": 29749,
+                          "duration": 29607,
                           "error": {
                             "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveValue\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByLabel('Category')\nExpected: \u001b[32m\"transportation\"\u001b[39m\nReceived: \u001b[31m\"\"\u001b[39m\n\nCall log:\n\u001b[2m  - Expect \"toHaveValue\" with timeout 30000ms\u001b[22m\n\u001b[2m  - waiting for getByLabel('Category')\u001b[22m\n\u001b[2m    33 × locator resolved to <select id=\"category\" name=\"category\" class=\"w-full px-3 py-2 bg-white/5 border border-white/20 rounded-md text-white placeholder:text-gray-400 focus:border-blue-400 focus:ring-blue-400/20 focus:outline-none\">…</select>\u001b[22m\n\u001b[2m       - unexpected value \"\"\u001b[22m\n",
                             "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveValue\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByLabel('Category')\nExpected: \u001b[32m\"transportation\"\u001b[39m\nReceived: \u001b[31m\"\"\u001b[39m\n\nCall log:\n\u001b[2m  - Expect \"toHaveValue\" with timeout 30000ms\u001b[22m\n\u001b[2m  - waiting for getByLabel('Category')\u001b[22m\n\u001b[2m    33 × locator resolved to <select id=\"category\" name=\"category\" class=\"w-full px-3 py-2 bg-white/5 border border-white/20 rounded-md text-white placeholder:text-gray-400 focus:border-blue-400 focus:ring-blue-400/20 focus:outline-none\">…</select>\u001b[22m\n\u001b[2m       - unexpected value \"\"\u001b[22m\n\n    at ExpensePage.call (/home/runner/work/e2e_finance_app/e2e_finance_app/src/pages/expense-page.ts:214:41)\n    at /home/runner/work/e2e_finance_app/e2e_finance_app/decorators/test-step.ts:22:33\n    at ExpensePage.verifyAICategoryAutofilled (/home/runner/work/e2e_finance_app/e2e_finance_app/decorators/test-step.ts:21:21)\n    at /home/runner/work/e2e_finance_app/e2e_finance_app/tests/specs/ai-natural-language.spec.ts:67:27",
@@ -4975,7 +4975,7 @@
                           }
                         }
                       ],
-                      "startTime": "2026-10-22T00:42:31.303Z",
+                      "startTime": "2026-10-22T14:42:40.895Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -5027,7 +5027,7 @@
                       "workerIndex": 22,
                       "parallelIndex": 0,
                       "status": "timedOut",
-                      "duration": 30512,
+                      "duration": 30486,
                       "error": {
                         "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
                         "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
@@ -5051,27 +5051,27 @@
                       "steps": [
                         {
                           "title": "ExpensePage.navigate",
-                          "duration": 395
+                          "duration": 607
                         },
                         {
                           "title": "ExpensePage.clickAddExpense",
-                          "duration": 110
+                          "duration": 154
                         },
                         {
                           "title": "ExpensePage.clickQuickAddButton",
-                          "duration": 65
+                          "duration": 97
                         },
                         {
                           "title": "ExpensePage.fillNaturalLanguageInput",
-                          "duration": 13
+                          "duration": 22
                         },
                         {
                           "title": "ExpensePage.clickParseWithAI",
-                          "duration": 85
+                          "duration": 67
                         },
                         {
                           "title": "ExpensePage.verifyParsingSuccessNotification",
-                          "duration": 367
+                          "duration": 368
                         },
                         {
                           "title": "ExpensePage.verifyParsedAmount",
@@ -5079,11 +5079,11 @@
                         },
                         {
                           "title": "ExpensePage.verifyParsedDescriptionContains",
-                          "duration": 4
+                          "duration": 5
                         },
                         {
                           "title": "ExpensePage.verifyAICategoryAutofilled",
-                          "duration": 29389,
+                          "duration": 29082,
                           "error": {
                             "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveValue\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByLabel('Category')\nExpected: \u001b[32m\"foodDining\"\u001b[39m\nReceived: \u001b[31m\"\"\u001b[39m\n\nCall log:\n\u001b[2m  - Expect \"toHaveValue\" with timeout 30000ms\u001b[22m\n\u001b[2m  - waiting for getByLabel('Category')\u001b[22m\n\u001b[2m    33 × locator resolved to <select id=\"category\" name=\"category\" class=\"w-full px-3 py-2 bg-white/5 border border-white/20 rounded-md text-white placeholder:text-gray-400 focus:border-blue-400 focus:ring-blue-400/20 focus:outline-none\">…</select>\u001b[22m\n\u001b[2m       - unexpected value \"\"\u001b[22m\n",
                             "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveValue\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByLabel('Category')\nExpected: \u001b[32m\"foodDining\"\u001b[39m\nReceived: \u001b[31m\"\"\u001b[39m\n\nCall log:\n\u001b[2m  - Expect \"toHaveValue\" with timeout 30000ms\u001b[22m\n\u001b[2m  - waiting for getByLabel('Category')\u001b[22m\n\u001b[2m    33 × locator resolved to <select id=\"category\" name=\"category\" class=\"w-full px-3 py-2 bg-white/5 border border-white/20 rounded-md text-white placeholder:text-gray-400 focus:border-blue-400 focus:ring-blue-400/20 focus:outline-none\">…</select>\u001b[22m\n\u001b[2m       - unexpected value \"\"\u001b[22m\n\n    at ExpensePage.call (/home/runner/work/e2e_finance_app/e2e_finance_app/src/pages/expense-page.ts:214:41)\n    at /home/runner/work/e2e_finance_app/e2e_finance_app/decorators/test-step.ts:22:33\n    at ExpensePage.verifyAICategoryAutofilled (/home/runner/work/e2e_finance_app/e2e_finance_app/decorators/test-step.ts:21:21)\n    at /home/runner/work/e2e_finance_app/e2e_finance_app/tests/specs/ai-natural-language.spec.ts:67:27",
@@ -5096,7 +5096,7 @@
                           }
                         }
                       ],
-                      "startTime": "2026-10-22T00:43:03.500Z",
+                      "startTime": "2026-10-22T14:43:13.158Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -5120,7 +5120,7 @@
                       "workerIndex": 23,
                       "parallelIndex": 0,
                       "status": "timedOut",
-                      "duration": 31005,
+                      "duration": 30991,
                       "error": {
                         "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
                         "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
@@ -5144,39 +5144,39 @@
                       "steps": [
                         {
                           "title": "ExpensePage.navigate",
-                          "duration": 420
+                          "duration": 430
                         },
                         {
                           "title": "ExpensePage.clickAddExpense",
-                          "duration": 134
+                          "duration": 135
                         },
                         {
                           "title": "ExpensePage.clickQuickAddButton",
-                          "duration": 77
+                          "duration": 94
                         },
                         {
                           "title": "ExpensePage.fillNaturalLanguageInput",
-                          "duration": 40
+                          "duration": 34
                         },
                         {
                           "title": "ExpensePage.clickParseWithAI",
-                          "duration": 55
+                          "duration": 61
                         },
                         {
                           "title": "ExpensePage.verifyParsingSuccessNotification",
-                          "duration": 376
+                          "duration": 375
                         },
                         {
                           "title": "ExpensePage.verifyParsedAmount",
-                          "duration": 10
+                          "duration": 12
                         },
                         {
                           "title": "ExpensePage.verifyParsedDescriptionContains",
-                          "duration": 10
+                          "duration": 11
                         },
                         {
                           "title": "ExpensePage.verifyAICategoryAutofilled",
-                          "duration": 29797,
+                          "duration": 29753,
                           "error": {
                             "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveValue\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByLabel('Category')\nExpected: \u001b[32m\"foodDining\"\u001b[39m\nReceived: \u001b[31m\"\"\u001b[39m\n\nCall log:\n\u001b[2m  - Expect \"toHaveValue\" with timeout 30000ms\u001b[22m\n\u001b[2m  - waiting for getByLabel('Category')\u001b[22m\n\u001b[2m    33 × locator resolved to <select id=\"category\" name=\"category\" class=\"w-full px-3 py-2 bg-white/5 border border-white/20 rounded-md text-white placeholder:text-gray-400 focus:border-blue-400 focus:ring-blue-400/20 focus:outline-none\">…</select>\u001b[22m\n\u001b[2m       - unexpected value \"\"\u001b[22m\n",
                             "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveValue\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByLabel('Category')\nExpected: \u001b[32m\"foodDining\"\u001b[39m\nReceived: \u001b[31m\"\"\u001b[39m\n\nCall log:\n\u001b[2m  - Expect \"toHaveValue\" with timeout 30000ms\u001b[22m\n\u001b[2m  - waiting for getByLabel('Category')\u001b[22m\n\u001b[2m    33 × locator resolved to <select id=\"category\" name=\"category\" class=\"w-full px-3 py-2 bg-white/5 border border-white/20 rounded-md text-white placeholder:text-gray-400 focus:border-blue-400 focus:ring-blue-400/20 focus:outline-none\">…</select>\u001b[22m\n\u001b[2m       - unexpected value \"\"\u001b[22m\n\n    at ExpensePage.call (/home/runner/work/e2e_finance_app/e2e_finance_app/src/pages/expense-page.ts:214:41)\n    at /home/runner/work/e2e_finance_app/e2e_finance_app/decorators/test-step.ts:22:33\n    at ExpensePage.verifyAICategoryAutofilled (/home/runner/work/e2e_finance_app/e2e_finance_app/decorators/test-step.ts:21:21)\n    at /home/runner/work/e2e_finance_app/e2e_finance_app/tests/specs/ai-natural-language.spec.ts:67:27",
@@ -5189,7 +5189,7 @@
                           }
                         }
                       ],
-                      "startTime": "2026-10-22T00:43:34.739Z",
+                      "startTime": "2026-10-22T14:43:44.384Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -5230,8 +5230,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-10-22T00:30:49.035Z",
-    "duration": 797353.1390000001,
+    "startTime": "2026-10-22T14:31:00.902Z",
+    "duration": 795140.962,
     "expected": 39,
     "skipped": 0,
     "unexpected": 11,
