@@ -6,15 +6,21 @@ import { TestCleanup } from '../src/utils/test-cleanup';
  * Usage: import { test } from '../fixtures/cleanup-fixture';
  */
 export const test = base.extend<{ cleanup: TestCleanup }>({
-  cleanup: async ({ page }, use) => {
+  cleanup: async ({ page }, use, testInfo) => {
     const cleanup = new TestCleanup();
     await use(cleanup);
-    // Automatic cleanup after each test - wrapped in try-catch to prevent test failures on cleanup errors
+    // Automatic cleanup after each test. Failures don't fail the test, but they are
+    // annotated so leaked data is visible in the report instead of silently piling up.
     try {
-      await cleanup.cleanup(page);
+      const failures = await cleanup.cleanup(page);
+      for (const failure of failures) {
+        testInfo.annotations.push({ type: 'cleanup-failed', description: failure });
+      }
     } catch (error) {
-      // Silently ignore cleanup errors - test data may already be deleted or not found
-      console.log('Cleanup skipped or failed:', error instanceof Error ? error.message : 'unknown error');
+      testInfo.annotations.push({
+        type: 'cleanup-failed',
+        description: error instanceof Error ? error.message : 'unknown error',
+      });
     }
   },
 });

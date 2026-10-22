@@ -31,7 +31,7 @@ setup.describe('User Registration and Authentication', () => {
     await authPage.loginOrRegister(TEST_USER.name, TEST_USER.email, TEST_USER.password);
     
     // Verify dashboard loaded successfully
-    await expect(page.getByText(/Welcome back/i)).toBeVisible({ timeout: 60000 });
+    await expect(page.getByRole('heading', { name: /Welcome back/i })).toBeVisible({ timeout: 60000 });
     
     // Verify navigation menu is visible
     await expect(page.getByRole('link', { name: '🏠 Dashboard' })).toBeVisible();

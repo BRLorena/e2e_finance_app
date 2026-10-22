@@ -14,15 +14,16 @@ export default defineConfig({
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
-  /* Retry on CI only */
-  retries: process.env.CI ? 2 : 0,
+  /* Retry once on CI to absorb free-tier cold starts; tests that pass only on
+     retry are reported as flaky in the job summary and treated as bugs */
+  retries: process.env.CI ? 1 : 0,
   /* Run tests in parallel on CI with 4 workers */
   workers: process.env.CI ? 4 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
     ["html"],
     ["list"],
-
+    ["json", { outputFile: "reports/results.json" }],
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
@@ -91,6 +92,8 @@ export default defineConfig({
         url: 'http://127.0.0.1:3000',
         reuseExistingServer: !process.env.CI,
         timeout: 120 * 1000,
+        // Local runs share one test user; don't let the app's rate limiter throttle the suite
+        env: { DISABLE_RATE_LIMIT: "true" },
       }
     : undefined,
 });

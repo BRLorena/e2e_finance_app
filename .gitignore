@@ -6,6 +6,8 @@ node_modules/
 .vscode/
 chatmodules/
 .auth/
+.playwright-cli
+.playwright-mcp
 
 # Environment variables
 .env

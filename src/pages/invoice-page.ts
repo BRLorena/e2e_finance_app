@@ -81,7 +81,14 @@ export class InvoicePage extends BasePage {
 
   @step
   async submitInvoice() {
+    // Wait for the API to confirm and the form to reset; filling the next
+    // invoice while the previous one is still submitting loses its input
+    const created = this.page.waitForResponse(
+      (res) => res.url().includes('/api/invoices') && res.request().method() === 'POST'
+    );
     await this.createInvoiceButton.click();
+    expect((await created).status()).toBe(201);
+    await expect(this.clientNameInput).toHaveValue('');
   }
 
   @step
@@ -228,8 +235,18 @@ export class InvoicePage extends BasePage {
 
   @step
   async filterByStatus(status: string) {
-    // Use label to select option (more reliable than value)
-    await this.page.getByRole('combobox').nth(1).selectOption({ label: status });
+    // The list filter is the only select with an "All Statuses" option
+    const statusFilter = this.page
+      .getByRole('combobox')
+      .filter({ has: this.page.getByRole('option', { name: 'All Statuses' }) });
+    const filtered = this.page.waitForResponse(
+      (res) =>
+        res.url().includes('/api/invoices') &&
+        res.request().method() === 'GET' &&
+        (status === 'All Statuses' || res.url().includes(`status=${status.toUpperCase()}`))
+    );
+    await statusFilter.selectOption({ label: status });
+    await filtered;
   }
 
   @step
