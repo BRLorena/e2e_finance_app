@@ -51,7 +51,9 @@ jobs:
           key: playwright-browsers-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
 
       - name: Install Playwright Browsers
-        run: npx playwright install --with-deps chromium
+        # The ubuntu runner already ships Chrome and its system libraries; --with-deps
+        # would apt-install extra fonts/xvfb on every run (minutes when the mirror is slow).
+        run: npx playwright install chromium
 
       - name: Run Playwright tests
         id: test-run
