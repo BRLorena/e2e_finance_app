@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jev Triage · e2e</title>
+<style>
+  :root { --bg:#fff; --fg:#1b1f24; --muted:#59636e; --line:#d1d9e0; --card:#f6f8fa; --accent:#0969da;
+          --bug:#cf222e; --flaky:#9a6700; --env:#8250df; --review:#0969da; --none:#59636e; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#0d1117; --fg:#e6edf3; --muted:#9198a1; --line:#3d444d; --card:#151b23; --accent:#4493f8;
+            --bug:#ff7b72; --flaky:#d29922; --env:#ab7df8; --review:#4493f8; --none:#9198a1; }
+  }
+  body { background:var(--bg); color:var(--fg); font:15px/1.5 system-ui, sans-serif; margin:0; padding:24px 16px; }
+  main { max-width:1100px; margin:0 auto; }
+  a { color:var(--accent); }
+  small { color:var(--muted); }
+  .note { background:var(--card); border:1px solid var(--line); border-radius:6px; padding:8px 12px; }
+  .wrap { overflow-x:auto; }
+  table { border-collapse:collapse; width:100%; margin:16px 0; }
+  th, td { border-bottom:1px solid var(--line); padding:8px; text-align:left; vertical-align:top; }
+  th { font-size:13px; color:var(--muted); }
+  .num { text-align:right; white-space:nowrap; font-variant-numeric:tabular-nums; }
+  .bar { display:inline-block; width:40px; height:6px; margin-right:6px; vertical-align:middle; border-radius:3px;
+         background:linear-gradient(90deg, var(--accent) var(--w), var(--line) var(--w)); }
+  .tag { font-weight:600; white-space:nowrap; }
+  .bug { color:var(--bug); } .flaky { color:var(--flaky); } .environment { color:var(--env); }
+  .needs_review { color:var(--review); } .unclassified { color:var(--none); }
+  .status.fail { color:var(--bug); font-weight:600; } .status.ok { font-weight:600; }
+  pre { background:var(--card); border:1px solid var(--line); border-radius:6px; padding:12px; overflow-x:auto; font-size:13px; }
+  details { margin:8px 0; } summary { cursor:pointer; }
+  .err { color:var(--bug); }
+  .suites { font-size:13px; color:var(--muted); }
+</style>
+</head>
+<body>
+<main>
+
+<h1>🧪 Playwright failure triage (Jev) · e2e</h1>
+<p>
+  <a href="allure/index.html">Allure report →</a>
+  · <a href="playwright-report/index.html">Playwright HTML report →</a>
+   · <a href="https://github.com/BRLorena/e2e_finance_app/actions/runs/39965940126">GitHub Actions run</a>
+  · <small>generated at 2026-10-23 14:04 UTC</small>
+</p>
+
+<p>2 failure(s) · confidence threshold <b>0.6</b> · informational only (no verdict fails the job)</p>
+<p><small><b>Test defect?</b> and <b>Slowness?</b> are <code>noul</code> questions: the probability of "yes". A <code>bug</code> with a high test defect score becomes <code>needs_review</code>.</small></p>
+<div class="wrap"><table>
+<thead><tr><th>Verdict</th><th>Test</th><th>Jev suggestion</th><th class="num">Confidence</th>
+<th class="num">bug</th><th class="num">flaky</th><th class="num">environment</th><th class="num">Test defect?</th><th class="num">Slowness?</th><th>History</th></tr></thead>
+<tbody>
+<tr>
+  <td><span class="tag flaky">🎲 flaky</span></td>
+  <td>User Registration and Authentication › Create Account and Save Auth State<br><small>auth.setup.ts:19</small></td>
+  <td>flaky</td>
+  <td class="num">100%</td>
+  <td class="num"><span class="bar" style="--w:0%"></span>0%</td><td class="num"><span class="bar" style="--w:100%"></span>100%</td><td class="num"><span class="bar" style="--w:0%"></span>0%</td><td class="num"><span class="bar" style="--w:39%"></span>39%</td><td class="num"><span class="bar" style="--w:73%"></span>73%</td>
+  <td title="previous runs, most recent on the right">–</td>
+</tr>
+<tr>
+  <td><span class="tag bug">🐞 bug</span></td>
+  <td>AI Expense Categorization › AI categorizes food-related expenses to &quot;Food &amp; Dining&quot;<br><small>specs/ai-categorization.spec.ts:33</small></td>
+  <td>bug</td>
+  <td class="num">74%</td>
+  <td class="num"><span class="bar" style="--w:83%"></span>83%</td><td class="num"><span class="bar" style="--w:2%"></span>2%</td><td class="num"><span class="bar" style="--w:15%"></span>15%</td><td class="num"><span class="bar" style="--w:8%"></span>8%</td><td class="num"><span class="bar" style="--w:31%"></span>31%</td>
+  <td title="previous runs, most recent on the right">–</td>
+</tr>
+</tbody></table></div>
+<p class="status ok">✅ No blocking failures.</p>
+<h2>Error details</h2>
+<details><summary>User Registration and Authentication › Create Account and Save Auth State</summary>
+<pre>Error: expect(locator).toBeVisible() failed
+
+Locator: getByText('Welcome Back')
+Expected: visible
+Timeout: 10000ms
+Error: element(s) not found
+
+Call log:
+  - Expect &quot;toBeVisible&quot; getByText('Welcome Back') with timeout 10000ms
+  - waiting for getByText('Welcome Back')</pre>
+
+<small>model: jev-1.14.0</small>
+</details>
+<details><summary>AI Expense Categorization › AI categorizes food-related expenses to &quot;Food &amp; Dining&quot;</summary>
+<pre>Test timeout of 30000ms exceeded.</pre>
+
+<small>model: jev-1.14.0</small>
+</details>
+</main>
+</body>
+</html>

@@ -1,0 +1,47 @@
+{
+  "verdict": "flaky",
+  "suggested": "flaky",
+  "confidence": 1,
+  "probabilities": {
+    "bug": 0,
+    "flaky": 1,
+    "environment": 0
+  },
+  "testCodeDefect": 0.39,
+  "slowness": 0.73,
+  "model": "jev-1.14.0",
+  "state": {
+    "failure": {
+      "test_title": "User Registration and Authentication › Create Account and Save Auth State",
+      "test_file": "auth.setup.ts:19",
+      "browser": "setup",
+      "total_attempts": 2,
+      "failed_attempts": 1,
+      "passed_on_retry": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "failed",
+          "duration_ms": 17904,
+          "error_first_line": "Error: expect(locator).toBeVisible() failed"
+        },
+        {
+          "attempt": 2,
+          "status": "passed",
+          "duration_ms": 2400,
+          "error_first_line": null
+        }
+      ],
+      "error_message": "Error: expect(locator).toBeVisible() failed\n\nLocator: getByText('Welcome Back')\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" getByText('Welcome Back') with timeout 10000ms\n  - waiting for getByText('Welcome Back')",
+      "stack_excerpt": "at AuthPage.call (/home/runner/work/e2e_finance_app/e2e_finance_app/src/pages/auth-page.ts:112:44)\nat /home/runner/work/e2e_finance_app/e2e_finance_app/decorators/test-step.ts:22:33\nat AuthPage.registerNewAccount (/home/runner/work/e2e_finance_app/e2e_finance_app/src/pages/auth-page.ts:170:5)\nat /home/runner/work/e2e_finance_app/e2e_finance_app/decorators/test-step.ts:22:20",
+      "test_source": "     setup('Create Account and Save Auth State', async ({ browser }) => {\n       const context = await browser.newContext({\n         recordHar: { \n           path: './reports/auth-flow.har',\n           mode: 'full'\n         }\n       });\n       const page = await context.newPage();\n       const authPage = new AuthPage(page);\n       \n       await authPage.loginOrRegister(TEST_USER.name, TEST_USER.email, TEST_USER.password);\n       \n       await expect(page.getByRole('heading', { name: /Welcome back/i })).toBeVisible({ timeout: 60000 });\n       \n       await expect(page.getByRole('link', { name: '🏠 Dashboard' })).toBeVisible();\n       \n       const languageSelector = new LanguageSelector(page);\n       const currentLanguageButton = await languageSelector.getCurrentLanguageButton();\n       const currentLanguage = await currentLanguageButton.textContent();\n       \n       if (!currentLanguage?.includes('English')) {\n         console.log('Switching to English language for tests...');\n         await languageSelector.switchToLanguage('🇺🇸 English', 'en');\n         await expect(page.getByRole('link', { name: '🏠 Dashboard' })).toBeVisible();\n       } else {\n         console.log('Already in English language');\n       }\n       \n       await context.storageState({ path: authFile });\n       \n       console.log('Authentication state saved successfully');\n       \n       await context.close();\n     });\n   });",
+      "page_test_ids": null,
+      "page_snapshot": null,
+      "failed_api_requests": null,
+      "history": {
+        "previous_runs": 0,
+        "note": "No previous runs recorded for this test."
+      }
+    }
+  }
+}
