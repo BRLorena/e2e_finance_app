@@ -1,161 +1,51 @@
 # Playwright Finance App Test Suite
 
 [![Playwright Tests](https://github.com/BRLorena/e2e_finance_app/actions/workflows/playwright.yml/badge.svg)](https://github.com/BRLorena/e2e_finance_app/actions/workflows/playwright.yml)
-[![Allure Report](https://img.shields.io/badge/Allure-Report-yellow)](https://brlorena.github.io/e2e_finance_app/)
+[![Allure Report](https://img.shields.io/badge/Allure-Report-yellow)](https://brlorena.github.io/e2e_finance_app/allure/)
+[![Jev triage](https://img.shields.io/badge/Jev-failure%20triage-blue)](https://brlorena.github.io/e2e_finance_app/)
 
-A comprehensive end-to-end test suite for the Finance App built with Playwright and TypeScript.
+A comprehensive end-to-end test suite for the [Finance App](https://github.com/BRLorena/finance_app) built with Playwright and TypeScript, running against the live app on Vercel.
 
 ## 📊 Live Test Reports
 
-- **🎯 [Allure Test Report](https://brlorena.github.io/e2e_finance_app/)** - Interactive test results with history, trends, and detailed failure analysis
-- **🔄 Automated CI/CD** - Tests run on every push, PR, and daily at 9 AM UTC
-- **⚡ Parallel Execution** - 4-way test sharding for faster results
+Published to GitHub Pages on every run of `master` (push, daily schedule, manual):
 
-## 🔍 HAR Analysis & AI Reporting
+- **🧪 [Failure triage (Jev)](https://brlorena.github.io/e2e_finance_app/)**: every failure classified as bug / flaky / environment
+- **🎯 [Allure report](https://brlorena.github.io/e2e_finance_app/allure/)**: results, history, trends, with failures grouped by Jev's verdict
+- **📄 [Playwright HTML report](https://brlorena.github.io/e2e_finance_app/playwright-report/)**: traces, screenshots and videos of the latest run
 
-This project includes **automated HAR (HTTP Archive) analysis** that runs after every test execution, providing:
+## 🧪 Failure Triage with Jev
 
-### Features
-- ✅ **Automatic Analysis** - No manual steps required, runs after every test
-- ✅ **Performance Monitoring** - Detects slow responses (>2000ms default)
-- ✅ **Error Detection** - Identifies HTTP errors (4xx, 5xx status codes)
-- ✅ **Payload Analysis** - Flags large payloads (>1MB default)
-- ✅ **AI-Powered Reports** - Generates detailed analysis in Bahasa Indonesia using Groq AI
-- ✅ **Customizable Thresholds** - Configure response time and size limits
-- ✅ **CI/CD Ready** - Fail builds based on error thresholds
+After each run, failed tests are triaged by **Jev**, the System One model from [TypeSafe](https://docs.typesafe.ai) (see also the [jev_test](https://github.com/BRLorena/jev_test) lab project). One request per failure asks three questions:
 
-### Quick Start
+- **What is the root cause?** `bug`, `flaky` or `environment` (a `choice` with a probability per option and a confidence)
+- **Is the defect in the test code rather than the app?** (a yes/no `noul`)
+- **Did it fail because the app was too slow?** (a yes/no `noul`)
 
-1. **Install Dependencies**:
+What Jev sees (`triage/report-parser.ts` → `triage/jev-classifier.ts`):
+- error message, stack and every attempt (passed on retry or not)
+- the test's source code (comments stripped) and the page's accessibility snapshot at failure
+- **the app's API responses with status ≥ 400 during the test**: recorded by an automatic fixture (`fixtures/cleanup-fixture.ts`). A UI timeout often hides a server error; with this evidence, failures caused by an HTTP 500 are classified as `bug` with ~90% confidence instead of looking like slowness
+- the test's results in previous runs (history downloaded from GitHub Pages)
+
+The policy lives in our code: low confidence → `needs_review`; `bug` with a high test-defect score → `needs_review`. Verdicts are added to the Allure results as labels and categories (`allurerc.mjs`).
+
+**Configuration** (repository settings → Actions):
+
+| Name | Type | Default | Purpose |
+|---|---|---|---|
+| `TYPESAFE_API_KEY` | secret | – | Without it, triage runs in fallback mode (`unclassified`) and never breaks the pipeline |
+| `TRIAGE_FAIL_ON` | variable | *(empty)* | Verdicts that fail the job, e.g. `bug`. Empty = triage is informational; red tests still fail the job |
+| `TRIAGE_CONFIDENCE_THRESHOLD` | variable | `0.6` | Below this confidence a failure becomes `needs_review` |
+| `TRIAGE_TEST_DEFECT_THRESHOLD` | variable | `0.7` | `bug` + P(test defect) above this → `needs_review` |
+
+**Locally:**
 ```bash
-npm install
+npm test                 # run the suite (writes reports/results.json and reports/allure-results)
+npm run triage           # classify failures (reads TYPESAFE_API_KEY from .env)
+npm run allure           # generate reports/allure-report
+npm run allure:open      # open it
 ```
-
-2. **Configure API Key** (optional, for AI reports):
-```bash
-# Copy environment template
-cp .env.example .env
-
-# Add your Groq API key
-# Get your key from: https://console.groq.com/keys
-GROQ_API_KEY=your_api_key_here
-```
-
-3. **Enable HAR Recording in Tests**:
-```typescript
-test('my test with HAR', async ({ browser }) => {
-  const context = await browser.newContext({
-    recordHar: { path: './reports/my-test.har', mode: 'full' }
-  });
-  const page = await context.newPage();
-  
-  // Your test code here
-  
-  await context.close(); // HAR saved automatically
-});
-```
-
-4. **Run Tests**:
-```bash
-npm test
-```
-
-HAR analysis runs automatically after tests complete. Check `./reports/` for:
-- `*.har` - Raw HAR files
-- `*-analysis.json` - Detailed anomaly analysis
-- `aggregate-analysis.json` - Combined analysis of all tests
-- `ai-report.txt` - AI-generated report (if API key configured)
-
-### Configuration
-
-Edit [playwright.config.ts](playwright.config.ts) to customize thresholds:
-
-```typescript
-['./reporters/har-analysis-reporter.ts', {
-  enabled: true,
-  thresholds: {
-    responseTime: 2000,      // milliseconds
-    payloadSize: 1_000_000   // bytes (1MB)
-  },
-  aiReport: {
-    enabled: true,
-    model: 'llama-3.3-70b-versatile',  // Groq model
-    language: 'id'  // Bahasa Indonesia
-  },
-  outputDir: './reports',
-  failOn: {  // Optional: Fail build on thresholds
-    errorCount: 5,
-    slowResponseCount: 10,
-    criticalErrors: true  // 5xx errors
-  }
-}]
-```
-
-### Example Output
-
-```
-🔍 HAR Analysis Reporter initialized
-   Response time threshold: 2000ms
-   Payload size threshold: 1.00MB
-   AI reporting: ✓ enabled
-
-📊 Analyzing HAR files...
-   Found 3 HAR file(s)
-   Analyzing: login-test.har
-   ✓ No anomalies detected
-   Analyzing: expense-test.har
-   Total anomalies: 2
-   └─ HTTP errors: 1
-   └─ Slow responses: 1
-
-📈 Aggregate Analysis:
-   Total anomalies: 2
-   └─ HTTP errors: 1
-   └─ Slow responses: 1
-
-🤖 Generating AI report...
-   ✓ AI report saved to: ./reports/ai-report.txt
-```
-
-### AI Report Sample
-
-```
-📊 Laporan Hasil Analisis HAR
-
-Total permintaan yang dianalisis: 2 anomali ditemukan.
-
-1. URL: https://api.example.com/data
-   - Status: 404 (Not Found)
-   - Dampak: Resource tidak ditemukan
-   - Rekomendasi: Periksa URL dan ketersediaan endpoint
-
-2. URL: https://api.example.com/slow-endpoint
-   - Response time: 3500 ms (exceeds 2000 ms threshold)
-   - Dampak: Slow page load times affecting user experience
-   - Rekomendasi: Investigate backend performance, consider caching
-
-✅ Ringkasan
-[AI-generated summary of issues]
-
-💡 Saran umum:
-[3-4 AI-generated recommendations]
-```
-
-### Implementation Details
-
-The HAR analysis is implemented as a **custom Playwright reporter** that:
-1. Automatically detects HAR files after test execution
-2. Analyzes each file for anomalies using configurable thresholds
-3. Generates JSON reports with detailed findings
-4. Optionally generates AI-powered insights using OpenRouter API
-5. Can fail builds based on configurable thresholds (for CI/CD)
-
-**Architecture**:
-- `types/har.types.ts` - HAR format type definitions
-- `types/anomaly.types.ts` - Analysis result types
-- `utils/har-analyzer.ts` - Core analysis logic
-- `utils/ai-reporter.ts` - AI report generation
-- `reporters/har-analysis-reporter.ts` - Playwright reporter integration
 
 ## 🎯 Project Overview
 
@@ -271,42 +161,27 @@ pages/
 - **Browser**: Chromium (primary), with setup for cross-browser testing
 - **Test Isolation**: Each test creates unique data with timestamps
 - **State Management**: Shared authentication state across tests
-- **CI Workers**: 4 parallel workers with test sharding
+- **CI Workers**: 1 (the suite shares one test user)
 - **Caching**: npm packages and Playwright browsers cached for faster builds
 
 ## 🚀 CI/CD Pipeline
 
-### GitHub Actions Workflow
+### GitHub Actions Workflow (`.github/workflows/playwright.yml`)
 
-The project uses a sophisticated CI/CD pipeline with three jobs:
+A single job runs against the deployed app (`BASE_URL` repository variable):
 
-#### 1. **Test Job** (Sharded Execution)
-- Runs on Ubuntu with 4 parallel shards
-- Caches node_modules and Playwright browsers
-- Each shard runs a subset of tests independently
-- Uploads individual test results and reports
-
-#### 2. **Merge Reports Job**
-- Combines results from all 4 test shards
-- Generates unified Allure report with historical data
-- Preserves test history across runs (90-day retention)
-- Creates comprehensive test artifacts
-
-#### 3. **Deploy Report Job**
-- Deploys to GitHub Pages on successful push to `dev` branch
-- Makes Allure report publicly accessible
-- Maintains test history and trends
+1. **Tests**: `npm test -- --workers=1` (one shared test user, so no parallel workers)
+2. **History**: downloads the triage and Allure history published on GitHub Pages
+3. **Triage**: Jev classifies each failure; the verdicts go to the job summary, annotations and Allure
+4. **Reports**: generates the Allure 3 report and a summary table (passed / failed / flaky / skipped)
+5. **Publish** (`master` only): Jev triage at `/`, Allure at `/allure/`, Playwright report at `/playwright-report/`, plus the history files for the next run
+6. **Result**: the job fails if tests failed, or if a triage verdict is listed in `TRIAGE_FAIL_ON`
 
 ### Workflow Triggers
-- ✅ Push to `dev` branch
-- ✅ Pull requests to `dev` branch
+- ✅ Push to `dev` and `master`
+- ✅ Pull requests to `dev` and `master` (reports as artifacts, not published)
 - ✅ Scheduled daily at 9 AM UTC
 - ✅ Manual workflow dispatch
-
-### Performance Optimizations
-- **Caching**: Saves 30-60s per run by caching dependencies and browsers
-- **Sharding**: 4-way parallel execution reduces test time by ~75%
-- **Conditional Deployment**: Only deploys on successful pushes to `dev`
 
 ### Retries & Flaky Tests
 - **One retry on CI** (`retries: 1`) to absorb free-tier cold starts (Neon, Vercel)
@@ -361,8 +236,8 @@ npx playwright test --debug tests/expenses.spec.ts
 # Run with specific browser
 npx playwright test --project=chromium
 
-# Run tests with sharding (like CI)
-npx playwright test --shard=1/4
+# Run against the deployed app (like CI)
+BASE_URL=https://finance-app-nine-dusky.vercel.app npx playwright test --workers=1
 ```
 
 ### Viewing Test Reports
@@ -372,14 +247,15 @@ npx playwright test --shard=1/4
 # View HTML report
 npx playwright show-report
 
-# Generate Allure report locally
-npm install -g allure-commandline
-allure generate allure-results -o allure-report --clean
-allure open allure-report
+# Triage failures with Jev, then generate and open the Allure report
+npm run triage
+npm run allure
+npm run allure:open
 ```
 
 #### CI Reports
-- **Live Allure Report**: https://brlorena.github.io/e2e_finance_app/
+- **Jev failure triage**: https://brlorena.github.io/e2e_finance_app/
+- **Live Allure Report**: https://brlorena.github.io/e2e_finance_app/allure/
 - **GitHub Actions**: Check workflow runs for detailed logs and artifacts
 
 ### Test Development Workflow
@@ -405,7 +281,7 @@ The "Edit Income Entry" test is marked as `test.fixme()` due to:
 ## 📈 Test Metrics
 
 ### Current Status
-- **Execution Time**: ~3-4 minutes (with 4-way sharding in CI)
+- **Execution Time**: ~3-4 minutes locally, longer in CI against the deployed app
 - **Coverage Areas**: 
   - Expenses (100%)
   - Income (80%)
@@ -416,8 +292,6 @@ The "Edit Income Entry" test is marked as `test.fixme()` due to:
 
 ### CI/CD Metrics
 - ✅ Automated test execution on every push
-- ✅ 4-way parallel test sharding
-- ✅ ~75% faster execution with sharding
 - ✅ Browser and dependency caching (30-60s saved per run)
 - ✅ Historical test trends tracked in Allure
 - ✅ Public test reports on GitHub Pages

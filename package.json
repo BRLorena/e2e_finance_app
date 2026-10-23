@@ -3,12 +3,16 @@
   "version": "1.0.0",
   "description": "Playwright tests for Finance App",
   "scripts": {
+    "pretest": "node -e \"require('fs').rmSync('reports/allure-results',{recursive:true,force:true})\"",
     "test": "playwright test",
     "test:headed": "playwright test --headed",
     "test:ui": "playwright test --ui",
     "test:debug": "playwright test --debug",
     "test:har": "playwright test && echo 'HAR analysis complete! Check ./reports for results'",
-    "report": "playwright show-report"
+    "report": "playwright show-report",
+    "triage": "node --env-file-if-exists=.env --import tsx triage/triage.ts",
+    "allure": "allure generate reports/allure-results",
+    "allure:open": "allure open reports/allure-report"
   },
   "keywords": [
     "playwright",
@@ -18,11 +22,18 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.48.0",
+    "@playwright/test": "^1.64.1",
     "@types/node": "^22.0.0",
-    "dotenv": "^16.6.1"
+    "@typesafe-ai/sdk": "^0.7.0",
+    "allure": "^3.21.0",
+    "allure-playwright": "^3.14.0",
+    "dotenv": "^16.6.1",
+    "tsx": "^4.23.15"
   },
   "dependencies": {
     "node-fetch": "^3.3.2"
+  },
+  "engines": {
+    "node": ">=22.15"
   }
 }
