@@ -40,11 +40,43 @@
 <p>
   <a href="allure/index.html">Allure report →</a>
   · <a href="playwright-report/index.html">Playwright HTML report →</a>
-   · <a href="https://github.com/BRLorena/e2e_finance_app/actions/runs/40198389775">GitHub Actions run</a>
-  · <small>generated at 2026-10-25 13:38 UTC</small>
+   · <a href="https://github.com/BRLorena/e2e_finance_app/actions/runs/40354330940">GitHub Actions run</a>
+  · <small>generated at 2026-10-26 15:59 UTC</small>
 </p>
 
-<p>✅ No tests failed.</p>
+<p>1 failure(s) · confidence threshold <b>0.6</b> · informational only (no verdict fails the job)</p>
+<p><small><b>Test defect?</b> and <b>Slowness?</b> are <code>noul</code> questions: the probability of "yes". A <code>bug</code> with a high test defect score becomes <code>needs_review</code>.</small></p>
+<div class="wrap"><table>
+<thead><tr><th>Verdict</th><th>Test</th><th>Jev suggestion</th><th class="num">Confidence</th>
+<th class="num">bug</th><th class="num">flaky</th><th class="num">environment</th><th class="num">Test defect?</th><th class="num">Slowness?</th><th>History</th></tr></thead>
+<tbody>
+<tr>
+  <td><span class="tag flaky">🎲 flaky</span></td>
+  <td>Invoice Management › Filter Invoices by Status<br><small>specs/invoices.spec.ts:117</small></td>
+  <td>flaky</td>
+  <td class="num">98%</td>
+  <td class="num"><span class="bar" style="--w:1%"></span>1%</td><td class="num"><span class="bar" style="--w:99%"></span>99%</td><td class="num"><span class="bar" style="--w:0%"></span>0%</td><td class="num"><span class="bar" style="--w:23%"></span>23%</td><td class="num"><span class="bar" style="--w:55%"></span>55%</td>
+  <td title="previous runs, most recent on the right">✅✅✅✅✅</td>
+</tr>
+</tbody></table></div>
+<p class="status ok">✅ No blocking failures.</p>
+<h2>Error details</h2>
+<details><summary>Invoice Management › Filter Invoices by Status</summary>
+<pre>Error: expect(locator).toBeHidden() failed
+
+Locator:  getByText('Pending Client 1793030295451')
+Expected: hidden
+Received: visible
+Timeout:  30000ms
+
+Call log:
+  - Expect &quot;toBeHidden&quot; getByText('Pending Client 1793030295451') with timeout 30000ms
+  - waiting for getByText('Pending Client 1793030295451')
+    64 × locator resolved to &lt;p class=&quot;text-gray-300 mb-1&quot;&gt;Pending Client 1793030295451&lt;/p&gt;
+       - unexpected value &quot;visible&quot;</pre>
+
+<small>model: jev-1.14.0</small>
+</details>
 </main>
 </body>
 </html>
