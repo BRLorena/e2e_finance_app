@@ -1,0 +1,3 @@
+Account already exists, login successful
+Already in English language
+Authentication state saved successfully
