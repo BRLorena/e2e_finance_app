@@ -91,6 +91,12 @@
         "date": "2026-11-03T16:55:04.280Z",
         "status": "passed",
         "durationMs": 9583
+      },
+      {
+        "run": "41872478372",
+        "date": "2026-11-04T16:58:25.134Z",
+        "status": "passed",
+        "durationMs": 10455
       }
     ],
     "specs/dashboard.spec.ts › Dashboard Functionality › View Dashboard with Data › chromium": [
@@ -183,6 +189,12 @@
         "date": "2026-11-03T16:55:04.280Z",
         "status": "passed",
         "durationMs": 1241
+      },
+      {
+        "run": "41872478372",
+        "date": "2026-11-04T16:58:25.134Z",
+        "status": "passed",
+        "durationMs": 1628
       }
     ],
     "specs/dashboard.spec.ts › Dashboard Functionality › Filter Dashboard by Time Periods › chromium": [
@@ -275,6 +287,12 @@
         "date": "2026-11-03T16:55:04.280Z",
         "status": "passed",
         "durationMs": 1140
+      },
+      {
+        "run": "41872478372",
+        "date": "2026-11-04T16:58:25.134Z",
+        "status": "passed",
+        "durationMs": 2314
       }
     ],
     "specs/dashboard.spec.ts › Dashboard Functionality › Verify Net Income Calculation › chromium": [
@@ -367,6 +385,12 @@
         "date": "2026-11-03T16:55:04.280Z",
         "status": "passed",
         "durationMs": 894
+      },
+      {
+        "run": "41872478372",
+        "date": "2026-11-04T16:58:25.134Z",
+        "status": "passed",
+        "durationMs": 807
       }
     ],
     "specs/dashboard.spec.ts › Dashboard Functionality › Verify Recent Activity Updates › chromium": [
@@ -459,6 +483,12 @@
         "date": "2026-11-03T16:55:04.280Z",
         "status": "passed",
         "durationMs": 5215
+      },
+      {
+        "run": "41872478372",
+        "date": "2026-11-04T16:58:25.134Z",
+        "status": "passed",
+        "durationMs": 5180
       }
     ],
     "specs/dashboard.spec.ts › Dashboard Functionality › Verify Expenses by Category Visualization › chromium": [
@@ -551,6 +581,12 @@
         "date": "2026-11-03T16:55:04.280Z",
         "status": "passed",
         "durationMs": 818
+      },
+      {
+        "run": "41872478372",
+        "date": "2026-11-04T16:58:25.134Z",
+        "status": "passed",
+        "durationMs": 983
       }
     ],
     "specs/dashboard.spec.ts › Dashboard Functionality › Verify Invoices by Status Breakdown › chromium": [
@@ -643,6 +679,12 @@
         "date": "2026-11-03T16:55:04.280Z",
         "status": "passed",
         "durationMs": 761
+      },
+      {
+        "run": "41872478372",
+        "date": "2026-11-04T16:58:25.134Z",
+        "status": "passed",
+        "durationMs": 754
       }
     ],
     "specs/dashboard.spec.ts › Dashboard Functionality › Dashboard with Complete Data Verification › chromium": [
@@ -735,6 +777,12 @@
         "date": "2026-11-03T16:55:04.280Z",
         "status": "passed",
         "durationMs": 1331
+      },
+      {
+        "run": "41872478372",
+        "date": "2026-11-04T16:58:25.134Z",
+        "status": "passed",
+        "durationMs": 1596
       }
     ],
     "specs/expenses.spec.ts › Expense Management › Add Valid Expense › chromium": [
@@ -827,6 +875,12 @@
         "date": "2026-11-03T16:55:04.280Z",
         "status": "passed",
         "durationMs": 3006
+      },
+      {
+        "run": "41872478372",
+        "date": "2026-11-04T16:58:25.134Z",
+        "status": "passed",
+        "durationMs": 3091
       }
     ],
     "specs/expenses.spec.ts › Expense Management › Edit Existing Expense › chromium": [
@@ -919,6 +973,12 @@
         "date": "2026-11-03T16:55:04.280Z",
         "status": "passed",
         "durationMs": 6501
+      },
+      {
+        "run": "41872478372",
+        "date": "2026-11-04T16:58:25.134Z",
+        "status": "passed",
+        "durationMs": 6626
       }
     ],
     "specs/expenses.spec.ts › Expense Management › Delete Expense › chromium": [
@@ -1011,6 +1071,12 @@
         "date": "2026-11-03T16:55:04.280Z",
         "status": "passed",
         "durationMs": 1242
+      },
+      {
+        "run": "41872478372",
+        "date": "2026-11-04T16:58:25.134Z",
+        "status": "passed",
+        "durationMs": 1541
       }
     ],
     "specs/expenses.spec.ts › Expense Management › Filter Expenses by Category › chromium": [
@@ -1103,6 +1169,12 @@
         "date": "2026-11-03T16:55:04.280Z",
         "status": "passed",
         "durationMs": 2071
+      },
+      {
+        "run": "41872478372",
+        "date": "2026-11-04T16:58:25.134Z",
+        "status": "passed",
+        "durationMs": 2233
       }
     ],
     "specs/incomes.spec.ts › Income Management › Add Valid Income Entry › chromium": [
@@ -1195,6 +1267,12 @@
         "date": "2026-11-03T16:55:04.280Z",
         "status": "passed",
         "durationMs": 3060
+      },
+      {
+        "run": "41872478372",
+        "date": "2026-11-04T16:58:25.134Z",
+        "status": "passed",
+        "durationMs": 2902
       }
     ],
     "specs/incomes.spec.ts › Income Management › Add Recurring Income › chromium": [
@@ -1287,6 +1365,12 @@
         "date": "2026-11-03T16:55:04.280Z",
         "status": "passed",
         "durationMs": 1832
+      },
+      {
+        "run": "41872478372",
+        "date": "2026-11-04T16:58:25.134Z",
+        "status": "passed",
+        "durationMs": 1601
       }
     ],
     "specs/incomes.spec.ts › Income Management › Edit Income Entry › chromium": [
@@ -1379,6 +1463,12 @@
         "date": "2026-11-03T16:55:04.280Z",
         "status": "passed",
         "durationMs": 2808
+      },
+      {
+        "run": "41872478372",
+        "date": "2026-11-04T16:58:25.134Z",
+        "status": "passed",
+        "durationMs": 2711
       }
     ],
     "specs/incomes.spec.ts › Income Management › Delete Income Entry › chromium": [
@@ -1471,6 +1561,12 @@
         "date": "2026-11-03T16:55:04.280Z",
         "status": "passed",
         "durationMs": 3116
+      },
+      {
+        "run": "41872478372",
+        "date": "2026-11-04T16:58:25.134Z",
+        "status": "passed",
+        "durationMs": 3094
       }
     ],
     "specs/incomes.spec.ts › Income Management › Filter Income by Category › chromium": [
@@ -1563,6 +1659,12 @@
         "date": "2026-11-03T16:55:04.280Z",
         "status": "passed",
         "durationMs": 4803
+      },
+      {
+        "run": "41872478372",
+        "date": "2026-11-04T16:58:25.134Z",
+        "status": "passed",
+        "durationMs": 4600
       }
     ],
     "specs/invoices.spec.ts › Invoice Management › Create Complete Invoice › chromium": [
@@ -1655,6 +1757,12 @@
         "date": "2026-11-03T16:55:04.280Z",
         "status": "passed",
         "durationMs": 1515
+      },
+      {
+        "run": "41872478372",
+        "date": "2026-11-04T16:58:25.134Z",
+        "status": "passed",
+        "durationMs": 1669
       }
     ],
     "specs/invoices.spec.ts › Invoice Management › Create Invoice with Auto-Generated Number › chromium": [
@@ -1747,6 +1855,12 @@
         "date": "2026-11-03T16:55:04.280Z",
         "status": "passed",
         "durationMs": 1708
+      },
+      {
+        "run": "41872478372",
+        "date": "2026-11-04T16:58:25.134Z",
+        "status": "passed",
+        "durationMs": 1403
       }
     ],
     "specs/invoices.spec.ts › Invoice Management › Edit Existing Invoice › chromium": [
@@ -1839,6 +1953,12 @@
         "date": "2026-11-03T16:55:04.280Z",
         "status": "passed",
         "durationMs": 1890
+      },
+      {
+        "run": "41872478372",
+        "date": "2026-11-04T16:58:25.134Z",
+        "status": "passed",
+        "durationMs": 2457
       }
     ],
     "specs/invoices.spec.ts › Invoice Management › Delete Invoice › chromium": [
@@ -1931,6 +2051,12 @@
         "date": "2026-11-03T16:55:04.280Z",
         "status": "passed",
         "durationMs": 2149
+      },
+      {
+        "run": "41872478372",
+        "date": "2026-11-04T16:58:25.134Z",
+        "status": "passed",
+        "durationMs": 2253
       }
     ],
     "specs/invoices.spec.ts › Invoice Management › Filter Invoices by Status › chromium": [
@@ -2023,6 +2149,12 @@
         "date": "2026-11-03T16:55:04.280Z",
         "status": "passed",
         "durationMs": 3029
+      },
+      {
+        "run": "41872478372",
+        "date": "2026-11-04T16:58:25.134Z",
+        "status": "passed",
+        "durationMs": 2312
       }
     ],
     "specs/seed.spec.ts › Test group › seed › chromium": [
@@ -2115,6 +2247,12 @@
         "date": "2026-11-03T16:55:04.280Z",
         "status": "passed",
         "durationMs": 190
+      },
+      {
+        "run": "41872478372",
+        "date": "2026-11-04T16:58:25.134Z",
+        "status": "passed",
+        "durationMs": 150
       }
     ],
     "specs/serial-example.spec.ts › Serial flow example › Step 1 — load dashboard › chromium": [
@@ -2207,6 +2345,12 @@
         "date": "2026-11-03T16:55:04.280Z",
         "status": "passed",
         "durationMs": 971
+      },
+      {
+        "run": "41872478372",
+        "date": "2026-11-04T16:58:25.134Z",
+        "status": "passed",
+        "durationMs": 397
       }
     ],
     "specs/serial-example.spec.ts › Serial flow example › Step 2 — navigate to expenses › chromium": [
@@ -2299,6 +2443,12 @@
         "date": "2026-11-03T16:55:04.280Z",
         "status": "passed",
         "durationMs": 378
+      },
+      {
+        "run": "41872478372",
+        "date": "2026-11-04T16:58:25.134Z",
+        "status": "passed",
+        "durationMs": 374
       }
     ],
     "specs/serial-example.spec.ts › Serial flow example › Step 3 — verify expense page loaded › chromium": [
@@ -2391,6 +2541,12 @@
         "date": "2026-11-03T16:55:04.280Z",
         "status": "passed",
         "durationMs": 299
+      },
+      {
+        "run": "41872478372",
+        "date": "2026-11-04T16:58:25.134Z",
+        "status": "passed",
+        "durationMs": 291
       }
     ],
     "specs/summary.spec.ts › Summary Page Functionality › View Complete Summary › chromium": [
@@ -2483,6 +2639,12 @@
         "date": "2026-11-03T16:55:04.280Z",
         "status": "passed",
         "durationMs": 846
+      },
+      {
+        "run": "41872478372",
+        "date": "2026-11-04T16:58:25.134Z",
+        "status": "passed",
+        "durationMs": 961
       }
     ],
     "specs/summary.spec.ts › Summary Page Functionality › Filter Summary by Time Period › chromium": [
@@ -2575,6 +2737,12 @@
         "date": "2026-11-03T16:55:04.280Z",
         "status": "passed",
         "durationMs": 1489
+      },
+      {
+        "run": "41872478372",
+        "date": "2026-11-04T16:58:25.134Z",
+        "status": "passed",
+        "durationMs": 1398
       }
     ],
     "specs/summary.spec.ts › Summary Page Functionality › Verify Category Breakdowns › chromium": [
@@ -2667,6 +2835,12 @@
         "date": "2026-11-03T16:55:04.280Z",
         "status": "passed",
         "durationMs": 888
+      },
+      {
+        "run": "41872478372",
+        "date": "2026-11-04T16:58:25.134Z",
+        "status": "passed",
+        "durationMs": 773
       }
     ],
     "specs/ai-categorization.spec.ts › AI Expense Categorization › AI categorizes food-related expenses to \"Food & Dining\" › ai-tests": [
@@ -2759,6 +2933,12 @@
         "date": "2026-11-03T16:55:04.280Z",
         "status": "passed",
         "durationMs": 2320
+      },
+      {
+        "run": "41872478372",
+        "date": "2026-11-04T16:58:25.134Z",
+        "status": "passed",
+        "durationMs": 2178
       }
     ],
     "specs/ai-categorization.spec.ts › AI Expense Categorization › AI categorizes transportation expenses to \"Transportation\" › ai-tests": [
@@ -2851,6 +3031,12 @@
         "date": "2026-11-03T16:55:04.280Z",
         "status": "passed",
         "durationMs": 2814
+      },
+      {
+        "run": "41872478372",
+        "date": "2026-11-04T16:58:25.134Z",
+        "status": "passed",
+        "durationMs": 2266
       }
     ],
     "specs/ai-categorization.spec.ts › AI Expense Categorization › AI categorizes shopping expenses to \"Shopping\" › ai-tests": [
@@ -2943,6 +3129,12 @@
         "date": "2026-11-03T16:55:04.280Z",
         "status": "passed",
         "durationMs": 2179
+      },
+      {
+        "run": "41872478372",
+        "date": "2026-11-04T16:58:25.134Z",
+        "status": "passed",
+        "durationMs": 2201
       }
     ],
     "specs/ai-categorization.spec.ts › AI Expense Categorization › AI categorization shows loading state during processing › ai-tests": [
@@ -3035,6 +3227,12 @@
         "date": "2026-11-03T16:55:04.280Z",
         "status": "passed",
         "durationMs": 2004
+      },
+      {
+        "run": "41872478372",
+        "date": "2026-11-04T16:58:25.134Z",
+        "status": "passed",
+        "durationMs": 1799
       }
     ],
     "specs/ai-categorization.spec.ts › AI Expense Categorization › AI categorization works with vague descriptions › ai-tests": [
@@ -3127,6 +3325,12 @@
         "date": "2026-11-03T16:55:04.280Z",
         "status": "passed",
         "durationMs": 1845
+      },
+      {
+        "run": "41872478372",
+        "date": "2026-11-04T16:58:25.134Z",
+        "status": "passed",
+        "durationMs": 1801
       }
     ],
     "specs/ai-insights.spec.ts › AI Financial Insights › Display AI-generated financial insights on Summary page › ai-tests": [
@@ -3219,6 +3423,12 @@
         "date": "2026-11-03T16:55:04.280Z",
         "status": "passed",
         "durationMs": 2882
+      },
+      {
+        "run": "41872478372",
+        "date": "2026-11-04T16:58:25.134Z",
+        "status": "passed",
+        "durationMs": 2624
       }
     ],
     "specs/ai-insights.spec.ts › AI Financial Insights › AI insights identify top spending categories › ai-tests": [
@@ -3311,6 +3521,12 @@
         "date": "2026-11-03T16:55:04.280Z",
         "status": "passed",
         "durationMs": 2927
+      },
+      {
+        "run": "41872478372",
+        "date": "2026-11-04T16:58:25.134Z",
+        "status": "passed",
+        "durationMs": 2669
       }
     ],
     "specs/ai-insights.spec.ts › AI Financial Insights › AI insights provide personalized recommendations › ai-tests": [
@@ -3403,6 +3619,12 @@
         "date": "2026-11-03T16:55:04.280Z",
         "status": "passed",
         "durationMs": 2792
+      },
+      {
+        "run": "41872478372",
+        "date": "2026-11-04T16:58:25.134Z",
+        "status": "passed",
+        "durationMs": 2738
       }
     ],
     "specs/ai-insights.spec.ts › AI Financial Insights › Refresh AI insights functionality › ai-tests": [
@@ -3495,6 +3717,12 @@
         "date": "2026-11-03T16:55:04.280Z",
         "status": "passed",
         "durationMs": 2749
+      },
+      {
+        "run": "41872478372",
+        "date": "2026-11-04T16:58:25.134Z",
+        "status": "passed",
+        "durationMs": 2641
       }
     ],
     "specs/ai-insights.spec.ts › AI Financial Insights › Collapse and expand AI insights › ai-tests": [
@@ -3587,6 +3815,12 @@
         "date": "2026-11-03T16:55:04.280Z",
         "status": "passed",
         "durationMs": 2874
+      },
+      {
+        "run": "41872478372",
+        "date": "2026-11-04T16:58:25.134Z",
+        "status": "passed",
+        "durationMs": 2632
       }
     ],
     "specs/ai-multilanguage.spec.ts › Multilanguage Support › Switch language to Español and verify UI updates › ai-tests": [
@@ -3679,6 +3913,12 @@
         "date": "2026-11-03T16:55:04.280Z",
         "status": "passed",
         "durationMs": 1087
+      },
+      {
+        "run": "41872478372",
+        "date": "2026-11-04T16:58:25.134Z",
+        "status": "passed",
+        "durationMs": 1030
       }
     ],
     "specs/ai-multilanguage.spec.ts › Multilanguage Support › AI categorization works in Español › ai-tests": [
@@ -3771,6 +4011,12 @@
         "date": "2026-11-03T16:55:04.280Z",
         "status": "passed",
         "durationMs": 2133
+      },
+      {
+        "run": "41872478372",
+        "date": "2026-11-04T16:58:25.134Z",
+        "status": "passed",
+        "durationMs": 2072
       }
     ],
     "specs/ai-multilanguage.spec.ts › Multilanguage Support › Switch language to Português and verify UI updates › ai-tests": [
@@ -3863,6 +4109,12 @@
         "date": "2026-11-03T16:55:04.280Z",
         "status": "passed",
         "durationMs": 1196
+      },
+      {
+        "run": "41872478372",
+        "date": "2026-11-04T16:58:25.134Z",
+        "status": "passed",
+        "durationMs": 1115
       }
     ],
     "specs/ai-multilanguage.spec.ts › Multilanguage Support › AI categorization works in Português › ai-tests": [
@@ -3955,6 +4207,12 @@
         "date": "2026-11-03T16:55:04.280Z",
         "status": "passed",
         "durationMs": 2124
+      },
+      {
+        "run": "41872478372",
+        "date": "2026-11-04T16:58:25.134Z",
+        "status": "passed",
+        "durationMs": 2096
       }
     ],
     "specs/ai-multilanguage.spec.ts › Multilanguage Support › Switch language to Français and verify UI updates › ai-tests": [
@@ -4047,6 +4305,12 @@
         "date": "2026-11-03T16:55:04.280Z",
         "status": "passed",
         "durationMs": 1144
+      },
+      {
+        "run": "41872478372",
+        "date": "2026-11-04T16:58:25.134Z",
+        "status": "passed",
+        "durationMs": 1111
       }
     ],
     "specs/ai-multilanguage.spec.ts › Multilanguage Support › AI categorization works in Français › ai-tests": [
@@ -4139,6 +4403,12 @@
         "date": "2026-11-03T16:55:04.280Z",
         "status": "passed",
         "durationMs": 2133
+      },
+      {
+        "run": "41872478372",
+        "date": "2026-11-04T16:58:25.134Z",
+        "status": "passed",
+        "durationMs": 2132
       }
     ],
     "specs/ai-multilanguage.spec.ts › Multilanguage Support › Language persists across page navigation › ai-tests": [
@@ -4231,6 +4501,12 @@
         "date": "2026-11-03T16:55:04.280Z",
         "status": "passed",
         "durationMs": 1522
+      },
+      {
+        "run": "41872478372",
+        "date": "2026-11-04T16:58:25.134Z",
+        "status": "passed",
+        "durationMs": 1359
       }
     ],
     "specs/ai-multilanguage.spec.ts › Multilanguage Support › AI insights are generated in Spanish › ai-tests": [
@@ -4323,6 +4599,12 @@
         "date": "2026-11-03T16:55:04.280Z",
         "status": "passed",
         "durationMs": 3180
+      },
+      {
+        "run": "41872478372",
+        "date": "2026-11-04T16:58:25.134Z",
+        "status": "passed",
+        "durationMs": 3009
       }
     ],
     "specs/ai-natural-language.spec.ts › Natural Language Expense Parsing › Parse groceries with relative date: \"Spent $45.50 on groceries yesterday\" › ai-tests": [
@@ -4415,6 +4697,12 @@
         "date": "2026-11-03T16:55:04.280Z",
         "status": "passed",
         "durationMs": 2224
+      },
+      {
+        "run": "41872478372",
+        "date": "2026-11-04T16:58:25.134Z",
+        "status": "passed",
+        "durationMs": 2228
       }
     ],
     "specs/ai-natural-language.spec.ts › Natural Language Expense Parsing › Parse transportation expense: \"Uber ride to airport for $32\" › ai-tests": [
@@ -4507,6 +4795,12 @@
         "date": "2026-11-03T16:55:04.280Z",
         "status": "passed",
         "durationMs": 2217
+      },
+      {
+        "run": "41872478372",
+        "date": "2026-11-04T16:58:25.134Z",
+        "status": "passed",
+        "durationMs": 2234
       }
     ],
     "specs/ai-natural-language.spec.ts › Natural Language Expense Parsing › Parse coffee purchase with time reference: \"Coffee at Starbucks $6.50 this morning\" › ai-tests": [
@@ -4599,6 +4893,12 @@
         "date": "2026-11-03T16:55:04.280Z",
         "status": "passed",
         "durationMs": 2268
+      },
+      {
+        "run": "41872478372",
+        "date": "2026-11-04T16:58:25.134Z",
+        "status": "passed",
+        "durationMs": 2158
       }
     ]
   }
