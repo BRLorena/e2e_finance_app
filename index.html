@@ -40,8 +40,8 @@
 <p>
   <a href="allure/index.html">Allure report →</a>
   · <a href="playwright-report/index.html">Playwright HTML report →</a>
-   · <a href="https://github.com/BRLorena/e2e_finance_app/actions/runs/44925756462">GitHub Actions run</a>
-  · <small>generated at 2026-11-21 16:41 UTC</small>
+   · <a href="https://github.com/BRLorena/e2e_finance_app/actions/runs/45046671281">GitHub Actions run</a>
+  · <small>generated at 2026-11-22 16:59 UTC</small>
 </p>
 
 <p>1 failure(s) · confidence threshold <b>0.6</b> · informational only (no verdict fails the job)</p>
@@ -52,28 +52,26 @@
 <tbody>
 <tr>
   <td><span class="tag flaky">🎲 flaky</span></td>
-  <td>Invoice Management › Filter Invoices by Status<br><small>specs/invoices.spec.ts:117</small></td>
+  <td>User Registration and Authentication › Create Account and Save Auth State<br><small>auth.setup.ts:19</small></td>
   <td>flaky</td>
-  <td class="num">98%</td>
-  <td class="num"><span class="bar" style="--w:1%"></span>1%</td><td class="num"><span class="bar" style="--w:99%"></span>99%</td><td class="num"><span class="bar" style="--w:0%"></span>0%</td><td class="num"><span class="bar" style="--w:25%"></span>25%</td><td class="num"><span class="bar" style="--w:57%"></span>57%</td>
-  <td title="previous runs, most recent on the right">✅✅✅✅✅✅✅✅✅✅</td>
+  <td class="num">100%</td>
+  <td class="num"><span class="bar" style="--w:0%"></span>0%</td><td class="num"><span class="bar" style="--w:100%"></span>100%</td><td class="num"><span class="bar" style="--w:0%"></span>0%</td><td class="num"><span class="bar" style="--w:44%"></span>44%</td><td class="num"><span class="bar" style="--w:77%"></span>77%</td>
+  <td title="previous runs, most recent on the right">🎲✅✅🎲✅✅✅🎲✅✅</td>
 </tr>
 </tbody></table></div>
 <p class="status ok">✅ No blocking failures.</p>
 <h2>Error details</h2>
-<details><summary>Invoice Management › Filter Invoices by Status</summary>
-<pre>Error: expect(locator).toBeHidden() failed
+<details><summary>User Registration and Authentication › Create Account and Save Auth State</summary>
+<pre>Error: expect(locator).toBeVisible() failed
 
-Locator:  getByText('Pending Client 1795279228453')
-Expected: hidden
-Received: visible
-Timeout:  30000ms
+Locator: getByText('Welcome Back')
+Expected: visible
+Timeout: 10000ms
+Error: element(s) not found
 
 Call log:
-  - Expect &quot;toBeHidden&quot; getByText('Pending Client 1795279228453') with timeout 30000ms
-  - waiting for getByText('Pending Client 1795279228453')
-    64 × locator resolved to &lt;p class=&quot;text-gray-300 mb-1&quot;&gt;Pending Client 1795279228453&lt;/p&gt;
-       - unexpected value &quot;visible&quot;</pre>
+  - Expect &quot;toBeVisible&quot; getByText('Welcome Back') with timeout 10000ms
+  - waiting for getByText('Welcome Back')</pre>
 
 <small>model: jev-1.14.0</small>
 </details>
